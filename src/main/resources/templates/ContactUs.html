@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us Form</title>
+    <style>
+        /* CSS for form layout */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Contact Us Form</h1>
+<form id="contact-form">
+    <label for="firstname">First Name *</label>
+    <input type="text" id="firstname" name="firstname" required>
+
+    <label for="lastname">Last Name</label>
+    <input type="text" id="lastname" name="lastname">
+
+    <label for="address">Address</label>
+    <textarea id="address" name="address"></textarea>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email">
+
+    <label for="phoneNumber">Phone Number *</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" required>
+
+    <label for="preferableDate">Preferred Date</label>
+    <input type="date" id="preferableDate" name="preferableDate">
+
+    <label for="preferableTime">Preferred Time</label>
+    <input type="time" id="preferableTime" name="preferableTime">
+
+    <label for="enquiry">Enquiry</label>
+    <textarea id="enquiry" name="enquiry"></textarea>
+
+    <label for="product">Select a product:</label>
+    <select id="product" name="productId">
+        <option value="">Select a product...</option>
+    </select>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    // JavaScript for form submission
+    const form = document.getElementById('contact-form');
+    const errorMessages = document.querySelectorAll('.error-message');
+    const productSelect = document.getElementById('product');
+
+    async function fetchProducts() {
+        try {
+            const response = await fetch(`http://localhost:8080/product/allProducts`);
+            if (response.ok) {
+                const products = await response.json();
+                products.content.forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product.id;
+                    option.text = product.modelName + " | " + product.size + " | " + product.ourCost;
+                    productSelect.add(option);
+                });
+            } else {
+                console.log('Error fetching products:', response.status);
+            }
+        } catch (error) {
+            console.log('Error fetching products:', error);
+        }
+    }
+
+    fetchProducts();
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        errorMessages.forEach((element) => element.remove()); // Remove any previous error messages
+
+        const visitorDto = {
+            firstname: form.firstname.value,
+            lastname: form.lastname.value,
+            address: form.address.value,
+            email: form.email.value,
+            phoneNumber: form.phoneNumber.value,
+            preferableDate: form.preferableDate.value,
+            preferableTime: form.preferableTime.value,
+            enquiry: form.enquiry.value,
+            id: productSelect.value
+        };
+        try {
+            const response = await fetch('http://localhost:8080/visitor/contactUs/'+visitorDto.id, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(visitorDto),
+            });
+            if (response.ok) {
+                const data = await response.json();
+                alert(`Form submitted successfully with ID ${data.id}`);
+                form.reset();
+            } else if (response.status === 400) {
+                const errorData = await response.json();
+                errorData.fieldErrors.forEach((fieldError) => {
+                    const errorMessage = document.createElement('div');
+                    errorMessage.classList.add('error-message');
+                    errorMessage.textContent = fieldError.message;
+                    const inputField = form.querySelector(`[name="${fieldError.fieldName}"]`);
+                    inputField.insertAdjacentElement('afterend', errorMessage);
+                });
+            } else {
+                console.log('Error submitting form:', response.status);
+            }
+        } catch (error) {
+            console.log('Error submitting form:', error);
+        }
+    });
+</script>
+</body>
+</html>
