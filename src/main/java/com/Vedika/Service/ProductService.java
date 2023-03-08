@@ -9,4 +9,5 @@ import org.springframework.web.multipart.MultipartFile;
 public interface ProductService {
     ResponseEntity<?> addProduct(GetProduct productDto, MultipartFile[] file);
     PageResponse getAll(PageableDto pageable);
+    ResponseEntity<?> productById(Long Id);
 }

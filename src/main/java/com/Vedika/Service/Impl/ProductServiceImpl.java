@@ -1,4 +1,5 @@
 package com.Vedika.Service.Impl;
+import com.Vedika.Exceptions.ResourceNotFoundException;
 import com.Vedika.Model.Images;
 import com.Vedika.Model.Product;
 import com.Vedika.Payload.*;
@@ -69,6 +70,13 @@ public class ProductServiceImpl implements ProductService {
         }
         return new PageResponse(new ArrayList<>(productDTO), pageProduct.getNumber(), pageProduct.getSize(), pageProduct.getTotalPages(), pageProduct.getTotalElements(), pageProduct.isLast());
     }
+
+    @Override
+    public ResponseEntity<?> productById(Long Id) {
+        Product product = this.productRepo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Product", "productID", Id));
+        return new ResponseEntity<>(product, OK);
+    }
+
     private boolean FileValidation(MultipartFile[] images) throws NullPointerException{
         for (MultipartFile image : images) {
             if (!image.getContentType().equals("image/png") && !image.getContentType().equals("image/jpg") && !image.getContentType().equals("image/jpeg") && !image.getContentType().equals("image/webp")) {

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vedika</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .product {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 365px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 30px;
+        }
+
+        .product h2{
+            width: 100%;
+            text-align: left;
+        }
+        .product p{
+            width: 100%;
+            text-align: left;
+        }
+        .product div{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            text-align: left;
+        }
+        .product div s{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .product div p{
+            font-size: 25px;
+            font-weight: 700;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+        }
+        .page-link {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            color: #333;
+            text-decoration: none;
+        }
+        .page-link:hover {
+            background-color: #ccc;
+        }
+        .active {
+            background-color: #333;
+            color: #fff;
+        }
+        .disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        @media (max-width: 1000px) {
+            .product-list {
+                display: flex;
+                flex-wrap: nowrap;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 0;
+            }
+            .product{
+                margin: 25px 0;
+                min-width: 100%;
+            }
+            .product h2{
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="Resources/vedikaLogo.jpg" height="30px" alt="img"></a>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/">HOME<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/products">PRODUCTS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">SERVICES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">SPARES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">GALLERY & LITERATURE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contactUs">CONTACT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1>Products</h1>
+    <div class="product-list"></div>
+    <div class="pagination"></div>
+</div>
+<script>
+    const productList = document.querySelector('.product-list');
+    const pagination = document.querySelector('.pagination');
+
+    const apiUrl = '/product/allProducts';
+    let currentPage = 0;
+    let lastPage = 0;
+
+    function fetchProducts(pageNumber = 0, pageSize = 10, sortBy = 'id', sortDir = 'desc') {
+        fetch(`${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`)
+            .then(response => response.json())
+            .then(data => {
+                currentPage = data.pageNumber;
+                lastPage = data.totalPage - 1;
+
+                renderProducts(data.content);
+                renderPagination();
+            })
+            .catch(error => console.error(error));
+    }
+
+    function renderProducts(products) {
+        productList.innerHTML = '';
+
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+
+            const image = document.createElement('img');
+            image.src = "/file/"+product.imageUrls;
+            image.alt = "product image";
+            productDiv.appendChild(image);
+
+            const modelName = document.createElement('h2');
+            modelName.textContent = product.modelName;
+            productDiv.appendChild(modelName);
+
+            const size = document.createElement('p');
+            size.textContent = `Size: ${product.size}`;
+            productDiv.appendChild(size);
+
+            const price = document.createElement('div');
+            productDiv.appendChild(price);
+
+            const originalPrice = document.createElement('s');
+            originalPrice.textContent = `Rs. ${product.originalPrice}`;
+            price.append(originalPrice);
+
+            const ourCost = document.createElement('p');
+            ourCost.textContent = `Rs. ${product.ourCost}`;
+            price.appendChild(ourCost);
+
+            productDiv.addEventListener('click', () => {
+                window.location.href = `productId.html?id=${product.id}`;
+            });
+
+            productList.appendChild(productDiv);
+        });
+    }
+
+    function renderPagination() {
+        pagination.innerHTML = '';
+
+        const firstPageLink = document.createElement('a');
+        firstPageLink.classList.add('page-link');
+        firstPageLink.href = '#';
+        firstPageLink.textContent = 'First';
+        firstPageLink.addEventListener('click', () => fetchProducts(0));
+        pagination.appendChild(firstPageLink);
+
+            if (lastPage > 0) {
+                const previousButton = createPageLink('Previous', currentPage - 1);
+                if (currentPage === 0) {
+                    previousButton.classList.add('disabled');
+                }
+                pagination.appendChild(previousButton);
+                for (let i = 0; i <= lastPage; i++) {
+                    const pageButton = createPageLink(i + 1, i);
+                    if (i === currentPage) {
+                        pageButton.classList.add('active');
+                    }
+                    pagination.appendChild(pageButton);
+                }
+                const nextButton = createPageLink('Next', currentPage + 1);
+                if (currentPage === lastPage) {
+                    nextButton.classList.add('disabled');
+                }
+                pagination.appendChild(nextButton);
+            }
+        }
+        function createPageLink(text, pageNumber) {
+            const pageLink = document.createElement('span');
+            pageLink.classList.add('page-link');
+            pageLink.textContent = text;
+            if (pageNumber >= 0 && pageNumber <= lastPage) {
+                pageLink.addEventListener('click', () => {
+                    fetchProducts(pageNumber);
+                });
+            }
+            return pageLink;
+        }
+        fetchProducts();
+</script>
+</body>
+</html>
