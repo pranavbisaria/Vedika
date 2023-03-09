@@ -1,4 +1,8 @@
 body {
+    /*background: linear-gradient(to bottom, #FFFFFF, #cce6ff);*/
+}
+
+main {
     background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
 }
 
@@ -25,7 +29,7 @@ body {
 }
 
 .feature i {
-    color: #007bff;
+    color: #009DF8;
     margin-bottom: 20px;
 }
 
@@ -34,10 +38,66 @@ body {
     font-weight: 400;
     margin-bottom: 0;
 }
+.product-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 50px 50px;
+}
+.product {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 290px;
+    height: 480px;
+    margin-bottom: 20px;
+    border: 1px solid #5351ae;
+    padding: 30px;
+    background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+}
+.product h2{
+    width: 100%;
+    text-align: left;
+}
+.product p{
+    width: 100%;
+    text-align: left;
+}
+.product div{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: left;
+}
+.product div s{
+    font-size: 20px;
+    font-weight: 600;
+}
+.product div p{
+    font-size: 25px;
+    font-weight: 700;
+}
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid #5e8fca;
+}
 
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
     .feature {
         margin-bottom: 0;
+    }
+    nav .navbar-brand{
+        margin: auto;
+    }
+    nav button{
+        position: absolute;
+        right: 10px;
+        top: 10px;
     }
 }
 
@@ -68,3 +128,34 @@ body {
     margin: 40px auto;
 }
 
+footer {
+    background-color: #f1f1f1;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+h4 {
+    color: #2d2d2d;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.social-icons {
+    margin-top: 30px;
+}
+.social-icons a {
+    color: #555;
+    margin-right: 20px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {
+    color: #007bff;
+}
+.footer-section {
+    margin-bottom: 40px;
+}
