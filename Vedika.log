@@ -4565,3 +4565,9 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2023-03-09T00:47:46.271+05:30  INFO 11904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2023-03-09T00:47:46.291+05:30  INFO 11904 --- [restartedMain] com.Vedika.VedikaApplication             : Started VedikaApplication in 6.293 seconds (process running for 7.785)
 2023-03-09T00:47:47.353+05:30  INFO 11904 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-09T00:47:47.353+05:30  INFO 11904 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-09T00:47:47.356+05:30  INFO 11904 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-03-09T00:47:56.351+05:30  WARN 11904 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=Vedika, managementUrl=http://Ratnesh-Mishra:8080/actuator, healthUrl=http://Ratnesh-Mishra:8080/actuator/health, serviceUrl=http://Ratnesh-Mishra:8080/) at spring-boot-admin ([http://localhost:8081/instances]): I/O error on POST request for "http://localhost:8081/instances": Connection refused: no further information. Further attempts are logged on DEBUG level
+2023-03-09T00:49:17.058+05:30  INFO 11904 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-09T00:49:17.063+05:30  INFO 11904 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-09T00:49:17.066+05:30  INFO 11904 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
