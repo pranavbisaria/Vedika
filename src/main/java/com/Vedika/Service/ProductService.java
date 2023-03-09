@@ -8,6 +8,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface ProductService {
     ResponseEntity<?> addProduct(GetProduct productDto, MultipartFile[] file);
+
+    ResponseEntity<?> addNewProductData(GetProduct productDto);
+
+    ResponseEntity<?> addNewProductImages(Long Id, MultipartFile[] images);
+
     PageResponse getAll(PageableDto pageable);
     ResponseEntity<?> productById(Long Id);
 }

@@ -3,6 +3,7 @@ package com.Vedika.Controller;
 import com.Vedika.Payload.PageableDto;
 import com.Vedika.Payload.VisitorDto;
 import com.Vedika.Service.VisitorService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import static org.springframework.http.HttpStatus.OK;
 public class VisitorController {
     private final VisitorService visitorService;
     @PostMapping("/contactUs/{smartTvId}")
-    public ResponseEntity<?> newVisitor(@RequestBody VisitorDto visitorDto, @PathVariable("smartTvId") Long smartTvId){
+    public ResponseEntity<?> newVisitor(@Valid @RequestBody VisitorDto visitorDto, @PathVariable("smartTvId") Long smartTvId){
         return this.visitorService.newVisitors(visitorDto, smartTvId);
     }
     @GetMapping("/getAll")

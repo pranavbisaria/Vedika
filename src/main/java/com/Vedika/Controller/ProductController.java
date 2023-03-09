@@ -21,6 +21,14 @@ public class ProductController {
     public ResponseEntity<?> addNewProduct(@RequestPart("images") MultipartFile[] images,@Valid @RequestPart GetProduct productDto){
         return this.productService.addProduct(productDto, images);
     }
+    @PostMapping("/addProductData")
+    public ResponseEntity<?> addNewProductData(@Valid @RequestBody GetProduct productDto){
+        return this.productService.addNewProductData(productDto);
+    }
+    @PatchMapping("/addProductData/{id}")
+    public ResponseEntity<?> addProductImages(@RequestParam("images") MultipartFile[] images, @PathVariable("id") Long id){
+        return this.productService.addNewProductImages(id, images);
+    }
     @GetMapping("/allProducts")
     public ResponseEntity<?> getAllProducts(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
                                             @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize,

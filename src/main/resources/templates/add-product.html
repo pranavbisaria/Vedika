@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add New Product</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: inline-block;
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="number"], textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    button[type="submit"], button[type="button"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+
+    button[type="submit"]:hover, button[type="button"]:hover {
+      background-color: #45a049;
+    }
+
+    .productInfoRow {
+      margin-bottom: 10px;
+    }
+
+    .productInfoHead, .productInfoBody {
+      width: 45%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    #addProductInfo {
+      background-color: #008CBA;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #addProductInfo:hover {
+      background-color: #006080;
+    }
+
+    #loader {
+      border: 16px solid #f3f3f3;
+      border-top: 16px solid #3498db;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Add New Product</h1>
+  <form id="addProductForm">
+    <label for="modelName">Model Name:</label>
+    <input type="text" id="modelName" name="modelName" required><br><br>
+
+    <label for="size">Size:</label>
+    <input type="text" id="size" name="size" required><br><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea><br><br>
+
+    <label for="ourCost">Our Cost:</label>
+    <input type="number" id="ourCost" name="ourCost" required><br><br>
+
+    <label for="originalPrice">Original Price:</label>
+    <input type="number" id="originalPrice" name="originalPrice" required><br><br>
+
+    <label>Product Info:</label>
+    <div id="productInfoDiv">
+      <div class="productInfoRow">
+        <input type="text" class="productInfoHead" placeholder="Head" required>
+        <input type="text" class="productInfoBody" placeholder="Body" required>
+      </div>
+    </div>
+    <button type="button" id="addProductInfo">Add Product Info</button><br><br>
+
+    <label for="images">Images:</label>
+    <input type="file" id="images" name="images" multiple required><br><br>
+
+    <div id="loader"></div>
+    <button type="submit" id="submitProduct">Submit</button>
+  </form>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var addProductInfo = document.getElementById("addProductInfo");
+    addProductInfo.addEventListener("click", function () {
+      var productInfoDiv = document.getElementById("productInfoDiv");
+      var productInfoRow = document.createElement("div");
+      productInfoRow.classList.add("productInfoRow");
+
+      var headInput = document.createElement("input");
+      headInput.setAttribute("type", "text");
+      headInput.setAttribute("class", "productInfoHead");
+      headInput.setAttribute("placeholder", "Head");
+      headInput.setAttribute("required", "");
+
+      var bodyInput = document.createElement("input");
+      bodyInput.setAttribute("type", "text");
+      bodyInput.setAttribute("class", "productInfoBody");
+      bodyInput.setAttribute("placeholder", "Body");
+      bodyInput.setAttribute("required", "");
+
+      var removeButton = document.createElement("button");
+      removeButton.setAttribute("type", "button");
+      removeButton.setAttribute("class", "removeProductInfo");
+      removeButton.textContent = "X";
+
+      productInfoRow.appendChild(headInput);
+      productInfoRow.appendChild(bodyInput);
+      productInfoRow.appendChild(removeButton);
+      productInfoDiv.appendChild(productInfoRow);
+    });
+
+    var productInfoDiv = document.getElementById("productInfoDiv");
+    productInfoDiv.addEventListener("click", function (event) {
+      if (event.target.classList.contains("removeProductInfo")) {
+        event.target.parentNode.remove();
+      }
+    });
+
+    var addProductForm = document.getElementById("addProductForm");
+    addProductForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+      var loader = document.getElementById("loader");
+      loader.style.display = "block";
+
+      var productInfo = [];
+      var productInfoRows = document.getElementsByClassName("productInfoRow");
+      for (var i = 0; i < productInfoRows.length; i++) {
+        var head = productInfoRows[i].getElementsByClassName("productInfoHead")[0].value;
+        var body = productInfoRows[i].getElementsByClassName("productInfoBody")[0].value;
+        productInfo.push({
+          head: head,
+          body: body
+        });
+      }
+
+      var formData = new FormData();
+      var imagesInput = document.getElementById("images");
+      for (var i = 0; i < imagesInput.files.length; i++) {
+        formData.append("images", imagesInput.files[i]);
+      }
+
+      var productDto = {
+        modelName: document.getElementById("modelName").value,
+        size: document.getElementById("size").value,
+        description: document.getElementById("description").value,
+        ourCost: document.getElementById("ourCost").value,
+        originalPrice: document.getElementById("originalPrice").value,
+        productInfo: productInfo
+      };
+      formData.append("productDto", JSON.stringify(productDto));
+
+      try {
+        const response = await fetch("http://localhost:8080/product/addProductData", {
+          method: "POST",
+          body: formData
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const productId = data.id;
+          const imagesInput2 = document.getElementById("images");
+          var formData2 = new FormData();
+          formData2.append("id", productId);
+          for (var i = 0; i < imagesInput2.files.length; i++) {
+            formData2.append("images", imagesInput2.files[i]);
+          }
+          const response2 = await fetch(`http://localhost:8080/product/addProductImages/${productId}`, {
+            method: "POST",
+            body: formData2
+          });
+          if (response2.ok) {
+            alert("Product added successfully!");
+            addProductForm.reset();
+            productInfoDiv.innerHTML = "";
+          } else {
+            throw new Error("Failed to add product images");
+          }
+        } else {
+          throw new Error("Failed to add product data");
+        }
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        loader.style.display = "none";
+      }
+    });
+  });
+
+</script>
+</body>
+</html>

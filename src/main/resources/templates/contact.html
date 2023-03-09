@@ -250,21 +250,35 @@
 
     fetchProducts();
 
+    const phoneNumberInput = document.getElementById("phoneNumber");
+    phoneNumberInput.addEventListener("input", function() {
+        let phoneNumber = phoneNumberInput.value;
+        const phoneNumberRegex = /^[0-9]{10}$/;
+        if (!phoneNumberRegex.test(phoneNumber)) {
+            phoneNumberInput.setCustomValidity("Please enter a valid 10-digit phone number");
+        } else {
+            phoneNumberInput.setCustomValidity("");
+        }
+    });
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
         errorMessages.forEach((element) => element.remove()); // Remove any previous error messages
-
+        const originalDate = form.preferableDate.value;
+        const parts = originalDate.split("-");
+        const reversedDate = parts[2] + "-" + parts[1] + "-" + parts[0];
         const visitorDto = {
             firstname: form.firstname.value,
             lastname: form.lastname.value,
             address: form.address.value,
             email: form.email.value,
             phoneNumber: form.phoneNumber.value,
-            preferableDate: form.preferableDate.value,
+            preferableDate: reversedDate,
             preferableTime: form.preferableTime.value,
             enquiry: form.enquiry.value,
             id: productSelect.value
         };
+
         try {
             const response = await fetch('/visitor/contactUs/'+visitorDto.id, {
                 method: 'POST',
@@ -279,13 +293,14 @@
                 form.reset();
             } else if (response.status === 400) {
                 const errorData = await response.json();
-                errorData.fieldErrors.forEach((fieldError) => {
-                    const errorMessage = document.createElement('div');
-                    errorMessage.classList.add('error-message');
-                    errorMessage.textContent = fieldError.message;
-                    const inputField = form.querySelector(`[name="${fieldError.fieldName}"]`);
-                    inputField.insertAdjacentElement('afterend', errorMessage);
-                });
+                if(errorData.phoneNumber!=null){
+                    alert(errorData.phoneNumber);
+                    document.getElementById("phoneNumber").style.border = "2px solid red";
+                }
+                if(errorData.email!=null){
+                    alert(errorData.email);
+                    document.getElementById("email").style.border = "2px solid red";
+                }
             } else {
                 console.log('Error submitting form:', response.status);
             }

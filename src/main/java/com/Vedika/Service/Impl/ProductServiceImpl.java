@@ -50,6 +50,31 @@ public class ProductServiceImpl implements ProductService {
         return new ResponseEntity<>(new ApiResponse("Product has been successfully added", true), OK);
     }
     @Override
+    public ResponseEntity<?> addNewProductData(GetProduct productDto){
+        Product product = this.modelMapper.map(productDto, Product.class);
+        this.productRepo.save(product);
+        return new ResponseEntity<>(product.getId(), OK);
+    }
+    @Override
+    public ResponseEntity<?> addNewProductImages(Long Id, MultipartFile[] images){
+        Product product = this.productRepo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Product", "productID", Id));
+        if (FileValidation(images))
+            return new ResponseEntity<>(new ApiResponse("File is not of image type(JPEG/ JPG or PNG)!!!", false), HttpStatus.UNSUPPORTED_MEDIA_TYPE);
+        List<Images> productImages = new ArrayList<>(0);
+        Arrays.stream(images).forEach(multipartFile -> {
+            Images images1 = new Images();
+            try {
+                images1.setImageUrl(this.fileServices.uploadImage(multipartFile));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            productImages.add(images1);
+        });
+        product.setImageUrls(productImages);
+        this.productRepo.save(product);
+        return new ResponseEntity<>(new ApiResponse("Product has been successfully added", true), OK);
+    }
+    @Override
     public PageResponse getAll(PageableDto pageable){
         Integer pN = pageable.getPageNumber(), pS = pageable.getPageSize();
         Sort sort = null;
