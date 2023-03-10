@@ -5,9 +5,11 @@ import com.Vedika.Payload.VisitorDto;
 import com.Vedika.Service.AdminService;
 import com.Vedika.Service.VisitorService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import static org.springframework.http.HttpStatus.OK;
 
@@ -17,8 +19,9 @@ import static org.springframework.http.HttpStatus.OK;
 public class VisitorController {
     private final VisitorService visitorService;
     private final AdminService adminService;
+
     @PostMapping("/contactUs/{smartTvId}")
-    public ResponseEntity<?> newVisitor(@RequestBody VisitorDto visitorDto, @PathVariable("smartTvId") Long smartTvId, HttpServletRequest httpRequest){
+    public ResponseEntity<?> newVisitor(@Valid @RequestBody VisitorDto visitorDto, @PathVariable("smartTvId") Long smartTvId, HttpServletRequest httpRequest){
         adminService.trackVisitor(httpRequest.getRemoteAddr());
         return this.visitorService.newVisitors(visitorDto, smartTvId);
     }
@@ -32,4 +35,5 @@ public class VisitorController {
         adminService.trackVisitor(httpRequest.getRemoteAddr());
         return  new ResponseEntity<>(this.visitorService.getAll(new PageableDto(pageNumber, pageSize, sortBy, sortDir)), OK);
     }
+
 }

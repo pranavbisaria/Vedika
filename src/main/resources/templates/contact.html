@@ -85,6 +85,60 @@
             font-size: 12px;
             margin-bottom: 10px;
         }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .navbar-brand img {
+            max-height: 30px;
+        }
+
+        .nav-link {
+            color: #555;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+        h4 {
+            color: #2d2d2d;
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .social-icons {
+            margin-top: 30px;
+        }
+        .social-icons a {
+            color: #555;
+            margin-right: 20px;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        .footer-section {
+            margin-bottom: 40px;
+        }
         @media (max-width: 1000px) {
             #contactUs{
                 display: flex;
@@ -125,7 +179,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/">HOME<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">HOME</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">ABOUT</a>
@@ -134,7 +188,7 @@
                 <a class="nav-link" href="/products">PRODUCTS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">SERVICES</a>
+                <a class="nav-link" href="/services">SERVICES</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">SPARES</a>
@@ -143,7 +197,7 @@
                 <a class="nav-link" href="#">GALLERY & LITERATURE</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/contactUs">CONTACT</a>
+                <a class="nav-link active" href="/contactUs">CONTACT<span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
@@ -209,6 +263,33 @@
 
     </div>
 </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 footer-section">
+                <h4>R K Enterprises</h4>
+                <p>Manufacturer & O.E.M. Supplier <br>of Smart LED TVs</p>
+                <p>Certified for having met the <br>requirements of <strong>IndiaMART <br>TrustSEAL</strong> in February 2023.</p>
+            </div>
+            <div class="col-lg-4 footer-section">
+                <h4>Reach Us</h4>
+                <p>LG12, Aarza Square 2, Kisan Chowk<br>
+                    Gr. Noida, G.B. Nagar 201318<br>
+                    <strong>Phone:</strong> 9871766494, 9717132448<br>
+                    <strong>Website:</strong> <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a></p>
+            </div>
+            <div class="col-lg-4 footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 <script>
     // JavaScript for form submission
     const form = document.getElementById('contact-form');
@@ -250,21 +331,35 @@
 
     fetchProducts();
 
+    const phoneNumberInput = document.getElementById("phoneNumber");
+    phoneNumberInput.addEventListener("input", function() {
+        let phoneNumber = phoneNumberInput.value;
+        const phoneNumberRegex = /^[0-9]{10}$/;
+        if (!phoneNumberRegex.test(phoneNumber)) {
+            phoneNumberInput.setCustomValidity("Please enter a valid 10-digit phone number");
+        } else {
+            phoneNumberInput.setCustomValidity("");
+        }
+    });
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
         errorMessages.forEach((element) => element.remove()); // Remove any previous error messages
-
+        const originalDate = form.preferableDate.value;
+        const parts = originalDate.split("-");
+        const reversedDate = parts[2] + "-" + parts[1] + "-" + parts[0];
         const visitorDto = {
             firstname: form.firstname.value,
             lastname: form.lastname.value,
             address: form.address.value,
             email: form.email.value,
             phoneNumber: form.phoneNumber.value,
-            preferableDate: form.preferableDate.value,
+            preferableDate: reversedDate,
             preferableTime: form.preferableTime.value,
             enquiry: form.enquiry.value,
             id: productSelect.value
         };
+
         try {
             const response = await fetch('/visitor/contactUs/'+visitorDto.id, {
                 method: 'POST',
@@ -279,13 +374,14 @@
                 form.reset();
             } else if (response.status === 400) {
                 const errorData = await response.json();
-                errorData.fieldErrors.forEach((fieldError) => {
-                    const errorMessage = document.createElement('div');
-                    errorMessage.classList.add('error-message');
-                    errorMessage.textContent = fieldError.message;
-                    const inputField = form.querySelector(`[name="${fieldError.fieldName}"]`);
-                    inputField.insertAdjacentElement('afterend', errorMessage);
-                });
+                if(errorData.phoneNumber!=null){
+                    alert(errorData.phoneNumber);
+                    document.getElementById("phoneNumber").style.border = "2px solid red";
+                }
+                if(errorData.email!=null){
+                    alert(errorData.email);
+                    document.getElementById("email").style.border = "2px solid red";
+                }
             } else {
                 console.log('Error submitting form:', response.status);
             }
