@@ -2,20 +2,97 @@
 <html lang="en">
 <head>
   <title>Visitors</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png">
+<!--  <link rel="stylesheet" href="../../static/userDetailsStyle.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
   <style>
+    body {
+      background-color: #f0f8ff;
+    }
+
     table {
+      margin-top: 20px;
+      background-color: #fff;
       border-collapse: collapse;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      overflow: hidden;
       width: 100%;
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      position: relative;
     }
 
     th, td {
+      padding: 12px 15px;
       text-align: left;
-      padding: 8px;
+      border-bottom: 1px solid #dee2e6;
+      color: #444;
     }
 
     th {
-      background-color: #dddddd;
+      background-color: #007bff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
     }
+
+    td {
+      font-size: 0.9em;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    @media screen and (max-width: 600px) {
+      table {
+        display: block;
+      }
+      table thead {
+        display: none;
+      }
+      table tr {
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+      }
+      table td {
+        display: block;
+        text-align: right;
+        font-size: 13px;
+        border-bottom: none;
+      }
+      table td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      table td:last-child {
+        border-bottom: 0;
+      }
+    }
+    /*table {*/
+    /*  border-collapse: collapse;*/
+    /*  width: 100%;*/
+    /*}*/
+
+    /*th, td {*/
+    /*  text-align: left;*/
+    /*  padding: 8px;*/
+    /*}*/
+
+    /*th {*/
+    /*  background-color: #dddddd;*/
+    /*}*/
 
     .pagination {
       margin-top: 20px;
@@ -54,31 +131,115 @@
       color: #666666;
       cursor: default;
     }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: #fff;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .navbar-brand img {
+      max-height: 30px;
+    }
+
+    .nav-link {
+      color: #555;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-link:hover {
+      color: #007bff;
+    }
+
+    .table-div {
+      overflow-x: auto;
+      margin: 1rem;
+    }
   </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="Resources/vedikaLogo.png" height="30px" alt="img"></a>
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" href="/static">HOME<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/products">PRODUCTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/services">SERVICES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">SPARES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">GALLERY & LITERATURE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contactUs">CONTACT</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <div id="loader" class="loader"></div>
-<h1>Visitors</h1>
-<table>
-  <thead>
-  <tr>
-    <th>S.No.</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Address</th>
-    <th>Phone Number</th>
-    <th>Email</th>
-    <th>Preferable Date</th>
-    <th>Preferable Time</th>
-    <th>Enquiry</th>
-    <th>Product Model Name</th>
-    <th>Product Size</th>
-    <th>Product Our Cost</th>
-  </tr>
-  </thead>
-  <tbody id="visitors-table">
-  </tbody>
-</table>
+<!--<h1>Visitors</h1>-->
+
+<!--<div class="container">-->
+  <h1 class="text-center mt-4">Customer Contact Details</h1>
+<div class="table-div">
+  <table>
+    <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Address</th>
+      <th>Phone Number</th>
+      <th>Email</th>
+      <th>Preferable Date</th>
+      <th>Preferable Time</th>
+      <th>Enquiry</th>
+      <th>Product Model Name</th>
+      <th>Product Size</th>
+      <th>Product Cost</th>
+    </tr>
+    </thead>
+    <tbody id="visitors-table">
+    </tbody>
+  </table>
+</div>
+<!--</div>-->
+<!--<table>-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>S.No.</th>-->
+<!--    <th>First Name</th>-->
+<!--    <th>Last Name</th>-->
+<!--    <th>Address</th>-->
+<!--    <th>Phone Number</th>-->
+<!--    <th>Email</th>-->
+<!--    <th>Preferable Date</th>-->
+<!--    <th>Preferable Time</th>-->
+<!--    <th>Enquiry</th>-->
+<!--    <th>Product Model Name</th>-->
+<!--    <th>Product Size</th>-->
+<!--    <th>Product Our Cost</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody id="visitors-table">-->
+<!--  </tbody>-->
+<!--</table>-->
 <div class="pagination">
   <button id="previous-page-btn" disabled>&laquo; Previous</button>
   <button id="next-page-btn" disabled>Next &raquo;</button>
