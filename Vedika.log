@@ -1896,3 +1896,165 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2023-03-10T11:41:20.362+05:30  INFO 15640 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-03-10T11:41:20.367+05:30  INFO 15640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-03-10T11:41:20.370+05:30  INFO 15640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-10T11:44:17.994+05:30  INFO 9196 --- [restartedMain] com.Vedika.VedikaApplication             : Starting VedikaApplication using Java 17.0.2 with PID 9196 (C:\Users\Ratnesh Mishra\Desktop\Vedika Project\target\classes started by Ratnesh Mishra in C:\Users\Ratnesh Mishra\Desktop\Vedika Project)
+2023-03-10T11:44:17.998+05:30  INFO 9196 --- [restartedMain] com.Vedika.VedikaApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-03-10T11:44:18.063+05:30  INFO 9196 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-10T11:44:18.063+05:30  INFO 9196 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-10T11:44:19.304+05:30  INFO 9196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-10T11:44:19.366+05:30  INFO 9196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 3 JPA repository interfaces.
+2023-03-10T11:44:19.957+05:30  INFO 9196 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-10T11:44:19.968+05:30  INFO 9196 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-10T11:44:19.968+05:30  INFO 9196 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-10T11:44:20.040+05:30  INFO 9196 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-10T11:44:20.041+05:30  INFO 9196 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1976 ms
+2023-03-10T11:44:20.143+05:30  INFO 9196 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-10T11:44:20.446+05:30  INFO 9196 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:./src/main/resources/users user=ADMIN
+2023-03-10T11:44:20.448+05:30  INFO 9196 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-10T11:44:20.458+05:30  INFO 9196 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:./src/main/resources/users'
+2023-03-10T11:44:20.629+05:30  INFO 9196 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-10T11:44:20.689+05:30  INFO 9196 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-03-10T11:44:20.960+05:30  INFO 9196 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-10T11:44:22.701+05:30  INFO 9196 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-10T11:44:22.727+05:30  INFO 9196 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-10T11:44:23.797+05:30  WARN 9196 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-10T11:44:24.049+05:30  INFO 9196 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-10T11:44:25.387+05:30  INFO 9196 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-10T11:44:25.397+05:30  INFO 9196 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-03-10T11:44:25.862+05:30  INFO 9196 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-10T11:44:26.105+05:30  INFO 9196 --- [restartedMain] com.Vedika.VedikaApplication             : Started VedikaApplication in 8.694 seconds (process running for 9.528)
+2023-03-10T11:44:26.283+05:30  INFO 9196 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-10T11:44:26.284+05:30  INFO 9196 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-10T11:44:26.313+05:30  INFO 9196 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2023-03-10T11:44:41.293+05:30  WARN 9196 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=Vedika, managementUrl=http://Ratnesh-Mishra:8080/actuator, healthUrl=http://Ratnesh-Mishra:8080/actuator/health, serviceUrl=http://Ratnesh-Mishra:8080/) at spring-boot-admin ([http://localhost:8081/instances]): I/O error on POST request for "http://localhost:8081/instances": Connection refused: no further information. Further attempts are logged on DEBUG level
+2023-03-10T11:50:18.477+05:30  INFO 9196 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-10T11:50:18.481+05:30  INFO 9196 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-10T11:50:18.483+05:30  INFO 9196 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-10T11:50:23.426+05:30  INFO 13864 --- [restartedMain] com.Vedika.VedikaApplication             : Starting VedikaApplication using Java 17.0.2 with PID 13864 (C:\Users\Ratnesh Mishra\Desktop\Vedika Project\target\classes started by Ratnesh Mishra in C:\Users\Ratnesh Mishra\Desktop\Vedika Project)
+2023-03-10T11:50:23.430+05:30  INFO 13864 --- [restartedMain] com.Vedika.VedikaApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-03-10T11:50:23.495+05:30  INFO 13864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-10T11:50:23.495+05:30  INFO 13864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-10T11:50:25.994+05:30  INFO 13864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-10T11:50:26.161+05:30  INFO 13864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149 ms. Found 3 JPA repository interfaces.
+2023-03-10T11:50:27.515+05:30  INFO 13864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-10T11:50:27.535+05:30  INFO 13864 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-10T11:50:27.536+05:30  INFO 13864 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-10T11:50:27.621+05:30  INFO 13864 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-10T11:50:27.622+05:30  INFO 13864 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4126 ms
+2023-03-10T11:50:27.821+05:30  INFO 13864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-10T11:50:28.116+05:30  INFO 13864 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:./src/main/resources/users user=ADMIN
+2023-03-10T11:50:28.118+05:30  INFO 13864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-10T11:50:28.129+05:30  INFO 13864 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:./src/main/resources/users'
+2023-03-10T11:50:28.279+05:30  INFO 13864 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-10T11:50:28.357+05:30  INFO 13864 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-03-10T11:50:28.677+05:30  INFO 13864 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-10T11:50:29.595+05:30  INFO 13864 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-10T11:50:29.606+05:30  INFO 13864 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-10T11:50:30.247+05:30  WARN 13864 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-10T11:50:30.353+05:30  INFO 13864 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-10T11:50:30.805+05:30  INFO 13864 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-10T11:50:30.810+05:30  INFO 13864 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-03-10T11:50:30.897+05:30  INFO 13864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-10T11:50:30.915+05:30  INFO 13864 --- [restartedMain] com.Vedika.VedikaApplication             : Started VedikaApplication in 8.061 seconds (process running for 9.03)
+2023-03-10T11:50:31.115+05:30  INFO 13864 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-10T11:50:31.115+05:30  INFO 13864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-10T11:50:31.120+05:30  INFO 13864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2023-03-10T11:50:35.943+05:30  WARN 13864 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=Vedika, managementUrl=http://Ratnesh-Mishra:8080/actuator, healthUrl=http://Ratnesh-Mishra:8080/actuator/health, serviceUrl=http://Ratnesh-Mishra:8080/) at spring-boot-admin ([http://localhost:8081/instances]): I/O error on POST request for "http://localhost:8081/instances": Connection refused: no further information. Further attempts are logged on DEBUG level
+2023-03-10T11:50:49.804+05:30  INFO 13864 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-10T11:50:49.812+05:30  INFO 13864 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-10T11:50:49.868+05:30  INFO 13864 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-10T11:51:09.072+05:30  INFO 13336 --- [restartedMain] com.Vedika.VedikaApplication             : Starting VedikaApplication using Java 17.0.2 with PID 13336 (C:\Users\Ratnesh Mishra\Desktop\Vedika Project\target\classes started by Ratnesh Mishra in C:\Users\Ratnesh Mishra\Desktop\Vedika Project)
+2023-03-10T11:51:09.075+05:30  INFO 13336 --- [restartedMain] com.Vedika.VedikaApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-03-10T11:51:09.144+05:30  INFO 13336 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-10T11:51:09.144+05:30  INFO 13336 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-10T11:51:10.383+05:30  INFO 13336 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-10T11:51:10.443+05:30  INFO 13336 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 3 JPA repository interfaces.
+2023-03-10T11:51:11.004+05:30  INFO 13336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-10T11:51:11.012+05:30  INFO 13336 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-10T11:51:11.014+05:30  INFO 13336 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-10T11:51:11.068+05:30  INFO 13336 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-10T11:51:11.068+05:30  INFO 13336 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1924 ms
+2023-03-10T11:51:11.160+05:30  INFO 13336 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-10T11:51:11.507+05:30  INFO 13336 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:./src/main/resources/users user=ADMIN
+2023-03-10T11:51:11.509+05:30  INFO 13336 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-10T11:51:11.520+05:30  INFO 13336 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:./src/main/resources/users'
+2023-03-10T11:51:11.703+05:30  INFO 13336 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-10T11:51:11.772+05:30  INFO 13336 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-03-10T11:51:12.083+05:30  INFO 13336 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-10T11:51:12.891+05:30  INFO 13336 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-10T11:51:12.900+05:30  INFO 13336 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-10T11:51:13.344+05:30  WARN 13336 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-10T11:51:13.462+05:30  INFO 13336 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-10T11:51:13.883+05:30  INFO 13336 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-10T11:51:13.891+05:30  INFO 13336 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-03-10T11:51:13.984+05:30  INFO 13336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-10T11:51:14.000+05:30  INFO 13336 --- [restartedMain] com.Vedika.VedikaApplication             : Started VedikaApplication in 5.557 seconds (process running for 6.547)
+2023-03-10T11:51:16.787+05:30  INFO 13336 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-10T11:51:16.787+05:30  INFO 13336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-10T11:51:16.789+05:30  INFO 13336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-03-10T11:51:19.025+05:30  WARN 13336 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=Vedika, managementUrl=http://Ratnesh-Mishra:8080/actuator, healthUrl=http://Ratnesh-Mishra:8080/actuator/health, serviceUrl=http://Ratnesh-Mishra:8080/) at spring-boot-admin ([http://localhost:8081/instances]): I/O error on POST request for "http://localhost:8081/instances": Connection refused: no further information. Further attempts are logged on DEBUG level
+2023-03-10T11:52:05.349+05:30  INFO 13336 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-10T11:52:05.358+05:30  INFO 13336 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-10T11:52:05.361+05:30  INFO 13336 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-10T11:52:14.927+05:30  INFO 6300 --- [restartedMain] com.Vedika.VedikaApplication             : Starting VedikaApplication using Java 17.0.2 with PID 6300 (C:\Users\Ratnesh Mishra\Desktop\Vedika Project\target\classes started by Ratnesh Mishra in C:\Users\Ratnesh Mishra\Desktop\Vedika Project)
+2023-03-10T11:52:14.931+05:30  INFO 6300 --- [restartedMain] com.Vedika.VedikaApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-03-10T11:52:14.996+05:30  INFO 6300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-10T11:52:14.996+05:30  INFO 6300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-10T11:52:16.653+05:30  INFO 6300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-10T11:52:16.736+05:30  INFO 6300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 3 JPA repository interfaces.
+2023-03-10T11:52:17.289+05:30  INFO 6300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-10T11:52:17.299+05:30  INFO 6300 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-10T11:52:17.299+05:30  INFO 6300 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-10T11:52:17.393+05:30  INFO 6300 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-10T11:52:17.394+05:30  INFO 6300 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2397 ms
+2023-03-10T11:52:17.496+05:30  INFO 6300 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-10T11:52:17.752+05:30  INFO 6300 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:./src/main/resources/users user=ADMIN
+2023-03-10T11:52:17.754+05:30  INFO 6300 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-10T11:52:17.763+05:30  INFO 6300 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:./src/main/resources/users'
+2023-03-10T11:52:17.913+05:30  INFO 6300 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-10T11:52:17.958+05:30  INFO 6300 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-03-10T11:52:18.269+05:30  INFO 6300 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-10T11:52:19.174+05:30  INFO 6300 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-10T11:52:19.182+05:30  INFO 6300 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-10T11:52:19.899+05:30  WARN 6300 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-10T11:52:20.041+05:30  INFO 6300 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-10T11:52:20.659+05:30  INFO 6300 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-10T11:52:20.666+05:30  INFO 6300 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-03-10T11:52:20.765+05:30  INFO 6300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-10T11:52:20.780+05:30  INFO 6300 --- [restartedMain] com.Vedika.VedikaApplication             : Started VedikaApplication in 6.643 seconds (process running for 8.362)
+2023-03-10T11:52:25.818+05:30  WARN 6300 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=Vedika, managementUrl=http://Ratnesh-Mishra:8080/actuator, healthUrl=http://Ratnesh-Mishra:8080/actuator/health, serviceUrl=http://Ratnesh-Mishra:8080/) at spring-boot-admin ([http://localhost:8081/instances]): I/O error on POST request for "http://localhost:8081/instances": Connection refused: no further information. Further attempts are logged on DEBUG level
+2023-03-10T11:53:40.326+05:30  INFO 6300 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-10T11:53:40.327+05:30  INFO 6300 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-10T11:53:40.330+05:30  INFO 6300 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-03-10T11:54:07.281+05:30  INFO 6300 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-10T11:54:07.284+05:30  INFO 6300 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-10T11:54:07.288+05:30  INFO 6300 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-10T11:54:13.530+05:30  INFO 8228 --- [restartedMain] com.Vedika.VedikaApplication             : Starting VedikaApplication using Java 17.0.2 with PID 8228 (C:\Users\Ratnesh Mishra\Desktop\Vedika Project\target\classes started by Ratnesh Mishra in C:\Users\Ratnesh Mishra\Desktop\Vedika Project)
+2023-03-10T11:54:13.533+05:30  INFO 8228 --- [restartedMain] com.Vedika.VedikaApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-03-10T11:54:13.600+05:30  INFO 8228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-10T11:54:13.601+05:30  INFO 8228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-10T11:54:15.193+05:30  INFO 8228 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-10T11:54:15.255+05:30  INFO 8228 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 3 JPA repository interfaces.
+2023-03-10T11:54:15.874+05:30  INFO 8228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-10T11:54:15.884+05:30  INFO 8228 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-10T11:54:15.885+05:30  INFO 8228 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-10T11:54:15.963+05:30  INFO 8228 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-10T11:54:15.963+05:30  INFO 8228 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2361 ms
+2023-03-10T11:54:16.082+05:30  INFO 8228 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-10T11:54:16.399+05:30  INFO 8228 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:./src/main/resources/users user=ADMIN
+2023-03-10T11:54:16.401+05:30  INFO 8228 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-10T11:54:16.414+05:30  INFO 8228 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:./src/main/resources/users'
+2023-03-10T11:54:16.580+05:30  INFO 8228 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-10T11:54:16.649+05:30  INFO 8228 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-03-10T11:54:16.998+05:30  INFO 8228 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-10T11:54:17.976+05:30  INFO 8228 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-10T11:54:17.986+05:30  INFO 8228 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-10T11:54:18.549+05:30  WARN 8228 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-10T11:54:18.694+05:30  INFO 8228 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-10T11:54:19.184+05:30  INFO 8228 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-10T11:54:19.190+05:30  INFO 8228 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-03-10T11:54:19.285+05:30  INFO 8228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-10T11:54:19.300+05:30  INFO 8228 --- [restartedMain] com.Vedika.VedikaApplication             : Started VedikaApplication in 6.342 seconds (process running for 7.478)
+2023-03-10T11:54:24.329+05:30  WARN 8228 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=Vedika, managementUrl=http://Ratnesh-Mishra:8080/actuator, healthUrl=http://Ratnesh-Mishra:8080/actuator/health, serviceUrl=http://Ratnesh-Mishra:8080/) at spring-boot-admin ([http://localhost:8081/instances]): I/O error on POST request for "http://localhost:8081/instances": Connection refused: no further information. Further attempts are logged on DEBUG level
+2023-03-10T11:54:27.151+05:30  INFO 8228 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-10T11:54:27.151+05:30  INFO 8228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-10T11:54:27.158+05:30  INFO 8228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
