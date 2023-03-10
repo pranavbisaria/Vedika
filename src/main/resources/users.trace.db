@@ -118,3 +118,18 @@ Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:510)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
 	... 54 more
+2023-03-10 23:50:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM ""count_visitor"""; expected "identifier"; SQL statement:
+DELETE * FROM "count_visitor" [42001-214]
+2023-03-10 23:50:29 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "COUNT_VISITOR" not found; SQL statement:
+drop table count_visitor [42102-214]
+2023-03-11 01:57:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "127.0.0.1"; SQL statement:
+insert from "count_visitor" values(54, 2023-03-11, 127.0.0.1 [22018-214]
+2023-03-11 01:57:28 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert [*]from ""count_visitor"" values(54, 2023-03-11, '127.0.0.1')"; expected "INTO"; SQL statement:
+insert from "count_visitor" values(54, 2023-03-11, '127.0.0.1') [42001-214]
+2023-03-11 01:57:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "2009 (count_visitor: ""date"" DATE)"; SQL statement:
+insert into "count_visitor" values(54, 2023-03-11, '127.0.0.1') [22018-214]

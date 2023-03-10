@@ -37,6 +37,9 @@
   const uniqueVisitorsCountDiv = document.querySelector('#unique-visitors-count');
   const uniqueVisitorsCanvas = document.querySelector('#unique-visitors');
 
+
+  //Ratnesh
+  const countVisitorUrl = '/admin/visitor-count'
   // Fetch health status and display it
   fetch(healthUrl)
           .then(response => response.json())
@@ -46,36 +49,38 @@
           })
           .catch(error => console.error(error));
 
-  // Fetch unique visitor count data and display it in a graph
-  fetch(uniqueVisitorsUrl)
+  // Fetch unique ip addresses count:
+  fetch(countVisitorUrl)
           .then(response => response.json())
           .then(data => {
-            const labels = Object.keys(data).map(key => new Date(parseInt(key) * 1000).toLocaleTimeString());
-            const values = Object.values(data);
+            console.log(data);
+            const labels = [];
+            const countData = [];
+            for(let key in data) {
+              labels.push(key);
+              countData.push(data[key]);
+            }
+            // data.forEach(obj => {
+            //   const date = Object.keys(obj)[0];
+            //   labels.push(date);
+            //   countData.push(obj[date]);
+            // });
+
             const ctx = uniqueVisitorsCanvas.getContext('2d');
-            new Chart(ctx, {
+            const myChart = new Chart(ctx, {
               type: 'line',
               data: {
-                labels: labels,
+                labels: labels.reverse(),
                 datasets: [{
-                  label: 'Unique Visitors',
-                  data: values,
-                  backgroundColor: 'rgba(0, 123, 255, 0.1)',
-                  borderColor: 'rgba(0, 123, 255, 1)',
+                  label: 'Count',
+                  data: countData.reverse(),
+                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                  borderColor: 'rgba(54, 162, 235, 1)',
                   borderWidth: 1
                 }]
               },
               options: {
                 scales: {
-                  xAxes: [{
-                    type: 'time',
-                    time: {
-                      unit: 'hour',
-                      displayFormats: {
-                        hour: 'hA'
-                      }
-                    }
-                  }],
                   yAxes: [{
                     ticks: {
                       beginAtZero: true
@@ -84,9 +89,49 @@
                 }
               }
             });
-            uniqueVisitorsCountDiv.innerHTML = `Unique Visitors Count: ${data.length}`;
           })
-          .catch(() => console.log("Can't able to fetch the unique visitors data"));
+
+  // Fetch unique visitor count data and display it in a graph
+  // fetch(uniqueVisitorsUrl)
+  //         .then(response => response.json())
+  //         .then(data => {
+  //           const labels = Object.keys(data).map(key => new Date(parseInt(key) * 1000).toLocaleTimeString());
+  //           const values = Object.values(data);
+  //           const ctx = uniqueVisitorsCanvas.getContext('2d');
+  //           new Chart(ctx, {
+  //             type: 'line',
+  //             data: {
+  //               labels: labels,
+  //               datasets: [{
+  //                 label: 'Unique Visitors',
+  //                 data: values,
+  //                 backgroundColor: 'rgba(0, 123, 255, 0.1)',
+  //                 borderColor: 'rgba(0, 123, 255, 1)',
+  //                 borderWidth: 1
+  //               }]
+  //             },
+  //             options: {
+  //               scales: {
+  //                 xAxes: [{
+  //                   type: 'time',
+  //                   time: {
+  //                     unit: 'hour',
+  //                     displayFormats: {
+  //                       hour: 'hA'
+  //                     }
+  //                   }
+  //                 }],
+  //                 yAxes: [{
+  //                   ticks: {
+  //                     beginAtZero: true
+  //                   }
+  //                 }]
+  //               }
+  //             }
+  //           });
+  //           uniqueVisitorsCountDiv.innerHTML = `Unique Visitors Count: ${data.length}`;
+  //         })
+  //         .catch(() => console.log("Can't able to fetch the unique visitors data"));
 </script>
 </body>
 </html>

@@ -7,7 +7,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 @RequiredArgsConstructor
 @Service
@@ -18,19 +22,30 @@ public class AdminServicesImpl implements AdminService {
     @Override
     @Async
     public void trackVisitor(String ipAddress) {
-        Optional<CountVisitor> countVisitor =countVisitorRepo.findByIpAddress(ipAddress);
-        CountVisitor visitor;
-        if (countVisitor.isPresent()) {
-            visitor = countVisitor.get();
-            visitor.setVisitCount(visitor.getVisitCount() + 1);
-        } else {
-            visitor = new CountVisitor(ipAddress, 1);
+        boolean alreadyVisited = countVisitorRepo.existsByDateAndIpAddress(LocalDate.now(), ipAddress);
+        if (!alreadyVisited){
+            CountVisitor visitor = new CountVisitor();
+            visitor.setDate(LocalDate.now());
+            visitor.setIpAddress(ipAddress);
+            countVisitorRepo.save(visitor);
         }
-        countVisitorRepo.save(visitor);
+
     }
 
     @Override
-    public int getVisitorCount() {
-        return (int)countVisitorRepo.count();
+    public Map<LocalDate, Integer> getVisitorCount() {
+        List<CountVisitor> totalVisitors = countVisitorRepo.findAll();
+        Map<LocalDate, Integer> ipCountByDate = new HashMap<>();
+        for (CountVisitor totalVisitor : totalVisitors) {
+            LocalDate date = totalVisitor.getDate();
+            if (ipCountByDate.containsKey(date)) {
+                int count = ipCountByDate.get(date);
+                ipCountByDate.put(date, count + 1);
+            } else {
+                ipCountByDate.put(date, 1);
+            }
+        }
+        return ipCountByDate;
+//        return (int)countVisitorRepo.count();
     }
 }

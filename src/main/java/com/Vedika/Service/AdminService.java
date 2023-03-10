@@ -1,6 +1,9 @@
 package com.Vedika.Service;
 
+import java.time.LocalDate;
+import java.util.Map;
+
 public interface AdminService {
     void trackVisitor(String ipAddress);
-    int getVisitorCount();
+    Map<LocalDate, Integer> getVisitorCount();
 }
