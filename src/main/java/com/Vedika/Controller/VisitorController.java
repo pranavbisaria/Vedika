@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
@@ -15,6 +17,7 @@ import static org.springframework.http.HttpStatus.OK;
 @RequestMapping("/visitor")
 public class VisitorController {
     private final VisitorService visitorService;
+    private final StatusController statusController;
     @PostMapping("/contactUs/{smartTvId}")
     public ResponseEntity<?> newVisitor(@Valid @RequestBody VisitorDto visitorDto, @PathVariable("smartTvId") Long smartTvId){
         return this.visitorService.newVisitors(visitorDto, smartTvId);
@@ -26,5 +29,9 @@ public class VisitorController {
                                             @RequestParam(value = "sortDir", defaultValue = "des", required = false) String sortDir
     ){
         return  new ResponseEntity<>(this.visitorService.getAll(new PageableDto(pageNumber, pageSize, sortBy, sortDir)), OK);
+    }
+    @GetMapping("/unique-visitors")
+    public Map<String, Long> getUniqueVisitors() {
+        return statusController.userCounts;
     }
 }

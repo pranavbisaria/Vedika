@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #007bff;
+    }
+
+    #health {
+      margin-top: 20px;
+    }
+
+    #unique-visitors {
+      margin-top: 20px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+<h1>Admin Panel</h1>
+<div id="health"></div>
+<div id="unique-visitors-count"></div>
+<canvas id="unique-visitors"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const healthUrl = '/actuator/health';
+  const uniqueVisitorsUrl = '/visitor/unique-visitors';
+
+  const healthDiv = document.querySelector('#health');
+  const uniqueVisitorsCountDiv = document.querySelector('#unique-visitors-count');
+  const uniqueVisitorsCanvas = document.querySelector('#unique-visitors');
+
+  // Fetch health status and display it
+  fetch(healthUrl)
+          .then(response => response.json())
+          .then(data => {
+            const status = data.status;
+            healthDiv.innerHTML = `Health: ${status}`;
+          })
+          .catch(error => console.error(error));
+
+  // Fetch unique visitor count data and display it in a graph
+  fetch(uniqueVisitorsUrl)
+          .then(response => response.json())
+          .then(data => {
+            const labels = Object.keys(data).map(key => new Date(parseInt(key) * 1000).toLocaleTimeString());
+            const values = Object.values(data);
+            const ctx = uniqueVisitorsCanvas.getContext('2d');
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: labels,
+                datasets: [{
+                  label: 'Unique Visitors',
+                  data: values,
+                  backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                  borderColor: 'rgba(0, 123, 255, 1)',
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  xAxes: [{
+                    type: 'time',
+                    time: {
+                      unit: 'hour',
+                      displayFormats: {
+                        hour: 'hA'
+                      }
+                    }
+                  }],
+                  yAxes: [{
+                    ticks: {
+                      beginAtZero: true
+                    }
+                  }]
+                }
+              }
+            });
+            uniqueVisitorsCountDiv.innerHTML = `Unique Visitors Count: ${data.length}`;
+          })
+          .catch(() => console.log("Can't able to fetch the unique visitors data"));
+</script>
+</body>
+</html>

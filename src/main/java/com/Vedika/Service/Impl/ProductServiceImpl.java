@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ResponseEntity<?> addProduct(GetProduct productDto, MultipartFile[] images){
         Product product = this.modelMapper.map(productDto, Product.class);
-        if (FileValidation(images))
+        if (FileValidation(images) && productDto!=null)
             return new ResponseEntity<>(new ApiResponse("File is not of image type(JPEG/ JPG or PNG)!!!", false), HttpStatus.UNSUPPORTED_MEDIA_TYPE);
         List<Images> productImages = new ArrayList<>(0);
         Arrays.stream(images).forEach(multipartFile -> {
@@ -50,7 +50,8 @@ public class ProductServiceImpl implements ProductService {
         return new ResponseEntity<>(new ApiResponse("Product has been successfully added", true), OK);
     }
     @Override
-    public ResponseEntity<?> addNewProductData(GetProduct productDto){
+    public ResponseEntity<?> addNewProductData(AddProduct productDto){
+        System.out.println("\n\n\nye toh chal raha h\n\n\n");
         Product product = this.modelMapper.map(productDto, Product.class);
         this.productRepo.save(product);
         return new ResponseEntity<>(product.getId(), OK);
@@ -100,6 +101,12 @@ public class ProductServiceImpl implements ProductService {
     public ResponseEntity<?> productById(Long Id) {
         Product product = this.productRepo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Product", "productID", Id));
         return new ResponseEntity<>(product, OK);
+    }
+    @Override
+    public ResponseEntity<?> deleteProductById(Long Id){
+        Product product = this.productRepo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Product", "productID", Id));
+        this.productRepo.delete(product);
+        return new ResponseEntity<>(new ApiResponse("Product has been successfully deleted", true), OK);
     }
 
     private boolean FileValidation(MultipartFile[] images) throws NullPointerException{

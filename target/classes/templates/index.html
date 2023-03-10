@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/">HOME<span class="sr-only">(current)</span></a>
+                <a class="nav-link active" href="/">HOME<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">ABOUT</a>
@@ -32,7 +31,7 @@
                 <a class="nav-link" href="/products">PRODUCTS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">SERVICES</a>
+                <a class="nav-link" href="/services">SERVICES</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">SPARES</a>
@@ -60,7 +59,7 @@
                 <div class="centered">
                     <h1>Welcome to our website!</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac lacus vel enim suscipit vulputate. Fusce sed nunc eget purus lobortis iaculis vel a nibh. In ultricies lorem sit amet felis consequat imperdiet. Cras vel erat semper, blandit nunc eu, semper magna. Ut lacinia, odio vel tincidunt tempor, ante ipsum rutrum lectus, vel venenatis odio nisl non metus.</p>
-                    <a class="btn btn-primary" href="#">Contact Us</a>
+                    <a class="btn btn-primary" href="/contactUs">Contact Us</a>
                 </div>
             </div>
 
@@ -74,8 +73,10 @@
 
 <hr class="styled-hr">
 
+<h1>OUR <span class="blue">PRODUCTS</span></h1>
+<hr class="styled-hr" style="opacity: 0.3; margin: 10px auto 20px; padding: 0">
 <div class="product-list"></div>
-
+<p id="moreProduct"><a href="/products"> more products >>></a></p>
 <hr class="styled-hr">
 
 <div class="container pt-5">
@@ -98,7 +99,33 @@
         </div>
     </div>
 </div>
-
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 footer-section">
+                <h4>R K Enterprises</h4>
+                <p>Manufacturer & O.E.M. Supplier <br>of Smart LED TVs</p>
+                <p>Certified for having met the <br>requirements of <strong>IndiaMART <br>TrustSEAL</strong> in February 2023.</p>
+            </div>
+            <div class="col-lg-4 footer-section">
+                <h4>Reach Us</h4>
+                <p>LG12, Aarza Square 2, Kisan Chowk<br>
+                    Gr. Noida, G.B. Nagar 201318<br>
+                    <strong>Phone:</strong> 9871766494, 9717132448<br>
+                    <strong>Website:</strong> <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a></p>
+            </div>
+            <div class="col-lg-4 footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 <script>
     const productList = document.querySelector('.product-list');
     const apiUrl = '/product/allProducts';
@@ -149,48 +176,6 @@
             productList.appendChild(productDiv);
         });
     }
-
-    // function renderPagination() {
-    //     pagination.innerHTML = '';
-    //
-    //     const firstPageLink = document.createElement('a');
-    //     firstPageLink.classList.add('page-link');
-    //     firstPageLink.href = '#';
-    //     firstPageLink.textContent = 'First';
-    //     firstPageLink.addEventListener('click', () => fetchProducts(0));
-    //     pagination.appendChild(firstPageLink);
-    //
-    //     if (lastPage > 0) {
-    //         const previousButton = createPageLink('Previous', currentPage - 1);
-    //         if (currentPage === 0) {
-    //             previousButton.classList.add('disabled');
-    //         }
-    //         pagination.appendChild(previousButton);
-    //         for (let i = 0; i <= lastPage; i++) {
-    //             const pageButton = createPageLink(i + 1, i);
-    //             if (i === currentPage) {
-    //                 pageButton.classList.add('active');
-    //             }
-    //             pagination.appendChild(pageButton);
-    //         }
-    //         const nextButton = createPageLink('Next', currentPage + 1);
-    //         if (currentPage === lastPage) {
-    //             nextButton.classList.add('disabled');
-    //         }
-    //         pagination.appendChild(nextButton);
-    //     }
-    // }
-    // function createPageLink(text, pageNumber) {
-    //     const pageLink = document.createElement('span');
-    //     pageLink.classList.add('page-link');
-    //     pageLink.textContent = text;
-    //     if (pageNumber >= 0 && pageNumber <= lastPage) {
-    //         pageLink.addEventListener('click', () => {
-    //             fetchProducts(pageNumber);
-    //         });
-    //     }
-    //     return pageLink;
-    // }
     fetchProducts();
 </script>
 </body>
