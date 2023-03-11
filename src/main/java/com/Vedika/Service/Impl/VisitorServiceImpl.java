@@ -30,7 +30,7 @@ public class VisitorServiceImpl implements VisitorService {
     @Override
     public ResponseEntity<?> newVisitors(VisitorDto visitorDto, Long smartTvId) {
         Visitors visitors = this.modelMapper.map(visitorDto, Visitors.class);
-        if (smartTvId != null) {
+        if (smartTvId != -1) {
             Product smartTV = this.productRepo.findById(smartTvId).orElseThrow(() -> new ResourceNotFoundException("smartTV", "smartTvID", smartTvId));
             visitors.setProduct(smartTV);
         }
@@ -53,7 +53,8 @@ public class VisitorServiceImpl implements VisitorService {
         List<VisitorDto> allVisitorsDTOs = new ArrayList<>(0);
         for (Visitors visitor : allVisitors) {
             VisitorDto visitorDto = this.modelMapper.map(visitor, VisitorDto.class);
-            visitorDto.getProduct().setImageUrls(visitor.getProduct().getImageUrls().get(0).getImageUrl());
+            if(visitor.getProduct()!=null)
+                visitorDto.getProduct().setImageUrls(visitor.getProduct().getImageUrls().get(0).getImageUrl());
             allVisitorsDTOs.add(visitorDto);
         }
         return new PageResponse(new ArrayList<>(allVisitorsDTOs), pageVisitors.getNumber(), pageVisitors.getSize(), pageVisitors.getTotalPages(), pageVisitors.getTotalElements(), pageVisitors.isLast());

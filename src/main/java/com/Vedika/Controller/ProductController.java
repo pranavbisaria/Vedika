@@ -1,27 +1,45 @@
 package com.Vedika.Controller;
 
+import com.Vedika.Payload.AddProduct;
 import com.Vedika.Payload.GetProduct;
 import com.Vedika.Payload.PageableDto;
 import com.Vedika.Payload.ProductDto;
 import com.Vedika.Service.ProductService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/product")
 public class ProductController {
     private final ProductService productService;
-    @PostMapping("/add")
-    public ResponseEntity<?> addNewProduct(@RequestPart("images") MultipartFile[] images,@Valid @RequestPart GetProduct productDto){
-        return this.productService.addProduct(productDto, images);
+    private final ObjectMapper objectMapper;
+    @PostMapping("/admin/product/add")
+    public ResponseEntity<?> addNewProduct(@RequestParam("images") MultipartFile[] images, @Valid @RequestParam("productDto") String productDto){
+        GetProduct getProduct = null;
+        try {
+            getProduct = objectMapper.readValue(productDto, GetProduct.class);
+        } catch (JsonProcessingException e) {
+            return ResponseEntity.status(BAD_REQUEST).body("Invalid Request");
+        }
+        return this.productService.addProduct(getProduct, images);
     }
-    @GetMapping("/allProducts")
+    @PostMapping("/admin/product/addProductData")
+    public ResponseEntity<?> addNewProductData(@Valid @RequestBody AddProduct productDto){
+        return this.productService.addNewProductData(productDto);
+    }
+    @PatchMapping("/admin/product/addProductData/{id}")
+    public ResponseEntity<?> addProductImages(@RequestParam("images") MultipartFile[] images, @PathVariable("id") Long id){
+        return this.productService.addNewProductImages(id, images);
+    }
+    @GetMapping("/product/allProducts")
     public ResponseEntity<?> getAllProducts(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
                                             @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize,
                                             @RequestParam(value = "sortBy", defaultValue = "id", required = false) String sortBy,
@@ -29,7 +47,11 @@ public class ProductController {
     ){
         return new ResponseEntity<>(this.productService.getAll(new PageableDto(pageNumber, pageSize, sortBy, sortDir)), OK);
     }
-    @GetMapping("/getProduct/{id}")
+    @DeleteMapping("/admin/product/delete/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable("id") Long id){
+        return this.productService.deleteProductById(id);
+    }
+    @GetMapping("/product/getProduct/{id}")
     public ResponseEntity<?> getProductById(@PathVariable("id") Long id){
         return this.productService.productById(id);
     }
