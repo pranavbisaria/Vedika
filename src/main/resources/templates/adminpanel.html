@@ -140,6 +140,12 @@
           .catch(error => console.error(error));
 
   // Fetch unique visitor count data and display it in a graph
+  fetch('/actuator/metrics/http.server.requests?tag=uri:/')
+          .then(response => response.json())
+          .then(data => {
+            const hitCount = data.measurements[0].value;
+            uniqueVisitorsCountDiv.innerHTML = `Unique Visitors Count: :`+hitCount;
+          });
   fetch(uniqueVisitorsUrl)
           .then(response => response.json())
           .then(data => {
@@ -177,7 +183,6 @@
                 }
               }
             });
-            uniqueVisitorsCountDiv.innerHTML = `Unique Visitors Count: ${data.length}`;
           })
           .catch(() => console.log("Can't able to fetch the unique visitors data"));
 </script>

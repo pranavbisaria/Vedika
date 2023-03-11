@@ -24,4 +24,5 @@ public class StatusController {
     public String service(){
         return "services";
     }
+//    @GetMapping("/error")
 }
