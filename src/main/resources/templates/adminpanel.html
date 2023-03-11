@@ -31,6 +31,66 @@
       margin-top: 20px;
       height: 400px;
     }
+    .loader-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+    }
+
+    .loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 10px solid #e3e3e3;
+      border-top-color: #00af7c;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loader-inner {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .status {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      font-weight: bold;
+      color: #00af7c;
+    }
   </style>
 </head>
 <body class="p-3 m-0 border-0 bd-example">
@@ -52,6 +112,12 @@
 </nav>
 <h1>Admin Panel</h1>
 <div id="health"></div>
+<div class="loader-container">
+  <div class="loader">
+  </div>
+    <div class="loader-inner"></div>
+  <div class="status">UP</div>
+</div>
 <div id="unique-visitors-count"></div>
 <canvas id="unique-visitors"></canvas>
 
