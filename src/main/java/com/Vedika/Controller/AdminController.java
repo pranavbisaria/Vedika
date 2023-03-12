@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminController {
     private final AdminService adminService;
-    @GetMapping("")
+    @GetMapping("/")
     public String admin() {
         return "adminpanel";
     }
@@ -41,6 +41,6 @@ public class AdminController {
 
     @GetMapping("/user-details")
     public String getUsersContacted() {
-        return "/admin/formsubmission.html";
+        return "admin/formsubmission.html";
     }
 }
