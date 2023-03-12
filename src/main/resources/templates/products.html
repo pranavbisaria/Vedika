@@ -12,10 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
     <style>
-        /*body{*/
-        /*    min-width: fit-content;*/
-        /*    background: linear-gradient(to bottom, #FFFFFF, #cce6ff);*/
-        /*}*/
         :root {
             --primary-color: #007bff;
             --secondary-color: #6c757d;
@@ -93,8 +89,10 @@
         }
 
         .product-price p {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
+            padding: 0;
+            margin-bottom: 11px;
             color: var(--primary-color);
         }
 
@@ -199,6 +197,15 @@
         .footer-section {
             margin-bottom: 40px;
         }
+        .product-details h2 {
+            font-size: 35px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        button{
+            height: 60px;
+            font-size: 26px;
+        }
         @media (max-width: 1000px) {
             nav .navbar-brand{
                 margin: auto;
@@ -212,10 +219,24 @@
             }
             .nav-link {
                 color: #555;
-                font-size: 1.6em;
+                font-size: 3em;
                 font-weight: bold;
                 padding: 8px 20px;
                 transition: all 0.3s ease-in-out;
+            }
+            .product-container{
+                background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+                padding: 0 20px;
+                width: 90%;
+                border: 3px solid black;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                align-items: center;
+                margin: 20px auto;
+            }
+            h1{
+                font-size: 5.5rem;
             }
         }
     </style>
@@ -249,7 +270,7 @@
     </div>
 </nav>
 <div class="myContainer">
-    <h1 style="text-align: center; margin-top: 20px">Our <span style="color: #009DF8;">Products</span></h1>
+    <h1 style="text-align: center; margin-top: 20px;">Our <span style="color: #009DF8;">Products</span></h1>
     <div class="product-list"></div>
     <div class="pagination"></div>
 </div>
@@ -342,9 +363,12 @@
             productDiv.appendChild(productImgDiv);
             productDiv.appendChild(productDetail);
 
-            productDiv.addEventListener('click', () => {
+            const viewMoreButton = document.createElement('button');
+            viewMoreButton.textContent = 'View More';
+            viewMoreButton.onclick = function() {
                 window.location.href = `productId.html?id=${product.id}`;
-            });
+            };
+            productDetail.appendChild(viewMoreButton);
 
             productList.appendChild(productDiv);
         });
@@ -352,14 +376,6 @@
 
     function renderPagination() {
         pagination.innerHTML = '';
-
-        const firstPageLink = document.createElement('a');
-        firstPageLink.classList.add('page-link');
-        firstPageLink.href = '#';
-        firstPageLink.textContent = 'First';
-        firstPageLink.addEventListener('click', () => fetchProducts(0));
-        pagination.appendChild(firstPageLink);
-
         if (lastPage > 0) {
             const previousButton = createPageLink('Previous', currentPage - 1);
             if (currentPage === 0) {

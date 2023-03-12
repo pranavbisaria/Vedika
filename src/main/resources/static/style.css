@@ -1,29 +1,39 @@
-main {
+#mainContent {
+    padding-top: 5vh;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
 }
-
+.imageTL{
+    margin: 8vh auto auto;
+    width: 550px;
+}
+.imageTR{
+    margin: auto auto 1vh;
+    width: 550px;
+}
 /* center content */
 .centered {
-    display: flex;
+    margin: auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 242px;
+    width: 600px;
     text-align: center;
 }
-
-/* image styling */
 .image-style {
     max-width: 100%;
     height: auto;
     margin: 0 10px;
 }
-
 .feature {
     text-align: center;
     margin-bottom: 30px;
 }
-
 .feature i {
     color: #009DF8;
     margin-bottom: 20px;
@@ -56,16 +66,16 @@ h1{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 20px;
-    padding: 0 50px 10px 50px;
+    padding: 0 50px;
 }
 .product {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 290px;
-    margin-bottom: 20px;
+    margin: 10px;
     border: 1px solid #5351ae;
     padding: 30px;
     background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
@@ -100,6 +110,16 @@ h1{
     border: 1px solid #5e8fca;
 }
 
+.viewButton {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #007bff;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
 #serviceHead{
     margin-top: 100px;
 }
@@ -110,15 +130,9 @@ h1{
 }
 
 .navbar-brand img {
-  height:5vh;
-}
-nav button {
-    position: absolute;
-    width:6vh;
     height:5vh;
-    right: 0.5vh;
-    top: 0.5vh;
 }
+
 .nav-link {
     color: #555;
     font-size: 16px;
@@ -167,17 +181,19 @@ p {
 .footer-section {
     margin-bottom: 40px;
 }
-@media (max-width: 1000px) {
+@media (max-width: 720px) {
     .feature {
         margin-bottom: 0;
     }
     nav .navbar-brand{
         margin: auto;
     }
-    nav button{
+    nav button {
         position: absolute;
-        right: 10px;
-        top: 10px;
+        width:6vh;
+        height:5vh;
+        right: 0.5vh;
+        top: 0.5vh;
     }
     .nav-link {
         color: #555;
@@ -186,4 +202,47 @@ p {
         padding: 8px 20px;
         transition: all 0.3s ease-in-out;
     }
+    .product {
+        width: 90%;
+        margin: 20px 0;
+        padding: 50px;
+    }
+
+    .image-style {
+        width: 100%;
+    }
+
+    #head {
+        font-size: 3em;
+    }
 }
+@media screen and (max-width: 1400px) {
+    #mainContent {
+        padding-top: 5vh;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+    }
+    .imageTL{
+        margin: 8vh auto auto;
+        width: 90%;
+    }
+    .imageTR{
+        margin: auto auto 1vh;
+        width: 90%;
+    }
+    .centered {
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /*height: 100%;*/
+        width: 90%;
+        font-size: 1.7em;
+        text-align: center;
+    }
+}
+

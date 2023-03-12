@@ -176,7 +176,7 @@
             }
             .nav-link {
                 color: #555;
-                font-size: 1.6em;
+                font-size: 3em;
                 font-weight: bold;
                 padding: 8px 20px;
                 transition: all 0.3s ease-in-out;
@@ -286,33 +286,33 @@
 
         const rate = "Size: "+product.size;
         if(product.size!=null)
-        prodSize.append(rate);
+            prodSize.append(rate);
 
         const originalRate = "Rs. "+product.originalPrice;
         if(product.originalPrice!=null)
-        prodRateOriginal.append(originalRate);
+            prodRateOriginal.append(originalRate);
 
         const ourRate = " Rs. "+product.ourCost;
         if(product.ourCost!=null)
-        prodRateOurRate.append(ourRate);
+            prodRateOurRate.append(ourRate);
 
         const info = product.description;
         if(product.description!=null)
-        prodInfo.append(info);
+            prodInfo.append(info);
 
         productTable.innerHTML = '';
 
         if(product.productInfo!=null)
-        product.productInfo.forEach(info => {
-            const row = document.createElement('tr');
-            const headCell = document.createElement('th');
-            headCell.textContent = info.head;
-            const bodyCell = document.createElement('td');
-            bodyCell.textContent = info.body;
-            row.appendChild(headCell);
-            row.appendChild(bodyCell);
-            productTable.appendChild(row);
-        });
+            product.productInfo.forEach(info => {
+                const row = document.createElement('tr');
+                const headCell = document.createElement('th');
+                headCell.textContent = info.head;
+                const bodyCell = document.createElement('td');
+                bodyCell.textContent = info.body;
+                row.appendChild(headCell);
+                row.appendChild(bodyCell);
+                productTable.appendChild(row);
+            });
     }
     function prevImage() {
         if (imageIndex === 0) {
