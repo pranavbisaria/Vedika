@@ -1,0 +1,256 @@
+body {
+    /*background: linear-gradient(to bottom, #FFFFFF, #cce6ff);*/
+}
+
+
+
+#mainContent {
+    padding-top: 5vh;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+}
+.imageTL{
+    margin: 8vh auto auto;
+    width: 550px;
+}
+.imageTR{
+    margin: auto auto 1vh;
+    width: 550px;
+}
+/* center content */
+.centered {
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 242px;
+    width: 600px;
+    text-align: center;
+}
+.image-style {
+    max-width: 100%;
+    height: auto;
+    margin: 0 10px;
+}
+.feature {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.feature i {
+    color: #009DF8;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.blue{
+    font-weight: 600;
+    color: #4c97e4;
+}
+#moreProduct{
+    text-align: right;
+    margin-right: 50px;
+}
+#moreProduct a{
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bolder;
+    font-size: 20px;
+}
+h1{
+    text-align: center;
+}
+.product-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 0 50px;
+}
+.product {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 290px;
+    margin: 10px;
+    border: 1px solid #5351ae;
+    padding: 30px;
+    background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+}
+.product h2{
+    width: 100%;
+    text-align: left;
+}
+.product p{
+    width: 100%;
+    text-align: left;
+}
+.product div{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: left;
+}
+.product div s{
+    font-size: 20px;
+    font-weight: 600;
+}
+.product div p{
+    font-size: 25px;
+    font-weight: 700;
+}
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid #5e8fca;
+}
+
+.viewButton {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #007bff;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+#serviceHead{
+    margin-top: 100px;
+}
+/* Navbar Styling */
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar-brand img {
+    height:5vh;
+}
+
+.nav-link {
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+.styled-hr {
+    border-top: 3px solid #ADD8E6;
+    width: 50%;
+    margin: 40px auto;
+}
+
+footer {
+    background-color: #f1f1f1;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+h4 {
+    color: #2d2d2d;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.social-icons {
+    margin-top: 30px;
+}
+.social-icons a {
+    color: #555;
+    margin-right: 20px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {
+    color: #007bff;
+}
+.footer-section {
+    margin-bottom: 40px;
+}
+
+
+@media (max-width: 720px) {
+    .feature {
+        margin-bottom: 0;
+    }
+    nav .navbar-brand{
+        margin: auto;
+    }
+    nav button {
+        position: absolute;
+        width:6vh;
+        height:5vh;
+        right: 0.5vh;
+        top: 0.5vh;
+    }
+    .nav-link {
+        color: #555;
+        font-size: 1.6em;
+        font-weight: bold;
+        padding: 8px 20px;
+        transition: all 0.3s ease-in-out;
+    }
+    .product {
+        width: 90%;
+        margin: 20px 0;
+        padding: 50px;
+    }
+
+    .image-style {
+        width: 100%;
+    }
+
+    #head {
+        font-size: 3em;
+    }
+}
+@media screen and (max-width: 1400px) {
+    #mainContent {
+        padding-top: 5vh;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+    }
+    .imageTL{
+        margin: 8vh auto auto;
+        width: 90%;
+    }
+    .imageTR{
+        margin: auto auto 1vh;
+        width: 90%;
+    }
+    .centered {
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /*height: 100%;*/
+        width: 90%;
+        font-size: 1.7em;
+        text-align: center;
+    }
+}
+

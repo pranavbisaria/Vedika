@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfig implements WebMvcConfigurer {
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
             "classpath:/META-INF/resources/photos/", "classpath:/resources/photos/",
-            "classpath:/static/photos/", "classpath:/public/photos/"};
+            "classpath:/static/photos/", "classpath:/public/photos/", "classpath:/target/classes/static/photos/"};
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
@@ -17,6 +17,6 @@ public class MvcConfig implements WebMvcConfigurer {
     }
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("*");
+        registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST","PUT", "DELETE");
     }
 }

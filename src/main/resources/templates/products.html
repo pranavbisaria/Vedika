@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Vedika</title>
     <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png">
@@ -9,57 +10,114 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
     <style>
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --bg-color: #f8f9fa;
+            --text-color: #343a40;
+            --font-family: Arial, sans-serif;
+            --max-width: 1200px;
+            --padding: 20px;
         }
-
         .product-list {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .product {
-            display: flex;
+            flex-direction: column;
             justify-content: center;
-            flex-wrap: wrap;
-            width: 365px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
-            padding: 30px;
         }
-
-        .product h2{
-            width: 100%;
-            text-align: left;
-        }
-        .product p{
-            width: 100%;
-            text-align: left;
-        }
-        .product div{
+        .product-container {
+            background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+            padding: 0 20px;
+            width: 60%;
+            height: 30%;
+            border: 3px solid black;
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 20px auto;
+        }
+
+        .product-image {
+            background: white;
+            border: 1px solid rgba(13, 13, 13, 0.97);
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 40%;
+            max-width: 500px;
+            margin: 20px;
+        }
+
+        .product-image img {
             width: 100%;
-            text-align: left;
+            object-fit: contain;
         }
-        .product div s{
-            font-size: 20px;
-            font-weight: 600;
+
+        .product-details {
+            margin: auto;
+            width: calc(50% - 20px);
+            max-width: 500px;
         }
-        .product div p{
-            font-size: 25px;
-            font-weight: 700;
-        }
-        .product img {
-            max-width: 100%;
-            height: auto;
+
+        .product-details h2 {
+            font-size: 28px;
+            font-weight: bold;
             margin-bottom: 10px;
+        }
+
+        .product-details p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+        }
+
+        .product-price s {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .product-price p {
+            font-size: 28px;
+            font-weight: bold;
+            padding: 0;
+            margin-bottom: 11px;
+            color: var(--primary-color);
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+            }
+            .product-image {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .product-details {
+                width: 100%;
+            }
         }
         .pagination {
             display: flex;
@@ -70,14 +128,14 @@
             margin: 0 5px;
             padding: 5px 10px;
             background-color: #eee;
-            border: 1px solid #ccc;
+            border: 1px solid #1990e2;
             color: #333;
             text-decoration: none;
         }
         .page-link:hover {
-            background-color: #ccc;
+            background-color: #2071bd;;
         }
-        .active {
+        .activated {
             background-color: #333;
             color: #fff;
         }
@@ -85,61 +143,164 @@
             opacity: 0.5;
             pointer-events: none;
         }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .navbar-brand img {
+            height:5vh;
+        }
+
+        .nav-link {
+            color: #555;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+        h4 {
+            color: #2d2d2d;
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .pfooter {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .social-icons {
+            margin-top: 30px;
+        }
+        .social-icons a {
+            color: #555;
+            margin-right: 20px;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        .footer-section {
+            margin-bottom: 40px;
+        }
+        .product-details h2 {
+            font-size: 35px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        button{
+            height: 60px;
+            font-size: 26px;
+        }
         @media (max-width: 1000px) {
-            .product-list {
+            nav .navbar-brand{
+                margin: auto;
+            }
+            nav button {
+                position: absolute;
+                width:6vh;
+                height:5vh;
+                right: 0.5vh;
+                top: 0.5vh;
+            }
+            .nav-link {
+                color: #555;
+                font-size: 3em;
+                font-weight: bold;
+                padding: 8px 20px;
+                transition: all 0.3s ease-in-out;
+            }
+            .product-container{
+                background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+                padding: 0 20px;
+                width: 90%;
+                border: 3px solid black;
                 display: flex;
-                flex-wrap: nowrap;
-                flex-direction: column;
-                justify-content: space-between;
-                padding: 0;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                align-items: center;
+                margin: 20px auto;
             }
-            .product{
-                margin: 25px 0;
-                min-width: 100%;
-            }
-            .product h2{
-                text-align: center;
+            h1{
+                font-size: 5.5rem;
             }
         }
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img src="Resources/vedikaLogo.jpg" height="30px" alt="img"></a>
+    <a class="navbar-brand mx-auto" href="#">
+        <img src="Resources/vedikaLogo.png" alt="logo" class="img-fluid">
+    </a>
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/">HOME<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">HOME</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">ABOUT</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/products">PRODUCTS</a>
+                <a class="nav-link active" href="/products">PRODUCTS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">SERVICES</a>
+                <a class="nav-link" href="/services">SERVICES</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">SPARES</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">GALLERY & LITERATURE</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contactUs">CONTACT</a>
+                <a class="nav-link" href="/contactUs">CONTACT<span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
 </nav>
-<div class="container">
-    <h1>Products</h1>
+<div class="myContainer">
+    <h1 style="text-align: center; margin-top: 20px;">Our <span style="color: #009DF8;">Products</span></h1>
     <div class="product-list"></div>
     <div class="pagination"></div>
 </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 footer-section">
+                <h4>R K Enterprises</h4>
+                <p class="pfooter">Manufacturer & O.E.M. Supplier <br>of Smart LED TVs</p>
+                <p class="pfooter">Certified for having met the <br>requirements of <strong>IndiaMART <br>TrustSEAL</strong> in February 2023.</p>
+            </div>
+            <div class="col-lg-4 footer-section">
+                <h4>Reach Us</h4>
+                <p class="pfooter">LG12, Aarza Square 2, Kisan Chowk<br>
+                    Gr. Noida, G.B. Nagar 201318<br>
+                    <strong>Phone:</strong> 9871766494, 9717132448<br>
+                    <strong>Website:</strong> <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a></p>
+            </div>
+            <div class="col-lg-4 footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 <script>
     const productList = document.querySelector('.product-list');
     const pagination = document.querySelector('.pagination');
@@ -166,23 +327,30 @@
 
         products.forEach(product => {
             const productDiv = document.createElement('div');
-            productDiv.classList.add('product');
+            productDiv.classList.add('product-container');
+
+            const productImgDiv = document.createElement('div');
+            productImgDiv.classList.add('product-image');
 
             const image = document.createElement('img');
             image.src = "/file/"+product.imageUrls;
             image.alt = "product image";
-            productDiv.appendChild(image);
+            productImgDiv.appendChild(image);
+
+            const productDetail = document.createElement('div');
+            productDetail.classList.add('product-details');
 
             const modelName = document.createElement('h2');
             modelName.textContent = product.modelName;
-            productDiv.appendChild(modelName);
+            productDetail.appendChild(modelName);
 
             const size = document.createElement('p');
             size.textContent = `Size: ${product.size}`;
-            productDiv.appendChild(size);
+            productDetail.appendChild(size);
 
             const price = document.createElement('div');
-            productDiv.appendChild(price);
+            price.classList.add('product-price');
+            productDetail.appendChild(price);
 
             const originalPrice = document.createElement('s');
             originalPrice.textContent = `Rs. ${product.originalPrice}`;
@@ -192,9 +360,15 @@
             ourCost.textContent = `Rs. ${product.ourCost}`;
             price.appendChild(ourCost);
 
-            productDiv.addEventListener('click', () => {
+            productDiv.appendChild(productImgDiv);
+            productDiv.appendChild(productDetail);
+
+            const viewMoreButton = document.createElement('button');
+            viewMoreButton.textContent = 'View More';
+            viewMoreButton.onclick = function() {
                 window.location.href = `productId.html?id=${product.id}`;
-            });
+            };
+            productDetail.appendChild(viewMoreButton);
 
             productList.appendChild(productDiv);
         });
@@ -202,46 +376,38 @@
 
     function renderPagination() {
         pagination.innerHTML = '';
-
-        const firstPageLink = document.createElement('a');
-        firstPageLink.classList.add('page-link');
-        firstPageLink.href = '#';
-        firstPageLink.textContent = 'First';
-        firstPageLink.addEventListener('click', () => fetchProducts(0));
-        pagination.appendChild(firstPageLink);
-
-            if (lastPage > 0) {
-                const previousButton = createPageLink('Previous', currentPage - 1);
-                if (currentPage === 0) {
-                    previousButton.classList.add('disabled');
-                }
-                pagination.appendChild(previousButton);
-                for (let i = 0; i <= lastPage; i++) {
-                    const pageButton = createPageLink(i + 1, i);
-                    if (i === currentPage) {
-                        pageButton.classList.add('active');
-                    }
-                    pagination.appendChild(pageButton);
-                }
-                const nextButton = createPageLink('Next', currentPage + 1);
-                if (currentPage === lastPage) {
-                    nextButton.classList.add('disabled');
-                }
-                pagination.appendChild(nextButton);
+        if (lastPage > 0) {
+            const previousButton = createPageLink('Previous', currentPage - 1);
+            if (currentPage === 0) {
+                previousButton.classList.add('disabled');
             }
-        }
-        function createPageLink(text, pageNumber) {
-            const pageLink = document.createElement('span');
-            pageLink.classList.add('page-link');
-            pageLink.textContent = text;
-            if (pageNumber >= 0 && pageNumber <= lastPage) {
-                pageLink.addEventListener('click', () => {
-                    fetchProducts(pageNumber);
-                });
+            pagination.appendChild(previousButton);
+            for (let i = 0; i <= lastPage; i++) {
+                const pageButton = createPageLink(i + 1, i);
+                if (i === currentPage) {
+                    pageButton.classList.add('activated');
+                }
+                pagination.appendChild(pageButton);
             }
-            return pageLink;
+            const nextButton = createPageLink('Next', currentPage + 1);
+            if (currentPage === lastPage) {
+                nextButton.classList.add('disabled');
+            }
+            pagination.appendChild(nextButton);
         }
-        fetchProducts();
+    }
+    function createPageLink(text, pageNumber) {
+        const pageLink = document.createElement('span');
+        pageLink.classList.add('page-link');
+        pageLink.textContent = text;
+        if (pageNumber >= 0 && pageNumber <= lastPage) {
+            pageLink.addEventListener('click', () => {
+                fetchProducts(pageNumber);
+            });
+        }
+        return pageLink;
+    }
+    fetchProducts();
 </script>
 </body>
 </html>

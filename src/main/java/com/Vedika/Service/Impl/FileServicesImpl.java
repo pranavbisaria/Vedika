@@ -23,7 +23,7 @@ public class FileServicesImpl implements FileServices {
         String filepath = path + File.separator + newFileName;
         File newFile = new File(path);
         if(!newFile.exists()){
-            newFile.mkdir();
+            newFile.mkdirs();
         }
         Files.copy(file.getInputStream(), Paths.get(filepath));
         return newFileName;
