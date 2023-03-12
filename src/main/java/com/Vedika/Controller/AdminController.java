@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminController {
     private final AdminService adminService;
-    @GetMapping("/")
+    @GetMapping("")
     public String admin() {
-        return "adminpanel";
+        return "admin/adminpanel.html";
     }
 
     @GetMapping("/product-list")
