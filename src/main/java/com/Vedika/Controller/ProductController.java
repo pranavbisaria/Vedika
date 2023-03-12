@@ -3,7 +3,6 @@ package com.Vedika.Controller;
 import com.Vedika.Payload.AddProduct;
 import com.Vedika.Payload.GetProduct;
 import com.Vedika.Payload.PageableDto;
-import com.Vedika.Payload.ProductDto;
 import com.Vedika.Service.AdminService;
 import com.Vedika.Service.ProductService;
 import jakarta.servlet.http.HttpServletRequest;

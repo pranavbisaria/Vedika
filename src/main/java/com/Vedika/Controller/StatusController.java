@@ -80,5 +80,25 @@ public class StatusController {
 //    public String service(){
 //        return "services";
 //    }
+    @GetMapping("/")
+    public String landingPage() {
+        return "index";
+    }
+    @GetMapping("/home")
+    public String home(){
+        return "index";
+    }
+    @GetMapping("/products")
+    public String products(){
+        return "products";
+    }
+    @GetMapping("/contactUs")
+    public String contact(){
+        return "contact";
+    }
+    @GetMapping("/services")
+    public String service(){
+        return "services";
+    }
 //    @GetMapping("/error")
 }

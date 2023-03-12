@@ -38,9 +38,9 @@ public class AdminController {
     public ResponseEntity<?> getVisitorCount() {
         return ResponseEntity.status(HttpStatus.OK).body(adminService.getVisitorCount());
     }
-
     @GetMapping("/user-details")
     public String getUsersContacted() {
         return "admin/formsubmission.html";
     }
+
 }
