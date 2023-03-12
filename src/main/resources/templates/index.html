@@ -6,23 +6,48 @@
     <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @media (max-width: 1000px) {
+            nav .navbar-brand {
+                margin: auto;
+            }
+
+            nav button {
+                position: absolute;
+                width: 6vh;
+                height: 5vh;
+                right: 0.5vh;
+                top: 0.5vh;
+            }
+
+            .nav-link {
+                color: #555;
+                font-size: 3em;
+                font-weight: bold;
+                padding: 8px 20px;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img src="Resources/vedikaLogo.png" height="30px" alt="img"></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand mx-auto" href="#">
+        <img src="Resources/vedikaLogo.png" alt="logo" class="img-fluid">
+    </a>
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" href="/">HOME<span class="sr-only">(current)</span></a>
+                <a class="nav-link active" href="/home">HOME</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">ABOUT</a>
@@ -34,46 +59,24 @@
                 <a class="nav-link" href="/services">SERVICES</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">SPARES</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">GALLERY & LITERATURE</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contactUs">CONTACT</a>
+                <a class="nav-link" href="/contactUs">CONTACT<span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
 </nav>
-
-<main>
-    <div class="container-fluid pt-5">
-        <div class="row">
-            <!-- left image -->
-            <div class="col-lg-4 col-md-6 order-lg-1 order-md-1 col-sm-12">
-                <img class="image-style" src="Resources/tv1.png" alt="Left Image">
-            </div>
-
-            <!-- center content -->
-            <div class="col-lg-4 col-md-6 order-lg-2 order-md-2 col-sm-12">
-                <div class="centered">
-                    <h1>Welcome to our website!</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac lacus vel enim suscipit vulputate. Fusce sed nunc eget purus lobortis iaculis vel a nibh. In ultricies lorem sit amet felis consequat imperdiet. Cras vel erat semper, blandit nunc eu, semper magna. Ut lacinia, odio vel tincidunt tempor, ante ipsum rutrum lectus, vel venenatis odio nisl non metus.</p>
-                    <a class="btn btn-primary" href="/contactUs">Contact Us</a>
-                </div>
-            </div>
-
-            <!-- right image -->
-            <div class="col-lg-4 order-lg-3 d-none d-lg-block">
-                <img class="image-style" src="Resources/tv2.png" alt="Right Image">
-            </div>
-        </div>
+<div id="mainContent">
+    <img class="imageTL" src="Resources/tv1.png" alt="Left Image">
+    <div class="centered">
+        <h1>Welcome to our website!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac lacus vel enim suscipit vulputate. Fusce sed nunc eget purus lobortis iaculis vel a nibh. In ultricies lorem sit amet felis consequat imperdiet. Cras vel erat semper, blandit nunc eu, semper magna. Ut lacinia, odio vel tincidunt tempor, ante ipsum rutrum lectus, vel venenatis odio nisl non metus.</p>
+        <a class="btn btn-primary" href="/contactUs">Contact Us</a>
     </div>
-</main>
+    <img class="imageTR" src="Resources/tv2.png" alt="Right Image">
+</div>
 
 <!--<hr class="styled-hr">-->
 
-<h1>OUR <span class="blue">PRODUCTS</span></h1>
+<h1 id="head">OUR <span class="blue">PRODUCTS</span></h1>
 <hr class="styled-hr" style="opacity: 0.3; margin: 10px auto 20px; padding: 0">
 <div class="product-list"></div>
 <p id="moreProduct"><a href="/products"> more products >>></a></p>
@@ -172,9 +175,13 @@
             ourCost.textContent = `Rs. ${product.ourCost}`;
             price.appendChild(ourCost);
 
-            productDiv.addEventListener('click', () => {
+            const viewMoreButton = document.createElement('button');
+            viewMoreButton.textContent = 'View More';
+            viewMoreButton.classList.add('viewButton');
+            viewMoreButton.onclick = function() {
                 window.location.href = `productId.html?id=${product.id}`;
-            });
+            };
+            productDiv.appendChild(viewMoreButton);
 
             productList.appendChild(productDiv);
         });

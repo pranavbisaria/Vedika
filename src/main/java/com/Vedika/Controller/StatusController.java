@@ -56,10 +56,10 @@ public class StatusController {
         adminService.trackVisitor(httpRequest.getRemoteAddr());
         return "services.html";
     }
-    @GetMapping("/admin")
-    public String admin() {
-        return "admin/adminpanel.html";
-    }
+//    @GetMapping("/admin")
+//    public String admin() {
+//        return "admin/adminpanel.html";
+//    }
 //    @GetMapping("/")
 //    public String landingPage() {
 //        return "index";
@@ -80,4 +80,5 @@ public class StatusController {
 //    public String service(){
 //        return "services";
 //    }
+//    @GetMapping("/error")
 }
