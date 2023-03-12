@@ -26,6 +26,112 @@
                 top: 0.5vh;
             }
 
+            .feature {
+                margin-bottom: 0;
+            }
+            nav .navbar-brand{
+                margin: auto;
+            }
+            nav button {
+                position: absolute;
+                width:6vh;
+                height:5vh;
+                right: 0.5vh;
+                top: 0.5vh;
+            }
+            .nav-link {
+                color: #555;
+                font-size: 1.6em;
+                font-weight: bold;
+                padding: 8px 20px;
+                transition: all 0.3s ease-in-out;
+            }
+            .product {
+                width: 90%;
+                margin: 50px 0;
+                padding: 68px;
+            }
+            .product h2 {
+                width: 100%;
+                text-align: left;
+                font-size: 3.4em;
+            }
+            .product p {
+                width: 100%;
+                text-align: left;
+                font-size: 2em;
+            }
+            .viewButton {
+                padding: 10px 20px;
+                background-color: var(--primary-color);
+                color: #007bff;
+                font-weight: 600;
+                border: none;
+                border-radius: 5px;
+                font-size: 49px;
+                cursor: pointer;
+            }
+            .product div p {
+                color: #007bff;
+                font-size: 3em;
+                font-weight: 700;
+            }
+            #moreProduct a {
+                text-decoration: none;
+                color: #007bff;
+                font-weight: bolder;
+                font-size: 44px;
+            }
+            .product div s {
+                font-size: 2.5em;
+                font-weight: 600;
+            }
+            .headService{
+                text-align: center;
+                font-size: 5em;
+            }
+            .serviceDiv {
+                min-height: 35vh;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                padding: 20px 149px;
+                width: 45vh;
+                margin: 4vh auto;
+            }
+            .logService {
+                display: flex;
+                flex-wrap: wrap;
+                text-align: center;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                margin: 1vh;
+            }
+            h4 {
+                color: #2d2d2d;
+                font-weight: 700;
+                font-size: 65px;
+                margin-bottom: 30px;
+            }
+            p {
+                color: #555;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                font-size: 30px;
+            }
+            .social-icons a {
+                color: #555;
+                margin-right: 20px;
+                font-size: 44px;
+                transition: color 0.3s ease;
+            }
+            footer {
+                background-color: #f1f1f1;
+                padding: 145px 0;
+                margin-top: 50px;
+            }
             .nav-link {
                 color: #555;
                 font-size: 3em;
@@ -74,52 +180,50 @@
     <img class="imageTR" src="Resources/tv2.png" alt="Right Image">
 </div>
 
-<!--<hr class="styled-hr">-->
 <hr class="styled-hr">
 
-<h1 id="head">OUR <span class="blue">PRODUCTS</span></h1>
+<h1 class="headService">OUR <span class="blue">PRODUCTS</span></h1>
 <hr class="styled-hr" style="opacity: 0.3; margin: 10px auto 20px; padding: 0">
 <div class="product-list"></div>
 <p id="moreProduct"><a href="/products"> more products >>></a></p>
 <hr class="styled-hr">
 
-<div class="container pt-5">
-    <div class="row">
-        <div class="col-md-3 col-sm-6 feature my-3">
-            <i class="fas fa-clock fa-3x"></i>
-            <h3>Available <br>24x7</h3>
-        </div>
-        <div class="col-md-3 col-sm-6 feature my-3">
-            <i class="fas fa-wrench fa-3x"></i>
-            <h3>Warranty &amp; <br>Maintenance</h3>
-        </div>
-        <div class="col-md-3 col-sm-6 feature my-3">
-            <i class="fas fa-tags fa-3x"></i>
-            <h3>Low Prices<br>Guaranteed</h3>
-        </div>
-        <div class="col-md-3 col-sm-6 feature my-3">
-            <i class="fas fa-headset fa-3x"></i>
-            <h3>Helpline<br>Support</h3>
-        </div>
+<h1 class="headService"><span class="blue">SERVICES</span> WE OFFER</h1>
+<hr class="styled-hr" style="opacity: 0.3; margin: 10px auto 20px; padding: 0">
+<div class="serviceDiv">
+    <div class="logService">
+        <i class="fas fa-clock fa-3x servLogo" style="font-size: 7em"></i>
+        <h3>Available <br>24x7</h3>
+    </div>
+    <div class="logService">
+        <i class="fas fa-wrench fa-3x servLogo" style="font-size: 7em"></i>
+        <h3>Warranty <br>&amp; <br>Maintenance</h3>
+    </div>
+    <div class="logService">
+        <i class="fas fa-tags fa-3x servLogo" style="font-size: 7em"></i>
+        <h3>Low Prices<br>Guaranteed</h3>
+    </div>
+    <div class="logService">
+        <i class="fas fa-headset fa-3x servLogo" style="font-size: 7em;"></i>
+        <h3>Helpline<br>Support</h3>
     </div>
 </div>
-
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-12 footer-section text-center">
+            <div class="col-lg-4 footer-section">
                 <h4>R K Enterprises</h4>
                 <p>Manufacturer & O.E.M. Supplier <br>of Smart LED TVs</p>
                 <p>Certified for having met the <br>requirements of <strong>IndiaMART <br>TrustSEAL</strong> in February 2023.</p>
             </div>
-            <div class="col-lg-4 col-md-12 footer-section text-center">
+            <div class="col-lg-4 footer-section">
                 <h4>Reach Us</h4>
                 <p>LG12, Aarza Square 2, Kisan Chowk<br>
                     Gr. Noida, G.B. Nagar 201318<br>
                     <strong>Phone:</strong> 9871766494, 9717132448<br>
                     <strong>Website:</strong> <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a></p>
             </div>
-            <div class="col-lg-4 col-md-12 footer-section text-center">
+            <div class="col-lg-4 footer-section">
                 <h4>Follow Us</h4>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -131,8 +235,6 @@
         </div>
     </div>
 </footer>
-
-
 <script>
     const productList = document.querySelector('.product-list');
     const apiUrl = '/product/allProducts';
@@ -180,7 +282,7 @@
             viewMoreButton.textContent = 'View More';
             viewMoreButton.classList.add('viewButton');
             viewMoreButton.onclick = function() {
-                window.location.href = `productId.html?id=${product.id}`;
+                window.location.href =  `/viewproduct?id=${product.id}`;
             };
             productDiv.appendChild(viewMoreButton);
 

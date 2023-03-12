@@ -2,28 +2,6 @@
 <html lang="en">
 <head>
   <title>Visitors</title>
-<!--<<<<<<< HEAD:src/main/resources/templates/admin/formsubmission.html-->
-  <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png">
-<!--  <link rel="stylesheet" href="../../static/userDetailsStyle.css">-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
-<!--  <style>-->
-<!--    body {-->
-<!--      background-color: #f0f8ff;-->
-<!--    }-->
-
-<!--/*=======*/-->
-<!--/*  <link rel="apple-touch-icon" sizes="180x180" href="admin/favicon.png">*/-->
-<!--/*  <link rel="icon" type="image/png" sizes="32x32" href="admin/favicon.png">*/-->
-<!--/*  <link rel="icon" type="image/png" sizes="16x16" href="admin/favicon.png">*/-->
-<!--/*  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">*/-->
-<!--/*  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">*/-->
-<!--/*  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>*/-->
   <link rel="apple-touch-icon" sizes="180x180" href="admin/favicon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="admin/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="admin/favicon.png">
@@ -86,51 +64,118 @@
       background-color: #f8f9fa;
     }
 
+    .filter-container {
+      background-color: #e6f0ff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    .filter-container h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 0;
+    }
+
+    .filter-container form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .filter-container label {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .filter-container input[type="date"] {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .filter-container button {
+      background-color: #2196f3;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 22px;
+    }
+    .formDate{
+      margin: 1%;
+      width: 43%;
+    }
+
+    @media screen and (max-width: 862px) {
+      .filter-container form {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .filter-container form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+        flex-direction: column;
+        align-items: end;
+      }
+      .formDate{
+        margin: auto;
+        width: 100%;
+      }
+      .filter-container input[type="date"] {
+        width: 100%;
+      }
+      .filter-container button {
+        background-color: #2196f3;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+    }
     @media screen and (max-width: 600px) {
       table {
         display: block;
       }
+
       table thead {
         display: none;
       }
+
       table tr {
         margin-bottom: 10px;
         display: block;
         border-bottom: 2px solid #ddd;
       }
+
       table td {
         display: block;
         text-align: right;
         font-size: 13px;
         border-bottom: none;
       }
+
       table td:before {
         content: attr(data-label);
         float: left;
         text-transform: uppercase;
         font-weight: bold;
       }
+
       table td:last-child {
         border-bottom: 0;
       }
     }
-/*<<<<<<< HEAD:src/main/resources/templates/admin/formsubmission.html*/
-    /*table {*/
-    /*  border-collapse: collapse;*/
-    /*  width: 100%;*/
-    /*}*/
-
-    /*th, td {*/
-    /*  text-align: left;*/
-    /*  padding: 8px;*/
-    /*}*/
-
-    /*th {*/
-    /*  background-color: #dddddd;*/
-    /*}*/
-
-/*=======*/
-/*>>>>>>> 22d1157232cbc9dea8eaf4a8a26245c3531cd132:src/main/resources/templates/formsubmission.html*/
     .pagination {
       margin-top: 20px;
       display: flex;
@@ -147,7 +192,6 @@
       height: 50px;
       animation: spin 2s linear infinite;
     }
-
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
@@ -169,79 +213,12 @@
       cursor: default;
     }
 
-/*<<<<<<< HEAD:src/main/resources/templates/admin/formsubmission.html*/
-    /* Navbar Styling */
-    .navbar {
-      background-color: #fff;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .navbar-brand img {
-      max-height: 30px;
-    }
-
-    .nav-link {
-      color: #555;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 0 20px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .nav-link:hover {
-      color: #007bff;
-    }
-
-/*=======*/
-/*>>>>>>> 22d1157232cbc9dea8eaf4a8a26245c3531cd132:src/main/resources/templates/formsubmission.html*/
     .table-div {
       overflow-x: auto;
       margin: 1rem;
     }
   </style>
 </head>
-<<<<<<< HEAD
-<!--<<<<<<< HEAD:src/main/resources/templates/admin/formsubmission.html-->
-<!--<body>-->
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-<!--  <a class="navbar-brand" href="#"><img src="Resources/vedikaLogo.png" height="30px" alt="img"></a>-->
-<!--  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--    <span class="navbar-toggler-icon"></span>-->
-<!--  </button>-->
-<!--  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">-->
-<!--    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link active" href="/static">HOME<span class="sr-only">(current)</span></a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/about">ABOUT</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/products">PRODUCTS</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/services">SERVICES</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="#">SPARES</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="#">GALLERY & LITERATURE</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/contactUs">CONTACT</a>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</nav>-->
-<!--<div id="loader" class="loader"></div>-->
-<!--<h1>Visitors</h1>-->
-
-<!--<div class="container">-->
-  <h1 class="text-center mt-4">Customer Contact Details</h1>
-<!--=======-->
-=======
->>>>>>> 0f7d912c78690eb180c6707d25a137b22647c4b3
 <body class="p-3 m-0 border-0 bd-example">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -255,21 +232,32 @@
         <li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/admin/visitorResponse}">Visitor's Response</a></li>
         <li class="nav-item"><a class="nav-link" th:href="@{/admin/addProduct}">Add New Product</a></li>
       </ul>
-        <a class="nav-link" th:href="@{/logout}">Logout</a>
+      <a class="nav-link" th:href="@{/logout}">Logout</a>
     </div>
   </div>
 </nav>
 <h1 class="text-center mt-4">Customer Contact Details</h1>
 <div id="loader" class="loader"></div>
-<<<<<<< HEAD
-<!--&gt;>>>>>> 22d1157232cbc9dea8eaf4a8a26245c3531cd132:src/main/resources/templates/formsubmission.html-->
-=======
->>>>>>> 0f7d912c78690eb180c6707d25a137b22647c4b3
+<div class="filter-container">
+  <h3>Filter Products by Date Added</h3>
+  <form id="filter-form">
+    <div class="formDate">
+      <label for="start-date">Start Date:</label>
+      <input type="date" id="start-date" name="start-date" required>
+    </div>
+    <div class="formDate">
+      <label for="end-date">End Date:</label>
+      <input type="date" id="end-date" name="end-date" required>
+    </div>
+    <button type="submit">Filter</button>
+  </form>
+</div>
 <div class="table-div">
   <table>
     <thead>
     <tr>
       <th>S.No.</th>
+      <th>Date Added</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Address</th>
@@ -287,45 +275,37 @@
     </tbody>
   </table>
 </div>
-<<<<<<< HEAD
-<!--<<<<<<< HEAD:src/main/resources/templates/admin/formsubmission.html-->
-<!--</div>-->
-<!--<table>-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th>S.No.</th>-->
-<!--    <th>First Name</th>-->
-<!--    <th>Last Name</th>-->
-<!--    <th>Address</th>-->
-<!--    <th>Phone Number</th>-->
-<!--    <th>Email</th>-->
-<!--    <th>Preferable Date</th>-->
-<!--    <th>Preferable Time</th>-->
-<!--    <th>Enquiry</th>-->
-<!--    <th>Product Model Name</th>-->
-<!--    <th>Product Size</th>-->
-<!--    <th>Product Our Cost</th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody id="visitors-table">-->
-<!--  </tbody>-->
-<!--</table>-->
-<!--=======-->
-<!--&gt;>>>>>> 22d1157232cbc9dea8eaf4a8a26245c3531cd132:src/main/resources/templates/formsubmission.html-->
-=======
->>>>>>> 0f7d912c78690eb180c6707d25a137b22647c4b3
 <div class="pagination">
   <button id="previous-page-btn" disabled>&laquo; Previous</button>
   <button id="next-page-btn" disabled>Next &raquo;</button>
   <span id="page-info"></span>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
 <script>
-  const baseUrl = "/admin/visitor/getAll?pageSize=10&sortBy=id&pageNumber=";
+  let baseUrl = "/admin/visitor/getAll?pageSize=10&sortBy=id&pageNumber=";
+  const filterForm = document.getElementById('filter-form');
   const pageSize = 10;
 
   let currentPage = 1;
   let totalPages = 1;
+
+  filterForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    if (new Date(startDate) > new Date(endDate)) {
+      event.preventDefault();
+      bootbox.alert({
+        title: "Invalid Date Parameters",
+        message: "Start-date must be before the End-date.",
+      });
+    }
+    baseUrl = `/admin/visitor/getAllFiltered?getAll?pageSize=10&sortBy=createdDate&startDate=${startDate}&endDate=${endDate}&pageNumber=`;
+    currentPage = 1;
+    totalPages = 1;
+    fetchData(currentPage-1);
+  });
 
   function updateTable(data) {
     let tableBody = document.getElementById("visitors-table");
@@ -338,48 +318,51 @@
       cell1.innerHTML = serialNumber;
 
       let cell2 = row.insertCell(1);
-      cell2.innerHTML = data[i].firstname;
+      cell2.innerHTML = data[i].createdDate;
 
       let cell3 = row.insertCell(2);
-      if(data[i].lastname!=null)
-        cell3.innerHTML = data[i].lastname;
+      cell3.innerHTML = data[i].firstname;
 
       let cell4 = row.insertCell(3);
-      if(data[i].address!=null)
-        cell4.innerHTML = data[i].address;
+      if(data[i].lastname!=null)
+        cell4.innerHTML = data[i].lastname;
 
-      let cell6 = row.insertCell(4);
+      let cell5 = row.insertCell(4);
+      if(data[i].address!=null)
+        cell5.innerHTML = data[i].address;
+
+      let cell6 = row.insertCell(5);
       cell6.innerHTML = data[i].phoneNumber;
 
-      let cell5 = row.insertCell(5);
-      if(data[i].email!=null)
-        cell5.innerHTML = data[i].email;
-
       let cell7 = row.insertCell(6);
-      if(data[i].preferableDate!=null)
-        cell7.innerHTML = data[i].preferableDate;
+      if(data[i].email!=null)
+        cell7.innerHTML = data[i].email;
 
       let cell8 = row.insertCell(7);
-      if(data[i].preferableTime!=null)
-        cell8.innerHTML = data[i].preferableTime;
+      if(data[i].preferableDate!=null)
+        cell8.innerHTML = data[i].preferableDate;
 
       let cell9 = row.insertCell(8);
+      if(data[i].preferableTime!=null)
+        cell9.innerHTML = data[i].preferableTime;
+
+      let cell10 = row.insertCell(9);
       if(data[i].enquiry!=null)
-        cell9.innerHTML = data[i].enquiry;
+        cell10.innerHTML = data[i].enquiry;
 
       let product = data[i].product;
 
-      let cell11 = row.insertCell(9);
-      if(data[i].product!=null)
-        cell11.innerHTML = product.modelName;
-
       let cell12 = row.insertCell(10);
       if(data[i].product!=null)
-        cell12.innerHTML = product.size;
+        cell12.innerHTML = product.modelName;
 
       let cell13 = row.insertCell(11);
       if(data[i].product!=null)
-        cell13.innerHTML = "Rs. "+product.ourCost;
+        cell13.innerHTML = product.size;
+
+      let cell14 = row.insertCell(12);
+      if(data[i].product!=null)
+        cell14.innerHTML = "Rs. "+product.ourCost;
     }
   }
 

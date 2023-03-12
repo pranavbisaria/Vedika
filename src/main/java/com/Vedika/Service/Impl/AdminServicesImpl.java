@@ -25,13 +25,10 @@ public class AdminServicesImpl implements AdminService {
         boolean alreadyVisited = countVisitorRepo.existsByDateAndIpAddress(LocalDate.now(), ipAddress);
         if (!alreadyVisited){
             CountVisitor visitor = new CountVisitor();
-            visitor.setDate(LocalDate.now());
             visitor.setIpAddress(ipAddress);
             countVisitorRepo.save(visitor);
         }
-
     }
-
     @Override
     public Map<LocalDate, Integer> getVisitorCount() {
         List<CountVisitor> totalVisitors = countVisitorRepo.findAll();
@@ -46,6 +43,5 @@ public class AdminServicesImpl implements AdminService {
             }
         }
         return ipCountByDate;
-//        return (int)countVisitorRepo.count();
     }
 }

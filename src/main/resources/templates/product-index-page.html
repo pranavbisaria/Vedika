@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Product Table</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="admin/favicon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="admin/favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="admin/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -93,8 +93,23 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
+            z-index: 1000;
             font-size: 14px;
-            margin: 4px 2px;
+            margin: 4px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .viewProductBtn{
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            z-index: 1000;
+            font-size: 14px;
+            margin: 4px auto;
             cursor: pointer;
             border-radius: 4px;
         }
@@ -167,12 +182,12 @@
     <table id="product-table">
         <thead>
         <tr>
-            <th>Product ID</th>
+            <th>S.NO.</th>
             <th>Model Name</th>
             <th>Size</th>
             <th>Our Cost</th>
             <th>Original Price</th>
-            <th>Action</th>
+            <th colspan="2">Action</th>
         </tr>
         </thead>
         <tbody></tbody>
@@ -196,21 +211,24 @@
                 // Get product table and clear previous rows
                 const table = document.getElementById('product-table');
                 const tbody = table.querySelector('tbody');
+                let i=0;
                 tbody.innerHTML = '';
-
                 // Add products to table
                 data.content.forEach(product => {
+                    let serialNumber = (pageNumber) * pageSize + i + 1;
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
-          <td>${product.id}</td>
-          <td>${product.modelName}</td>
-          <td>${product.size}</td>
-          <td>Rs. ${product.ourCost}</td>
-          <td>Rs. ${product.originalPrice}</td>
-          <td>
-            <button class="deleteBtn" onclick="deleteProduct(${product.id})">Delete</button>
-          </td>
-        `;
+                        <td>${serialNumber}</td>
+                        <td>${product.modelName}</td>
+                        <td>${product.size}</td>
+                        <td>Rs. ${product.ourCost}</td>
+                        <td>Rs. ${product.originalPrice}</td>
+                        <td colspan="2">
+                            <button class="viewProductBtn" onclick="window.location.href = '/viewproduct?id=${product.id}'">View</button>
+                            <button class="deleteBtn" onclick="deleteProduct(${product.id})">Delete</button>
+                    </td>
+                `;
+                    i++;
                     tbody.appendChild(tr);
                 });
 
@@ -277,7 +295,7 @@
                             if (response.ok) {
                                 bootbox.alert({
                                     title: "Console Panel",
-                                    message: "Product has been successfully deleted with Product Id: "+productId,
+                                    message: "Product has been successfully deleted!!!"
                                 });
                                 fetchProducts(currentPage);
                             }

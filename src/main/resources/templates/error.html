@@ -17,6 +17,9 @@
       font-weight:bold;
       text-align: center;
     }
+    #errorContainer{
+      margin: 40px auto 70px;
+    }
 
     @media screen and (max-width:768px) {
       body {
@@ -47,6 +50,19 @@
 
     .nav-link:hover {
       color: #007bff;
+    }
+    #homeBtn{
+      padding: 10px;
+      background-color: #4c97e4;
+      width: 40%;
+      min-width: fit-content;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #homeBtn:hover{
+      background-color: #0350a1;
     }
     footer {
       background-color: #f1f1f1;
@@ -118,7 +134,19 @@
       .sideContentBOX {
         margin: 25px auto;
       }
+    }
+    @media (max-width: 1000px) {
       nav .navbar-brand {
+        margin: auto;
+      }
+      nav button {
+        position: absolute;
+        width: 6vh;
+        height: 5vh;
+        right: 0.5vh;
+        top: 0.5vh;
+      }
+      nav .navbar-brand{
         margin: auto;
       }
       nav button {
@@ -130,10 +158,77 @@
       }
       .nav-link {
         color: #555;
+        font-size: 1.6em;
+        font-weight: bold;
+        padding: 8px 20px;
+        transition: all 0.3s ease-in-out;
+      }
+      h3 {
+        color: #2d2d2d;
+        margin-top: 2vh;
+        font-size: 2.3rem;
+      }
+      h4 {
+        color: #2d2d2d;
+        font-weight: 700;
+        font-size: 65px;
+        margin-bottom: 30px;
+      }
+      p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+      .social-icons a {
+        color: #555;
+        margin-right: 20px;
+        font-size: 44px;
+        transition: color 0.3s ease;
+      }
+      footer {
+        background-color: #f1f1f1;
+        padding: 145px 0;
+        margin-top: 50px;
+      }
+      .nav-link {
+        color: #555;
         font-size: 3em;
         font-weight: bold;
         padding: 8px 20px;
         transition: all 0.3s ease-in-out;
+      }
+      #errorContainer {
+        width: 90%;
+        margin: 171px auto 227px;
+      }
+      #homeBtn {
+        padding: 10px;
+        background-color: #4c97e4;
+        width: 40%;
+        min-width: fit-content;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 40px;
+      }
+      p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 38px;
+      }
+      h1 {
+        font-size: 15.5em;
+        font-weight: bold;
+        text-align: center;
+      }
+      #errorImage {
+        max-width: fit-content;
+        margin: auto;
+        padding: 56px;
+        width: 100%;
       }
     }
   </style>
@@ -176,7 +271,7 @@
         How you got here is a mystery. But you can click the button below
         to go back to the homepage.
       </p>
-      <button class="btn green" onclick="window.location.href='/home'">HOME</button>
+      <button id="homeBtn" onclick="window.location.href='/home'">HOME</button>
     </div>
   </div>
 </div>

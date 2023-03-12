@@ -3,11 +3,12 @@ package com.Vedika.Controller;
 import com.Vedika.Payload.AddProduct;
 import com.Vedika.Payload.GetProduct;
 import com.Vedika.Payload.PageableDto;
+import com.Vedika.Payload.ProductDto;
 import com.Vedika.Service.AdminService;
 import com.Vedika.Service.ProductService;
-import jakarta.servlet.http.HttpServletRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +56,6 @@ public class ProductController {
     public ResponseEntity<?> deleteProduct(@PathVariable("id") Long id){
         return this.productService.deleteProductById(id);
     }
-
     @GetMapping("/product/getProduct/{id}")
     public ResponseEntity<?> getProductById(@PathVariable("id") Long id){
         return this.productService.productById(id);

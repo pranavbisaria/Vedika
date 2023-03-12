@@ -16,8 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.OK;
 
@@ -36,6 +36,27 @@ public class VisitorServiceImpl implements VisitorService {
         }
         this.visitorsRepo.save(visitors);
         return new ResponseEntity<>(new ApiResponse("Form Submitted Successfully", true), OK);
+    }
+    @Override
+    public PageResponse getVisitorsBetweenDates(Date startDate, Date endDate, PageableDto pageable) {
+        Integer pN = pageable.getPageNumber(), pS = pageable.getPageSize();
+        Sort sort = null;
+        if (pageable.getSortDir().equalsIgnoreCase("asc")) {
+            sort = Sort.by(pageable.getSortBy()).ascending();
+        } else {
+            sort = Sort.by(pageable.getSortBy()).descending();
+        }
+        Pageable p = PageRequest.of(pN, pS, sort);
+        Page<Visitors> pageVisitors = this.visitorsRepo.findByCreatedDateGreaterThanEqualAndCreatedDateLessThanEqual(startDate, endDate, p);
+        List<Visitors> allVisitors = pageVisitors.getContent();
+        List<VisitorDto> allVisitorsDTOs = new ArrayList<>(0);
+        for (Visitors visitor : allVisitors) {
+            VisitorDto visitorDto = this.modelMapper.map(visitor, VisitorDto.class);
+            if (visitor.getProduct() != null)
+                visitorDto.getProduct().setImageUrls(visitor.getProduct().getImageUrls().get(0).getImageUrl());
+            allVisitorsDTOs.add(visitorDto);
+        }
+        return new PageResponse(new ArrayList<>(allVisitorsDTOs), pageVisitors.getNumber(), pageVisitors.getSize(), pageVisitors.getTotalPages(), pageVisitors.getTotalElements(), pageVisitors.isLast());
     }
     @Override
     public PageResponse getAll(PageableDto pageable){

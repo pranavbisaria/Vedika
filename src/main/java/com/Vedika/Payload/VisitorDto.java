@@ -31,6 +31,8 @@ public class VisitorDto {
     private Date preferableTime;
     @Nullable
     private String enquiry;
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private Date createdDate;
     @Nullable
     private ProductDto product;
 }

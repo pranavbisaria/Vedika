@@ -238,6 +238,34 @@
             h1{
                 font-size: 5.5rem;
             }
+            h4 {
+                color: #2d2d2d;
+                font-weight: 700;
+                font-size: 65px;
+                margin-bottom: 30px;
+            }
+            p {
+                color: #555;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                font-size: 30px;
+            }
+            .social-icons a {
+                color: #555;
+                margin-right: 20px;
+                font-size: 44px;
+                transition: color 0.3s ease;
+            }
+            footer {
+                background-color: #f1f1f1;
+                padding: 145px 0;
+                margin-top: 50px;
+            }
+            .pagination {
+                display: flex;
+                font-size: 2em;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -366,7 +394,7 @@
             const viewMoreButton = document.createElement('button');
             viewMoreButton.textContent = 'View More';
             viewMoreButton.onclick = function() {
-                window.location.href = `productId.html?id=${product.id}`;
+                window.location.href = `/viewproduct?id=${product.id}`;
             };
             productDetail.appendChild(viewMoreButton);
 

@@ -58,7 +58,6 @@
         }
         label {
             margin-bottom: 10px;
-            margin-left: 6px;
             font-weight: bold;
         }
         input, select, textarea, option {
@@ -142,24 +141,15 @@
             margin-bottom: 40px;
         }
         @media (max-width: 1000px) {
-            #contactUs{
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                flex-wrap: wrap;
-                margin: 0;
-                padding: 0;
+            nav .navbar-brand {
+                margin: auto;
             }
-            form {
-                max-width: 80%;
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: row;
-                align-items: center;
-                margin: 25px auto;
-            }
-            .sideContentBOX{
-                margin: 25px auto;
+            nav button {
+                position: absolute;
+                width: 6vh;
+                height: 5vh;
+                right: 0.5vh;
+                top: 0.5vh;
             }
             nav .navbar-brand{
                 margin: auto;
@@ -173,17 +163,132 @@
             }
             .nav-link {
                 color: #555;
+                font-size: 1.6em;
+                font-weight: bold;
+                padding: 8px 20px;
+                transition: all 0.3s ease-in-out;
+            }
+            h3 {
+                color: #2d2d2d;
+                margin-top: 2vh;
+                font-size: 2.3rem;
+            }
+            h4 {
+                color: #2d2d2d;
+                font-weight: 700;
+                font-size: 65px;
+                margin-bottom: 30px;
+            }
+            p {
+                color: #555;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                font-size: 30px;
+            }
+            .social-icons a {
+                color: #555;
+                margin-right: 20px;
+                font-size: 44px;
+                transition: color 0.3s ease;
+            }
+            footer {
+                background-color: #f1f1f1;
+                padding: 145px 0;
+                margin-top: 50px;
+            }
+            .nav-link {
+                color: #555;
                 font-size: 3em;
                 font-weight: bold;
                 padding: 8px 20px;
                 transition: all 0.3s ease-in-out;
+            }
+            p {
+                color: #555;
+                line-height: 1.6;
+                margin-bottom: 80px;
+                font-size: 38px;
+            }
+            h1 {
+                font-size: 5em;
+                font-weight: bold;
+                text-align: center;
+                margin: 20px auto 20px;
+            }
+            #contactUs{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin: 0;
+                padding: 0;
+            }
+            form {
+                max-width: 90%;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                align-items: center;
+                margin: 25px auto;
+            }
+            input, select, textarea {
+                margin-bottom: 20px;
+                padding: 10px 25px;
+                width: 100%;
+                font-size: 2.5em;
+                height: 2em;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 50px;
+            }
+            label {
+                width: 100%;
+                font-size: 3em;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+            .modal-title {
+                font-size: 3em;
+            }
+            .bootbox-body{
+                font-size: 2em;
+            }
+            .btn-primary{
+                font-size: 2em;
+                width: 5em;
+            }
+            .fh{
+                display: flex;
+                flex-direction: column;
+                justify-content: left;
+                width: 100%;
+            }
+            element.style {
+            }
+            [type=reset], [type=submit], button, html [type=button] {
+                -webkit-appearance: button;
+            }
+            form button {
+                padding: 10px;
+                background-color: #4c97e4;
+                width: 90%;
+                min-width: fit-content;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 4em;
+                margin: 1em;
+            }
+            .sideContentBOX {
+                margin: 170px auto;
             }
         }
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand mx-auto" href="#">
+    <a class="navbar-brand mx-auto" href="/home">
         <img src="Resources/vedikaLogo.png" alt="logo" class="img-fluid">
     </a>
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -204,7 +309,7 @@
                 <a class="nav-link" href="/services">SERVICES</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="/contactUs">CONTACT<span class="sr-only">(current)</span></a>
+                <a class="nav-link active" href="/contactUs">CONTACT</a>
             </li>
         </ul>
     </div>
@@ -212,7 +317,7 @@
 <div id="contactUs">
     <form id="contact-form">
         <h1>Contact <span class="blue">Us</span></h1>
-        Come visit our work sites or simply send us an email anytime you want. We are open to all suggestions from our audience.
+        <p>Come visit our work sites or simply send us an email anytime you want. We are open to all suggestions from our audience.</p>
         <div class="fh">
             <label for="firstname">First Name *</label>
             <input type="text" id="firstname" name="firstname" required>
@@ -258,14 +363,14 @@
     <div class="sideContentBOX">
         <div class="sideContent">
             <h1>Opening Hours</h1><br>
-            Mon - Sat: 8am - 9pm<br>
-            <span class="blue">Sunday: Closed</span><br>
+            <p>Mon - Sat: 8am - 9pm<br>
+            <span class="blue">Sunday: Closed</span><br></p>
         </div>
         <div class="sideContent">
             <h1>Location</h1><br>
-            LG 12, AARZA Square 2,<br>
+            <p>LG 12, AARZA Square 2,<br>
             Gaur City 1, Greater Noida West,<br>
-            Uttar Pradesh
+                Uttar Pradesh</p>
         </div>
 
     </div>

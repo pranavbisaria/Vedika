@@ -115,7 +115,7 @@
 <div class="loader-container">
   <div class="loader">
   </div>
-    <div class="loader-inner"></div>
+  <div class="loader-inner"></div>
   <div class="status">UP</div>
 </div>
 <div id="unique-visitors-count"></div>
@@ -123,58 +123,58 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+  const countVisitorUrl = '/admin/visitor-count';
   const healthUrl = '/actuator/health';
-  const uniqueVisitorsUrl = '/visitor/unique-visitors';
-
   const healthDiv = document.querySelector('#health');
   const uniqueVisitorsCountDiv = document.querySelector('#unique-visitors-count');
   const uniqueVisitorsCanvas = document.querySelector('#unique-visitors');
-
-  // Fetch health status and display it
   fetch(healthUrl)
           .then(response => response.json())
           .then(data => {
             const status = data.status;
-            healthDiv.innerHTML = `Health: ${status}`;
+            if(!status==="UP"){
+              healthDiv.innerHTML = `Health: ${status}`;
+            }
+            else{
+              healthDiv.innerHTML = `Health: ${status}`;
+              document.getElementsByClassName("status").innerHTML = status;
+              document.getElementsByClassName("status").style.color = red;
+              document.getElementsByClassName("loader").style.border=red;
+
+            }
           })
           .catch(error => console.error(error));
 
-  // Fetch unique visitor count data and display it in a graph
   fetch('/actuator/metrics/http.server.requests?tag=uri:/')
           .then(response => response.json())
           .then(data => {
             const hitCount = data.measurements[0].value;
-            uniqueVisitorsCountDiv.innerHTML = `Unique Visitors Count: :`+hitCount;
+            uniqueVisitorsCountDiv.innerHTML = `Total Visitor Count: :`+hitCount;
           });
-  fetch(uniqueVisitorsUrl)
+  fetch(countVisitorUrl)
           .then(response => response.json())
           .then(data => {
-            const labels = Object.keys(data).map(key => new Date(parseInt(key) * 1000).toLocaleTimeString());
-            const values = Object.values(data);
+            const labels = [];
+            const countData = [];
+            for(let key in data) {
+              labels.push(key);
+              countData.push(data[key]);
+            }
             const ctx = uniqueVisitorsCanvas.getContext('2d');
-            new Chart(ctx, {
+            const myChart = new Chart(ctx, {
               type: 'line',
               data: {
-                labels: labels,
+                labels: labels.reverse(),
                 datasets: [{
-                  label: 'Unique Visitors',
-                  data: values,
-                  backgroundColor: 'rgba(0, 123, 255, 0.1)',
-                  borderColor: 'rgba(0, 123, 255, 1)',
+                  label: 'Count',
+                  data: countData.reverse(),
+                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                  borderColor: 'rgba(54, 162, 235, 1)',
                   borderWidth: 1
                 }]
               },
               options: {
                 scales: {
-                  xAxes: [{
-                    type: 'time',
-                    time: {
-                      unit: 'hour',
-                      displayFormats: {
-                        hour: 'hA'
-                      }
-                    }
-                  }],
                   yAxes: [{
                     ticks: {
                       beginAtZero: true
