@@ -5,10 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import io.micrometer.core.instrument.Counter;
-import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.web.bind.annotation.RequestMapping;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Controller
 @RequiredArgsConstructor
@@ -42,25 +39,45 @@ public class StatusController {
     @RequestMapping("/home")
     public String home(HttpServletRequest httpRequest){
         adminService.trackVisitor(httpRequest.getRemoteAddr());
-        return "/index.html";
+        return "index.html";
     }
     @RequestMapping("/products")
     public String products(HttpServletRequest httpRequest){
         adminService.trackVisitor(httpRequest.getRemoteAddr());
-        return "/products.html";
+        return "products.html";
     }
     @RequestMapping("/contactUs")
     public String contact(HttpServletRequest httpRequest){
         adminService.trackVisitor(httpRequest.getRemoteAddr());
-        return "/contact.html";
+        return "contact.html";
     }
     @RequestMapping("/services")
     public String service(HttpServletRequest httpRequest){
         adminService.trackVisitor(httpRequest.getRemoteAddr());
-        return "/services.html";
+        return "services.html";
     }
     @GetMapping("/admin")
     public String admin() {
-        return "/admin/adminpanel.html";
+        return "admin/adminpanel.html";
     }
+//    @GetMapping("/")
+//    public String landingPage() {
+//        return "index";
+//    }
+//    @GetMapping("/home")
+//    public String home(){
+//        return "index";
+//    }
+//    @GetMapping("/products")
+//    public String products(){
+//        return "products";
+//    }
+//    @GetMapping("/contactUs")
+//    public String contact(){
+//        return "contact";
+//    }
+//    @GetMapping("/services")
+//    public String service(){
+//        return "services";
+//    }
 }

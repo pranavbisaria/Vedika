@@ -20,12 +20,11 @@ import static org.springframework.http.HttpStatus.OK;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/product")
 public class ProductController {
     private final ProductService productService;
     private final AdminService adminService;
     private final ObjectMapper objectMapper;
-    @PostMapping("/add")
+    @PostMapping("/admin/product/add")
     public ResponseEntity<?> addNewProduct(@RequestParam("images") MultipartFile[] images, @Valid @RequestParam("productDto") String productDto){
         GetProduct getProduct = null;
         try {
@@ -35,15 +34,15 @@ public class ProductController {
         }
         return this.productService.addProduct(getProduct, images);
     }
-    @PostMapping("/addProductData")
+    @PostMapping("/admin/product/addProductData")
     public ResponseEntity<?> addNewProductData(@Valid @RequestBody AddProduct productDto){
         return this.productService.addNewProductData(productDto);
     }
-    @PatchMapping("/addProductData/{id}")
+    @PatchMapping("/admin/product/addProductData/{id}")
     public ResponseEntity<?> addProductImages(@RequestParam("images") MultipartFile[] images, @PathVariable("id") Long id){
         return this.productService.addNewProductImages(id, images);
     }
-    @GetMapping("/allProducts")
+    @GetMapping("/product/allProducts")
     public ResponseEntity<?> getAllProducts(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
                                             @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize,
                                             @RequestParam(value = "sortBy", defaultValue = "id", required = false) String sortBy,
@@ -53,13 +52,13 @@ public class ProductController {
         adminService.trackVisitor(httpRequest.getRemoteAddr());
         return new ResponseEntity<>(this.productService.getAll(new PageableDto(pageNumber, pageSize, sortBy, sortDir)), OK);
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/admin/product/delete/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable("id") Long id){
         return this.productService.deleteProductById(id);
     }
-    @GetMapping("/getProduct/{id}")
-    public ResponseEntity<?> getProductById(@PathVariable("id") Long id, HttpServletRequest httpRequest){
-        adminService.trackVisitor(httpRequest.getRemoteAddr());
+
+    @GetMapping("/product/getProduct/{id}")
+    public ResponseEntity<?> getProductById(@PathVariable("id") Long id){
         return this.productService.productById(id);
     }
 }
