@@ -202,6 +202,20 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
+        #loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         button{
             height: 60px;
             font-size: 26px;
@@ -300,6 +314,7 @@
 <div class="myContainer">
     <h1 style="text-align: center; margin-top: 20px;">Our <span style="color: #009DF8;">Products</span></h1>
     <div class="product-list"></div>
+    <div id="loader"></div>
     <div class="pagination"></div>
 </div>
 <footer>
@@ -337,22 +352,24 @@
     let currentPage = 0;
     let lastPage = 0;
 
-    function fetchProducts(pageNumber = 0, pageSize = 10, sortBy = 'id', sortDir = 'desc') {
-        fetch(`${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`)
-            .then(response => response.json())
-            .then(data => {
-                currentPage = data.pageNumber;
-                lastPage = data.totalPage - 1;
-
-                renderProducts(data.content);
-                renderPagination();
-            })
-            .catch(error => console.error(error));
+    async function fetchProducts(pageNumber = 0, pageSize = 10, sortBy = 'id', sortDir = 'desc') {
+        var loader = document.getElementById("loader");
+        loader.style.display = "block";
+        try {
+            const response = await fetch(`${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`);
+            const data = await response.json();
+            currentPage = data.pageNumber;
+            lastPage = data.totalPage - 1;
+            renderProducts(data.content);
+            loader.style.display = "none";
+            renderPagination();
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     function renderProducts(products) {
         productList.innerHTML = '';
-
         products.forEach((product) => {
             const productDiv = document.createElement('div');
             productDiv.classList.add('product-container');

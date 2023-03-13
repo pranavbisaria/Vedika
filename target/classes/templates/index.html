@@ -13,6 +13,20 @@
     <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <style>
+        #loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         @media (max-width: 1000px) {
             nav .navbar-brand {
                 margin: auto;
@@ -171,14 +185,14 @@
     </div>
 </nav>
 <div id="mainContent">
-    <img class="imageTL" src="Resources/tv1.png" alt="Left Image" onload="handleImageLoad()">
+    <img class="imageTL" src="Resources/tv1.png" alt="Left Image">
     <div class="centered">
         <h1>Welcome to our website!</h1>
         <p>Here innovation, technology, and design converge to deliver the ultimate viewing experience. We are passionate about creating TVs that not only look stunning but also deliver crystal-clear images and immersive sound. With our cutting-edge technology and advanced engineering, we bring the cinema experience to your living room.
             Our commitment to excellence is evident in every TV we produce, from our stunning OLED displays to our sleek and stylish designs. We believe that a great TV should not only be a centerpiece in your living room, but it should also deliver an unparalleled viewing experience that immerses you in your favorite movies, shows, and games.</p>
         <a class="btn btn-primary" href="/contactUs">Contact Us</a>
     </div>
-    <img class="imageTR" src="Resources/tv2.png" alt="Right Image" onload="handleImageLoad()">
+    <img class="imageTR" src="Resources/tv2.png" alt="Right Image">
 </div>
 
 <hr class="styled-hr">
@@ -186,6 +200,7 @@
 <h1 class="headService">OUR <span class="blue">PRODUCTS</span></h1>
 <hr class="styled-hr" style="opacity: 0.3; margin: 10px auto 20px; padding: 0">
 <div class="product-list"></div>
+<div id="loader"></div>
 <p id="moreProduct"><a href="/products"> more products >>></a></p>
 <hr class="styled-hr">
 
@@ -239,28 +254,32 @@
 <script>
     const productList = document.querySelector('.product-list');
     const apiUrl = '/product/allProducts';
-    function fetchProducts(pageNumber = 0, pageSize = 5, sortBy = 'id', sortDir = 'desc') {
-        fetch(`${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`)
-            .then(response => response.json())
-            .then(data => {
-                renderProducts(data.content);
-            })
-            .catch(error => console.error(error));
-    }
-
-    function handleImageLoad() {
-        // This function will be called when the images are loaded
-        const imageTL = document.querySelector('.imageTL');
-        const imageTR = document.querySelector('.imageTR');
-        if (imageTL.complete && imageTR.complete) {
-            const productDiv = document.querySelector('#productDiv');
-            productDiv.style.display = 'block';
+    async function fetchProducts(pageNumber = 0, pageSize = 5, sortBy = 'id', sortDir = 'desc') {
+        var loader = document.getElementById("loader");
+        loader.style.display = "block";
+        try {
+            const response = await fetch(`${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`);
+            const data = await response.json();
+            renderProducts(data.content);
+        } catch (error) {
+            console.error(error);
         }
+        loader.style.display = "none";
     }
+    window.addEventListener('load', function() {
+        var imgTL = document.querySelector('.imageTL');
+        var imgTR = document.querySelector('.imageTR');
+        Promise.all([imgTL.complete, imgTR.complete])
+            .then(function() {
+                console.log('All images have finished loading');
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    });
 
     function renderProducts(products) {
         productList.innerHTML = '';
-
         products.forEach(product => {
             const productDiv = document.createElement('div');
             productDiv.classList.add('product');
