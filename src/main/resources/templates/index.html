@@ -253,9 +253,9 @@
 </footer>
 <script>
     const productList = document.querySelector('.product-list');
+    const loader = document.getElementById("loader");
     const apiUrl = '/product/allProducts';
     async function fetchProducts(pageNumber = 0, pageSize = 5, sortBy = 'id', sortDir = 'desc') {
-        var loader = document.getElementById("loader");
         loader.style.display = "block";
         try {
             const response = await fetch(`${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`);
@@ -264,7 +264,6 @@
         } catch (error) {
             console.error(error);
         }
-        loader.style.display = "none";
     }
     window.addEventListener('load', function() {
         var imgTL = document.querySelector('.imageTL');
@@ -320,6 +319,7 @@
             };
             image.src = "/file/"+product.imageUrls;
         });
+        loader.style.display = "none";
     }
     fetchProducts();
 </script>

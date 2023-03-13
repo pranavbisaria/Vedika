@@ -347,13 +347,13 @@
 <script>
     const productList = document.querySelector('.product-list');
     const pagination = document.querySelector('.pagination');
+    const loader = document.getElementById("loader");
 
     const apiUrl = '/product/allProducts';
     let currentPage = 0;
     let lastPage = 0;
 
     async function fetchProducts(pageNumber = 0, pageSize = 10, sortBy = 'id', sortDir = 'desc') {
-        var loader = document.getElementById("loader");
         loader.style.display = "block";
         try {
             const response = await fetch(`${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`);
@@ -361,7 +361,6 @@
             currentPage = data.pageNumber;
             lastPage = data.totalPage - 1;
             renderProducts(data.content);
-            loader.style.display = "none";
             renderPagination();
         } catch (error) {
             console.error(error);
@@ -418,6 +417,7 @@
             };
             productDetail.appendChild(viewMoreButton);
         });
+        loader.style.display = "none";
     }
 
 
