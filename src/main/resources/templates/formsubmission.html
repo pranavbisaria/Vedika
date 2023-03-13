@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <title>Visitors</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="admin/favicon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="admin/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="admin/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="file/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -25,13 +25,13 @@
       margin-top: 100px;
     }
     table {
-      margin-top: 20px;
+      margin: 20px auto;
       background-color: #fff;
       border-collapse: collapse;
       box-shadow: 0 10px 20px rgba(0,0,0,0.15);
       border-radius: 10px;
       overflow: hidden;
-      width: 100%;
+      width: 1600px;
       transition: all 0.3s cubic-bezier(.25,.8,.25,1);
       position: relative;
     }
@@ -113,69 +113,6 @@
       width: 43%;
     }
 
-    @media screen and (max-width: 862px) {
-      .filter-container form {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .filter-container form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: end;
-        flex-direction: column;
-        align-items: end;
-      }
-      .formDate{
-        margin: auto;
-        width: 100%;
-      }
-      .filter-container input[type="date"] {
-        width: 100%;
-      }
-      .filter-container button {
-        background-color: #2196f3;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-weight: bold;
-        cursor: pointer;
-        margin-top: 10px;
-      }
-    }
-    @media screen and (max-width: 600px) {
-      table {
-        display: block;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table tr {
-        margin-bottom: 10px;
-        display: block;
-        border-bottom: 2px solid #ddd;
-      }
-
-      table td {
-        display: block;
-        text-align: right;
-        font-size: 13px;
-        border-bottom: none;
-      }
-
-      table td:before {
-        content: attr(data-label);
-        float: left;
-        text-transform: uppercase;
-        font-weight: bold;
-      }
-
-      table td:last-child {
-        border-bottom: 0;
-      }
-    }
     .pagination {
       margin-top: 20px;
       display: flex;
@@ -216,6 +153,91 @@
     .table-div {
       overflow-x: auto;
       margin: 1rem;
+    }
+    @media (max-width: 1000px) {
+      .navbar-brand {
+        font-size: 4.2em;
+        font-weight: bolder;
+      }
+      .modal-title {
+        font-size: 3em;
+      }
+      .bootbox-body{
+        font-size: 2em;
+      }
+      .btn-primary{
+        font-size: 2em;
+        width: 5em;
+      }
+      .nav-link {
+        font-size: 3.2em;
+      }
+      h1 {
+        font-size: 3.2em;
+        font-weight: bolder;
+      }
+      .filter-container h3 {
+        font-size: 2.2em;
+        font-weight: bold;
+        margin-top: 0;
+      }
+      .filter-container label {
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+      button, input, optgroup, select, textarea {
+        font-size: 1.8em;
+      }
+      .formDate {
+        margin: 1%;
+        width: 48%;
+      }
+      .filter-container button {
+        margin-top: 22px;
+        font-size: 2em;
+      }
+      th {
+        font-size: 2em;
+      }
+      td {
+        font-size: 1.9em;
+      }
+      #previous-page-btn, #next-page-btn{
+        font-size: 1.9em;
+        margin: 1em;
+      }
+      #page-info{
+        font-size: 1.5em;
+      }
+      .filter-container form {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .filter-container form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+        flex-direction: column;
+        align-items: end;
+      }
+      .formDate{
+        margin: auto;
+        width: 100%;
+      }
+      .filter-container input[type="date"] {
+        width: 100%;
+      }
+      .filter-container button {
+        background-color: #2196f3;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+      }
     }
   </style>
 </head>

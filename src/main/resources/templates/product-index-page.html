@@ -33,17 +33,17 @@
         }
 
         table {
+            margin: auto;
             margin-top: 20px;
             background-color: #fff;
             border-collapse: collapse;
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
             border-radius: 10px;
             overflow: hidden;
-            width: 100%;
+            width: 1200px;
             transition: all 0.3s cubic-bezier(.25,.8,.25,1);
             position: relative;
         }
-
         th, td {
             padding: 12px 15px;
             text-align: left;
@@ -62,16 +62,16 @@
 
         tr{
             height: 50px;
-        }
-
-        td {
-            font-size: 0.9em;
+            font-size: 1.2em;
         }
 
         tr:nth-child(even) {
             background-color: #f8f9fa;
         }
-
+        #tablecontainner{
+            overflow-x: auto;
+            margin: auto;
+        }
         button {
             background-color: #3688f4;
             border: none;
@@ -80,7 +80,7 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 14px;
+            font-size: 0.9em;
             margin: 10px 2px;
             cursor: pointer;
             border-radius: 4px;
@@ -94,7 +94,7 @@
             text-decoration: none;
             display: inline-block;
             z-index: 1000;
-            font-size: 14px;
+            font-size: 1em;
             margin: 4px 20px;
             cursor: pointer;
             border-radius: 4px;
@@ -108,49 +108,10 @@
             text-decoration: none;
             display: inline-block;
             z-index: 1000;
-            font-size: 14px;
+            font-size: 1em;
             margin: 4px auto;
             cursor: pointer;
             border-radius: 4px;
-        }
-        @media screen and (max-width: 1000px) {
-            #productContainer {
-                margin: 25px auto ;
-                max-width: 96%;
-            }
-            @media screen and (max-width: 600px) {
-                table {
-                    display: block;
-                }
-                table thead {
-                    display: none;
-                }
-                table tr {
-                    margin-bottom: 10px;
-                    display: block;
-                    border-bottom: 2px solid #ddd;
-                }
-                table td {
-                    display: block;
-                    text-align: right;
-                    font-size: 13px;
-                    border-bottom: none;
-                }
-                table td:before {
-                    content: attr(data-label);
-                    float: left;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                }
-                table td:last-child {
-                    border-bottom: 0;
-                }
-                .alert-success {
-                    background-color: #28a745;
-                    border-color: #28a745;
-                    color: #fff;
-                }
-            }
         }
         button:hover {
             background-color: #0762dd;
@@ -179,19 +140,21 @@
 </nav>
 <div id="productContainer">
     <h1>MY PRODUCTS</h1>
-    <table id="product-table">
-        <thead>
-        <tr>
-            <th>S.NO.</th>
-            <th>Model Name</th>
-            <th>Size</th>
-            <th>Our Cost</th>
-            <th>Original Price</th>
-            <th colspan="2">Action</th>
-        </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div id="tablecontainner">
+        <table id="product-table">
+            <thead>
+            <tr>
+                <th>S.NO.</th>
+                <th>Model Name</th>
+                <th>Size</th>
+                <th>Our Cost</th>
+                <th>Original Price</th>
+                <th colspan="2">Action</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
     <div id="pagination"></div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
