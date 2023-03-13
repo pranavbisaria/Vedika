@@ -353,7 +353,7 @@
     function renderProducts(products) {
         productList.innerHTML = '';
 
-        products.forEach(product => {
+        products.forEach((product) => {
             const productDiv = document.createElement('div');
             productDiv.classList.add('product-container');
 
@@ -361,9 +361,13 @@
             productImgDiv.classList.add('product-image');
 
             const image = document.createElement('img');
-            image.src = "/file/"+product.imageUrls;
-            image.alt = "product image";
-            productImgDiv.appendChild(image);
+            image.src = '/file/' + product.imageUrls;
+            image.alt = 'product image';
+            image.onload = function () {
+                productDiv.appendChild(productImgDiv);
+                productDiv.appendChild(productDetail);
+                productList.appendChild(productDiv);
+            };
 
             const productDetail = document.createElement('div');
             productDetail.classList.add('product-details');
@@ -388,19 +392,17 @@
             ourCost.textContent = `Rs. ${product.ourCost}`;
             price.appendChild(ourCost);
 
-            productDiv.appendChild(productImgDiv);
-            productDiv.appendChild(productDetail);
+            productImgDiv.appendChild(image);
 
             const viewMoreButton = document.createElement('button');
             viewMoreButton.textContent = 'View More';
-            viewMoreButton.onclick = function() {
+            viewMoreButton.onclick = function () {
                 window.location.href = `/viewproduct?id=${product.id}`;
             };
             productDetail.appendChild(viewMoreButton);
-
-            productList.appendChild(productDiv);
         });
     }
+
 
     function renderPagination() {
         pagination.innerHTML = '';

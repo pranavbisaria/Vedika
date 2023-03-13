@@ -262,7 +262,7 @@
             }
     </style>
 </head>
-<body>
+<body onload="loadPage()">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand mx-auto" href="#">
         <img src="Resources/vedikaLogo.png" alt="logo" class="img-fluid">
@@ -342,6 +342,7 @@
     </div>
 </footer>
 <script>
+function loadPage() {
     const queryParams = new URLSearchParams(window.location.search);
     const productId = queryParams.get('id');
     const apiUrl = `/product/getProduct/${productId}`;
@@ -359,31 +360,31 @@
     function renderProduct(product) {
         // render images
         imageArray = product.imageUrls;
-        productImg.src = "/file/"+imageArray[imageIndex].imageUrl;
+        productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
 
         const name = product.modelName;
         prodName.append(name);
         prodNameResp.append(name);
 
-        const rate = "Size: "+product.size;
-        if(product.size!=null)
+        const rate = "Size: " + product.size;
+        if (product.size != null)
             prodSize.append(rate);
 
-        const originalRate = "Rs. "+product.originalPrice;
-        if(product.originalPrice!=null)
+        const originalRate = "Rs. " + product.originalPrice;
+        if (product.originalPrice != null)
             prodRateOriginal.append(originalRate);
 
-        const ourRate = " Rs. "+product.ourCost;
-        if(product.ourCost!=null)
+        const ourRate = " Rs. " + product.ourCost;
+        if (product.ourCost != null)
             prodRateOurRate.append(ourRate);
 
         const info = product.description;
-        if(product.description!=null)
+        if (product.description != null)
             prodInfo.append(info);
 
         productTable.innerHTML = '';
 
-        if(product.productInfo!=null)
+        if (product.productInfo != null)
             product.productInfo.forEach(info => {
                 const row = document.createElement('tr');
                 const headCell = document.createElement('th');
@@ -395,13 +396,14 @@
                 productTable.appendChild(row);
             });
     }
+
     function prevImage() {
         if (imageIndex === 0) {
             imageIndex = imageArray.length - 1;
         } else {
             imageIndex--;
         }
-        productImg.src = "/file/"+imageArray[imageIndex].imageUrl;
+        productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
     }
 
     function nextImage() {
@@ -410,14 +412,14 @@
         } else {
             imageIndex++;
         }
-        productImg.src = "/file/"+imageArray[imageIndex].imageUrl;
+        productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
     }
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => renderProduct(data))
         .catch(error => console.error(error));
-
+}
 </script>
 </body>
 </html>
