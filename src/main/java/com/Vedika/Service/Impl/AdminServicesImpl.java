@@ -44,4 +44,9 @@ public class AdminServicesImpl implements AdminService {
         }
         return ipCountByDate;
     }
+    @Override
+    public int countTotalVisitors() {
+        return this.countVisitorRepo.countDistinctByIpAddress();
+    }
+
 }

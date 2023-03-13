@@ -1,255 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Vedika</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
-  <style>
-    #indiaMart {
-      margin-top: 20px;
-      height: 600px;
-      width: 400px;
-    }
-    .headService{
-      text-align: center;
-      font-size: 4.7em;
-    }
-    #textContent{
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.3em;
-      width: 50%;
-      text-align: justify;
-    }
-    #about{
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: space-around;
-    }
-    .image-container {
-      width: 300px;
-      height: 88px;
-      overflow: hidden;
-      clip-path: inset(0 0 10% 0);
-    }
-
-    .image-container img {
-      width: 100%;
-      height: auto;
-    }
-    h3 {
-      color: #2d2d2d;
-      margin-top: 2vh;
-      font-size: 4.8rem;
-      padding-top: 2em;
-    }
-    h1{
-      margin-top: 50px;
-    }
-    .serviceDiv {
-      min-height: 55vh;
-    }
-    @media (max-width: 1000px) {
-      nav .navbar-brand {
-        margin: auto;
-      }
-      nav button {
-        position: absolute;
-        width: 6vh;
-        height: 5vh;
-        right: 0.5vh;
-        top: 0.5vh;
-      }
-      nav .navbar-brand{
-        margin: auto;
-      }
-      nav button {
-        position: absolute;
-        width:6vh;
-        height:5vh;
-        right: 0.5vh;
-        top: 0.5vh;
-      }
-      .nav-link {
-        color: #555;
-        font-size: 1.6em;
-        font-weight: bold;
-        padding: 8px 20px;
-        transition: all 0.3s ease-in-out;
-      }
-      h3 {
-        color: #2d2d2d;
-        margin-top: 2vh auto;
-        font-size: 2.3rem;
-      }
-      .headService{
-        text-align: center;
-        font-size: 5em;
-      }
-      .serviceDiv {
-        min-height: 35vh;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 20px 149px;
-        width: 45vh;
-        margin: 4vh auto;
-      }
-      .logService {
-        display: flex;
-        flex-wrap: wrap;
-        text-align: center;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        margin: 3vh;
-      }
-      h4 {
-        color: #2d2d2d;
-        font-weight: 700;
-        font-size: 65px;
-        margin-bottom: 30px;
-      }
-      p {
-        color: #555;
-        line-height: 1.6;
-        margin-bottom: 20px;
-        font-size: 30px;
-      }
-      .social-icons a {
-        color: #555;
-        margin-right: 20px;
-        font-size: 44px;
-        transition: color 0.3s ease;
-      }
-      footer {
-        background-color: #f1f1f1;
-        padding: 145px 0;
-        margin-top: 50px;
-      }
-      .nav-link {
-        color: #555;
-        font-size: 3em;
-        font-weight: bold;
-        padding: 8px 20px;
-        transition: all 0.3s ease-in-out;
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vedika</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Resources/favicon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="Resources/favicon.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/f8a733ce0a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="fonts.css" />
+    <style>
+      * {
+        font-family: "AveriaGWF-Bold", sans-serif;
       }
       #indiaMart {
-        margin: auto;
         margin-top: 20px;
-        height: auto;
-        width: 90%;
+        height: 600px;
+        width: 400px;
       }
-      .headService{
+      .headService {
         text-align: center;
         font-size: 4.7em;
       }
-      #textContent{
+      #textContent {
         margin-top: 20px;
         display: flex;
         flex-wrap: wrap;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         font-size: 1.3em;
-        width: 100%;
-        padding: 50px;
+        width: 50%;
         text-align: justify;
       }
-      #about{
+      #about {
         display: flex;
         flex-wrap: wrap;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-around;
       }
-    }
-  </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand mx-auto" href="#">
-    <img src="Resources/vedikaLogo.png" alt="logo" class="img-fluid">
-  </a>
-  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="/home">HOME</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/about">ABOUT</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/products">PRODUCTS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/services">SERVICES</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contactUs">CONTACT<span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<h1 class="headService"><span class="blue">ABOUT</span> US</h1>
-<hr class="styled-hr">
-<div id="about">
-  <div id="textContent">
-      <div class="image-container">
-        <img src="Resources/vedikaLogo.png" alt="Logo">
+      .image-container {
+        display: flex;
+        width: 557px;
+        height: 200px;
+        margin-bottom: 20px;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .image-container img {
+        width: 113px;
+        height: auto;
+      }
+      h3 {
+        color: #2d2d2d;
+        margin-top: 2vh;
+        font-size: 4.8rem;
+        padding-top: 2em;
+      }
+      h1 {
+        margin-top: 50px;
+      }
+      .serviceDiv {
+        min-height: 55vh;
+      }
+      @media (min-width: 992px) {
+        #logoCir {
+          display: none;
+        }
+      }
+      @media (max-width: 992px) {
+        nav .navbar-brand {
+          margin: auto;
+        }
+        nav button {
+          position: absolute;
+          width: 6vh;
+          height: 5vh;
+          right: 0.5vh;
+          top: 0.5vh;
+        }
+        nav .navbar-brand {
+          margin: auto;
+        }
+        nav button {
+          position: absolute;
+          width: 6vh;
+          height: 5vh;
+          right: 0.5vh;
+          top: 0.5vh;
+        }
+        .nav-link {
+          color: #555;
+          font-size: 1.6em;
+          font-weight: bold;
+          padding: 8px 20px;
+          transition: all 0.3s ease-in-out;
+          overflow: hidden;
+          clip-path: inset(0 0 10% 0);
+        }
+        h3 {
+          color: #2d2d2d;
+          margin-top: 2vh;
+          font-size: 2.3rem;
+        }
+        .headService {
+          text-align: center;
+          font-size: 5em;
+        }
+        .serviceDiv {
+          min-height: 35vh;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding: 20px 149px;
+          width: 45vh;
+          margin: 4vh auto;
+        }
+        .logService {
+          display: flex;
+          flex-wrap: wrap;
+          text-align: center;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          margin: 3vh;
+        }
+        h4 {
+          color: #2d2d2d;
+          font-weight: 700;
+          font-size: 65px;
+          margin-bottom: 30px;
+        }
+        p {
+          color: #555;
+          line-height: 1.6;
+          margin-bottom: 20px;
+          font-size: 30px;
+        }
+        .social-icons a {
+          color: #555;
+          margin-right: 20px;
+          font-size: 44px;
+          transition: color 0.3s ease;
+        }
+        footer {
+          background-color: #f1f1f1;
+          padding: 145px 0;
+          margin-top: 50px;
+        }
+        .nav-link {
+          color: #555;
+          font-size: 3em;
+          font-weight: bold;
+          padding: 8px 20px;
+          transition: all 0.3s ease-in-out;
+        }
+        #logoCir {
+          display: block;
+        }
+        #logoPure {
+          display: none;
+        }
+        #indiaMart {
+          margin: auto;
+          margin-top: 20px;
+          height: auto;
+          width: 90%;
+        }
+        .headService {
+          text-align: center;
+          font-size: 4.7em;
+        }
+        #textContent {
+          margin-top: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.3em;
+          width: 100%;
+          padding: 50px;
+          text-align: justify;
+        }
+        #about {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand mx-auto" href="#">
+        <img
+          src="Resources/vedikaLogo2.png"
+          alt="logo"
+          id="logoCir"
+          class="img-fluid"
+        />
+        <img
+          src="Resources/vedikaLogo.png"
+          alt="logo"
+          id="logoPure"
+          class="img-fluid"
+        />
+      </a>
+      <button
+        class="navbar-toggler ml-auto"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/about">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/products">PRODUCTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/services">SERVICES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contactUs"
+              >CONTACT<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
       </div>
-      <p>Here innovation, technology, and design converge to deliver the ultimate viewing experience. We are passionate about creating TVs that not only look stunning but also deliver crystal-clear images and immersive sound. With our cutting-edge technology and advanced engineering, we bring the cinema experience to your living room.<br>
-      Our commitment to excellence is evident in every TV we produce, from our stunning OLED displays to our sleek and stylish designs. We believe that a great TV should not only be a centerpiece in your living room, but it should also deliver an unparalleled viewing experience that immerses you in your favorite movies, shows, and games.
-      <br>
-      We understand that everyone has different needs and preferences when it comes to their viewing experience, which is why we offer a wide range of models with varying features and specifications. Whether you're looking for a TV with a large screen, smart features, or 4K resolution, we have something for everyone.
-      <br>
-      At our TV manufacturer website, we're not just focused on creating the best TVs on the market, but we're also committed to providing outstanding customer service and support. Our dedicated team is always available to answer any questions you may have and provide you with the best advice and guidance to help you make an informed decision.
-      <br>
-      Experience the difference of a TV that is designed to impress, and start exploring our range of TVs today.</p>
-  </div>
-  <img id="indiaMart" src="Resources/IndiaMart.jpg" alt="Logo">
-</div>
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 footer-section">
-        <h4>R K Enterprises</h4>
-        <p>Manufacturer & O.E.M. Supplier <br>of Smart LED TVs</p>
-        <p>Certified for having met the <br>requirements of <strong>IndiaMART <br>TrustSEAL</strong> in February 2023.</p>
+    </nav>
+    <h1 class="headService"><span class="blue">ABOUT</span> US</h1>
+    <hr class="styled-hr" />
+    <div id="about">
+      <div id="textContent">
+        <div class="image-container">
+          <img src="Resources/vedikaLogo2.png" alt="Logo" />
+          <span style="color: #01a3d4; font-size: 146px; margin-left: 10px"
+            >vedi<span style="color: #e33c12">c</span>a</span
+          >
+        </div>
+        <p>
+          Here innovation, technology, and design converge to deliver the
+          ultimate viewing experience. We are passionate about creating TVs that
+          not only look stunning but also deliver crystal-clear images and
+          immersive sound. With our cutting-edge technology and advanced
+          engineering, we bring the cinema experience to your living room.<br />
+          Our commitment to excellence is evident in every TV we produce, from
+          our stunning OLED displays to our sleek and stylish designs. We
+          believe that a great TV should not only be a centerpiece in your
+          living room, but it should also deliver an unparalleled viewing
+          experience that immerses you in your favorite movies, shows, and
+          games.
+          <br />
+          We understand that everyone has different needs and preferences when
+          it comes to their viewing experience, which is why we offer a wide
+          range of models with varying features and specifications. Whether
+          you're looking for a TV with a large screen, smart features, or 4K
+          resolution, we have something for everyone.
+          <br />
+          At our TV manufacturer website, we're not just focused on creating the
+          best TVs on the market, but we're also committed to providing
+          outstanding customer service and support. Our dedicated team is always
+          available to answer any questions you may have and provide you with
+          the best advice and guidance to help you make an informed decision.
+          <br />
+          Experience the difference of a TV that is designed to impress, and
+          start exploring our range of TVs today.
+        </p>
       </div>
-      <div class="col-lg-4 footer-section">
-        <h4>Reach Us</h4>
-        <p>LG12, Aarza Square 2, Kisan Chowk<br>
-          Gr. Noida, G.B. Nagar 201318<br>
-          <strong>Phone:</strong> 9871766494, 9717132448<br>
-          <strong>Website:</strong> <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a></p>
-      </div>
-      <div class="col-lg-4 footer-section">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <img id="indiaMart" src="Resources/IndiaMart.jpg" alt="Logo" />
+    </div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 footer-section">
+            <h4>R K Enterprises</h4>
+            <p>Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
+            <p>
+              Certified for having met the <br />requirements of
+              <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
+            </p>
+          </div>
+          <div class="col-lg-4 footer-section">
+            <h4>Reach Us</h4>
+            <p>
+              LG12, Aarza Square 2, Kisan Chowk<br />
+              Gr. Noida, G.B. Nagar 201318<br />
+              <strong>Phone:</strong> 9871766494, 9717132448<br />
+              <strong>Website:</strong>
+              <a href="www.rkenterprises-noida.com"
+                >www.rkenterprises-noida.com</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-4 footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</footer>
-</body>
+    </footer>
+  </body>
 </html>

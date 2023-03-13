@@ -8,7 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDate;
 
 @Entity
-@Table
+@Table(name = "count_visitor")
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,6 +17,7 @@ public class CountVisitor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long visitorId;
+    @Column(name="ip_address")
     private String ipAddress;
     @CreatedDate
     @Column(updatable = false, nullable = false)

@@ -1,425 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Vedika</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Resources/favicon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="Resources/favicon.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/f8a733ce0a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="fonts.css" />
     <style>
-        body{
-            min-width: fit-content;
-            background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+      * {
+        font-family: "AveriaGWF-Bold", sans-serif;
+      }
+      body {
+        min-width: fit-content;
+        background: linear-gradient(to bottom, #ffffff, #cce6ff);
+      }
+      .container {
+        max-width: 900px;
+        margin: 100px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .product-image {
+        margin-right: 50px;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .prodImgBox {
+        border: 0.5px solid black;
+        height: 400px;
+        width: 400px;
+      }
+      #product-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .slider {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .prev,
+      .next {
+        cursor: pointer;
+        font-size: 18px;
+        margin: 0 10px;
+      }
+      .prev:hover,
+      .next:hover {
+        color: #333333;
+        /*color: #007bff;*/
+      }
+      #prodInfo {
+        text-align: justify;
+        text-justify: auto;
+      }
+      .product-info table {
+        width: 100%;
+        margin-top: 5px;
+        border-collapse: collapse;
+      }
+      .product-info th,
+      .product-info td {
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      #prodRateOriginal {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      #prodRateOurRate {
+        font-size: 25px;
+        font-weight: 700;
+      }
+      .product-info th {
+        text-align: left;
+        font-weight: bold;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background-color: #fff;
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .navbar-brand img {
+        height: 5vh;
+      }
+
+      nav button {
+        position: absolute;
+        width: 6vh;
+        height: 5vh;
+        right: 0.5vh;
+        top: 0.5vh;
+      }
+
+      .nav-link {
+        color: #555;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0 20px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-link:hover {
+        color: #007bff;
+      }
+
+      footer {
+        background-color: #f1f1f1;
+        padding: 50px 0;
+        margin-top: 50px;
+      }
+      h4 {
+        color: #2d2d2d;
+        font-weight: 700;
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+      p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .social-icons {
+        margin-top: 30px;
+      }
+      .social-icons a {
+        color: #555;
+        margin-right: 20px;
+        font-size: 20px;
+        transition: color 0.3s ease;
+      }
+      .social-icons a:hover {
+        color: #007bff;
+      }
+      .footer-section {
+        margin-bottom: 40px;
+      }
+      #prodNameResp {
+        display: none;
+      }
+      @media (min-width: 992px) {
+        #logoCir {
+          display: none;
         }
+      }
+      @media (max-width: 992px) {
         .container {
-            max-width: 900px;
-            margin: 100px auto;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
+          max-width: 900px;
+          margin: 0 auto;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          justify-content: center;
         }
-        .product-image {
-            margin-right: 50px;
-            position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .prodImgBox{
-            border: 0.5px solid black;
-            height:400px;
-            width:400px;
-        }
-        #product-img{
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        .slider {
-            width: 100%;
-            display: flex;
-            justify-content: center;
+        .prodImgBox {
+          border: 1px solid black;
+          height: 600px;
+          width: 600px;
         }
         .prev,
         .next {
-            cursor: pointer;
-            font-size: 18px;
-            margin: 0 10px;
-        }
-        .prev:hover,
-        .next:hover {
-            color: #333333;
-            /*color: #007bff;*/
-        }
-        #prodInfo{
-            text-align:justify;
-            text-justify:auto;
-        }
-        .product-info table {
-            width: 100%;
-            margin-top: 5px;
-            border-collapse: collapse;
+          font-size: 4em;
         }
         .product-info th,
         .product-info td {
-            padding: 10px;
-            border: 1px solid #ccc;
+          padding: 10px;
+          border: 1px solid #ccc;
+          font-size: 2em;
         }
-        #prodRateOriginal{
-            font-size: 20px;
-            font-weight: 600;
+        .product-image {
+          margin-top: 50px;
+          position: relative;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
         }
-        #prodRateOurRate{
-            font-size: 25px;
-            font-weight: 700;
+        #prodRateOurRate {
+          font-size: 4em;
+          font-weight: 700;
+          color: #007bff;
         }
-        .product-info th {
-            text-align: left;
-            font-weight: bold;
+        #prodRateOriginal {
+          font-size: 3em;
+          font-weight: 600;
         }
-
-        /* Navbar Styling */
-        .navbar {
-            background-color: #fff;
-            border-bottom: 1px solid #e5e5e5;
+        #prodSize,
+        #prodInfo {
+          color: #555;
+          line-height: 1.6;
+          margin-bottom: 20px;
+          font-size: 43px;
         }
-
-        .navbar-brand img {
-            height:5vh;
+        #prodNameResp {
+          display: block;
+          display: block;
+          font-size: 3.2em;
+          font-weight: bolder;
         }
-
+        #prodName {
+          display: none;
+        }
+        nav .navbar-brand {
+          margin: auto;
+        }
         nav button {
-            position: absolute;
-            width:6vh;
-            height:5vh;
-            right: 0.5vh;
-            top: 0.5vh;
+          position: absolute;
+          width: 6vh;
+          height: 5vh;
+          right: 0.5vh;
+          top: 0.5vh;
         }
-
         .nav-link {
-            color: #555;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 0 20px;
-            transition: all 0.3s ease-in-out;
+          color: #555;
+          font-size: 3em;
+          font-weight: bold;
+          padding: 8px 20px;
+          transition: all 0.3s ease-in-out;
         }
-
-        .nav-link:hover {
-            color: #007bff;
+        .product-container {
+          background: linear-gradient(to bottom, #ffffff, #cce6ff);
+          padding: 0 20px;
+          width: 90%;
+          border: 3px solid black;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          align-items: center;
+          margin: 20px auto;
         }
-
-        footer {
-            background-color: #f1f1f1;
-            padding: 50px 0;
-            margin-top: 50px;
+        h1 {
+          font-size: 5.5rem;
         }
         h4 {
-            color: #2d2d2d;
-            font-weight: 700;
-            font-size: 24px;
-            margin-bottom: 30px;
+          color: #2d2d2d;
+          font-weight: 700;
+          font-size: 65px;
+          margin-bottom: 30px;
         }
         p {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .social-icons {
-            margin-top: 30px;
+          color: #555;
+          line-height: 1.6;
+          margin-bottom: 20px;
+          font-size: 30px;
         }
         .social-icons a {
-            color: #555;
-            margin-right: 20px;
-            font-size: 20px;
-            transition: color 0.3s ease;
+          color: #555;
+          margin-right: 20px;
+          font-size: 44px;
+          transition: color 0.3s ease;
         }
-        .social-icons a:hover {
-            color: #007bff;
+        footer {
+          background-color: #f1f1f1;
+          padding: 145px 0;
+          margin-top: 50px;
         }
-        .footer-section {
-            margin-bottom: 40px;
+        .pagination {
+          display: flex;
+          font-size: 2em;
+          justify-content: center;
         }
-        #prodNameResp{
-            display: none;
+        #logoCir {
+          display: block;
         }
-        @media (max-width: 1000px) {
-            .container {
-                max-width: 900px;
-                margin: 0 auto;
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: row;
-                justify-content: center;
-            }
-            .prodImgBox{
-                border: 1px solid black;
-                height:600px;
-                width:600px;
-            }
-            .prev, .next{
-                font-size: 4em;
-            }
-            .product-info th, .product-info td {
-                padding: 10px;
-                border: 1px solid #ccc;
-                font-size: 2em;
-            }
-            .product-image {
-                margin-top: 50px;
-                position: relative;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            #prodRateOurRate {
-                font-size: 4em;
-                font-weight: 700;
-                color: #007bff;
-            }
-            #prodRateOriginal {
-                font-size: 3em;
-                font-weight: 600;
-            }
-            #prodSize, #prodInfo {
-                color: #555;
-                line-height: 1.6;
-                margin-bottom: 20px;
-                font-size: 43px;
-            }
-            #prodNameResp {
-                display: block;
-                display: block;
-                font-size: 3.2em;
-                font-weight: bolder;
-            }
-            #prodName{
-                display: none;
-            }
-                nav .navbar-brand{
-                    margin: auto;
-                }
-                nav button {
-                    position: absolute;
-                    width:6vh;
-                    height:5vh;
-                    right: 0.5vh;
-                    top: 0.5vh;
-                }
-                .nav-link {
-                    color: #555;
-                    font-size: 3em;
-                    font-weight: bold;
-                    padding: 8px 20px;
-                    transition: all 0.3s ease-in-out;
-                }
-                .product-container{
-                    background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
-                    padding: 0 20px;
-                    width: 90%;
-                    border: 3px solid black;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    margin: 20px auto;
-                }
-                h1{
-                    font-size: 5.5rem;
-                }
-                h4 {
-                    color: #2d2d2d;
-                    font-weight: 700;
-                    font-size: 65px;
-                    margin-bottom: 30px;
-                }
-                p {
-                    color: #555;
-                    line-height: 1.6;
-                    margin-bottom: 20px;
-                    font-size: 30px;
-                }
-                .social-icons a {
-                    color: #555;
-                    margin-right: 20px;
-                    font-size: 44px;
-                    transition: color 0.3s ease;
-                }
-                footer {
-                    background-color: #f1f1f1;
-                    padding: 145px 0;
-                    margin-top: 50px;
-                }
-                .pagination {
-                    display: flex;
-                    font-size: 2em;
-                    justify-content: center;
-                }
-            }
+        #logoPure {
+          display: none;
+        }
+      }
     </style>
-</head>
-<body onload="loadPage()">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand mx-auto" href="#">
-        <img src="Resources/vedikaLogo.png" alt="logo" class="img-fluid">
-    </a>
-    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+  </head>
+  <body onload="loadPage()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand mx-auto" href="#">
+        <img
+          src="Resources/vedikaLogo2.png"
+          alt="logo"
+          id="logoCir"
+          class="img-fluid"
+        />
+        <img
+          src="Resources/vedikaLogo.png"
+          alt="logo"
+          id="logoPure"
+          class="img-fluid"
+        />
+      </a>
+      <button
+        class="navbar-toggler ml-auto"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="/">HOME</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/about">ABOUT</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/products">PRODUCTS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/services">SERVICES</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contactUs">CONTACT<span class="sr-only">(current)</span></a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/products">PRODUCTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/services">SERVICES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contactUs"
+              >CONTACT<span class="sr-only">(current)</span></a
+            >
+          </li>
         </ul>
-    </div>
-</nav>
-<div class="container">
-    <div class="product-image">
+      </div>
+    </nav>
+    <div class="container">
+      <div class="product-image">
         <div class="prodImgBox">
-            <img id="product-img" src="" alt="Product Image">
+          <img id="product-img" src="" alt="Product Image" />
         </div>
         <div class="slider">
-            <span class="prev" onclick="prevImage()">&#10094;</span>
-            <span class="next" onclick="nextImage()">&#10095;</span>
+          <span class="prev" onclick="prevImage()">&#10094;</span>
+          <span class="next" onclick="nextImage()">&#10095;</span>
         </div>
         <h2 id="prodNameResp"></h2>
         <div class="product-info">
-            <table>
-                <tbody id="product-table"></tbody>
-            </table>
+          <table>
+            <tbody id="product-table"></tbody>
+          </table>
         </div>
-    </div>
-    <div id="prodSide">
+      </div>
+      <div id="prodSide">
         <h2 id="prodName"></h2>
         <p id="prodSize"></p>
         <s id="prodRateOriginal"></s><span id="prodRateOurRate"></span>
-        <br><br>
-        <p id="prodInfo"><b>Description:</b><br></p>
+        <br /><br />
+        <p id="prodInfo"><b>Description:</b><br /></p>
+      </div>
     </div>
-</div>
-<footer>
-    <div class="container">
+    <footer>
+      <div class="container">
         <div class="row">
-            <div class="col-lg-4 footer-section">
-                <h4>R K Enterprises</h4>
-                <p>Manufacturer & O.E.M. Supplier <br>of Smart LED TVs</p>
-                <p>Certified for having met the <br>requirements of <strong>IndiaMART <br>TrustSEAL</strong> in February 2023.</p>
+          <div class="col-lg-4 footer-section">
+            <h4>R K Enterprises</h4>
+            <p>Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
+            <p>
+              Certified for having met the <br />requirements of
+              <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
+            </p>
+          </div>
+          <div class="col-lg-4 footer-section">
+            <h4>Reach Us</h4>
+            <p>
+              LG12, Aarza Square 2, Kisan Chowk<br />
+              Gr. Noida, G.B. Nagar 201318<br />
+              <strong>Phone:</strong> 9871766494, 9717132448<br />
+              <strong>Website:</strong>
+              <a href="www.rkenterprises-noida.com"
+                >www.rkenterprises-noida.com</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-4 footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <div class="col-lg-4 footer-section">
-                <h4>Reach Us</h4>
-                <p>LG12, Aarza Square 2, Kisan Chowk<br>
-                    Gr. Noida, G.B. Nagar 201318<br>
-                    <strong>Phone:</strong> 9871766494, 9717132448<br>
-                    <strong>Website:</strong> <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a></p>
-            </div>
-            <div class="col-lg-4 footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-</footer>
-<script>
-function loadPage() {
-    const queryParams = new URLSearchParams(window.location.search);
-    const productId = queryParams.get('id');
-    const apiUrl = `/product/getProduct/${productId}`;
-    const prodNameResp =document.getElementById('prodNameResp');
-    const prodName =document.getElementById('prodName');
-    const prodSize =document.getElementById('prodSize');
-    const prodRateOriginal =document.getElementById('prodRateOriginal');
-    const prodRateOurRate =document.getElementById('prodRateOurRate');
-    const prodInfo = document.getElementById('prodInfo');
-    const productImg = document.getElementById('product-img');
-    const productTable = document.getElementById('product-table');
-    let imageIndex = 0;
-    var imageArray = 0;
+      </div>
+    </footer>
+    <script>
+      function loadPage() {
+        const queryParams = new URLSearchParams(window.location.search);
+        const productId = queryParams.get("id");
+        const apiUrl = `/product/getProduct/${productId}`;
+        const prodNameResp = document.getElementById("prodNameResp");
+        const prodName = document.getElementById("prodName");
+        const prodSize = document.getElementById("prodSize");
+        const prodRateOriginal = document.getElementById("prodRateOriginal");
+        const prodRateOurRate = document.getElementById("prodRateOurRate");
+        const prodInfo = document.getElementById("prodInfo");
+        const productImg = document.getElementById("product-img");
+        const productTable = document.getElementById("product-table");
+        let imageIndex = 0;
+        var imageArray = 0;
 
-    function renderProduct(product) {
-        // render images
-        imageArray = product.imageUrls;
-        productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
+        function renderProduct(product) {
+          // render images
+          imageArray = product.imageUrls;
+          productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
 
-        const name = product.modelName;
-        prodName.append(name);
-        prodNameResp.append(name);
+          const name = product.modelName;
+          prodName.append(name);
+          prodNameResp.append(name);
 
-        const rate = "Size: " + product.size;
-        if (product.size != null)
-            prodSize.append(rate);
+          const rate = "Size: " + product.size;
+          if (product.size != null) prodSize.append(rate);
 
-        const originalRate = "Rs. " + product.originalPrice;
-        if (product.originalPrice != null)
+          const originalRate = "Rs. " + product.originalPrice;
+          if (product.originalPrice != null)
             prodRateOriginal.append(originalRate);
 
-        const ourRate = " Rs. " + product.ourCost;
-        if (product.ourCost != null)
-            prodRateOurRate.append(ourRate);
+          const ourRate = " Rs. " + product.ourCost;
+          if (product.ourCost != null) prodRateOurRate.append(ourRate);
 
-        const info = product.description;
-        if (product.description != null)
-            prodInfo.append(info);
+          const info = product.description;
+          if (product.description != null) prodInfo.append(info);
 
-        productTable.innerHTML = '';
+          productTable.innerHTML = "";
 
-        if (product.productInfo != null)
-            product.productInfo.forEach(info => {
-                const row = document.createElement('tr');
-                const headCell = document.createElement('th');
-                headCell.textContent = info.head;
-                const bodyCell = document.createElement('td');
-                bodyCell.textContent = info.body;
-                row.appendChild(headCell);
-                row.appendChild(bodyCell);
-                productTable.appendChild(row);
+          if (product.productInfo != null)
+            product.productInfo.forEach((info) => {
+              const row = document.createElement("tr");
+              const headCell = document.createElement("th");
+              headCell.textContent = info.head;
+              const bodyCell = document.createElement("td");
+              bodyCell.textContent = info.body;
+              row.appendChild(headCell);
+              row.appendChild(bodyCell);
+              productTable.appendChild(row);
             });
-    }
+        }
 
-    function prevImage() {
-        if (imageIndex === 0) {
+        function prevImage() {
+          if (imageIndex === 0) {
             imageIndex = imageArray.length - 1;
-        } else {
+          } else {
             imageIndex--;
+          }
+          productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
         }
-        productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
-    }
 
-    function nextImage() {
-        if (imageIndex === imageArray.length - 1) {
+        function nextImage() {
+          if (imageIndex === imageArray.length - 1) {
             imageIndex = 0;
-        } else {
+          } else {
             imageIndex++;
+          }
+          productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
         }
-        productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
-    }
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => renderProduct(data))
-        .catch(error => console.error(error));
-}
-</script>
-</body>
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => renderProduct(data))
+          .catch((error) => console.error(error));
+      }
+    </script>
+  </body>
 </html>

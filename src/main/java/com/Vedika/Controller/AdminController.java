@@ -37,4 +37,8 @@ public class AdminController {
     public ResponseEntity<?> getVisitorCount() {
         return ResponseEntity.status(HttpStatus.OK).body(adminService.getVisitorCount());
     }
+    @GetMapping("/visitor-count/unique")
+    public ResponseEntity<?> getUniqueVisitors() {
+        return ResponseEntity.status(HttpStatus.OK).body(adminService.countTotalVisitors());
+    }
 }

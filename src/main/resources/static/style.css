@@ -8,14 +8,17 @@
     justify-content: center;
     background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
 }
-.imageTL{
+
+.imageTL {
     margin: 8vh auto auto;
     width: 550px;
 }
-.imageTR{
+
+.imageTR {
     margin: auto auto 1vh;
     width: 550px;
 }
+
 .btn-primary {
     color: #fff;
     background-color: #007bff;
@@ -23,6 +26,7 @@
     width: 11em;
     font-size: 1.3em;
 }
+
 /* center content */
 .centered {
     margin: auto;
@@ -32,15 +36,18 @@
     width: 600px;
     text-align: center;
 }
+
 .image-style {
     max-width: 100%;
     height: auto;
     margin: 0 10px;
 }
+
 .feature {
     text-align: center;
     margin-bottom: 30px;
 }
+
 .feature i {
     color: #009DF8;
     margin-bottom: 20px;
@@ -52,24 +59,28 @@
     margin-bottom: 0;
 }
 
-.blue{
+.blue {
     font-weight: 600;
     color: #4c97e4;
 }
-#moreProduct{
+
+#moreProduct {
     text-align: right;
     margin-right: 50px;
     margin-bottom: 100px;
 }
-#moreProduct a{
+
+#moreProduct a {
     text-decoration: none;
     color: #007bff;
     font-weight: bolder;
     font-size: 20px;
 }
-h1{
+
+h1 {
     text-align: center;
 }
+
 .product-list {
     width: 100%;
     display: flex;
@@ -78,6 +89,7 @@ h1{
     margin-bottom: 20px;
     padding: 0 50px;
 }
+
 .product {
     display: flex;
     justify-content: center;
@@ -88,25 +100,30 @@ h1{
     padding: 30px;
     background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
 }
-.product h2{
+
+.product h2 {
     width: 100%;
     text-align: left;
 }
-.product p{
+
+.product p {
     width: 100%;
     text-align: left;
 }
-.product div{
+
+.product div {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     text-align: left;
 }
-.product div s{
+
+.product div s {
     font-size: 20px;
     font-weight: 600;
 }
-.product div p{
+
+.product div p {
     color: #007bff;
     font-size: 25px;
     font-weight: 700;
@@ -130,7 +147,8 @@ h1{
     font-size: 18px;
     cursor: pointer;
 }
-.serviceDiv{
+
+.serviceDiv {
     min-height: 35vh;
     display: flex;
     flex-wrap: wrap;
@@ -139,7 +157,8 @@ h1{
     padding: 20px 149px;
     color: #009DF8;
 }
-.logService{
+
+.logService {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -147,19 +166,24 @@ h1{
     justify-content: space-around;
     align-items: center;
 }
-h3{
+
+h3 {
     color: #333333;
 }
-.servLogo{
+
+.servLogo {
     height: 80px;
 }
-.headService{
+
+.headService {
     text-align: center;
     font-size: 2.7em;
 }
-#serviceHead{
+
+#serviceHead {
     margin-top: 100px;
 }
+
 /* Navbar Styling */
 .navbar {
     background-color: #fff;
@@ -167,7 +191,7 @@ h3{
 }
 
 .navbar-brand img {
-    height:5vh;
+    height: 5vh;
 }
 
 .nav-link {
@@ -181,6 +205,7 @@ h3{
 .nav-link:hover {
     color: #007bff;
 }
+
 .styled-hr {
     border-top: 3px solid #ADD8E6;
     width: 50%;
@@ -192,36 +217,44 @@ footer {
     padding: 50px 0;
     margin-top: 50px;
 }
+
 h3 {
     color: #333333;
     margin: 2em;
 }
+
 h4 {
     color: #2d2d2d;
     font-weight: 700;
     font-size: 24px;
     margin-bottom: 30px;
 }
+
 p {
     color: #555;
     line-height: 1.6;
     margin-bottom: 20px;
 }
+
 .social-icons {
     margin-top: 30px;
 }
+
 .social-icons a {
     color: #555;
     margin-right: 20px;
     font-size: 20px;
     transition: color 0.3s ease;
 }
+
 .social-icons a:hover {
     color: #007bff;
 }
+
 .footer-section {
     margin-bottom: 40px;
 }
+
 @media screen and (max-width: 1400px) {
     #mainContent {
         padding-top: 5vh;
@@ -232,16 +265,19 @@ p {
         justify-content: center;
         background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
     }
-    .imageTL{
+
+    .imageTL {
         margin: 8vh auto auto;
         width: 90%;
     }
+
     .imageTR {
         margin: auto;
         width: 90%;
     }
+
     .centered {
-        height:auto;
+        height: auto;
         margin: auto;
         flex-direction: column;
         align-items: center;
