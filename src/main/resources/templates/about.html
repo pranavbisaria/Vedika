@@ -3,137 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>Vedika</title>
-  <link rel="apple-touch-icon" sizes="180x180" th:href="@{/Resources/favicon.png}">
-  <link rel="icon" type="image/png" sizes="32x32" th:href="@{/Resources/favicon.png}">
-  <link rel="icon" type="image/png" sizes="16x16" th:href="@{/Resources/favicon.png}">
+  <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
   <style>
-    h1 {
-      font-size: 7.5em;
-      font-weight:bold;
+    #indiaMart {
+      margin-top: 20px;
+      height: 600px;
+      width: 400px;
+    }
+    .headService{
       text-align: center;
+      font-size: 4.7em;
     }
-    #errorContainer{
-      margin: 40px auto 70px;
-    }
-
-    @media screen and (max-width:768px) {
-      body {
-        display:block;
-      }
-      .container {
-        margin-top:70px;
-        margin-bottom:70px;
-      }
-    }
-    /* Navbar Styling */
-    .navbar {
-      background-color: #fff;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .navbar-brand img {
-      height:5vh;
-    }
-
-    .nav-link {
-      color: #555;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 0 20px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .nav-link:hover {
-      color: #007bff;
-    }
-    #homeBtn{
-      padding: 10px;
-      background-color: #4c97e4;
-      width: 40%;
-      min-width: fit-content;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    #homeBtn:hover{
-      background-color: #0350a1;
-    }
-    footer {
-      background-color: #f1f1f1;
-      padding: 50px 0;
-      margin-top: 50px;
-    }
-    h4 {
-      color: #2d2d2d;
-      font-weight: 700;
-      font-size: 24px;
-      margin-bottom: 30px;
-    }
-    p {
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    #errorImage{
-      max-width: fit-content;
-      margin: 0 75px 0 auto;
-      padding: 0;
-    }
-    #contentError{
+    #textContent{
+      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: center;
       align-items: center;
-      max-width: fit-content;
-      margin: 0 auto;
+      font-size: 1.3em;
+      width: 50%;
+      text-align: justify;
     }
-    .social-icons {
-      margin-top: 30px;
+    #about{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
     }
-    .social-icons a {
-      color: #555;
-      margin-right: 20px;
-      font-size: 20px;
-      transition: color 0.3s ease;
+    .image-container {
+      width: 300px;
+      height: 88px;
+      overflow: hidden;
+      clip-path: inset(0 0 10% 0);
     }
-    .social-icons a:hover {
-      color: #007bff;
+
+    .image-container img {
+      width: 100%;
+      height: auto;
     }
-    .footer-section {
-      margin-bottom: 40px;
+    h3 {
+      color: #2d2d2d;
+      margin-top: 2vh;
+      font-size: 4.8rem;
+      padding-top: 2em;
     }
-    @media (max-width: 1500px) {
-      #contactUs {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        flex-wrap: wrap;
-        margin: 0;
-        padding: 0;
-      }
-      #errorImage{
-        max-width: fit-content;
-        margin: auto;
-        padding: 0;
-      }
-      form {
-        max-width: 80%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        align-items: center;
-        margin: 25px auto;
-      }
-      .sideContentBOX {
-        margin: 25px auto;
-      }
+    h1{
+      margin-top: 50px;
+    }
+    .serviceDiv {
+      min-height: 55vh;
     }
     @media (max-width: 1000px) {
       nav .navbar-brand {
@@ -165,8 +92,30 @@
       }
       h3 {
         color: #2d2d2d;
-        margin-top: 2vh;
+        margin-top: 2vh auto;
         font-size: 2.3rem;
+      }
+      .headService{
+        text-align: center;
+        font-size: 5em;
+      }
+      .serviceDiv {
+        min-height: 35vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 149px;
+        width: 45vh;
+        margin: 4vh auto;
+      }
+      .logService {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin: 3vh;
       }
       h4 {
         color: #2d2d2d;
@@ -198,37 +147,33 @@
         padding: 8px 20px;
         transition: all 0.3s ease-in-out;
       }
-      #errorContainer {
-        width: 90%;
-        margin: 171px auto 227px;
-      }
-      #homeBtn {
-        padding: 10px;
-        background-color: #4c97e4;
-        width: 40%;
-        min-width: fit-content;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 40px;
-      }
-      p {
-        color: #555;
-        line-height: 1.6;
-        margin-bottom: 20px;
-        font-size: 38px;
-      }
-      h1 {
-        font-size: 15.5em;
-        font-weight: bold;
-        text-align: center;
-      }
-      #errorImage {
-        max-width: fit-content;
+      #indiaMart {
         margin: auto;
-        padding: 56px;
+        margin-top: 20px;
+        height: auto;
+        width: 90%;
+      }
+      .headService{
+        text-align: center;
+        font-size: 4.7em;
+      }
+      #textContent{
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3em;
         width: 100%;
+        padding: 50px;
+        text-align: justify;
+      }
+      #about{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
       }
     }
   </style>
@@ -236,7 +181,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand mx-auto" href="#">
-    <img  th:src="@{/Resources/vedikaLogo.png}" alt="logo" class="img-fluid">
+    <img src="Resources/vedikaLogo.png" alt="logo" class="img-fluid">
   </a>
   <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -244,10 +189,10 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="/">HOME</a>
+        <a class="nav-link" href="/home">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/about">ABOUT</a>
+        <a class="nav-link active" href="/about">ABOUT</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/products">PRODUCTS</a>
@@ -261,19 +206,23 @@
     </ul>
   </div>
 </nav>
-<div id="errorContainer">
-  <h1 style="margin: 0; padding: 0">404</h1>
-  <div id ="contentError">
-    <img id="errorImage" th:src="@{/Resources/error404.gif}" alt="error404">
-    <div>
-      <h2>UH OH! You're lost.</h2>
-      <p>The page you are looking for does not exist.<br>
-        How you got here is a mystery. But you can click the button below
-        to go back to the homepage.
-      </p>
-      <button id="homeBtn" onclick="window.location.href='/home'">HOME</button>
-    </div>
+<h1 class="headService"><span class="blue">ABOUT</span> US</h1>
+<hr class="styled-hr">
+<div id="about">
+  <div id="textContent">
+      <div class="image-container">
+        <img src="Resources/vedikaLogo.png" alt="Logo">
+      </div>
+      <p>Here innovation, technology, and design converge to deliver the ultimate viewing experience. We are passionate about creating TVs that not only look stunning but also deliver crystal-clear images and immersive sound. With our cutting-edge technology and advanced engineering, we bring the cinema experience to your living room.<br>
+      Our commitment to excellence is evident in every TV we produce, from our stunning OLED displays to our sleek and stylish designs. We believe that a great TV should not only be a centerpiece in your living room, but it should also deliver an unparalleled viewing experience that immerses you in your favorite movies, shows, and games.
+      <br>
+      We understand that everyone has different needs and preferences when it comes to their viewing experience, which is why we offer a wide range of models with varying features and specifications. Whether you're looking for a TV with a large screen, smart features, or 4K resolution, we have something for everyone.
+      <br>
+      At our TV manufacturer website, we're not just focused on creating the best TVs on the market, but we're also committed to providing outstanding customer service and support. Our dedicated team is always available to answer any questions you may have and provide you with the best advice and guidance to help you make an informed decision.
+      <br>
+      Experience the difference of a TV that is designed to impress, and start exploring our range of TVs today.</p>
   </div>
+  <img id="indiaMart" src="Resources/IndiaMart.jpg" alt="Logo">
 </div>
 <footer>
   <div class="container">

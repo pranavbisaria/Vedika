@@ -1,7 +1,8 @@
 #mainContent {
     padding-top: 5vh;
     width: 100%;
-    height: 90vh;
+    min-height: 90vh;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -28,7 +29,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 242px;
     width: 600px;
     text-align: center;
 }
@@ -237,10 +237,11 @@ p {
         width: 90%;
     }
     .imageTR {
-        margin: 4vh auto 1vh;
+        margin: auto;
         width: 90%;
     }
     .centered {
+        height:auto;
         margin: auto;
         flex-direction: column;
         align-items: center;

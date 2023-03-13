@@ -113,6 +113,10 @@
             cursor: pointer;
             border-radius: 4px;
         }
+        #tableRow{
+            display: flex;
+            flex-direction: row;
+        }
         button:hover {
             background-color: #0762dd;
         }
@@ -316,7 +320,7 @@
                         <td>${product.size}</td>
                         <td>Rs. ${product.ourCost}</td>
                         <td>Rs. ${product.originalPrice}</td>
-                        <td colspan="2">
+                        <td colspan="2" id="tableRow">
                             <button class="viewProductBtn" onclick="window.location.href = '/viewproduct?id=${product.id}'">View</button>
                             <button class="deleteBtn" onclick="deleteProduct(${product.id})">Delete</button>
                     </td>

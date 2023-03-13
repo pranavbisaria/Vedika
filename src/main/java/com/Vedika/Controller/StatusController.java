@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 @RequiredArgsConstructor
@@ -34,6 +35,11 @@ public class StatusController {
     public String service(HttpServletRequest httpRequest){
         adminService.trackVisitor(httpRequest.getRemoteAddr());
         return "services";
+    }
+    @GetMapping("/about")
+    public String aboutPage(HttpServletRequest httpRequest){
+        adminService.trackVisitor(httpRequest.getRemoteAddr());
+        return "about";
     }
     @GetMapping("/viewproduct")
     public String viewProductPage(HttpServletRequest httpRequest){
