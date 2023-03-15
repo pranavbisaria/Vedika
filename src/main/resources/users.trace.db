@@ -1,9 +1,0 @@
-2023-03-13 22:13:20 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "COUNT_VISITOR" not found (candidates are: "count_visitor"); SQL statement:
-select count(distinct ip_address) from count_visitor [42103-214]
-2023-03-13 22:13:38 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "COUNT_VISITOR" not found (candidates are: "count_visitor"); SQL statement:
-select count(distinct ip_address) from count_visitor [42103-214]
-2023-03-13 22:13:56 jdbc[5]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "COUNT_VISITOR" not found (candidates are: "count_visitor"); SQL statement:
-select count(distinct ip_address) from count_visitor [42103-214]

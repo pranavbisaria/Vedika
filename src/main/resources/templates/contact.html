@@ -1,615 +1,607 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vedika</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="Resources/favicon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="Resources/favicon.png"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/f8a733ce0a.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" type="text/css" href="fonts.css" />
-    <style>
-      * {
-        font-family: "AveriaGWF-Bold", sans-serif;
-      }
-      body {
-        min-width: fit-content;
-        background: linear-gradient(to bottom, #ffffff, #cce6ff);
-      }
-      form {
-        max-width: 600px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        align-items: center;
-        margin: 50px 100px 50px 50px;
-      }
-      .sideContentBOX {
-        margin: 50px 100px 50px 50px;
-      }
-      .sideContentBOX div {
-        margin-bottom: 100px;
-      }
-      #contactUs {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 0;
-        padding: 0;
-      }
-      form div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-        padding: 0 4px;
-        justify-content: center;
-      }
-      .blue {
-        font-weight: 600;
-        color: #4c97e4;
-      }
-      .ff {
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .fh {
-        width: 50%;
-      }
-      input,
-      select,
-      textarea,
-      option {
-        margin-bottom: 20px;
-        padding: 10px 25px;
-        width: 100%;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 50px;
-      }
-      form button {
-        padding: 10px;
-        background-color: #4c97e4;
-        width: 40%;
-        min-width: fit-content;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      form button:hover {
-        background-color: #2071bd;
-      }
-      .error-message {
-        color: red;
-        font-size: 12px;
-        margin-bottom: 10px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <title>Vedika</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
+  <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="Resources/favicon.png"
+  />
+  <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="Resources/favicon.png"
+  />
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
+  />
+  <script
+          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+  <script
+          src="https://kit.fontawesome.com/f8a733ce0a.js"
+          crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" type="text/css" href="fonts.css" />
+  <style>
+    * {
+      font-family: "AveriaGWF-Bold", sans-serif;
+    }
+    body {
+      min-width: fit-content;
+      background: linear-gradient(to bottom, #ffffff, #cce6ff);
+    }
+    form {
+      max-width: 600px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      margin: 50px 100px 50px 50px;
+    }
+    .sideContentBOX {
+      margin: 50px 100px 50px 50px;
+    }
+    .sideContentBOX div {
+      margin-bottom: 100px;
+    }
+    #contactUs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+    form div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0 4px;
+      justify-content: center;
+    }
+    .blue {
+      font-weight: 600;
+      color: #4c97e4;
+    }
+    .ff {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .fh {
+      width: 50%;
+    }
+    input,
+    select,
+    textarea,
+    option {
+      margin-bottom: 20px;
+      padding: 10px 25px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+    }
+    form button {
+      padding: 10px;
+      background-color: #4c97e4;
+      width: 40%;
+      min-width: fit-content;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #2071bd;
+    }
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
 
-      /* Navbar Styling */
-      .navbar {
-        background-color: #fff;
-        border-bottom: 1px solid #e5e5e5;
-      }
+    /* Navbar Styling */
+    .navbar {
+      background-color: #fff;
+      border-bottom: 1px solid #e5e5e5;
+    }
 
-      .navbar-brand img {
+    .navbar-brand img {
+      height: 5vh;
+    }
+
+    .nav-link {
+      color: #555;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-link:hover {
+      color: #007bff;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      padding: 50px 0;
+      margin-top: 50px;
+    }
+    h4 {
+      color: #2d2d2d;
+      font-weight: 700;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    .social-icons {
+      margin-top: 30px;
+    }
+    .social-icons a {
+      color: #555;
+      margin-right: 20px;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #007bff;
+    }
+    .footer-section {
+      margin-bottom: 40px;
+    }
+    @media (min-width: 992px) {
+      #logoCir {
+        display: none;
+      }
+    }
+    @media (max-width: 992px) {
+      nav .navbar-brand {
+        margin: auto;
+      }
+      nav button {
+        position: absolute;
+        width: 6vh;
         height: 5vh;
+        right: 0.5vh;
+        top: 0.5vh;
       }
-
+      nav .navbar-brand {
+        margin: auto;
+      }
+      nav button {
+        position: absolute;
+        width: 6vh;
+        height: 5vh;
+        right: 0.5vh;
+        top: 0.5vh;
+      }
       .nav-link {
         color: #555;
-        font-size: 16px;
+        font-size: 1.6em;
         font-weight: bold;
-        padding: 0 20px;
+        padding: 8px 20px;
         transition: all 0.3s ease-in-out;
       }
-
-      .nav-link:hover {
-        color: #007bff;
-      }
-
-      footer {
-        background-color: #f1f1f1;
-        padding: 50px 0;
-        margin-top: 50px;
+      h3 {
+        color: #2d2d2d;
+        margin-top: 2vh;
+        font-size: 2.3rem;
       }
       h4 {
         color: #2d2d2d;
         font-weight: 700;
-        font-size: 24px;
+        font-size: 65px;
         margin-bottom: 30px;
       }
       p {
         color: #555;
         line-height: 1.6;
         margin-bottom: 20px;
-      }
-      .social-icons {
-        margin-top: 30px;
+        font-size: 30px;
+        text-align: justify;
       }
       .social-icons a {
         color: #555;
         margin-right: 20px;
-        font-size: 20px;
+        font-size: 44px;
         transition: color 0.3s ease;
       }
-      .social-icons a:hover {
-        color: #007bff;
+      footer {
+        background-color: #f1f1f1;
+        padding: 145px 0;
+        margin-top: 50px;
       }
-      .footer-section {
-        margin-bottom: 40px;
+      .nav-link {
+        color: #555;
+        font-size: 3em;
+        font-weight: bold;
+        padding: 8px 20px;
+        transition: all 0.3s ease-in-out;
       }
-      @media (min-width: 992px) {
-        #logoCir {
-          display: none;
-        }
+      p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 80px;
+        font-size: 38px;
       }
-      @media (max-width: 992px) {
-        nav .navbar-brand {
-          margin: auto;
-        }
-        nav button {
-          position: absolute;
-          width: 6vh;
-          height: 5vh;
-          right: 0.5vh;
-          top: 0.5vh;
-        }
-        nav .navbar-brand {
-          margin: auto;
-        }
-        nav button {
-          position: absolute;
-          width: 6vh;
-          height: 5vh;
-          right: 0.5vh;
-          top: 0.5vh;
-        }
-        .nav-link {
-          color: #555;
-          font-size: 1.6em;
-          font-weight: bold;
-          padding: 8px 20px;
-          transition: all 0.3s ease-in-out;
-        }
-        h3 {
-          color: #2d2d2d;
-          margin-top: 2vh;
-          font-size: 2.3rem;
-        }
-        h4 {
-          color: #2d2d2d;
-          font-weight: 700;
-          font-size: 65px;
-          margin-bottom: 30px;
-        }
-        p {
-          color: #555;
-          line-height: 1.6;
-          margin-bottom: 20px;
-          font-size: 30px;
-        }
-        .social-icons a {
-          color: #555;
-          margin-right: 20px;
-          font-size: 44px;
-          transition: color 0.3s ease;
-        }
-        footer {
-          background-color: #f1f1f1;
-          padding: 145px 0;
-          margin-top: 50px;
-        }
-        .nav-link {
-          color: #555;
-          font-size: 3em;
-          font-weight: bold;
-          padding: 8px 20px;
-          transition: all 0.3s ease-in-out;
-        }
-        p {
-          color: #555;
-          line-height: 1.6;
-          margin-bottom: 80px;
-          font-size: 38px;
-        }
-        h1 {
-          font-size: 5em;
-          font-weight: bold;
-          text-align: center;
-          margin: 20px auto 20px;
-        }
-        #contactUs {
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          flex-wrap: wrap;
-          margin: 0;
-          padding: 0;
-        }
-        form {
-          max-width: 90%;
-          display: flex;
-          flex-wrap: wrap;
-          flex-direction: row;
-          align-items: center;
-          margin: 25px auto;
-        }
-        input,
-        select,
-        textarea {
-          margin-bottom: 20px;
-          padding: 10px 25px;
-          width: 100%;
-          font-size: 2.5em;
-          height: 2em;
-          box-sizing: border-box;
-          border: 1px solid #ccc;
-          border-radius: 50px;
-        }
-        label {
-          width: 100%;
-          font-size: 3em;
-          margin-bottom: 10px;
-          font-weight: bold;
-        }
-        .fh {
-          display: flex;
-          flex-direction: column;
-          justify-content: left;
-          width: 100%;
-        }
-        element.style {
-        }
-        [type="reset"],
-        [type="submit"],
-        button,
-        html [type="button"] {
-          -webkit-appearance: button;
-        }
-        form button {
-          padding: 10px;
-          background-color: #4c97e4;
-          width: 90%;
-          min-width: fit-content;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 4em;
-          margin: 1em;
-        }
-        .sideContentBOX {
-          margin: 170px auto;
-        }
-        .bootbox-body {
-          font-size: 3em;
-        }
-        .btn-primary {
-          width: 4em;
-          font-size: 3em;
-        }
-        #logoCir {
-          display: block;
-        }
-        #logoPure {
-          display: none;
-        }
+      h1 {
+        font-size: 5em;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px auto 20px;
+      }
+      #contactUs {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+      }
+      form {
+        max-width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        margin: 25px auto;
+      }
+      input,
+      select,
+      textarea {
+        margin-bottom: 20px;
+        padding: 10px 25px;
+        width: 100%;
+        font-size: 2.5em;
+        height: 2em;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 50px;
       }
       label {
         width: 100%;
+        font-size: 3em;
         margin-bottom: 10px;
         font-weight: bold;
       }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand mx-auto" href="#">
-        <img
-          src="Resources/vedikaLogo2.png"
-          alt="logo"
-          id="logoCir"
-          class="img-fluid"
-        />
-        <img
-          src="Resources/vedikaLogo.png"
-          alt="logo"
-          id="logoPure"
-          class="img-fluid"
-        />
-      </a>
-      <button
-        class="navbar-toggler ml-auto"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">ABOUT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/products">PRODUCTS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/services">SERVICES</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/contactUs"
-              >CONTACT<span class="sr-only">(current)</span></a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div id="contactUs">
-      <form id="contact-form">
-        <h1>Contact <span class="blue">Us</span></h1>
+      .fh {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        width: 100%;
+      }
+      element.style {
+      }
+      [type="reset"],
+      [type="submit"],
+      button,
+      html [type="button"] {
+        -webkit-appearance: button;
+      }
+      form button {
+        padding: 10px;
+        background-color: #4c97e4;
+        width: 90%;
+        min-width: fit-content;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 4em;
+        margin: 1em;
+      }
+      .sideContentBOX {
+        margin: 170px auto;
+      }
+      .bootbox-body {
+        font-size: 3em;
+        text-align: justify;
+      }
+      .btn-primary {
+        width: 4em;
+        font-size: 3em;
+      }
+      .bootbox.modal {
+        text-align: center;
+      }
+      .modal-dialog {
+        max-width: 80vw;
+        margin: 1.75rem auto;
+      }
+      #logoCir {
+        display: block;
+      }
+      #logoPure {
+        display: none;
+      }
+      .modal.show .modal-dialog {
+        -webkit-transform: translate(0,0);
+        transform: translate(0,0);
+        width: 80%;
+      }
+    }
+    label {
+      width: 100%;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .bootbox.modal {
+      text-align: center;
+    }
+    .bootbox-body {
+      text-align: justify;
+    }
+    .modal {
+      position: fixed;
+      top: 28%;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      vertical-align: middle;
+      z-index: 1050;
+      display: none;
+      overflow: hidden;
+      outline: 0;
+    }
+    .bootbox .modal-dialog {
+      display: inline-block;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand mx-auto" href="#">
+    <img
+            src="Resources/vedikaLogo2.png"
+            alt="logo"
+            id="logoCir"
+            class="img-fluid"
+    />
+    <img
+            src="Resources/vedikaLogo.png"
+            alt="logo"
+            id="logoPure"
+            class="img-fluid"
+    />
+  </a>
+  <button
+          class="navbar-toggler ml-auto"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="/">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/products">PRODUCTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/services">SERVICES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/contactUs"
+        >CONTACT<span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="contactUs">
+  <form id="contact-form">
+    <h1>Contact <span class="blue">Us</span></h1>
+    <p>
+      Come visit our work sites or simply send us an email anytime you want.
+      We are open to all suggestions from our audience.
+    </p>
+    <div class="fh">
+      <label for="firstname">First Name *</label>
+      <input type="text" id="firstname" name="firstname" required />
+    </div>
+    <div class="fh">
+      <label for="lastname">Last Name</label>
+      <input type="text" id="lastname" name="lastname" />
+    </div>
+    <div class="fh">
+      <label for="phoneNumber">Phone Number *</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" required />
+    </div>
+    <div class="fh">
+      <label for="email">Email (Optional)</label>
+      <input type="email" id="email" name="email" />
+    </div>
+    <div class="ff">
+      <label for="address">Address</label>
+      <textarea id="address" name="address"></textarea>
+    </div>
+    <div class="fh">
+      <label for="sizeReq">TV Size Required (Optional)</label>
+      <select id="sizeReq" name="sizeReq">
+        <option value="">Select required product size</option>
+        <option value='24"'>24 Inches</option>
+        <option value='43"'>43 Inches</option>
+        <option value='50"'>50 Inches</option>
+        <option value='55"'>55 Inches</option>
+      </select>
+    </div>
+    <div class="fh">
+      <label for="quantReq">Quantity Required (Optional)</label>
+      <input type="number" id="quantReq" name="originalPrice"/>
+    </div>
+    <div class="ff">
+      <label for="enquiry">Enquiry (Optional)</label>
+      <textarea id="enquiry" name="enquiry"></textarea>
+    </div>
+    <div class="ff">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+  <div class="sideContentBOX">
+    <div class="sideContent">
+      <h1>Opening Hours</h1>
+      <br />
+      <p>
+        Mon - Sat: 8am - 9pm<br />
+        <span class="blue">Sunday: Closed</span><br />
+      </p>
+    </div>
+    <div class="sideContent">
+      <h1>Location</h1>
+      <br />
+      <p>
+        LG 12, AARZA Square 2,<br />
+        Gaur City 1, Greater Noida West,<br />
+        Uttar Pradesh
+      </p>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 footer-section">
+        <h4>R K Enterprises</h4>
+        <p>Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
         <p>
-          Come visit our work sites or simply send us an email anytime you want.
-          We are open to all suggestions from our audience.
+          Certified for having met the <br />requirements of
+          <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
         </p>
-        <div class="fh">
-          <label for="firstname">First Name *</label>
-          <input type="text" id="firstname" name="firstname" required />
-        </div>
-        <div class="fh">
-          <label for="lastname">Last Name</label>
-          <input type="text" id="lastname" name="lastname" />
-        </div>
-        <div class="ff">
-          <label for="address">Address</label>
-          <textarea id="address" name="address"></textarea>
-        </div>
-        <div class="fh">
-          <label for="phoneNumber">Phone Number *</label>
-          <input type="text" id="phoneNumber" name="phoneNumber" required />
-        </div>
-        <div class="fh">
-          <label for="email">Email (Optional)</label>
-          <input type="email" id="email" name="email" />
-        </div>
-        <div class="fh">
-          <label for="preferableDate">Preferred Date</label>
-          <input type="date" id="preferableDate" name="preferableDate" />
-        </div>
-        <div class="fh">
-          <label for="preferableTime">Preferred Time</label>
-          <input
-            type="time"
-            id="preferableTime"
-            name="preferableTime"
-            min="08:00"
-            max="17:00"
-            value="12:00"
-          />
-        </div>
-        <div class="ff">
-          <label for="enquiry">Enquiry (Optional)</label>
-          <textarea id="enquiry" name="enquiry"></textarea>
-        </div>
-        <div class="ff">
-          <label for="product">Select a product: (Optional)</label>
-          <select id="product" name="productId">
-            <option value="-1">Select a product...</option>
-          </select>
-        </div>
-        <div class="ff">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-      <div class="sideContentBOX">
-        <div class="sideContent">
-          <h1>Opening Hours</h1>
-          <br />
-          <p>
-            Mon - Sat: 8am - 9pm<br />
-            <span class="blue">Sunday: Closed</span><br />
-          </p>
-        </div>
-        <div class="sideContent">
-          <h1>Location</h1>
-          <br />
-          <p>
-            LG 12, AARZA Square 2,<br />
-            Gaur City 1, Greater Noida West,<br />
-            Uttar Pradesh
-          </p>
+      </div>
+      <div class="col-lg-4 footer-section">
+        <h4>Reach Us</h4>
+        <p>
+          LG12, Aarza Square 2, Kisan Chowk<br />
+          Gr. Noida, G.B. Nagar 201318<br />
+          <strong>Phone:</strong> 9871766494, 9717132448<br />
+          <strong>Website:</strong>
+          <a href="www.rkenterprises-noida.com"
+          >www.rkenterprises-noida.com</a
+          >
+        </p>
+      </div>
+      <div class="col-lg-4 footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
     </div>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 footer-section">
-            <h4>R K Enterprises</h4>
-            <p>Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
-            <p>
-              Certified for having met the <br />requirements of
-              <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
-            </p>
-          </div>
-          <div class="col-lg-4 footer-section">
-            <h4>Reach Us</h4>
-            <p>
-              LG12, Aarza Square 2, Kisan Chowk<br />
-              Gr. Noida, G.B. Nagar 201318<br />
-              <strong>Phone:</strong> 9871766494, 9717132448<br />
-              <strong>Website:</strong>
-              <a href="www.rkenterprises-noida.com"
-                >www.rkenterprises-noida.com</a
-              >
-            </p>
-          </div>
-          <div class="col-lg-4 footer-section">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script>
-      // JavaScript for form submission
-      const form = document.getElementById("contact-form");
-      const errorMessages = document.querySelectorAll(".error-message");
-      const productSelect = document.getElementById("product");
+  </div>
+</footer>
+<script>
+  // JavaScript for form submission
+  const errorMessages = document.querySelectorAll(".error-message");
 
-      async function fetchProducts() {
-        try {
-          const response = await fetch(`/product/allProducts?pageSize=20`);
-          if (response.ok) {
-            const pageInfo = await response.json();
-            const totalElements = pageInfo.totalElements;
-            const totalPage = pageInfo.totalPage;
-            for (let i = 0; i < totalPage; i++) {
-              const pageResponse = await fetch(
-                `/product/allProducts?pageNumber=${i}&pageSize=20`
-              );
-              if (pageResponse.ok) {
-                const pageProducts = await pageResponse.json();
-                pageProducts.content.forEach((product) => {
-                  const option = document.createElement("option");
-                  option.value = product.id;
-                  option.text =
-                    product.modelName +
-                    " | " +
-                    product.size +
-                    " | " +
-                    product.ourCost;
-                  productSelect.add(option);
-                });
-              } else {
-                console.log(
-                  `Error fetching products for page ${i}:`,
-                  pageResponse.status
-                );
-              }
-            }
-          } else {
-            console.log("Error fetching products:", response.status);
-          }
-        } catch (error) {
-          console.log("Error fetching products:", error);
-        }
+  const phoneNumberInput = document.getElementById("phoneNumber");
+  phoneNumberInput.addEventListener("input", function () {
+    let phoneNumber = phoneNumberInput.value;
+    const phoneNumberRegex = /^[0-9]{10}$/;
+    if (!phoneNumberRegex.test(phoneNumber)) {
+      phoneNumberInput.setCustomValidity(
+              "Please enter a valid 10-digit phone number"
+      );
+    } else {
+      phoneNumberInput.setCustomValidity("");
+    }
+  });
+
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    errorMessages.forEach((element) => element.remove());
+
+    const firstname = document.getElementById("firstname").value;
+    const lastname = document.getElementById("lastname").value;
+    const phoneNumber = document.getElementById("phoneNumber").value;
+    const email = document.getElementById("email").value;
+    const address = document.getElementById("address").value;
+    const sizeReq = document.getElementById("sizeReq").value;
+    const quantityReq = document.getElementById("quantReq").value;
+    const enquiry = document.getElementById("enquiry").value;
+
+    const visitorDto = {
+      firstname,
+      lastname,
+      phoneNumber,
+      email,
+      address,
+      sizeReq,
+      quantityReq,
+      enquiry
+    };
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/visitor/contactUs`, false); // make the API call synchronous
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        bootbox.alert({
+          message: "Thanks for contacting RK Enterprises, Noida.\nA leading manufacturer of LEDs\nWe will contact you soon",
+          backdrop: true
+        });
+        console.log(response.message); // show a success message to the user
+        form.reset();
       }
-
-      const today = new Date().toISOString().split("T")[0];
-      document.getElementById("preferableDate").setAttribute("min", today);
-      document.getElementById("preferableDate").setAttribute("value", today);
-
-      fetchProducts();
-
-      const phoneNumberInput = document.getElementById("phoneNumber");
-      phoneNumberInput.addEventListener("input", function () {
-        let phoneNumber = phoneNumberInput.value;
-        const phoneNumberRegex = /^[0-9]{10}$/;
-        if (!phoneNumberRegex.test(phoneNumber)) {
-          phoneNumberInput.setCustomValidity(
-            "Please enter a valid 10-digit phone number"
-          );
-        } else {
-          phoneNumberInput.setCustomValidity("");
+      else if (response.status === 400) {
+        const errorData = JSON.parse(xhr.responseText);
+        if (errorData.phoneNumber != null) {
+          bootbox.alert(errorData.phoneNumber);
+          document.getElementById("phoneNumber").style.border =
+                  "2px solid red";
         }
-      });
-
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        errorMessages.forEach((element) => element.remove()); // Remove any previous error messages
-        const originalDate = form.preferableDate.value;
-        const parts = originalDate.split("-");
-        const reversedDate = parts[2] + "-" + parts[1] + "-" + parts[0];
-        const visitorDto = {
-          firstname: form.firstname.value,
-          lastname: form.lastname.value,
-          address: form.address.value,
-          email: form.email.value,
-          phoneNumber: form.phoneNumber.value,
-          preferableDate: reversedDate,
-          preferableTime: form.preferableTime.value,
-          enquiry: form.enquiry.value,
-          id: productSelect.value,
-        };
-
-        try {
-          const response = await fetch("/visitor/contactUs/" + visitorDto.id, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(visitorDto),
-          });
-          if (response.ok) {
-            const data = await response.json();
-            bootbox.alert("Form submitted successfully!");
-            form.reset();
-          } else if (response.status === 400) {
-            const errorData = await response.json();
-            if (errorData.phoneNumber != null) {
-              bootbox.alert(errorData.phoneNumber);
-              document.getElementById("phoneNumber").style.border =
-                "2px solid red";
-            }
-            if (errorData.email != null) {
-              bootbox.alert(errorData.email);
-              document.getElementById("email").style.border = "2px solid red";
-            }
-          } else {
-            console.log("Error submitting form:", response.status);
-          }
-        } catch (error) {
-          console.log("Error submitting form:", error);
+        if (errorData.email != null) {
+          bootbox.alert(errorData.email);
+          document.getElementById("email").style.border = "2px solid red";
         }
-      });
-    </script>
-  </body>
+      } else {
+        bootbox.alert("Error submitting form!!!");
+        console.log("Error submitting form:", response.status);
+      }
+    };
+    xhr.send(JSON.stringify(visitorDto));
+  });
+</script>
+</body>
 </html>

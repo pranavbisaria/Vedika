@@ -1,124 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Visitors</title>
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            th:href="@{/Resources/favicon.png}"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            th:href="@{/Resources/favicon.png}"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            th:href="@{/Resources/favicon.png}"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="fonts.css" />
-    <style>
-      * {
-        font-family: "AveriaGWF-Regular", sans-serif;
-        box-sizing: border-box;
+<head>
+  <title>Visitors</title>
+  <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          th:href="@{/Resources/favicon.png}"
+  />
+  <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          th:href="@{/Resources/favicon.png}"
+  />
+  <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          th:href="@{/Resources/favicon.png}"
+  />
+  <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+  />
+  <link
+          href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+          rel="stylesheet"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="fonts.css" />
+  <style>
+    * {
+      font-family: "AveriaGWF-Regular", sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: rgba(209, 223, 236, 0.99);
+      margin: 0;
+    }
+    .container-fluid {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    h1 {
+      margin-top: 100px;
+    }
+    table {
+      margin: 20px auto;
+      background-color: #fff;
+      border-collapse: collapse;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      width: 1600px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+      color: #444;
+    }
+
+    th {
+      background-color: #007bff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+
+    tr {
+      height: 50px;
+    }
+
+    td {
+      font-size: 0.9em;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    .filter-container {
+      background-color: #e6f0ff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    .filter-container h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 0;
+    }
+
+    .filter-container form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .filter-container label {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .filter-container input[type="date"] {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .filter-container button {
+      background-color: #2196f3;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 22px;
+    }
+    .formDate {
+      margin: 1%;
+      width: 43%;
+    }
+
+    .pagination {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader {
+      border: 8px solid #f3f3f3;
+      display: block;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: rgba(209, 223, 236, 0.99);
-        margin: 0;
+      100% {
+        transform: rotate(360deg);
       }
-      .container-fluid {
-        margin-left: 20px;
-        margin-right: 20px;
+    }
+
+    .pagination button {
+      background-color: #f2f2f2;
+      border: none;
+      color: black;
+      padding: 8px 16px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .pagination button:disabled {
+      background-color: #cccccc;
+      color: #666666;
+      cursor: default;
+    }
+
+    .table-div {
+      overflow-x: auto;
+      margin: 1rem;
+    }
+    @media (max-width: 1000px) {
+      .navbar-brand {
+        font-size: 4.2em;
+        font-weight: bolder;
       }
+
+      .modal-title {
+        font-size: 3em;
+      }
+
+      .bootbox-body {
+        font-size: 2em;
+      }
+
+      .btn-primary {
+        font-size: 2em;
+        width: 5em;
+      }
+
+      .nav-link {
+        font-size: 3.2em;
+      }
+
       h1 {
-        margin-top: 100px;
-      }
-      table {
-        margin: 20px auto;
-        background-color: #fff;
-        border-collapse: collapse;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        border-radius: 10px;
-        overflow: hidden;
-        width: 1600px;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        position: relative;
-      }
-
-      th,
-      td {
-        padding: 12px 15px;
-        text-align: left;
-        border-bottom: 1px solid #dee2e6;
-        color: #444;
-      }
-
-      th {
-        background-color: #007bff;
-        color: #fff;
-        text-transform: uppercase;
-        font-weight: 600;
-        position: sticky;
-        top: 0;
-      }
-
-      tr {
-        height: 50px;
-      }
-
-      td {
-        font-size: 0.9em;
-      }
-
-      tr:nth-child(even) {
-        background-color: #f8f9fa;
-      }
-
-      .filter-container {
-        background-color: #e6f0ff;
-        padding: 20px;
-        margin-top: 20px;
-        border-radius: 5px;
+        font-size: 3.2em;
+        font-weight: bolder;
       }
 
       .filter-container h3 {
-        font-size: 20px;
+        font-size: 2.2em;
         font-weight: bold;
         margin-top: 0;
-      }
-
-      .filter-container form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
       }
 
       .filter-container label {
         margin-right: 10px;
         font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-size: 1.8em;
+      }
+
+      .formDate {
+        margin: 1%;
+        width: 48%;
+      }
+
+      .filter-container button {
+        margin-top: 22px;
+        font-size: 2em;
+      }
+
+      th {
+        font-size: 2em;
+      }
+
+      td {
+        font-size: 1.9em;
+      }
+
+      #previous-page-btn,
+      #next-page-btn {
+        font-size: 1.9em;
+        margin: 1em;
+      }
+
+      #page-info {
+        font-size: 1.5em;
+      }
+
+      .filter-container form {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .filter-container form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+        flex-direction: column;
+        align-items: end;
+      }
+
+      .formDate {
+        margin: auto;
+        width: 100%;
       }
 
       .filter-container input[type="date"] {
-        padding: 8px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        margin: 10px 0;
         width: 100%;
-        box-sizing: border-box;
       }
 
       .filter-container button {
@@ -129,395 +287,309 @@
         border-radius: 5px;
         font-weight: bold;
         cursor: pointer;
-        margin-top: 22px;
+        margin-top: 10px;
       }
-      .formDate {
-        margin: 1%;
-        width: 43%;
-      }
+    }
+  </style>
+</head>
+<body class="p-3 m-0 border-0 bd-example">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{/admin}">Admin Panel</a>
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/admin/product-list}"
+          >My Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+                  class="nav-link active"
+                  aria-current="page"
+                  th:href="@{/admin/visitorResponse}"
+          >Visitor's Response</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/admin/addProduct}"
+          >Add New Product</a
+          >
+        </li>
+      </ul>
+      <a class="nav-link" th:href="@{/logout}">Logout</a>
+    </div>
+  </div>
+</nav>
+<h1 class="text-center mt-4">Customer Contact Details</h1>
+<div id="loader" class="loader"></div>
+<div class="filter-container">
+  <h3>Filter Products by Date Added</h3>
+  <form id="filter-form">
+    <div class="formDate">
+      <label for="start-date">Start Date:</label>
+      <input type="date" id="start-date" name="start-date" required />
+    </div>
+    <div class="formDate">
+      <label for="end-date">End Date:</label>
+      <input type="date" id="end-date" name="end-date" required />
+    </div>
+    <button type="submit">Filter</button>
+  </form>
+</div>
+<div class="table-div">
+  <table>
+    <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Action</th>
+      <th>Date Added</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone Number</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Enquiry</th>
+      <th>Product Size</th>
+      <th>Quantity Required</th>
+      <th>Remarks</th>
+      <th>Add a remark</th>
+    </tr>
+    </thead>
+    <tbody id="visitors-table"></tbody>
+  </table>
+</div>
+<div class="pagination">
+  <button id="previous-page-btn" disabled>&laquo; Previous</button>
+  <button id="next-page-btn" disabled>Next &raquo;</button>
+  <span id="page-info"></span>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
+<script>
+  let baseUrl = "/admin/visitor/getAll?pageSize=10&sortBy=id&pageNumber=";
+  const filterForm = document.getElementById("filter-form");
+  const pageSize = 10;
 
-      .pagination {
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+  let currentPage = 1;
+  let totalPages = 1;
 
-      .loader {
-        border: 8px solid #f3f3f3;
-        display: block;
-        border-top: 8px solid #3498db;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        animation: spin 2s linear infinite;
-      }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
+  filterForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const startDate = document.getElementById("start-date").value;
+    const endDate = document.getElementById("end-date").value;
+    if (new Date(startDate) > new Date(endDate)) {
+      event.preventDefault();
+      bootbox.alert({
+        title: "Invalid Date Parameters",
+        message: "Start-date must be before the End-date.",
+      });
+    }
+    baseUrl = `/admin/visitor/getAllFiltered?getAll?pageSize=10&sortBy=createdDate&startDate=${startDate}&endDate=${endDate}&pageNumber=`;
+    currentPage = 1;
+    totalPages = 1;
+    fetchData(currentPage - 1);
+  });
 
-      .pagination button {
-        background-color: #f2f2f2;
-        border: none;
-        color: black;
-        padding: 8px 16px;
-        text-decoration: none;
-        margin: 4px 2px;
-        cursor: pointer;
-      }
+  function updateTable(data) {
+    let tableBody = document.getElementById("visitors-table");
+    tableBody.innerHTML = "";
+    for (let i = 0; i < data.length; i++) {
+      let row = tableBody.insertRow(-1);
 
-      .pagination button:disabled {
-        background-color: #cccccc;
-        color: #666666;
-        cursor: default;
-      }
+      let serialNumber = (currentPage - 1) * pageSize + i + 1;
+      let cell1 = row.insertCell(0);
+      cell1.innerHTML = serialNumber;
 
-      .table-div {
-        overflow-x: auto;
-        margin: 1rem;
-      }
-      @media (max-width: 1000px) {
-        .navbar-brand {
-          font-size: 4.2em;
-          font-weight: bolder;
-        }
+      let cell2 = row.insertCell(1);
+      let actionStatus = data[i].completed ? "Completed" : "Uncompleted";
+      let colorStyle = data[i].completed ? "green" : "red";
+      cell2.innerHTML = `<span style="color: ${colorStyle}">${actionStatus}</span>`;
 
-        .modal-title {
-          font-size: 3em;
-        }
+      let cell3 = row.insertCell(2);
+      cell3.innerHTML = data[i].createdDate;
 
-        .bootbox-body {
-          font-size: 2em;
-        }
+      let cell4 = row.insertCell(3);
+      cell4.innerHTML = data[i].firstname;
 
-        .btn-primary {
-          font-size: 2em;
-          width: 5em;
-        }
+      let cell5 = row.insertCell(4);
+      if (data[i].lastname != null) cell5.innerHTML = data[i].lastname;
 
-        .nav-link {
-          font-size: 3.2em;
-        }
+      let cell6 = row.insertCell(5);
+      cell6.innerHTML = data[i].phoneNumber;
 
-        h1 {
-          font-size: 3.2em;
-          font-weight: bolder;
-        }
+      let cell7 = row.insertCell(6);
+      if (data[i].email != null) cell7.innerHTML = data[i].email;
 
-        .filter-container h3 {
-          font-size: 2.2em;
-          font-weight: bold;
-          margin-top: 0;
-        }
+      let cell8 = row.insertCell(7);
+      if (data[i].address != null) cell8.innerHTML = data[i].address;
 
-        .filter-container label {
-          margin-right: 10px;
-          font-weight: bold;
-          font-size: 1.8em;
-        }
+      let cell9 = row.insertCell(8);
+      if (data[i].enquiry != null) cell9.innerHTML = data[i].enquiry;
 
-        button,
-        input,
-        optgroup,
-        select,
-        textarea {
-          font-size: 1.8em;
-        }
+      let cell10 = row.insertCell(9);
+      if (data[i].sizeReq != null) cell10.innerHTML = data[i].sizeReq;
 
-        .formDate {
-          margin: 1%;
-          width: 48%;
-        }
+      let cell11 = row.insertCell(10);
+      if (data[i].quantityReq != null) cell11.innerHTML = data[i].quantityReq;
 
-        .filter-container button {
-          margin-top: 22px;
-          font-size: 2em;
-        }
+      let cell12 = row.insertCell(11);
+      if (data[i].remarks != null) cell12.innerHTML = data[i].remarks;
 
-        th {
-          font-size: 2em;
-        }
+      let cell13 = row.insertCell(12);
+      let addRemarkBtn = document.createElement("button");
+      addRemarkBtn.innerText = "Add";
+      addRemarkBtn.addEventListener("click", function() {
+        showAddRemarkDialog(data[i].id, cell12, cell2);
+      });
+      cell13.appendChild(addRemarkBtn);
+    }
+  }
 
-        td {
-          font-size: 1.9em;
-        }
-
-        #previous-page-btn,
-        #next-page-btn {
-          font-size: 1.9em;
-          margin: 1em;
-        }
-
-        #page-info {
-          font-size: 1.5em;
-        }
-
-        .filter-container form {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .filter-container form {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: end;
-          flex-direction: column;
-          align-items: end;
-        }
-
-        .formDate {
-          margin: auto;
-          width: 100%;
-        }
-
-        .filter-container input[type="date"] {
-          width: 100%;
-        }
-
-        .filter-container button {
-          background-color: #2196f3;
-          color: white;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 5px;
-          font-weight: bold;
-          cursor: pointer;
-          margin-top: 10px;
-        }
-      }
-    </style>
-  </head>
-  <body class="p-3 m-0 border-0 bd-example">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/admin}">Admin Panel</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/product-list}"
-                >My Products</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                th:href="@{/admin/visitorResponse}"
-                >Visitor's Response</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/addProduct}"
-                >Add New Product</a
-              >
-            </li>
-          </ul>
-          <a class="nav-link" th:href="@{/logout}">Logout</a>
-        </div>
+  function showAddRemarkDialog(visitorId, remarkCell, cell2) {
+    bootbox.prompt({
+      title: "Add a Remark",
+      inputType: "textarea",
+      message: `
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="completed-checkbox">
+        <label class="form-check-label" for="completed-checkbox">
+          Mark as completed
+        </label>
       </div>
-    </nav>
-    <h1 class="text-center mt-4">Customer Contact Details</h1>
-    <div id="loader" class="loader"></div>
-    <div class="filter-container">
-      <h3>Filter Products by Date Added</h3>
-      <form id="filter-form">
-        <div class="formDate">
-          <label for="start-date">Start Date:</label>
-          <input type="date" id="start-date" name="start-date" required />
-        </div>
-        <div class="formDate">
-          <label for="end-date">End Date:</label>
-          <input type="date" id="end-date" name="end-date" required />
-        </div>
-        <button type="submit">Filter</button>
-      </form>
-    </div>
-    <div class="table-div">
-      <table>
-        <thead>
-          <tr>
-            <th>S.No.</th>
-            <th>Date Added</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Preferable Date</th>
-            <th>Preferable Time</th>
-            <th>Enquiry</th>
-            <th>Product Model Name</th>
-            <th>Product Size</th>
-            <th>Product Cost</th>
-          </tr>
-        </thead>
-        <tbody id="visitors-table"></tbody>
-      </table>
-    </div>
-    <div class="pagination">
-      <button id="previous-page-btn" disabled>&laquo; Previous</button>
-      <button id="next-page-btn" disabled>Next &raquo;</button>
-      <span id="page-info"></span>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
-    <script>
-      let baseUrl = "/admin/visitor/getAll?pageSize=10&sortBy=id&pageNumber=";
-      const filterForm = document.getElementById("filter-form");
-      const pageSize = 10;
-
-      let currentPage = 1;
-      let totalPages = 1;
-
-      filterForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const startDate = document.getElementById("start-date").value;
-        const endDate = document.getElementById("end-date").value;
-        if (new Date(startDate) > new Date(endDate)) {
-          event.preventDefault();
-          bootbox.alert({
-            title: "Invalid Date Parameters",
-            message: "Start-date must be before the End-date.",
-          });
+    `,
+      callback: function(result) {
+        if (result !== null) {
+          const isCompleted = document.getElementById("completed-checkbox").checked;
+          addRemark(visitorId, result, isCompleted, remarkCell, cell2);
         }
-        baseUrl = `/admin/visitor/getAllFiltered?getAll?pageSize=10&sortBy=createdDate&startDate=${startDate}&endDate=${endDate}&pageNumber=`;
-        currentPage = 1;
-        totalPages = 1;
-        fetchData(currentPage - 1);
+      },
+    });
+  }
+
+  function addRemark(visitorId, remark, isCompleted, remarkCell, cell2) {
+    let actionStatus = isCompleted ? "Completed" : "Uncompleted";
+    let colorStyle = isCompleted ? "green" : "red";
+    cell2.innerHTML = `<span style="color: ${colorStyle}">${actionStatus}</span>`;
+    remarkCell.innerHTML = remark;
+    updateRemark(visitorId, remark, isCompleted);
+  }
+
+  async function updateRemark(visitorId, remark, isCompleted, remarkCell) {
+    const data = {
+      remark: remark,
+      completed: isCompleted,
+    };
+    try {
+      const response = await fetch(`/admin/visitor/updateRemark/${visitorId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
 
-      function updateTable(data) {
-        let tableBody = document.getElementById("visitors-table");
-        tableBody.innerHTML = "";
-        for (let i = 0; i < data.length; i++) {
-          let row = tableBody.insertRow(-1);
-
-          let serialNumber = (currentPage - 1) * pageSize + i + 1;
-          let cell1 = row.insertCell(0);
-          cell1.innerHTML = serialNumber;
-
-          let cell2 = row.insertCell(1);
-          cell2.innerHTML = data[i].createdDate;
-
-          let cell3 = row.insertCell(2);
-          cell3.innerHTML = data[i].firstname;
-
-          let cell4 = row.insertCell(3);
-          if (data[i].lastname != null) cell4.innerHTML = data[i].lastname;
-
-          let cell5 = row.insertCell(4);
-          if (data[i].address != null) cell5.innerHTML = data[i].address;
-
-          let cell6 = row.insertCell(5);
-          cell6.innerHTML = data[i].phoneNumber;
-
-          let cell7 = row.insertCell(6);
-          if (data[i].email != null) cell7.innerHTML = data[i].email;
-
-          let cell8 = row.insertCell(7);
-          if (data[i].preferableDate != null)
-            cell8.innerHTML = data[i].preferableDate;
-
-          let cell9 = row.insertCell(8);
-          if (data[i].preferableTime != null)
-            cell9.innerHTML = data[i].preferableTime;
-
-          let cell10 = row.insertCell(9);
-          if (data[i].enquiry != null) cell10.innerHTML = data[i].enquiry;
-
-          let product = data[i].product;
-
-          let cell12 = row.insertCell(10);
-          if (data[i].product != null) cell12.innerHTML = product.modelName;
-
-          let cell13 = row.insertCell(11);
-          if (data[i].product != null) cell13.innerHTML = product.size;
-
-          let cell14 = row.insertCell(12);
-          if (data[i].product != null)
-            cell14.innerHTML = "Rs. " + product.ourCost;
-        }
+      if (response.ok) {
+        showApiResponse("Remark added successfully.");
+      } else {
+        remarkCell.innerHTML = "";
+        showApiResponse("Unable to add remark.");
+        throw new Error("Unable to add remark.");
       }
+    } catch (error) {
+      remarkCell.innerHTML = "";
+      console.error(error);
+      showApiResponse("Error adding remark. Please try again later.")
+    }
+  }
 
-      function updatePagination() {
-        let previousPageBtn = document.getElementById("previous-page-btn");
-        let nextPageBtn = document.getElementById("next-page-btn");
-        let pageInfo = document.getElementById("page-info");
-        if (currentPage === 1) {
-          previousPageBtn.disabled = true;
-        } else {
-          previousPageBtn.disabled = false;
-        }
+  function showApiResponse(response) {
+    const dialog = bootbox.dialog({
+      title: 'ADMIN PANEL',
+      message: response,
+      backdrop: true,
+      onEscape: true
+    });
 
-        if (currentPage === totalPages || totalPages === 0) {
-          nextPageBtn.disabled = true;
-        } else {
-          nextPageBtn.disabled = false;
-        }
+    setTimeout(() => {
+      dialog.modal('hide');
+    }, 2000);
+  }
 
-        pageInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
-      }
+  function updatePagination() {
+    let previousPageBtn = document.getElementById("previous-page-btn");
+    let nextPageBtn = document.getElementById("next-page-btn");
+    let pageInfo = document.getElementById("page-info");
+    if (currentPage === 1) {
+      previousPageBtn.disabled = true;
+    } else {
+      previousPageBtn.disabled = false;
+    }
 
-      function fetchData(pageNumber) {
-        loader.style.display = "block";
-        return new Promise((resolve, reject) => {
-          fetch(baseUrl + pageNumber)
-            .then((response) => {
-              if (response.ok) {
-                return response.json();
-              }
-              throw new Error("Network response was not ok.");
-            })
-            .then((data) => {
-              totalPages = data.totalPage;
-              updateTable(data.content);
-              updatePagination();
-              loader.style.display = "none";
-              resolve();
-            })
-            .catch((error) => {
-              console.error(error);
-              loader.style.display = "none";
-              reject(error);
-            });
-        });
-      }
-      var loader = document.getElementById("loader");
-      window.addEventListener("load", function () {
-        loader.style.display = "none";
-      });
+    if (currentPage === totalPages || totalPages === 0) {
+      nextPageBtn.disabled = true;
+    } else {
+      nextPageBtn.disabled = false;
+    }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        fetchData(currentPage - 1);
-        let previousPageBtn = document.getElementById("previous-page-btn");
-        let nextPageBtn = document.getElementById("next-page-btn");
+    pageInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
+  }
 
-        previousPageBtn.addEventListener("click", () => {
-          currentPage--;
-          fetchData(currentPage - 1);
-        });
+  function fetchData(pageNumber) {
+    loader.style.display = "block";
+    return new Promise((resolve, reject) => {
+      fetch(baseUrl + pageNumber)
+              .then((response) => {
+                if (response.ok) {
+                  return response.json();
+                }
+                throw new Error("Network response was not ok.");
+              })
+              .then((data) => {
+                totalPages = data.totalPage;
+                updateTable(data.content);
+                updatePagination();
+                loader.style.display = "none";
+                resolve();
+              })
+              .catch((error) => {
+                console.error(error);
+                loader.style.display = "none";
+                reject(error);
+              });
+    });
+  }
+  var loader = document.getElementById("loader");
+  window.addEventListener("load", function () {
+    loader.style.display = "none";
+  });
 
-        nextPageBtn.addEventListener("click", () => {
-          currentPage++;
-          fetchData(currentPage - 1);
-        });
-      });
-    </script>
-  </body>
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchData(currentPage - 1);
+    let previousPageBtn = document.getElementById("previous-page-btn");
+    let nextPageBtn = document.getElementById("next-page-btn");
+
+    previousPageBtn.addEventListener("click", () => {
+      currentPage--;
+      fetchData(currentPage - 1);
+    });
+
+    nextPageBtn.addEventListener("click", () => {
+      currentPage++;
+      fetchData(currentPage - 1);
+    });
+  });
+</script>
+</body>
 </html>
