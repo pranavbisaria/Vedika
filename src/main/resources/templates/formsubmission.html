@@ -413,8 +413,8 @@
       cell1.innerHTML = serialNumber;
 
       let cell2 = row.insertCell(1);
-      let actionStatus = data[i].completed ? "Completed" : "Uncompleted";
-      let colorStyle = data[i].completed ? "green" : "red";
+      let actionStatus = actionTaken ? "Completed" : "Uncompleted";
+      let colorStyle = actionTaken ? "green" : "red";
       cell2.innerHTML = `<span style="color: ${colorStyle}">${actionStatus}</span>`;
 
       let cell3 = row.insertCell(2);
