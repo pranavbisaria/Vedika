@@ -1956,3 +1956,8 @@ insert into "count_visitor" ("date", "ip_address", "visitor_id") values (?, ?, ?
 2023-03-15T18:00:56.320+05:30  INFO 3488 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-03-15T18:00:56.320+05:30  INFO 3488 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2023-03-15T18:00:56.322+05:30  INFO 3488 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-03-15T19:09:43.290+05:30  WARN 3488 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=22m22s105ms95µs500ns).
+2023-03-15T19:55:54.459+05:30  WARN 3488 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m40s977ms851µs400ns).
+2023-03-15T19:58:03.327+05:30  INFO 3488 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-15T19:58:03.331+05:30  INFO 3488 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-15T19:58:03.333+05:30  INFO 3488 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
