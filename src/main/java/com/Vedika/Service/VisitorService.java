@@ -8,9 +8,11 @@ import org.springframework.http.ResponseEntity;
 import java.util.Date;
 
 public interface VisitorService {
-    ResponseEntity<?> newVisitors(VisitorDto visitorDto, Long smartTvId);
+    ResponseEntity<?> newVisitors(VisitorDto visitorDto);
 
     PageResponse getVisitorsBetweenDates(Date startDate, Date endDate, PageableDto pageable);
+
+    ResponseEntity<?> addRemark(Long id, String Remarks, Boolean isCompleted);
 
     PageResponse getAll(PageableDto pageable);
 }

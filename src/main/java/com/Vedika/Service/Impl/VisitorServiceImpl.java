@@ -1,9 +1,7 @@
 package com.Vedika.Service.Impl;
 import com.Vedika.Exceptions.ResourceNotFoundException;
-import com.Vedika.Model.Product;
 import com.Vedika.Model.Visitors;
 import com.Vedika.Payload.*;
-import com.Vedika.Repository.ProductRepo;
 import com.Vedika.Repository.VisitorsRepo;
 import com.Vedika.Service.VisitorService;
 import lombok.RequiredArgsConstructor;
@@ -25,15 +23,10 @@ import static org.springframework.http.HttpStatus.OK;
 @RequiredArgsConstructor
 public class VisitorServiceImpl implements VisitorService {
     private final ModelMapper modelMapper;
-    private final ProductRepo productRepo;
     private final VisitorsRepo visitorsRepo;
     @Override
-    public ResponseEntity<?> newVisitors(VisitorDto visitorDto, Long smartTvId) {
+    public ResponseEntity<?> newVisitors(VisitorDto visitorDto) {
         Visitors visitors = this.modelMapper.map(visitorDto, Visitors.class);
-        if (smartTvId != -1) {
-            Product smartTV = this.productRepo.findById(smartTvId).orElseThrow(() -> new ResourceNotFoundException("smartTV", "smartTvID", smartTvId));
-            visitors.setProduct(smartTV);
-        }
         this.visitorsRepo.save(visitors);
         return new ResponseEntity<>(new ApiResponse("Form Submitted Successfully", true), OK);
     }
@@ -49,14 +42,17 @@ public class VisitorServiceImpl implements VisitorService {
         Pageable p = PageRequest.of(pN, pS, sort);
         Page<Visitors> pageVisitors = this.visitorsRepo.findByCreatedDateGreaterThanEqualAndCreatedDateLessThanEqual(startDate, endDate, p);
         List<Visitors> allVisitors = pageVisitors.getContent();
-        List<VisitorDto> allVisitorsDTOs = new ArrayList<>(0);
-        for (Visitors visitor : allVisitors) {
-            VisitorDto visitorDto = this.modelMapper.map(visitor, VisitorDto.class);
-            if (visitor.getProduct() != null)
-                visitorDto.getProduct().setImageUrls(visitor.getProduct().getImageUrls().get(0).getImageUrl());
-            allVisitorsDTOs.add(visitorDto);
-        }
-        return new PageResponse(new ArrayList<>(allVisitorsDTOs), pageVisitors.getNumber(), pageVisitors.getSize(), pageVisitors.getTotalPages(), pageVisitors.getTotalElements(), pageVisitors.isLast());
+        return new PageResponse(new ArrayList<>(allVisitors), pageVisitors.getNumber(), pageVisitors.getSize(), pageVisitors.getTotalPages(), pageVisitors.getTotalElements(), pageVisitors.isLast());
+    }
+    @Override
+    public ResponseEntity<?> addRemark(Long id, String Remarks, Boolean isCompleted){
+        Visitors visitors = this.visitorsRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Visitor Response", "Id: ", id));
+        if(Remarks!=null)
+            visitors.setRemarks(Remarks);
+        if(isCompleted !=null)
+            visitors.setActionTaken(isCompleted);
+        this.visitorsRepo.save(visitors);
+        return new ResponseEntity<>(new ApiResponse("Remarks has been updated successfully!!!", true), OK);
     }
     @Override
     public PageResponse getAll(PageableDto pageable){
@@ -71,13 +67,6 @@ public class VisitorServiceImpl implements VisitorService {
         Pageable p = PageRequest.of(pN, pS, sort);
         Page<Visitors> pageVisitors = this.visitorsRepo.findAll(p);
         List<Visitors> allVisitors = pageVisitors.getContent();
-        List<VisitorDto> allVisitorsDTOs = new ArrayList<>(0);
-        for (Visitors visitor : allVisitors) {
-            VisitorDto visitorDto = this.modelMapper.map(visitor, VisitorDto.class);
-            if(visitor.getProduct()!=null)
-                visitorDto.getProduct().setImageUrls(visitor.getProduct().getImageUrls().get(0).getImageUrl());
-            allVisitorsDTOs.add(visitorDto);
-        }
-        return new PageResponse(new ArrayList<>(allVisitorsDTOs), pageVisitors.getNumber(), pageVisitors.getSize(), pageVisitors.getTotalPages(), pageVisitors.getTotalElements(), pageVisitors.isLast());
+        return new PageResponse(new ArrayList<>(allVisitors), pageVisitors.getNumber(), pageVisitors.getSize(), pageVisitors.getTotalPages(), pageVisitors.getTotalElements(), pageVisitors.isLast());
     }
 }

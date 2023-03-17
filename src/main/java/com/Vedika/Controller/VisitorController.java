@@ -1,11 +1,13 @@
 package com.Vedika.Controller;
 
 import com.Vedika.Payload.PageableDto;
+import com.Vedika.Payload.RemarksDto;
 import com.Vedika.Payload.VisitorDto;
 import com.Vedika.Service.AdminService;
 import com.Vedika.Service.VisitorService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +23,10 @@ import static org.springframework.http.HttpStatus.OK;
 public class VisitorController {
     private final VisitorService visitorService;
     private final AdminService adminService;
-    @PostMapping("/visitor/contactUs/{smartTvId}")
-    public ResponseEntity<?> newVisitor(HttpServletRequest httpRequest, @Valid @RequestBody VisitorDto visitorDto, @PathVariable("smartTvId") Long smartTvId){
+    @PostMapping("/visitor/contactUs")
+    public ResponseEntity<?> newVisitor(HttpServletRequest httpRequest, @Valid @RequestBody VisitorDto visitorDto){
         adminService.trackVisitor(httpRequest.getRemoteAddr());
-        return this.visitorService.newVisitors(visitorDto, smartTvId);
+        return this.visitorService.newVisitors(visitorDto);
     }
     @GetMapping("/admin/visitor/getAll")
     public ResponseEntity<?> getAllVisitors(HttpServletRequest httpRequest,
@@ -35,6 +37,10 @@ public class VisitorController {
     ){
         adminService.trackVisitor(httpRequest.getRemoteAddr());
         return  new ResponseEntity<>(this.visitorService.getAll(new PageableDto(pageNumber, pageSize, sortBy, sortDir)), OK);
+    }
+    @PutMapping("/admin/visitor/updateRemark/{id}")
+    public ResponseEntity<?> updateMyRemark(@PathVariable("id") Long id, @RequestBody RemarksDto remarksDto){
+        return this.visitorService.addRemark(id, remarksDto.getRemark(), remarksDto.isCompleted());
     }
     @GetMapping("/admin/visitor/getAllFiltered")
     public ResponseEntity<?> getVisitorsBetweenDates(
