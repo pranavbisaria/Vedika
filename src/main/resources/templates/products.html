@@ -46,6 +46,10 @@
       * {
         font-family: "AveriaGWF-Bold", sans-serif;
       }
+      body {
+        min-width: fit-content;
+        background: linear-gradient(to bottom, #f3f6ff, #b1d5f8);
+      }
       :root {
         --primary-color: #007bff;
         --secondary-color: #6c757d;
@@ -64,7 +68,8 @@
         margin-bottom: 20px;
       }
       .product-container {
-        background: linear-gradient(to bottom, #ffffff, #cce6ff);
+        background: linear-gradient(to bottom, #f3f6ff, #b1d5f8);
+        filter: drop-shadow(1px 1px 11px rgba(0, 0, 0, 0.5));
         padding: 0 20px;
         width: 60%;
         height: 30%;
@@ -145,6 +150,7 @@
         right: 15px;
         width: 67px;
         border-radius: 50%;
+        filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
       }
       #whatsapp:hover {
         transform: scale(1.2);
@@ -246,6 +252,12 @@
         font-weight: bold;
         margin-bottom: 10px;
       }
+      .navbar-light .navbar-nav .nav-link.active {
+        border-bottom: 2px solid #e6eaef;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 900;
+      }
       #loader {
         border: 16px solid #f3f3f3;
         border-top: 16px solid #3498db;
@@ -330,15 +342,47 @@
         }
         #whatsapp {
           position: fixed;
-          bottom: 20px;
-          right: 20px;
+          bottom: 30px;
+          right: 30px;
           width: 180px;
           border-radius: 50%;
+          filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
         }
         #whatsapp:hover {
           transform: scale(1.2);
           transition: transform 0.2s ease-in-out;
         }
+        .navbar-light .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .navbar-light .navbar-nav .nav-link.active {
+          border-bottom: 2px solid #e6eaef;
+          color: white;
+          font-size: 3em;
+          font-weight: 900;
+        }
+      }
+      footer {
+        background-color: #215487;
+        padding: 145px 0;
+        margin-top: 50px;
+      }
+      h4 {
+        color: #d4d7f2;
+      }
+      .pfooter {
+        color: #bac0d4;
+      }
+      .fa-brands, .fab {
+        font-family: "Font Awesome 6 Brands";
+        font-weight: 400;
+        color: aliceblue;
+      }
+      .bg-light {
+        background-color: #215487!important;
+      }
+      .navbar-light .navbar-nav .nav-link {
+        color: aliceblue;
       }
     </style>
   </head>
@@ -385,7 +429,7 @@
         </ul>
       </div>
     </nav>
-    <a href="https://web.whatsapp.com/send?phone=91971732448&text="  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
+    <a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
     <div class="myContainer">
       <h1 style="text-align: center; margin-top: 20px">
         Our <span style="color: #009df8">Products</span>

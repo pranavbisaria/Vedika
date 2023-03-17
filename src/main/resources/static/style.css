@@ -98,7 +98,8 @@ h1 {
     margin: 10px;
     border: 1px solid #5351ae;
     padding: 30px;
-    background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+    background: linear-gradient(to bottom, #f3f6ff, #b1d5f8);
+    filter: drop-shadow(1px 1px 11px rgba(0, 0, 0, 0.5));
 }
 
 .product h2 {

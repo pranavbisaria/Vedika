@@ -148,6 +148,7 @@
         right: 15px;
         width: 67px;
         border-radius: 50%;
+        filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
       }
       #whatsapp:hover {
         transform: scale(1.2);
@@ -281,14 +282,18 @@
         }
         #whatsapp {
           position: fixed;
-          bottom: 20px;
-          right: 20px;
+          bottom: 30px;
+          right: 30px;
           width: 180px;
           border-radius: 50%;
+          filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
         }
         #whatsapp:hover {
           transform: scale(1.2);
           transition: transform 0.2s ease-in-out;
+        }
+        .navbar-light .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
         }
       }
     </style>
@@ -336,7 +341,7 @@
         </ul>
       </div>
     </nav>
-    <a href="https://web.whatsapp.com/send?phone=91971732448&text="  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{/Resources/Whatapp.png}"></a>
+    <a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
     <div id="errorContainer">
       <h1 style="margin: 0; padding: 0">404</h1>
       <div id="contentError">

@@ -48,7 +48,7 @@
       }
       body {
         min-width: fit-content;
-        background: linear-gradient(to bottom, #ffffff, #cce6ff);
+        background: linear-gradient(to bottom, #f3f6ff, #b1d5f8);
       }
       .container {
         max-width: 900px;
@@ -65,6 +65,8 @@
         justify-content: center;
       }
       .prodImgBox {
+        filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.4));
+        background-color: white;
         border: 0.5px solid black;
         height: 400px;
         width: 400px;
@@ -187,10 +189,17 @@
         right: 15px;
         width: 67px;
         border-radius: 50%;
+        filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
       }
       #whatsapp:hover {
         transform: scale(1.2);
         transition: transform 0.2s ease-in-out;
+      }
+      .navbar-light .navbar-nav .nav-link.active {
+        border-bottom: 2px solid #e6eaef;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 900;
       }
       @media (max-width: 992px) {
         .container {
@@ -309,15 +318,48 @@
         }
         #whatsapp {
           position: fixed;
-          bottom: 20px;
-          right: 20px;
+          bottom: 30px;
+          right: 30px;
           width: 180px;
           border-radius: 50%;
+          filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
+
         }
         #whatsapp:hover {
           transform: scale(1.2);
           transition: transform 0.2s ease-in-out;
         }
+        .navbar-light .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .navbar-light .navbar-nav .nav-link.active {
+          border-bottom: 2px solid #e6eaef;
+          color: white;
+          font-size: 3em;
+          font-weight: 900;
+        }
+      }
+      footer {
+        background-color: #215487;
+        padding: 145px 0;
+        margin-top: 50px;
+      }
+      h4 {
+        color: #d4d7f2;
+      }
+      .pfooter {
+        color: #bac0d4;
+      }
+      .fa-brands, .fab {
+        font-family: "Font Awesome 6 Brands";
+        font-weight: 400;
+        color: aliceblue;
+      }
+      .bg-light {
+        background-color: #215487!important;
+      }
+      .navbar-light .navbar-nav .nav-link {
+        color: aliceblue;
       }
     </style>
   </head>
@@ -364,7 +406,7 @@
         </ul>
       </div>
     </nav>
-    <a href="https://web.whatsapp.com/send?phone=91971732448&text="  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
+    <a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
     <div class="container">
       <div class="product-image">
         <div class="prodImgBox">
@@ -372,6 +414,7 @@
         </div>
         <div class="slider">
           <span class="prev" onclick="prevImage()">&#10094;</span>
+          &emsp;
           <span class="next" onclick="nextImage()">&#10095;</span>
         </div>
         <h2 id="prodNameResp"></h2>
@@ -394,15 +437,15 @@
         <div class="row">
           <div class="col-lg-4 footer-section">
             <h4>R K Enterprises</h4>
-            <p>Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
-            <p>
+            <p class="pfooter">Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
+            <p class="pfooter">
               Certified for having met the <br />requirements of
               <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
             </p>
           </div>
           <div class="col-lg-4 footer-section">
             <h4>Reach Us</h4>
-            <p>
+            <p class="pfooter">
               LG12, Aarza Square 2, Kisan Chowk<br />
               Gr. Noida, G.B. Nagar 201318<br />
               <strong>Phone:</strong> 9871766494, 9717132448<br />
@@ -425,81 +468,79 @@
       </div>
     </footer>
     <script>
-      function loadPage() {
-        const queryParams = new URLSearchParams(window.location.search);
-        const productId = queryParams.get("id");
-        const apiUrl = `/product/getProduct/${productId}`;
-        const prodNameResp = document.getElementById("prodNameResp");
-        const prodName = document.getElementById("prodName");
-        const prodSize = document.getElementById("prodSize");
-        const prodRateOriginal = document.getElementById("prodRateOriginal");
-        const prodRateOurRate = document.getElementById("prodRateOurRate");
-        const prodInfo = document.getElementById("prodInfo");
-        const productImg = document.getElementById("product-img");
-        const productTable = document.getElementById("product-table");
-        let imageIndex = 0;
-        var imageArray = 0;
+      const queryParams = new URLSearchParams(window.location.search);
+      const productId = queryParams.get("id");
+      const apiUrl = `/product/getProduct/${productId}`;
+      const prodNameResp = document.getElementById("prodNameResp");
+      const prodName = document.getElementById("prodName");
+      const prodSize = document.getElementById("prodSize");
+      const prodRateOriginal = document.getElementById("prodRateOriginal");
+      const prodRateOurRate = document.getElementById("prodRateOurRate");
+      const prodInfo = document.getElementById("prodInfo");
+      const productImg = document.getElementById("product-img");
+      const productTable = document.getElementById("product-table");
+      let imageIndex = 0;
+      var imageArray = 0;
 
-        function renderProduct(product) {
-          // render images
-          imageArray = product.imageUrls;
-          productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
+      function renderProduct(product) {
+        // render images
+        imageArray = product.imageUrls;
+        productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
 
-          const name = product.modelName;
-          prodName.append(name);
-          prodNameResp.append(name);
+        const name = product.modelName;
+        prodName.append(name);
+        prodNameResp.append(name);
 
-          const rate = "Size: " + product.size;
-          if (product.size != null) prodSize.append(rate);
+        const rate = "Size: " + product.size;
+        if (product.size != null) prodSize.append(rate);
 
-          const originalRate = "Rs. " + product.originalPrice;
-          if (product.originalPrice != null)
-            prodRateOriginal.append(originalRate);
+        const originalRate = "Rs. " + product.originalPrice;
+        if (product.originalPrice != null)
+          prodRateOriginal.append(originalRate);
 
-          const ourRate = " Rs. " + product.ourCost;
-          if (product.ourCost != null) prodRateOurRate.append(ourRate);
+        const ourRate = " Rs. " + product.ourCost;
+        if (product.ourCost != null) prodRateOurRate.append(ourRate);
 
-          const info = product.description;
-          if (product.description != null) prodInfo.append(info);
+        const info = product.description;
+        if (product.description != null) prodInfo.append(info);
 
-          productTable.innerHTML = "";
+        productTable.innerHTML = "";
 
-          if (product.productInfo != null)
-            product.productInfo.forEach((info) => {
-              const row = document.createElement("tr");
-              const headCell = document.createElement("th");
-              headCell.textContent = info.head;
-              const bodyCell = document.createElement("td");
-              bodyCell.textContent = info.body;
-              row.appendChild(headCell);
-              row.appendChild(bodyCell);
-              productTable.appendChild(row);
-            });
-        }
-
-        function prevImage() {
-          if (imageIndex === 0) {
-            imageIndex = imageArray.length - 1;
-          } else {
-            imageIndex--;
-          }
-          productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
-        }
-
-        function nextImage() {
-          if (imageIndex === imageArray.length - 1) {
-            imageIndex = 0;
-          } else {
-            imageIndex++;
-          }
-          productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
-        }
-
-        fetch(apiUrl)
-          .then((response) => response.json())
-          .then((data) => renderProduct(data))
-          .catch((error) => console.error(error));
+        if (product.productInfo != null)
+          product.productInfo.forEach((info) => {
+            const row = document.createElement("tr");
+            const headCell = document.createElement("th");
+            headCell.textContent = info.head;
+            const bodyCell = document.createElement("td");
+            bodyCell.textContent = info.body;
+            row.appendChild(headCell);
+            row.appendChild(bodyCell);
+            productTable.appendChild(row);
+          });
       }
+
+      function prevImage() {
+        if (imageIndex === 0) {
+          imageIndex = imageArray.length - 1;
+        } else {
+          imageIndex--;
+        }
+        productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
+      }
+
+      function nextImage() {
+        if (imageIndex === imageArray.length - 1) {
+          imageIndex = 0;
+        } else {
+          imageIndex++;
+        }
+        productImg.src = "/file/" + imageArray[imageIndex].imageUrl;
+      }
+
+      fetch(apiUrl)
+              .then((response) => response.json())
+              .then((data) => renderProduct(data))
+              .catch((error) => console.error(error));
     </script>
   </body>
 </html>
