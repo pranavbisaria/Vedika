@@ -9,6 +9,11 @@
     background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
 }
 
+.mission {
+    padding: 20px;
+    margin: 0;
+}
+
 .imageTL {
     margin: 8vh auto auto;
     width: 550px;
