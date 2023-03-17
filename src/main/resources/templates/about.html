@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>RK Enterprises</title>
+    <title>Vedika</title>
     <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
     <link
       rel="icon"
@@ -46,6 +46,11 @@
     <style>
       * {
         font-family: "AveriaGWF-Bold", sans-serif;
+      }
+      body{
+        min-width: fit-content;
+        line-height: 0.6;
+        background: linear-gradient(to bottom, #f3f6ff, #b1d5f8);
       }
       #indiaMart {
         margin-top: 20px;
@@ -101,10 +106,24 @@
       .b-text {
         size: 1.4rem;
       }
-      @media (min-width: 992px) {
-        #logoCir {
-          display: none;
-        }
+
+      .navbar-light .navbar-nav .nav-link.active {
+        border-bottom: 2px solid #e6eaef;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 900;
+      }
+      #whatsapp {
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        width: 67px;
+        border-radius: 50%;
+        filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
+      }
+      #whatsapp:hover {
+        transform: scale(1.2);
+        transition: transform 0.2s ease-in-out;
       }
       @media (max-width: 992px) {
         nav .navbar-brand {
@@ -164,7 +183,7 @@
           margin: 3vh;
         }
         h4 {
-          color: #2d2d2d;
+          color: #d4d7f2;
           font-weight: 700;
           font-size: 65px;
           margin-bottom: 30px;
@@ -182,7 +201,7 @@
           transition: color 0.3s ease;
         }
         footer {
-          background-color: #f1f1f1;
+          background-color: #215487;
           padding: 145px 0;
           margin-top: 50px;
         }
@@ -192,12 +211,6 @@
           font-weight: bold;
           padding: 8px 20px;
           transition: all 0.3s ease-in-out;
-        }
-        #logoCir {
-          display: block;
-        }
-        #logoPure {
-          display: none;
         }
         #indiaMart {
           margin: auto;
@@ -227,18 +240,64 @@
           flex-direction: column;
           justify-content: space-around;
         }
+        #whatsapp {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          width: 180px;
+          border-radius: 50%;
+          filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
+        }
+        #whatsapp:hover {
+          transform: scale(1.2);
+          transition: transform 0.2s ease-in-out;
+        }
+        .fa-brands, .fab {
+          font-weight: 400;
+          color: aliceblue;
+        }
+        .navbar-light .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .navbar-light .navbar-nav .nav-link.active {
+          border-bottom: 13px solid #e6eaef;
+          color: white;
+          font-size: 3em;
+          font-weight: 900;
+        }
+        .navbar-nav .nav-link {
+          padding-right: 0;
+          padding-left: 0;
+          line-height: 1.5em;
+        }
+      }
+      footer {
+        background-color: #215487;
+        padding: 145px 0;
+        margin-top: 50px;
+      }
+      h4 {
+        color: #d4d7f2;
+      }
+      .pfooter {
+        color: #bac0d4;
+      }
+      .fa-brands, .fab {
+        font-family: "Font Awesome 6 Brands";
+        font-weight: 400;
+        color: aliceblue;
+      }
+      .bg-light {
+        background-color: #215487!important;
+      }
+      .navbar-light .navbar-nav .nav-link {
+        color: aliceblue;
       }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand mx-auto" href="#">
-        <img
-          src="Resources/vedikaLogo2.png"
-          alt="logo"
-          id="logoCir"
-          class="img-fluid"
-        />
         <img
           src="Resources/vedikaLogo.png"
           alt="logo"
@@ -279,12 +338,13 @@
         </ul>
       </div>
     </nav>
+    <a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
     <h1 class="headService"><span class="blue">ABOUT</span> US</h1>
     <hr class="styled-hr" />
     <div id="about">
       <div id="textContent">
         <div class="image-container">
-          <img src="Resources/vedikaLogo2.png" alt="Logo" />
+          <img src="Resources/vedikaLogoAbout.png" alt="Logo" />
           <span style="color: #01a3d4; font-size: 146px; margin-left: 10px"
             >vedi<span style="color: #e33c12">c</span>a</span
           >
@@ -340,17 +400,17 @@
         <div class="row">
           <div class="col-lg-4 footer-section">
             <h4>R K Enterprises</h4>
-            <p>Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
-            <p>
+            <p class="pfooter">Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
+            <p class="pfooter">
               Certified for having met the <br />requirements of
               <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
             </p>
           </div>
           <div class="col-lg-4 footer-section">
             <h4>Reach Us</h4>
-            <p>
-              D-182, Sector-10, Noida<br />
-              201301, Uttar Pradesh<br />
+            <p class="pfooter">
+              LG12, Aarza Square 2, Kisan Chowk<br />
+              Gr. Noida, G.B. Nagar 201318<br />
               <strong>Phone:</strong> 9871766494, 9717132448<br />
               <strong>Website:</strong>
               <a href="www.rkenterprises-noida.com"

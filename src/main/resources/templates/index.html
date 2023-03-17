@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>RK Enterprises</title>
+    <title>Vedika</title>
     <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
     <link
       rel="icon"
@@ -59,6 +59,25 @@
         margin: auto;
         display: none;
       }
+      #whatsapp{
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        width: 67px;
+        border-radius: 50%;
+        z-index: 100;
+        filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
+      }
+      #whatsapp:hover {
+        transform: scale(1.2);
+        transition: transform 0.2s ease-in-out;
+      }
+      .navbar-light .navbar-nav .nav-link.active {
+        border-bottom: 2px solid #e6eaef;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 900;
+      }
       @keyframes spin {
         0% {
           transform: rotate(0deg);
@@ -67,14 +86,12 @@
           transform: rotate(360deg);
         }
       }
-      @media (min-width: 992px) {
-        #logoCir {
-          display: none;
-        }
-      }
       @media (max-width: 992px) {
         nav .navbar-brand {
           margin: auto;
+        }
+        .navbar-light .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
         }
 
         nav button {
@@ -198,24 +215,52 @@
           padding: 8px 20px;
           transition: all 0.3s ease-in-out;
         }
-        #logoCir {
-          display: block;
+        #whatsapp {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          width: 180px;
+          border-radius: 50%;
+          filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
         }
-        #logoPure {
-          display: none;
+        #whatsapp:hover {
+          transform: scale(1.2);
+          transition: transform 0.2s ease-in-out;
         }
+        .navbar-light .navbar-nav .nav-link.active {
+          border-bottom: 2px solid #e6eaef;
+          color: white;
+          font-size: 3em;
+          font-weight: 900;
+        }
+      }
+      footer {
+        background-color: #215487;
+        padding: 145px 0;
+        margin-top: 50px;
+      }
+      h4 {
+        color: #d4d7f2;
+      }
+      .pfooter {
+        color: #bac0d4;
+      }
+      .fa-brands, .fab {
+        font-family: "Font Awesome 6 Brands";
+        font-weight: 400;
+        color: aliceblue;
+      }
+      .bg-light {
+        background-color: #215487!important;
+      }
+      .navbar-light .navbar-nav .nav-link {
+        color: aliceblue;
       }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <a class="navbar-brand mx-auto" href="#">
-        <img
-          src="Resources/vedikaLogo2.png"
-          alt="logo"
-          id="logoCir"
-          class="img-fluid"
-        />
         <img
           src="Resources/vedikaLogo.png"
           alt="logo"
@@ -256,6 +301,7 @@
         </ul>
       </div>
     </nav>
+      <a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
     <div id="mainContent">
       <img class="imageTL" src="Resources/tv1.png" alt="Left Image" />
       <div class="centered">
@@ -296,19 +342,19 @@
     />
     <div class="serviceDiv">
       <div class="logService">
-        <i class="fas fa-clock fa-3x servLogo" style="font-size: 3.5em"></i>
+        <i class="fas fa-clock fa-3x servLogo" style="font-size: 7em"></i>
         <h3>Available <br />24x7</h3>
       </div>
       <div class="logService">
-        <i class="fas fa-wrench fa-3x servLogo" style="font-size: 3.5em"></i>
-        <h3>Warranty &amp; <br />Maintenance</h3>
+        <i class="fas fa-wrench fa-3x servLogo" style="font-size: 7em"></i>
+        <h3>Warranty <br />&amp; <br />Maintenance</h3>
       </div>
       <div class="logService">
-        <i class="fas fa-tags fa-3x servLogo" style="font-size: 3.5em"></i>
+        <i class="fas fa-tags fa-3x servLogo" style="font-size: 7em"></i>
         <h3>Low Prices<br />Guaranteed</h3>
       </div>
       <div class="logService">
-        <i class="fas fa-headset fa-3x servLogo" style="font-size: 3.5em"></i>
+        <i class="fas fa-headset fa-3x servLogo" style="font-size: 7em"></i>
         <h3>Helpline<br />Support</h3>
       </div>
     </div>
@@ -333,17 +379,17 @@
         <div class="row">
           <div class="col-lg-4 footer-section">
             <h4>R K Enterprises</h4>
-            <p>Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
-            <p>
+            <p class="pfooter">Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
+            <p class="pfooter">
               Certified for having met the <br />requirements of
               <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
             </p>
           </div>
           <div class="col-lg-4 footer-section">
             <h4>Reach Us</h4>
-            <p>
-              D-182, Sector-10, Noida<br />
-              201301, Uttar Pradesh<br />
+            <p class="pfooter">
+              LG12, Aarza Square 2, Kisan Chowk<br />
+              Gr. Noida, G.B. Nagar 201318<br />
               <strong>Phone:</strong> 9871766494, 9717132448<br />
               <strong>Website:</strong>
               <a href="www.rkenterprises-noida.com"

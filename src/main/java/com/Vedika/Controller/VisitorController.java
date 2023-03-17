@@ -33,10 +33,10 @@ public class VisitorController {
                                             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
                                             @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize,
                                             @RequestParam(value = "sortBy", defaultValue = "id", required = false) String sortBy,
-                                            @RequestParam(value = "sortDir", defaultValue = "des", required = false) String sortDir
+                                            @RequestParam(value = "sortDir", defaultValue = "des", required = false) String sortDir,
+                                            @RequestParam(value = "actionTaken", defaultValue = "all", required = false) String actionTaken
     ){
-        adminService.trackVisitor(httpRequest.getRemoteAddr());
-        return  new ResponseEntity<>(this.visitorService.getAll(new PageableDto(pageNumber, pageSize, sortBy, sortDir)), OK);
+        return  new ResponseEntity<>(this.visitorService.getAll(new PageableDto(pageNumber, pageSize, sortBy, sortDir), actionTaken), OK);
     }
     @PutMapping("/admin/visitor/updateRemark/{id}")
     public ResponseEntity<?> updateMyRemark(@PathVariable("id") Long id, @RequestBody RemarksDto remarksDto){
@@ -50,9 +50,10 @@ public class VisitorController {
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize,
             @RequestParam(value = "sortBy", defaultValue = "createdDate", required = false) String sortBy,
-            @RequestParam(value = "sortDir", defaultValue = "des", required = false) String sortDir
+            @RequestParam(value = "sortDir", defaultValue = "des", required = false) String sortDir,
+            @RequestParam(value = "actionTaken", defaultValue = "all", required = false) String actionTaken
     ){
         adminService.trackVisitor(httpRequest.getRemoteAddr());
-        return  new ResponseEntity<>(this.visitorService.getVisitorsBetweenDates(startDate, endDate, new PageableDto(pageNumber, pageSize, sortBy, sortDir)), OK);
+        return  new ResponseEntity<>(this.visitorService.getVisitorsBetweenDates(startDate, endDate, new PageableDto(pageNumber, pageSize, sortBy, sortDir), actionTaken), OK);
     }
 }
