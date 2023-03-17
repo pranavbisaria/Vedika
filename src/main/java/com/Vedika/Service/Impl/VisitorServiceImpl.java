@@ -31,7 +31,7 @@ public class VisitorServiceImpl implements VisitorService {
         return new ResponseEntity<>(new ApiResponse("Form Submitted Successfully", true), OK);
     }
     @Override
-    public PageResponse getVisitorsBetweenDates(Date startDate, Date endDate, PageableDto pageable) {
+    public PageResponse getVisitorsBetweenDates(Date startDate, Date endDate, PageableDto pageable, String actionTaken) {
         Integer pN = pageable.getPageNumber(), pS = pageable.getPageSize();
         Sort sort = null;
         if (pageable.getSortDir().equalsIgnoreCase("asc")) {
@@ -40,7 +40,14 @@ public class VisitorServiceImpl implements VisitorService {
             sort = Sort.by(pageable.getSortBy()).descending();
         }
         Pageable p = PageRequest.of(pN, pS, sort);
-        Page<Visitors> pageVisitors = this.visitorsRepo.findByCreatedDateGreaterThanEqualAndCreatedDateLessThanEqual(startDate, endDate, p);
+        Page<Visitors> pageVisitors;
+        if(actionTaken.equals("all")){
+            pageVisitors = this.visitorsRepo.findByCreatedDateGreaterThanEqualAndCreatedDateLessThanEqual(startDate, endDate, p);
+        }else if(actionTaken.equals("true")){
+            pageVisitors = this.visitorsRepo.findByCreatedDateGreaterThanEqualAndCreatedDateLessThanEqualAndActionTaken(startDate, endDate, true, p);
+        }else{
+            pageVisitors = this.visitorsRepo.findByCreatedDateGreaterThanEqualAndCreatedDateLessThanEqualAndActionTaken(startDate, endDate, false, p);
+        }
         List<Visitors> allVisitors = pageVisitors.getContent();
         return new PageResponse(new ArrayList<>(allVisitors), pageVisitors.getNumber(), pageVisitors.getSize(), pageVisitors.getTotalPages(), pageVisitors.getTotalElements(), pageVisitors.isLast());
     }
@@ -55,7 +62,7 @@ public class VisitorServiceImpl implements VisitorService {
         return new ResponseEntity<>(new ApiResponse("Remarks has been updated successfully!!!", true), OK);
     }
     @Override
-    public PageResponse getAll(PageableDto pageable){
+    public PageResponse getAll(PageableDto pageable, String actionTaken){
         Integer pN = pageable.getPageNumber(), pS = pageable.getPageSize();
         Sort sort = null;
         if(pageable.getSortDir().equalsIgnoreCase("asc")){
@@ -65,7 +72,14 @@ public class VisitorServiceImpl implements VisitorService {
             sort = Sort.by(pageable.getSortBy()).descending();
         }
         Pageable p = PageRequest.of(pN, pS, sort);
-        Page<Visitors> pageVisitors = this.visitorsRepo.findAll(p);
+        Page<Visitors> pageVisitors;
+        if(actionTaken.equals("all")){
+            pageVisitors = this.visitorsRepo.findAll(p);
+        }else if(actionTaken.equals("true")){
+            pageVisitors = this.visitorsRepo.findByActionTaken(true, p);
+        }else{
+            pageVisitors = this.visitorsRepo.findByActionTaken(false, p);
+        }
         List<Visitors> allVisitors = pageVisitors.getContent();
         return new PageResponse(new ArrayList<>(allVisitors), pageVisitors.getNumber(), pageVisitors.getSize(), pageVisitors.getTotalPages(), pageVisitors.getTotalElements(), pageVisitors.isLast());
     }

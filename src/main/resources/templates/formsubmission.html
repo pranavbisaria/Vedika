@@ -121,7 +121,7 @@
       box-sizing: border-box;
     }
 
-    .filter-container button {
+    .filter-container button, .AddBtn {
       background-color: #2196f3;
       color: white;
       padding: 10px 20px;
@@ -131,6 +131,7 @@
       cursor: pointer;
       margin-top: 22px;
     }
+
     .formDate {
       margin: 1%;
       width: 43%;
@@ -181,6 +182,38 @@
       overflow-x: auto;
       margin: 1rem;
     }
+
+    .formcheckfilter{
+      /*padding: 0 50px;*/
+      width: 100%;
+      display: flex;
+      justify-content: left;
+    }
+
+    .formcheckfilter .check-div{
+      box-sizing: border-box;
+      width: 50%;
+    }
+
+    textarea.form-control {
+      min-height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2));
+      margin: 35px 16px;
+      width: 94%;
+      font-size: 1.5em;
+    }
+
+    .form-check .form-check-input {
+      /* float: left; */
+      margin: auto 14px;
+    }
+
+    .form-check {
+      display: block;
+      min-height: 1.5rem;
+      margin-bottom: 0.125rem;
+      padding-left: 0;
+    }
+
     @media (max-width: 1000px) {
       .navbar-brand {
         font-size: 4.2em;
@@ -192,10 +225,11 @@
       }
 
       .bootbox-body {
-        font-size: 2em;
+        font-size: 2.5em;
+        margin: 24px auto;
       }
 
-      .btn-primary {
+      .btn-primary, .btn-secondary {
         font-size: 2em;
         width: 5em;
       }
@@ -339,13 +373,27 @@
   <form id="filter-form">
     <div class="formDate">
       <label for="start-date">Start Date:</label>
-      <input type="date" id="start-date" name="start-date" required />
+      <input type="date" id="start-date" name="start-date"/>
     </div>
     <div class="formDate">
       <label for="end-date">End Date:</label>
-      <input type="date" id="end-date" name="end-date" required />
+      <input type="date" id="end-date" name="end-date"/>
     </div>
     <button type="submit">Filter</button>
+    <div class="formcheckfilter">
+      <div class="check-div">
+        <input class="form-check-input" type="checkbox" id="markAsCompleted" name="markAsCompleted-checkbox">
+        <label class="form-check-label" for="markAsCompleted">
+          Completed
+        </label>
+      </div>
+      <div class="check-div">
+        <input class="form-check-input" type="checkbox" id="markAsInCompleted" name="markAsInCompleted-checkbox">
+        <label class="form-check-label" for="markAsInCompleted">
+          Not Completed
+        </label>
+      </div>
+    </div>
   </form>
 </div>
 <div class="table-div">
@@ -385,20 +433,58 @@
   let currentPage = 1;
   let totalPages = 1;
 
+  const markAsCompletedCheckbox = document.getElementById('markAsCompleted');
+  const markAsIncompletedCheckbox = document.getElementById('markAsInCompleted');
+
+  markAsCompletedCheckbox.addEventListener('change', () => {
+    if (markAsCompletedCheckbox.checked) {
+      markAsIncompletedCheckbox.checked = false;
+    }
+  });
+
+  markAsIncompletedCheckbox.addEventListener('change', () => {
+    if (markAsIncompletedCheckbox.checked) {
+      markAsCompletedCheckbox.checked = false;
+    }
+  });
+
   filterForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const startDate = document.getElementById("start-date").value;
     const endDate = document.getElementById("end-date").value;
-    if (new Date(startDate) > new Date(endDate)) {
-      event.preventDefault();
-      bootbox.alert({
-        title: "Invalid Date Parameters",
-        message: "Start-date must be before the End-date.",
-      });
+    const markAsCompleted = document.getElementById("markAsCompleted").checked;
+    const markAsInCompleted = document.getElementById("markAsInCompleted").checked;
+
+    baseUrl = "/admin/visitor/getAll?pageSize=10&sortBy=id&";
+    if(startDate && endDate){
+      if (new Date(startDate) > new Date(endDate)) {
+        event.preventDefault();
+        bootbox.alert({
+          title: "Invalid Date Parameters",
+          message: "Start-date must be before the End-date.",
+        });
+        return;
+      }
+      let modifiedOnly = "all";
+      if(markAsCompleted ^ markAsInCompleted) {
+        if(markAsCompleted)
+          modifiedOnly = "true";
+        else
+          modifiedOnly = "false";
+      }
+      baseUrl = `/admin/visitor/getAllFiltered?pageSize=10&sortBy=createdDate&actionTaken=${modifiedOnly}&startDate=${startDate}&endDate=${endDate}&pageNumber=`;
+      currentPage = 1;
+      totalPages = 1;
     }
-    baseUrl = `/admin/visitor/getAllFiltered?getAll?pageSize=10&sortBy=createdDate&startDate=${startDate}&endDate=${endDate}&pageNumber=`;
-    currentPage = 1;
-    totalPages = 1;
+    else if(markAsCompleted ^ markAsInCompleted){
+      if(markAsCompleted)
+        baseUrl += "actionTaken=true&pageNumber=";
+      else
+        baseUrl += "actionTaken=false&pageNumber=";
+    }
+    else{
+      baseUrl += "pageNumber=";
+    }
     fetchData(currentPage - 1);
   });
 
@@ -413,8 +499,8 @@
       cell1.innerHTML = serialNumber;
 
       let cell2 = row.insertCell(1);
-      let actionStatus = actionTaken ? "Completed" : "Uncompleted";
-      let colorStyle = actionTaken ? "green" : "red";
+      let actionStatus = data[i].actionTaken ? "Completed" : "Uncompleted";
+      let colorStyle = data[i].actionTaken ? "green" : "red";
       cell2.innerHTML = `<span style="color: ${colorStyle}">${actionStatus}</span>`;
 
       let cell3 = row.insertCell(2);
@@ -449,6 +535,7 @@
 
       let cell13 = row.insertCell(12);
       let addRemarkBtn = document.createElement("button");
+      addRemarkBtn.classList.add("AddBtn");
       addRemarkBtn.innerText = "Add";
       addRemarkBtn.addEventListener("click", function() {
         showAddRemarkDialog(data[i].id, cell12, cell2);

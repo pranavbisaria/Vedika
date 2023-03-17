@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>RK Enterprises</title>
+    <title>Vedika</title>
     <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
     <link
       rel="icon"
@@ -57,17 +57,23 @@
         margin: auto;
         display: none;
       }
+      #whatsapp{
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        width: 67px;
+        border-radius: 50%;
+      }
+      #whatsapp:hover {
+        transform: scale(1.2);
+        transition: transform 0.2s ease-in-out;
+      }
       @keyframes spin {
         0% {
           transform: rotate(0deg);
         }
         100% {
           transform: rotate(360deg);
-        }
-      }
-      @media (min-width: 992px) {
-        #logoCir {
-          display: none;
         }
       }
       @media (max-width: 992px) {
@@ -196,11 +202,12 @@
           padding: 8px 20px;
           transition: all 0.3s ease-in-out;
         }
-        #logoCir {
-          display: block;
-        }
-        #logoPure {
-          display: none;
+        #whatsapp {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 180px;
+          border-radius: 50%;
         }
       }
     </style>
@@ -208,12 +215,6 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <a class="navbar-brand mx-auto" href="#">
-        <img
-          src="Resources/vedikaLogo2.png"
-          alt="logo"
-          id="logoCir"
-          class="img-fluid"
-        />
         <img
           src="Resources/vedikaLogo.png"
           alt="logo"
@@ -254,6 +255,7 @@
         </ul>
       </div>
     </nav>
+      <a href="https://web.whatsapp.com/send?phone=91971732448&text="  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
     <div id="mainContent">
       <img class="imageTL" src="Resources/tv1.png" alt="Left Image" />
       <div class="centered">
@@ -294,24 +296,22 @@
     />
     <div class="serviceDiv">
       <div class="logService">
-        <i class="fas fa-clock fa-3x servLogo" style="font-size: 3.5em"></i>
+        <i class="fas fa-clock fa-3x servLogo" style="font-size: 7em"></i>
         <h3>Available <br />24x7</h3>
       </div>
       <div class="logService">
-        <i class="fas fa-wrench fa-3x servLogo" style="font-size: 3.5em"></i>
-        <h3>Warranty &amp; <br />Maintenance</h3>
+        <i class="fas fa-wrench fa-3x servLogo" style="font-size: 7em"></i>
+        <h3>Warranty <br />&amp; <br />Maintenance</h3>
       </div>
       <div class="logService">
-        <i class="fas fa-tags fa-3x servLogo" style="font-size: 3.5em"></i>
+        <i class="fas fa-tags fa-3x servLogo" style="font-size: 7em"></i>
         <h3>Low Prices<br />Guaranteed</h3>
       </div>
       <div class="logService">
-        <i class="fas fa-headset fa-3x servLogo" style="font-size: 3.5em"></i>
+        <i class="fas fa-headset fa-3x servLogo" style="font-size: 7em"></i>
         <h3>Helpline<br />Support</h3>
       </div>
     </div>
-
-
     <footer>
       <div class="container">
         <div class="row">
@@ -326,8 +326,8 @@
           <div class="col-lg-4 footer-section">
             <h4>Reach Us</h4>
             <p>
-              D-182, Sector-10, Noida<br />
-              201301, Uttar Pradesh<br />
+              LG12, Aarza Square 2, Kisan Chowk<br />
+              Gr. Noida, G.B. Nagar 201318<br />
               <strong>Phone:</strong> 9871766494, 9717132448<br />
               <strong>Website:</strong>
               <a href="www.rkenterprises-noida.com"

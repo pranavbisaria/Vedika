@@ -8,4 +8,6 @@ import java.util.Date;
 @Repository
 public interface VisitorsRepo extends JpaRepository<Visitors, Long> {
     Page<Visitors> findByCreatedDateGreaterThanEqualAndCreatedDateLessThanEqual(Date startDate, Date endDate, Pageable pageable);
+    Page<Visitors> findByCreatedDateGreaterThanEqualAndCreatedDateLessThanEqualAndActionTaken(Date startDate, Date endDate, boolean actionTaken, Pageable pageable);
+    Page<Visitors> findByActionTaken(boolean actionTaken, Pageable pageable);
 }

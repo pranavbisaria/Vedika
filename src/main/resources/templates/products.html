@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>RK Enterprises</title>
+    <title>Vedika</title>
     <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
     <link
       rel="icon"
@@ -139,7 +139,17 @@
         font-size: 18px;
         cursor: pointer;
       }
-
+      #whatsapp{
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        width: 67px;
+        border-radius: 50%;
+      }
+      #whatsapp:hover {
+        transform: scale(1.2);
+        transition: transform 0.2s ease-in-out;
+      }
       @media (max-width: 768px) {
         .product-container {
           flex-direction: column;
@@ -258,11 +268,6 @@
         height: 60px;
         font-size: 26px;
       }
-      @media (min-width: 992px) {
-        #logoCir {
-          display: none;
-        }
-      }
       @media (max-width: 992px) {
         nav .navbar-brand {
           margin: auto;
@@ -323,11 +328,16 @@
           font-size: 2em;
           justify-content: center;
         }
-        #logoCir {
-          display: block;
+        #whatsapp {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 180px;
+          border-radius: 50%;
         }
-        #logoPure {
-          display: none;
+        #whatsapp:hover {
+          transform: scale(1.2);
+          transition: transform 0.2s ease-in-out;
         }
       }
     </style>
@@ -335,12 +345,6 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand mx-auto" href="#">
-        <img
-          src="Resources/vedikaLogo2.png"
-          alt="logo"
-          id="logoCir"
-          class="img-fluid"
-        />
         <img
           src="Resources/vedikaLogo.png"
           alt="logo"
@@ -381,6 +385,7 @@
         </ul>
       </div>
     </nav>
+    <a href="https://web.whatsapp.com/send?phone=91971732448&text="  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
     <div class="myContainer">
       <h1 style="text-align: center; margin-top: 20px">
         Our <span style="color: #009df8">Products</span>
@@ -405,8 +410,8 @@
           <div class="col-lg-4 footer-section">
             <h4>Reach Us</h4>
             <p class="pfooter">
-              D-182, Sector-10, Noida<br />
-              201301, Uttar Pradesh<br />
+              LG12, Aarza Square 2, Kisan Chowk<br />
+              Gr. Noida, G.B. Nagar 201318<br />
               <strong>Phone:</strong> 9871766494, 9717132448<br />
               <strong>Website:</strong>
               <a href="www.rkenterprises-noida.com"
