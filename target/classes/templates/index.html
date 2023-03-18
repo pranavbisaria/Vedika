@@ -1,71 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vedika</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="Resources/favicon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="Resources/favicon.png"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/f8a733ce0a.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" type="text/css" href="fonts.css" />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      * {
-        font-family: "AveriaGWF-Bold", sans-serif;
+<head>
+  <meta charset="UTF-8" />
+  <title>Vedika</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
+  <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="Resources/favicon.png"
+  />
+  <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="Resources/favicon.png"
+  />
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
+  />
+  <script
+          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://kit.fontawesome.com/f8a733ce0a.js"
+          crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" type="text/css" href="fonts.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      font-family: "AveriaGWF-Bold", sans-serif;
+    }
+    #loader {
+      border: 16px solid #f3f3f3;
+      border-top: 16px solid #3498db;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+      display: none;
+    }
+    #whatsapp{
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      width: 67px;
+      border-radius: 50%;
+      z-index: 100;
+      filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
+    }
+    #whatsapp:hover {
+      transform: scale(1.2);
+      transition: transform 0.2s ease-in-out;
+    }
+    .navbar-light .navbar-nav .nav-link.active {
+      border-bottom: 2px solid #e6eaef;
+      color: white;
+      font-size: 1.2em;
+      font-weight: 900;
+    }
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
-
-
-      #loader {
-        border: 16px solid #f3f3f3;
-        border-top: 16px solid #3498db;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: spin 2s linear infinite;
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @media (max-width: 992px) {
+      nav .navbar-brand {
         margin: auto;
-        display: none;
       }
-      #whatsapp{
+      .navbar-light .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+
+      nav button {
+        position: absolute;
+        width: 6vh;
+        height: 5vh;
+        right: 0.5vh;
+        top: 0.5vh;
+      }
+
+      .feature {
+        margin-bottom: 0;
+      }
+      nav .navbar-brand {
+        margin: auto;
+      }
+      nav button {
+        position: absolute;
+        width: 6vh;
+        height: 5vh;
+        right: 0.5vh;
+        top: 0.5vh;
+      }
+      .nav-link {
+        color: #555;
+        font-size: 1.6em;
+        font-weight: bold;
+        padding: 8px 20px;
+        transition: all 0.3s ease-in-out;
+      }
+      .product {
+        width: 90%;
+        margin: 50px 0;
+        padding: 68px;
+      }
+      .product h2 {
+        width: 100%;
+        text-align: left;
+        font-size: 3.4em;
+      }
+      .product p {
+        width: 100%;
+        text-align: left;
+        font-size: 2em;
+      }
+      .viewButton {
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        color: #007bff;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        font-size: 49px;
+        cursor: pointer;
+      }
+      .product div p {
+        color: #007bff;
+        font-size: 3em;
+        font-weight: 700;
+      }
+      #moreProduct a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bolder;
+        font-size: 44px;
+      }
+      .product div s {
+        font-size: 2.5em;
+        font-weight: 600;
+      }
+      .headService {
+        text-align: center;
+        font-size: 5em;
+      }
+      .serviceDiv {
+        min-height: 35vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 149px;
+        width: 45vh;
+        margin: 4vh auto;
+      }
+      .logService {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: 1vh;
+      }
+      h4 {
+        color: #2d2d2d;
+        font-weight: 700;
+        font-size: 65px;
+        margin-bottom: 30px;
+      }
+      p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+      .social-icons a {
+        color: #555;
+        margin-right: 20px;
+        font-size: 44px;
+        transition: color 0.3s ease;
+      }
+      footer {
+        background-color: #f1f1f1;
+        padding: 145px 0;
+        margin-top: 50px;
+      }
+      .nav-link {
+        color: #555;
+        font-size: 3em;
+        font-weight: bold;
+        padding: 8px 20px;
+        transition: all 0.3s ease-in-out;
+      }
+      #whatsapp {
         position: fixed;
-        bottom: 15px;
-        right: 15px;
-        width: 67px;
+        bottom: 30px;
+        right: 30px;
+        width: 180px;
         border-radius: 50%;
-        z-index: 100;
         filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
       }
       #whatsapp:hover {
@@ -75,421 +228,261 @@
       .navbar-light .navbar-nav .nav-link.active {
         border-bottom: 2px solid #e6eaef;
         color: white;
-        font-size: 1.2em;
+        font-size: 3em;
         font-weight: 900;
       }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      @media (max-width: 992px) {
-        nav .navbar-brand {
-          margin: auto;
-        }
-        .navbar-light .navbar-toggler-icon {
-          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
+    }
+    footer {
+      background-color: #215487;
+      padding: 145px 0;
+      margin-top: 50px;
+    }
+    h4 {
+      color: #d4d7f2;
+    }
+    .pfooter {
+      color: #bac0d4;
+    }
+    .fa-brands, .fab {
+      font-family: "Font Awesome 6 Brands";
+      font-weight: 400;
+      color: aliceblue;
+    }
+    .bg-light {
+      background-color: #215487!important;
+    }
+    .navbar-light .navbar-nav .nav-link {
+      color: aliceblue;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand mx-auto" href="#">
+    <img
+            src="Resources/vedikaLogo.png"
+            alt="logo"
+            id="logoPure"
+            class="img-fluid"
+    />
+  </a>
+  <button
+          class="navbar-toggler ml-auto"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" href="/home">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/products">PRODUCTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/services">SERVICES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contactUs"
+        >CONTACT<span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+<a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
+<div id="mainContent">
+  <img class="imageTL" src="Resources/tv1.png" alt="Left Image" />
+  <div class="centered">
+    <h1>Welcome to our website!</h1>
+    <p>
+      Here innovation, technology, and design converge to deliver the
+      ultimate viewing experience. We are passionate about creating TVs that
+      not only look stunning but also deliver crystal-clear images and
+      immersive sound. With our cutting-edge technology and advanced
+      engineering, we bring the cinema experience to your living room. Our
+      commitment to excellence is evident in every TV we produce, from our
+      stunning OLED displays to our sleek and stylish designs. We believe
+      that a great TV should not only be a centerpiece in your living room,
+      but it should also deliver an unparalleled viewing experience that
+      immerses you in your favorite movies, shows, and games.
+    </p>
+    <a class="btn btn-primary" href="/contactUs">Contact Us</a>
+  </div>
+  <img class="imageTR" src="Resources/tv2.png" alt="Right Image" />
+</div>
 
-        nav button {
-          position: absolute;
-          width: 6vh;
-          height: 5vh;
-          right: 0.5vh;
-          top: 0.5vh;
-        }
+<hr class="styled-hr"/>
 
-        .feature {
-          margin-bottom: 0;
-        }
-        nav .navbar-brand {
-          margin: auto;
-        }
-        nav button {
-          position: absolute;
-          width: 6vh;
-          height: 5vh;
-          right: 0.5vh;
-          top: 0.5vh;
-        }
-        .nav-link {
-          color: #555;
-          font-size: 1.6em;
-          font-weight: bold;
-          padding: 8px 20px;
-          transition: all 0.3s ease-in-out;
-        }
-        .product {
-          width: 90%;
-          margin: 50px 0;
-          padding: 68px;
-        }
-        .product h2 {
-          width: 100%;
-          text-align: left;
-          font-size: 3.4em;
-        }
-        .product p {
-          width: 100%;
-          text-align: left;
-          font-size: 2em;
-        }
-        .viewButton {
-          padding: 10px 20px;
-          background-color: var(--primary-color);
-          color: #007bff;
-          font-weight: 600;
-          border: none;
-          border-radius: 5px;
-          font-size: 49px;
-          cursor: pointer;
-        }
-        .product div p {
-          color: #007bff;
-          font-size: 3em;
-          font-weight: 700;
-        }
-        #moreProduct a {
-          text-decoration: none;
-          color: #007bff;
-          font-weight: bolder;
-          font-size: 44px;
-        }
-        .product div s {
-          font-size: 2.5em;
-          font-weight: 600;
-        }
-        .headService {
-          text-align: center;
-          font-size: 5em;
-        }
-        .serviceDiv {
-          min-height: 35vh;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-around;
-          align-items: center;
-          padding: 20px 149px;
-          width: 45vh;
-          margin: 4vh auto;
-        }
-        .logService {
-          display: flex;
-          flex-wrap: wrap;
-          text-align: center;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: center;
-          margin: 1vh;
-        }
-        h4 {
-          color: #2d2d2d;
-          font-weight: 700;
-          font-size: 65px;
-          margin-bottom: 30px;
-        }
-        p {
-          color: #555;
-          line-height: 1.6;
-          margin-bottom: 20px;
-          font-size: 30px;
-        }
-        .social-icons a {
-          color: #555;
-          margin-right: 20px;
-          font-size: 44px;
-          transition: color 0.3s ease;
-        }
-        footer {
-          background-color: #f1f1f1;
-          padding: 145px 0;
-          margin-top: 50px;
-        }
-        .nav-link {
-          color: #555;
-          font-size: 3em;
-          font-weight: bold;
-          padding: 8px 20px;
-          transition: all 0.3s ease-in-out;
-        }
-        #whatsapp {
-          position: fixed;
-          bottom: 30px;
-          right: 30px;
-          width: 180px;
-          border-radius: 50%;
-          filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
-        }
-        #whatsapp:hover {
-          transform: scale(1.2);
-          transition: transform 0.2s ease-in-out;
-        }
-        .navbar-light .navbar-nav .nav-link.active {
-          border-bottom: 2px solid #e6eaef;
-          color: white;
-          font-size: 3em;
-          font-weight: 900;
-        }
-      }
-      footer {
-        background-color: #215487;
-        padding: 145px 0;
-        margin-top: 50px;
-      }
-      h4 {
-        color: #d4d7f2;
-      }
-      .pfooter {
-        color: #bac0d4;
-      }
-      .fa-brands, .fab {
-        font-family: "Font Awesome 6 Brands";
-        font-weight: 400;
-        color: aliceblue;
-      }
-      .bg-light {
-        background-color: #215487!important;
-      }
-      .navbar-light .navbar-nav .nav-link {
-        color: aliceblue;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand mx-auto" href="#">
-        <img
-          src="Resources/vedikaLogo.png"
-          alt="logo"
-          id="logoPure"
-          class="img-fluid"
-        />
-      </a>
-      <button
-        class="navbar-toggler ml-auto"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" href="/home">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">ABOUT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/products">PRODUCTS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/services">SERVICES</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contactUs"
-              >CONTACT<span class="sr-only">(current)</span></a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
-      <a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
-    <div id="mainContent">
-      <img class="imageTL" src="Resources/tv1.png" alt="Left Image" />
-      <div class="centered">
-        <h1>Welcome to our website!</h1>
-        <p>
-          Here innovation, technology, and design converge to deliver the
-          ultimate viewing experience. We are passionate about creating TVs that
-          not only look stunning but also deliver crystal-clear images and
-          immersive sound. With our cutting-edge technology and advanced
-          engineering, we bring the cinema experience to your living room. Our
-          commitment to excellence is evident in every TV we produce, from our
-          stunning OLED displays to our sleek and stylish designs. We believe
-          that a great TV should not only be a centerpiece in your living room,
-          but it should also deliver an unparalleled viewing experience that
-          immerses you in your favorite movies, shows, and games.
+<div class="container m-container">
+  <div class="row mission">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h1 class="m-heading"><span class="blue">OUR MISSION</span></h1>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 mt-3 text-center">
+      <p class="m-text">"Manufacture unparalleled quality-centric TVs and ensure that customers/clients are fully satisfied at all times."</p>
+    </div>
+  </div>
+</div>
+<hr class="styled-hr" />
+
+<h1 class="headService">OUR <span class="blue">PRODUCTS</span></h1>
+<hr
+        class="styled-hr"
+        style="opacity: 0.3; margin: 10px auto 20px; padding: 0"
+/>
+<div class="product-list"></div>
+<div id="loader"></div>
+<p id="moreProduct"><a href="/products"> more products >>></a></p>
+
+
+<hr class="styled-hr" />
+
+<h1 class="headService"><span class="blue">SERVICES</span> WE OFFER</h1>
+<hr
+        class="styled-hr"
+        style="opacity: 0.3; margin: 10px auto 20px; padding: 0"
+/>
+<div class="serviceDiv">
+  <div class="logService">
+    <i class="fas fa-clock fa-3x servLogo" style="font-size: 7em"></i>
+    <h3>Available <br />24x7</h3>
+  </div>
+  <div class="logService">
+    <i class="fas fa-wrench fa-3x servLogo" style="font-size: 7em"></i>
+    <h3>Warranty <br />&amp; <br />Maintenance</h3>
+  </div>
+  <div class="logService">
+    <i class="fas fa-tags fa-3x servLogo" style="font-size: 7em"></i>
+    <h3>Low Prices<br />Guaranteed</h3>
+  </div>
+  <div class="logService">
+    <i class="fas fa-headset fa-3x servLogo" style="font-size: 7em"></i>
+    <h3>Helpline<br />Support</h3>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 footer-section">
+        <h4>R K Enterprises</h4>
+        <p class="pfooter">Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
+        <p class="pfooter">
+          Certified for having met the <br />requirements of
+          <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
         </p>
-        <a class="btn btn-primary" href="/contactUs">Contact Us</a>
       </div>
-      <img class="imageTR" src="Resources/tv2.png" alt="Right Image" />
-    </div>
-
-    <hr class="styled-hr" />
-
-    <h1 class="headService">OUR <span class="blue">PRODUCTS</span></h1>
-    <hr
-      class="styled-hr"
-      style="opacity: 0.3; margin: 10px auto 20px; padding: 0"
-    />
-    <div class="product-list"></div>
-    <div id="loader"></div>
-    <p id="moreProduct"><a href="/products"> more products >>></a></p>
-    <hr class="styled-hr" />
-
-    <h1 class="headService"><span class="blue">SERVICES</span> WE OFFER</h1>
-    <hr
-      class="styled-hr"
-      style="opacity: 0.3; margin: 10px auto 20px; padding: 0"
-    />
-    <div class="serviceDiv">
-      <div class="logService">
-        <i class="fas fa-clock fa-3x servLogo" style="font-size: 7em"></i>
-        <h3>Available <br />24x7</h3>
+      <div class="col-lg-4 footer-section">
+        <h4>Reach Us</h4>
+        <p class="pfooter">
+          LG12, Aarza Square 2, Kisan Chowk<br />
+          Gr. Noida, G.B. Nagar 201318<br />
+          <strong>Phone:</strong> 9871766494, 9717132448<br />
+          <strong>Website:</strong>
+          <a href="www.rkenterprises-noida.com"
+          >www.rkenterprises-noida.com</a
+          >
+        </p>
       </div>
-      <div class="logService">
-        <i class="fas fa-wrench fa-3x servLogo" style="font-size: 7em"></i>
-        <h3>Warranty <br />&amp; <br />Maintenance</h3>
-      </div>
-      <div class="logService">
-        <i class="fas fa-tags fa-3x servLogo" style="font-size: 7em"></i>
-        <h3>Low Prices<br />Guaranteed</h3>
-      </div>
-      <div class="logService">
-        <i class="fas fa-headset fa-3x servLogo" style="font-size: 7em"></i>
-        <h3>Helpline<br />Support</h3>
-      </div>
-    </div>
-<<<<<<< HEAD
-
-    <hr
-            class="styled-hr"
-    />
-
-    <div class="container m-container">
-      <div class="row mission">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <h1 class="m-heading"><span class="blue">OUR MISSION</span></h1>
-        </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 mt-3 text-center">
-          <p class="m-text">"Manufacture unparalleled quality-centric TVs and ensure that customers/clients are fully satisfied at all times."</p>
+      <div class="col-lg-4 footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
     </div>
+  </div>
+</footer>
+<script>
+  const productList = document.querySelector(".product-list");
+  const loader = document.getElementById("loader");
+  const apiUrl = "/product/allProducts";
+  async function fetchProducts(
+          pageNumber = 0,
+          pageSize = 5,
+          sortBy = "id",
+          sortDir = "desc"
+  ) {
+    loader.style.display = "block";
+    try {
+      const response = await fetch(
+              `${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`
+      );
+      const data = await response.json();
+      renderProducts(data.content);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  window.addEventListener("load", function () {
+    var imgTL = document.querySelector(".imageTL");
+    var imgTR = document.querySelector(".imageTR");
+    Promise.all([imgTL.complete, imgTR.complete])
+            .then(function () {
+              console.log("All images have finished loading");
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+  });
 
-=======
->>>>>>> 36fa72201b7e65f45c1e0624d32d291025897222
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 footer-section">
-            <h4>R K Enterprises</h4>
-            <p class="pfooter">Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
-            <p class="pfooter">
-              Certified for having met the <br />requirements of
-              <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
-            </p>
-          </div>
-          <div class="col-lg-4 footer-section">
-            <h4>Reach Us</h4>
-            <p class="pfooter">
-              LG12, Aarza Square 2, Kisan Chowk<br />
-              Gr. Noida, G.B. Nagar 201318<br />
-              <strong>Phone:</strong> 9871766494, 9717132448<br />
-              <strong>Website:</strong>
-              <a href="www.rkenterprises-noida.com"
-                >www.rkenterprises-noida.com</a
-              >
-            </p>
-          </div>
-          <div class="col-lg-4 footer-section">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script>
-      const productList = document.querySelector(".product-list");
-      const loader = document.getElementById("loader");
-      const apiUrl = "/product/allProducts";
-      async function fetchProducts(
-        pageNumber = 0,
-        pageSize = 5,
-        sortBy = "id",
-        sortDir = "desc"
-      ) {
-        loader.style.display = "block";
-        try {
-          const response = await fetch(
-            `${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`
-          );
-          const data = await response.json();
-          renderProducts(data.content);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-      window.addEventListener("load", function () {
-        var imgTL = document.querySelector(".imageTL");
-        var imgTR = document.querySelector(".imageTR");
-        Promise.all([imgTL.complete, imgTR.complete])
-          .then(function () {
-            console.log("All images have finished loading");
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      });
+  function renderProducts(products) {
+    productList.innerHTML = "";
+    products.forEach((product) => {
+      const productDiv = document.createElement("div");
+      productDiv.classList.add("product");
 
-      function renderProducts(products) {
-        productList.innerHTML = "";
-        products.forEach((product) => {
-          const productDiv = document.createElement("div");
-          productDiv.classList.add("product");
+      const image = document.createElement("img");
+      image.alt = "product image";
+      image.onload = function () {
+        productDiv.appendChild(image);
 
-          const image = document.createElement("img");
-          image.alt = "product image";
-          image.onload = function () {
-            productDiv.appendChild(image);
+        const modelName = document.createElement("h2");
+        modelName.textContent = product.modelName;
+        productDiv.appendChild(modelName);
 
-            const modelName = document.createElement("h2");
-            modelName.textContent = product.modelName;
-            productDiv.appendChild(modelName);
+        const size = document.createElement("p");
+        size.textContent = `Size: ${product.size}`;
+        productDiv.appendChild(size);
 
-            const size = document.createElement("p");
-            size.textContent = `Size: ${product.size}`;
-            productDiv.appendChild(size);
+        const price = document.createElement("div");
+        productDiv.appendChild(price);
 
-            const price = document.createElement("div");
-            productDiv.appendChild(price);
+        const originalPrice = document.createElement("s");
+        originalPrice.textContent = `Rs. ${product.originalPrice}`;
+        price.append(originalPrice);
 
-            const originalPrice = document.createElement("s");
-            originalPrice.textContent = `Rs. ${product.originalPrice}`;
-            price.append(originalPrice);
+        const ourCost = document.createElement("p");
+        ourCost.textContent = `Rs. ${product.ourCost}`;
+        price.appendChild(ourCost);
 
-            const ourCost = document.createElement("p");
-            ourCost.textContent = `Rs. ${product.ourCost}`;
-            price.appendChild(ourCost);
+        const viewMoreButton = document.createElement("button");
+        viewMoreButton.textContent = "View More";
+        viewMoreButton.classList.add("viewButton");
+        viewMoreButton.onclick = function () {
+          window.location.href = `/viewproduct?id=${product.id}`;
+        };
+        productDiv.appendChild(viewMoreButton);
 
-            const viewMoreButton = document.createElement("button");
-            viewMoreButton.textContent = "View More";
-            viewMoreButton.classList.add("viewButton");
-            viewMoreButton.onclick = function () {
-              window.location.href = `/viewproduct?id=${product.id}`;
-            };
-            productDiv.appendChild(viewMoreButton);
-
-            productList.appendChild(productDiv);
-          };
-          image.src = "/file/" + product.imageUrls;
-        });
-        loader.style.display = "none";
-      }
-      fetchProducts();
-    </script>
-  </body>
+        productList.appendChild(productDiv);
+      };
+      image.src = "/file/" + product.imageUrls;
+    });
+    loader.style.display = "none";
+  }
+  fetchProducts();
+</script>
+</body>
 </html>

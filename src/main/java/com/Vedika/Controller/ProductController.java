@@ -56,6 +56,10 @@ public class ProductController {
     public ResponseEntity<?> deleteProduct(@PathVariable("id") Long id){
         return this.productService.deleteProductById(id);
     }
+    @PutMapping("/admin/product/updatePrice/{id}")
+    public ResponseEntity<?> updateProduct(@PathVariable("id") Long id, @RequestBody Long price){
+        return this.productService.updatePriceById(id, price);
+    }
     @GetMapping("/product/getProduct/{id}")
     public ResponseEntity<?> getProductById(@PathVariable("id") Long id){
         return this.productService.productById(id);

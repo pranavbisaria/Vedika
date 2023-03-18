@@ -62,7 +62,7 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         border-radius: 10px;
         overflow: hidden;
-        width: 1200px;
+        width: 1480px;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
       }
@@ -85,7 +85,7 @@
 
       tr {
         height: 50px;
-        font-size: 1.2em;
+        font-size: 1em;
       }
 
       tr:nth-child(even) {
@@ -105,6 +105,21 @@
         display: inline-block;
         font-size: 0.9em;
         margin: 10px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      .actionBtn {
+        background-color: #11315d;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.9em;
+        width: 132px;
+        height: 54px;
+        margin: auto 21px;
         cursor: pointer;
         border-radius: 4px;
       }
@@ -220,12 +235,26 @@
         .bootbox-body {
           font-size: 2em;
         }
-        .btn-primary {
+        .btn-primary, .btn-secondary, .btn-danger {
           font-size: 2em;
           width: 5em;
         }
         .nav-link {
           font-size: 3.2em;
+        }
+        .actionBtn {
+          border: none;
+          color: white;
+          padding: 8px 16px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 0.9em;
+          width: 237px;
+          height: 69px;
+          margin: auto 21px;
+          cursor: pointer;
+          border-radius: 4px;
         }
         h1 {
           font-size: 4.2em;
@@ -313,7 +342,7 @@
                 class="nav-link active"
                 aria-current="page"
                 th:href="@{/admin/product-list}"
-                >My Products</a
+                >Today's Prices:TVs</a
               >
             </li>
             <li class="nav-item">
@@ -332,7 +361,7 @@
       </div>
     </nav>
     <div id="productContainer">
-      <h1>MY PRODUCTS</h1>
+      <h1>Today's Prices:TVs</h1>
       <div id="tablecontainner">
         <table id="product-table">
           <thead>
@@ -342,7 +371,7 @@
               <th>Size</th>
               <th>Our Cost</th>
               <th>Original Price</th>
-              <th colspan="2">Action</th>
+              <th colspan="3">Action</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -381,9 +410,10 @@
                         <td>${product.size}</td>
                         <td>Rs. ${product.ourCost}</td>
                         <td>Rs. ${product.originalPrice}</td>
-                        <td colspan="2" id="tableRow">
-                            <button class="viewProductBtn" onclick="window.location.href = '/viewproduct?id=${product.id}'">View</button>
-                            <button class="deleteBtn" onclick="deleteProduct(${product.id})">Delete</button>
+                        <td colspan="3" id="tableRow">
+                            <button class="updateBtn actionBtn" onclick="updateProduct(${product.id})">Update Price</button>
+                            <button class="viewProductBtn actionBtn" onclick="window.location.href = '/viewproduct?id=${product.id}'">View</button>
+                            <button class="deleteBtn actionBtn" onclick="deleteProduct(${product.id})">Delete</button>
                     </td>
                 `;
               i++;
@@ -465,6 +495,40 @@
                   }
                 })
                 .catch((error) => console.error(error));
+            }
+          },
+        });
+      }
+      function updateProduct(productId) {
+        bootbox.prompt({
+          title: "Update Product Price",
+          message: "Enter the new price:",
+          inputType: "number",
+          callback: function (result) {
+            if (result !== null) {
+              fetch(`/admin/product/updatePrice/${productId}`, {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(result),
+              })
+                      .then((response) => {
+                        if (response.ok) {
+                          bootbox.alert({
+                            title: "Console Panel",
+                            message: "Product has been successfully updated!!!",
+                          });
+                          fetchProducts(currentPage);
+                        } else {
+                          bootbox.alert({
+                            title: "Error",
+                            message: "Error: Product not updated",
+                            className: "rubberBand animated",
+                          });
+                        }
+                      })
+                      .catch((error) => console.error(error));
             }
           },
         });

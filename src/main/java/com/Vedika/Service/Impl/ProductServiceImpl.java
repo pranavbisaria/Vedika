@@ -109,6 +109,14 @@ public class ProductServiceImpl implements ProductService {
         return new ResponseEntity<>(new ApiResponse("Product has been successfully deleted", true), OK);
     }
 
+    @Override
+    public ResponseEntity<?> updatePriceById(Long Id, Long Price){
+        Product product = this.productRepo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Product", "productID", Id));
+        product.setOurCost(Price);
+        this.productRepo.save(product);
+        return new ResponseEntity<>(new ApiResponse("Product has been successfully updated", true), OK);
+    }
+
     private boolean FileValidation(MultipartFile[] images) throws NullPointerException{
         for (MultipartFile image : images) {
             if (!image.getContentType().equals("image/png") && !image.getContentType().equals("image/jpg") && !image.getContentType().equals("image/jpeg") && !image.getContentType().equals("image/webp")) {

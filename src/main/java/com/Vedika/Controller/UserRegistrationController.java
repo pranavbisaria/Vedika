@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/registration")
+//@RequestMapping("/registration")
 public class UserRegistrationController {
 
 	private UserService userService;
@@ -19,19 +19,19 @@ public class UserRegistrationController {
 		this.userService = userService;
 	}
 	
-	@ModelAttribute("user")
-    public UserDto userRegistrationDto() {
-        return new UserDto();
-    }
-	
-	@GetMapping
-	public String showRegistrationForm() {
-		return "registration";
-	}
-	
-	@PostMapping
-	public String registerUserAccount(@ModelAttribute("user") UserDto userDto) {
-		userService.save(userDto);
-		return "redirect:/registration?success";
-	}
+//	@ModelAttribute("user")
+//    public UserDto userRegistrationDto() {
+//        return new UserDto();
+//    }
+//
+//	@GetMapping
+//	public String showRegistrationForm() {
+//		return "registration";
+//	}
+//
+//	@PostMapping
+//	public String registerUserAccount(@ModelAttribute("user") UserDto userDto) {
+//		userService.save(userDto);
+//		return "redirect:/registration?success";
+//	}
 }
