@@ -288,3 +288,40 @@ p {
         text-align: center;
     }
 }
+
+
+#textContent {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    width: 50%;
+    text-align: justify;
+}
+#about {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#indiaMart {
+    margin-top: 20px;
+    height: 600px;
+    width: 400px;
+}
+.image-container {
+    display: flex;
+    width: 557px;
+    height: 200px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.image-container img {
+    width: 113px;
+    height: auto;
+}
