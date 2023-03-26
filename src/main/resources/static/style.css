@@ -7,6 +7,7 @@
     flex-direction: row;
     justify-content: center;
     background: linear-gradient(to bottom, #FFFFFF, #cce6ff);
+    overflow-x: hidden;
 }
 
 .imageTL {
@@ -324,4 +325,96 @@ p {
 .image-container img {
     width: 113px;
     height: auto;
+}
+
+
+.slide-in-left {
+    position: relative;
+    left: -100%;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: slide-in-left 2s ease-in-out forwards;
+}
+
+@keyframes slide-in-left {
+    0% {
+        left: -100%;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.slide-in-right {
+    position: relative;
+    right: -100%;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: slide-in-right 2s ease-in-out forwards;
+}
+
+@keyframes slide-in-right {
+    0% {
+        right: -100%;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        right: 0;
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#fade-in-text {
+    opacity: 0;
+    animation: fadeInText 2s ease-in-out forwards;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#typing-heading {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid #f1f8ff;
+    animation: typingHeading 2s steps(40) forwards;
+}
+
+@keyframes typingHeading {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.button-appear {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: buttonAppear 1.5s ease-in-out forwards;
+}
+
+@keyframes buttonAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
