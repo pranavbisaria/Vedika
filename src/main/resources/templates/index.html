@@ -1,52 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>RK Enterprises</title>
   <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="Resources/favicon.png"
-  />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="Resources/favicon.png"
-  />
-  <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous"
-  />
-  <script
-          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
           integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://kit.fontawesome.com/f8a733ce0a.js"
-          crossorigin="anonymous"
-  ></script>
+          crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="fonts.css" />
   <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
     * {
       font-family: "AveriaGWF-Bold", sans-serif;
     }
+
     #loader {
       border: 16px solid #f3f3f3;
       border-top: 16px solid #3498db;
@@ -57,7 +38,8 @@
       margin: auto;
       display: none;
     }
-    #whatsapp{
+
+    #whatsapp {
       position: fixed;
       bottom: 15px;
       right: 15px;
@@ -66,28 +48,34 @@
       z-index: 100;
       filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
     }
+
     #whatsapp:hover {
       transform: scale(1.2);
       transition: transform 0.2s ease-in-out;
     }
+
     .navbar-light .navbar-nav .nav-link.active {
       border-bottom: 2px solid #e6eaef;
       color: white;
       font-size: 1.2em;
       font-weight: 900;
     }
+
     @keyframes spin {
       0% {
         transform: rotate(0deg);
       }
+
       100% {
         transform: rotate(360deg);
       }
     }
+
     @media (max-width: 992px) {
       nav .navbar-brand {
         margin: auto;
       }
+
       .navbar-light .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
       }
@@ -103,9 +91,11 @@
       .feature {
         margin-bottom: 0;
       }
+
       nav .navbar-brand {
         margin: auto;
       }
+
       nav button {
         position: absolute;
         width: 6vh;
@@ -113,6 +103,7 @@
         right: 0.5vh;
         top: 0.5vh;
       }
+
       .nav-link {
         color: #555;
         font-size: 1.6em;
@@ -120,21 +111,25 @@
         padding: 8px 20px;
         transition: all 0.3s ease-in-out;
       }
+
       .product {
         width: 90%;
         margin: 50px 0;
         padding: 68px;
       }
+
       .product h2 {
         width: 100%;
         text-align: left;
         font-size: 3.4em;
       }
+
       .product p {
         width: 100%;
         text-align: left;
         font-size: 2em;
       }
+
       .viewButton {
         padding: 10px 20px;
         background-color: var(--primary-color);
@@ -145,25 +140,30 @@
         font-size: 49px;
         cursor: pointer;
       }
+
       .product div p {
         color: #007bff;
         font-size: 3em;
         font-weight: 700;
       }
+
       #moreProduct a {
         text-decoration: none;
         color: #007bff;
         font-weight: bolder;
         font-size: 44px;
       }
+
       .product div s {
         font-size: 2.5em;
         font-weight: 600;
       }
+
       .headService {
         text-align: center;
         font-size: 5em;
       }
+
       .serviceDiv {
         min-height: 35vh;
         display: flex;
@@ -174,6 +174,7 @@
         width: 45vh;
         margin: 4vh auto;
       }
+
       .logService {
         display: flex;
         flex-wrap: wrap;
@@ -183,29 +184,34 @@
         align-items: center;
         margin: 1vh;
       }
+
       h4 {
         color: #2d2d2d;
         font-weight: 700;
         font-size: 65px;
         margin-bottom: 30px;
       }
+
       p {
         color: #555;
         line-height: 1.6;
         margin-bottom: 20px;
         font-size: 30px;
       }
+
       .social-icons a {
         color: #555;
         margin-right: 20px;
         font-size: 44px;
         transition: color 0.3s ease;
       }
+
       footer {
         background-color: #f1f1f1;
         padding: 145px 0;
         margin-top: 50px;
       }
+
       .nav-link {
         color: #555;
         font-size: 3em;
@@ -213,6 +219,7 @@
         padding: 8px 20px;
         transition: all 0.3s ease-in-out;
       }
+
       #whatsapp {
         position: fixed;
         bottom: 30px;
@@ -221,10 +228,12 @@
         border-radius: 50%;
         filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
       }
+
       #whatsapp:hover {
         transform: scale(1.2);
         transition: transform 0.2s ease-in-out;
       }
+
       .navbar-light .navbar-nav .nav-link.active {
         border-bottom: 2px solid #e6eaef;
         color: white;
@@ -232,34 +241,48 @@
         font-weight: 900;
       }
     }
+
+    .container{
+        font-size: 1.3em;
+    }
+
     footer {
       background-color: #215487;
       padding: 145px 0;
       margin-top: 50px;
     }
+
     h4 {
       color: #d4d7f2;
     }
+
     .pfooter {
       color: #bac0d4;
     }
-    .fa-brands, .fab {
+
+    .fa-brands,
+    .fab {
       font-family: "Font Awesome 6 Brands";
       font-weight: 400;
       color: aliceblue;
     }
+
     .bg-light {
-      background-color: #215487!important;
+      background-color: #215487 !important;
     }
+
     .navbar-light .navbar-nav .nav-link {
       color: aliceblue;
     }
+
     .b-text {
       size: 1.4rem;
     }
+
     .col-md-6 h1 {
       margin-top: 50px;
     }
+
     .skeleton-box {
       display: inline-block;
       padding-top: 100%;
@@ -269,6 +292,7 @@
       overflow: hidden;
       background-color: #DDDBDD;
     }
+
     .skeleton-box::after {
       position: absolute;
       top: 0;
@@ -278,20 +302,16 @@
       -webkit-transform: translateX(-100%);
       -ms-transform: translateX(-100%);
       transform: translateX(-100%);
-      background-image: -webkit-linear-gradient(
-              90deg,
-              rgba(255, 255, 255, 0) 0,
-              rgba(255, 255, 255, 0.2) 20%,
-              rgba(255, 255, 255, 0.5) 60%,
-              rgba(255, 255, 255, 0)
-      );
-      background-image: linear-gradient(
-              90deg,
-              rgba(255, 255, 255, 0) 0,
-              rgba(255, 255, 255, 0.2) 20%,
-              rgba(255, 255, 255, 0.5) 60%,
-              rgba(255, 255, 255, 0)
-      );
+      background-image: -webkit-linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0));
+      background-image: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0));
       -webkit-animation: shimmer 2s infinite;
       animation: shimmer 2s infinite;
       content: '';
@@ -313,25 +333,14 @@
     }
   </style>
 </head>
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand mx-auto" href="#">
-    <img
-            src="Resources/vedikaLogo.png"
-            alt="logo"
-            id="logoPure"
-            class="img-fluid"
-    />
+    <img src="Resources/vedikaLogo.png" alt="logo" id="logoPure" class="img-fluid" />
   </a>
-  <button
-          class="navbar-toggler ml-auto"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarTogglerDemo01"
-          aria-controls="navbarTogglerDemo01"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-  >
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -340,18 +349,19 @@
         <a class="nav-link active" href="/home">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/contactUs"
-        >CONTACT<span class="sr-only">(current)</span></a
-        >
+        <a class="nav-link" href="/contactUs">CONTACT<span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
 </nav>
-<a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
+<a href="https://wa.me/+919717132448" title="Click to chat" target="_blank" rel="noopener noreferrer"><img
+        id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
 <div id="mainContent">
   <img class="imageTL slide-in-left" src="Resources/tv1.png" alt="Left Image" />
   <div class="centered ">
-    <h1 id="typing-heading">Welcome to our website!</h1>
+    <div class="wrapper">
+      <h1 class="typing-demo">Welcome to our website!</h1>
+    </div>
     <p id="fade-in-text">
       Here innovation, technology, and design converge to deliver the
       ultimate viewing experience. We are passionate about creating TVs that
@@ -369,7 +379,7 @@
   <img class="imageTR slide-in-right" src="Resources/tv2.png" alt="Right Image" />
 </div>
 
-<hr class="styled-hr"/>
+<hr class="styled-hr" />
 
 <div class="container m-container">
   <div class="row mission">
@@ -377,7 +387,8 @@
       <h1 class="m-heading"><span class="blue">OUR MISSION</span></h1>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 mt-3 text-center">
-      <p class="m-text">"Manufacture unparalleled quality-centric TVs and ensure that customers/clients are fully satisfied at all times."</p>
+      <p class="m-text">"Manufacture unparalleled quality-centric TVs and ensure that customers/clients are
+        fully satisfied at all times."</p>
     </div>
   </div>
 </div>
@@ -389,13 +400,32 @@
 <div id="loader"></div>
 <p id="moreProduct"><a href="/products"> More Products >>></a></p>
 
+<hr class="styled-hr" />
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>OUR<span class="blue"> TEAM</span></h1>
+    </div>
+    <div class="col-md-6">
+      <p class="b-text">
+        Managing Director: RP Saw, <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; BE, ME(Elect. & Comm.)</p>
+      <p class="b-text">Chief Technical Officer: K. Ranjan, BE, MS</p>
+      <p class="b-text">Administrator: Mrs. Kanchan</p>
+      <p class="b-text">Head Sales/ Marketing: Ayub Khan</p>
+    </div>
+  </div>
+      <p class="b-text" style="text-align: center">All have more than 15-20 years of experience</p>
+</div>
 
 <hr class="styled-hr" />
 <div class="container">
   <div class="row">
-    <div class="col-md-6"><h1><span class="blue">OUR BUSINESS</span></h1></div>
     <div class="col-md-6">
-      <p class="b-text">We Manufacture high quality LED TVs of all sizes with best panels and best quality PCBs.</p>
+      <h1><span class="blue">OUR BUSINESS</span></h1>
+    </div>
+    <div class="col-md-6">
+      <p class="b-text">We Manufacture high quality LED TVs of all sizes with best panels and best quality
+        PCBs.</p>
       <p class="b-text">Our flag product is <span class="blue">Vedica TV</span> in all sizes.</p>
       <p class="b-text">We undertake OEM of LED TVs of our business partners.</p>
     </div>
@@ -404,10 +434,7 @@
 <hr class="styled-hr">
 
 <h1 class="headService"><span class="blue">SERVICES</span> WE OFFER</h1>
-<hr
-        class="styled-hr"
-        style="opacity: 0.3; margin: 10px auto 20px; padding: 0"
-/>
+<hr class="styled-hr" style="opacity: 0.3; margin: 10px auto 20px; padding: 0" />
 <div class="serviceDiv">
   <div class="logService">
     <i class="fas fa-clock fa-3x servLogo" style="font-size: 4.5em"></i>
@@ -432,8 +459,8 @@
   <div id="textContent">
     <div class="image-container">
       <img src="Resources/vedikaLogoAbout.png" alt="Logo" />
-      <span style="color: #01a3d4; font-size: 146px; margin-left: 10px"
-      >vedi<span style="color: #e33c12">c</span>a</span>
+      <span style="color: #01a3d4; font-size: 146px; margin-left: 10px">vedi<span
+              style="color: #e33c12">c</span>a</span>
     </div>
     <hr class="styled-hr">
     <p>
@@ -473,9 +500,7 @@
           201301, Uttar Pradesh<br />
           <strong>Phone:</strong> 9871766494, 9717132448<br />
           <strong>Website:</strong>
-          <a href="www.rkenterprises-noida.com"
-          >www.rkenterprises-noida.com</a
-          >
+          <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a>
         </p>
       </div>
       <div class="col-lg-4 footer-section">
@@ -491,6 +516,7 @@
   </div>
 </footer>
 <script>
+  AOS.init();
   const productList = document.querySelector(".product-list");
   const loader = document.getElementById("loader");
   const apiUrl = "/product/allProducts";
@@ -528,6 +554,7 @@
     products.forEach((product) => {
       const productDiv = document.createElement("div");
       productDiv.classList.add("product");
+      productDiv.setAttribute("data-aos", "fade-left");
 
       const productImgDiv = document.createElement("div");
       productImgDiv.classList.add("product-image");
@@ -577,4 +604,5 @@
   fetchProducts();
 </script>
 </body>
+
 </html>

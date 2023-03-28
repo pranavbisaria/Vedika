@@ -88,7 +88,8 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 20px;
-    padding: 0 50px;
+    padding: 10px 50px;
+    overflow: hidden;
 }
 
 .product {
@@ -390,19 +391,19 @@ p {
     }
 }
 
-#typing-heading {
-    overflow: hidden;
+.typing-demo {
+    margin: auto;
+    width: 22ch;
+    animation: typing 1s steps(22), blink .5s step-end infinite alternate;
     white-space: nowrap;
-    border-right: 0.15em solid #f1f8ff;
-    animation: typingHeading 2s steps(40) forwards;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 2em;
 }
 
-@keyframes typingHeading {
+@keyframes typing {
     from {
-        width: 0;
-    }
-    to {
-        width: 100%;
+        width: 0
     }
 }
 

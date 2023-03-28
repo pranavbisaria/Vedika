@@ -629,7 +629,7 @@
       if (xhr.readyState === 4 && xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
         bootbox.alert({
-          message: "Thanks for contacting RK Enterprises, Noida.\nA leading manufacturer of LEDs\nWe will contact you soon",
+          message: "Thanks for contacting RK Enterprises, Noida.\nA leading manufacturer of LEDs\nWe will contact you within 24 hours.",
           backdrop: true
         });
         console.log(response.message); // show a success message to the user
