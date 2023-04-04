@@ -112,7 +112,7 @@
 
     .product-details p {
       font-size: 18px;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
     }
 
     .product-price {
@@ -591,9 +591,9 @@
       price.classList.add("product-price");
       productDetail.appendChild(price);
 
-      const originalPrice = document.createElement("s");
-      originalPrice.textContent = `Rs. ${product.originalPrice}`;
-      price.append(originalPrice);
+      // const originalPrice = document.createElement("s");
+      // originalPrice.textContent = `Rs. ${product.originalPrice}`;
+      // price.append(originalPrice);
 
       const ourCost = document.createElement("p");
       ourCost.textContent = `Rs. ${product.ourCost}`;

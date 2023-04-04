@@ -60,7 +60,20 @@
       font-size: 1.2em;
       font-weight: 900;
     }
-
+    .ourTeam{
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    #ourTeamTable{
+      margin-left: 100px;
+      width: 600px;
+    }
+    td, .teamExp{
+      font-size: 1.3em;
+    }
     @keyframes spin {
       0% {
         transform: rotate(0deg);
@@ -196,7 +209,7 @@
         color: #555;
         line-height: 1.6;
         margin-bottom: 20px;
-        font-size: 30px;
+        font-size: 35px;
       }
 
       .social-icons a {
@@ -224,7 +237,7 @@
         position: fixed;
         bottom: 30px;
         right: 30px;
-        width: 180px;
+        width: 140px;
         border-radius: 50%;
         filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
       }
@@ -240,10 +253,42 @@
         font-size: 3em;
         font-weight: 900;
       }
+
+      .ourTeam{
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      #about {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #indiaMart {
+        margin-top: 20px;
+        height: 1200px;
+        width: 800px;
+      }
+      td{
+        font-size: 1.5em;
+      }
+      #ourTeamTable {
+         margin-left: 0px;
+        width: 83%;
+      }
+      h1 {
+        font-size: 4.5rem;
+      }
     }
 
     .container{
-        font-size: 1.3em;
+      font-size: 1.3em;
     }
 
     footer {
@@ -362,17 +407,14 @@
     <div class="wrapper">
       <h1 class="typing-demo">Welcome to our website!</h1>
     </div>
-    <p id="fade-in-text">
+    <p id="fade-in-text" style="text-align: justify">
       Here innovation, technology, and design converge to deliver the
       ultimate viewing experience. We are passionate about creating TVs that
       not only look stunning but also deliver crystal-clear images and
       immersive sound. With our cutting-edge technology and advanced
       engineering, we bring the cinema experience to your living room. Our
       commitment to excellence is evident in every TV we produce, from our
-      stunning OLED displays to our sleek and stylish designs. We believe
-      that a great TV should not only be a centerpiece in your living room,
-      but it should also deliver an unparalleled viewing experience that
-      immerses you in your favorite movies, shows, and games.
+      stunning OLED displays to our sleek and stylish designs.
     </p>
     <a class="btn btn-primary button-appear" href="/contactUs">Contact Us</a>
   </div>
@@ -380,19 +422,33 @@
 </div>
 
 <hr class="styled-hr" />
-
-<div class="container m-container">
-  <div class="row mission">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-      <h1 class="m-heading"><span class="blue">OUR MISSION</span></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>OUR<span class="blue"> BUSINESS</span></h1>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 mt-3 text-center">
-      <p class="m-text">"Manufacture unparalleled quality-centric TVs and ensure that customers/clients are
-        fully satisfied at all times."</p>
+    <div class="col-md-6">
+      <p class="b-text">We Manufacture high quality LED TVs of all sizes with best panels and best quality
+        PCBs.</p>
+      <p class="b-text">Our flagship product is <span class="blue">Vedica TV</span> in all sizes.</p>
+      <p class="b-text">We undertake OEM of LED TVs of our business partners.</p>
     </div>
   </div>
 </div>
-<hr class="styled-hr" />
+<hr class="styled-hr">
+
+<div id="about">
+  <div id="textContent">
+    <div class="image-container">
+      <img src="Resources/vedikaLogoAbout.png" alt="Logo" />
+      <span style="color: #01a3d4; font-size: 146px; margin-left: 10px">vedi<span
+              style="color: #e33c12">c</span>a</span>
+    </div>
+  </div>
+  <img id="indiaMart" src="Resources/IndiaMart.jpg" alt="Logo" />
+</div>
+<hr class="styled-hr">
+
 
 <h1 class="headService">OUR <span class="blue">PRODUCTS</span></h1>
 <br>
@@ -400,38 +456,48 @@
 <div id="loader"></div>
 <p id="moreProduct"><a href="/products"> More Products >>></a></p>
 
+
 <hr class="styled-hr" />
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h1>OUR<span class="blue"> TEAM</span></h1>
+<div class="container m-container">
+  <div class="row mission">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h1 class="m-heading">OUR<span class="blue"> MISSION</span></h1>
     </div>
-    <div class="col-md-6">
-      <p class="b-text">
-        Managing Director: RP Saw, <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; BE, ME(Elect. & Comm.)</p>
-      <p class="b-text">Chief Technical Officer: K. Ranjan, BE, MS</p>
-      <p class="b-text">Administrator: Mrs. Kanchan</p>
-      <p class="b-text">Head Sales/ Marketing: Ayub Khan</p>
+    <div class="col-lg-12 col-md-12 col-sm-12 mt-3 text-center">
+      <p class="m-text">"Manufacture unparalleled quality-centric TVs and ensure that customers/clients are
+        fully satisfied at all times."</p>
     </div>
   </div>
-      <p class="b-text" style="text-align: center">All have more than 15-20 years of experience</p>
 </div>
 
 <hr class="styled-hr" />
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h1><span class="blue">OUR BUSINESS</span></h1>
+<div>
+  <div class="ourTeam">
+    <div>
+      <h1>OUR<span class="blue"> TEAM</span></h1>
     </div>
-    <div class="col-md-6">
-      <p class="b-text">We Manufacture high quality LED TVs of all sizes with best panels and best quality
-        PCBs.</p>
-      <p class="b-text">Our flag product is <span class="blue">Vedica TV</span> in all sizes.</p>
-      <p class="b-text">We undertake OEM of LED TVs of our business partners.</p>
-    </div>
+    <table id="ourTeamTable">
+      <tr>
+        <td>Managing Director:</td>
+        <td>R.P. Saw, BE, ME(Elect. & Comm.)</td>
+      </tr>
+      <tr>
+        <td>Chief Technical Officer:</td>
+        <td>Kunal Ranjan, BE, MS</td>
+      </tr>
+      <tr>
+        <td>Chief Administrator:</td>
+        <td>Ms. Kanchan, BA</td>
+      </tr>
+      <tr>
+        <td>Head Sales/ Marketing:</td>
+        <td>Ayub Khan, BA</td>
+      </tr>
+    </table>
   </div>
+  <p class="b-text teamExp" style="text-align: center">All have more than 15-20 years of experience</p>
 </div>
-<hr class="styled-hr">
+<hr class="styled-hr" />
 
 <h1 class="headService"><span class="blue">SERVICES</span> WE OFFER</h1>
 <hr class="styled-hr" style="opacity: 0.3; margin: 10px auto 20px; padding: 0" />
@@ -453,34 +519,6 @@
     <h3>Helpline<br />Support</h3>
   </div>
 </div>
-
-<hr class="styled-hr">
-<div id="about">
-  <div id="textContent">
-    <div class="image-container">
-      <img src="Resources/vedikaLogoAbout.png" alt="Logo" />
-      <span style="color: #01a3d4; font-size: 146px; margin-left: 10px">vedi<span
-              style="color: #e33c12">c</span>a</span>
-    </div>
-    <hr class="styled-hr">
-    <p>
-      Here innovation, technology, and design converge to deliver the
-      ultimate viewing experience. We are passionate about creating TVs that
-      not only look stunning but also deliver crystal-clear images and
-      immersive sound. With our cutting-edge technology and advanced
-      engineering, we bring the cinema experience to your living room.<br />
-      Our commitment to excellence is evident in every TV we produce, from
-      our stunning OLED displays to our sleek and stylish designs. We
-      believe that a great TV should not only be a centerpiece in your
-      living room, but it should also deliver an unparalleled viewing
-      experience that immerses you in your favorite movies, shows, and
-      games.
-      <br />
-    </p>
-  </div>
-  <img id="indiaMart" src="Resources/IndiaMart.jpg" alt="Logo" />
-</div>
-
 
 <footer>
   <div class="container">
@@ -580,10 +618,6 @@
 
       const price = document.createElement("div");
       productDiv.appendChild(price);
-
-      const originalPrice = document.createElement("s");
-      originalPrice.textContent = `Rs. ${product.originalPrice}`;
-      price.append(originalPrice);
 
       const ourCost = document.createElement("p");
       ourCost.textContent = `Rs. ${product.ourCost}`;
