@@ -760,3 +760,65 @@
 2023-04-04T20:24:12.043+05:30  INFO 19756 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-04-04T20:24:12.044+05:30  INFO 19756 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2023-04-04T20:24:12.045+05:30  INFO 19756 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-04-04T20:30:09.126+05:30  INFO 19756 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04T20:30:09.130+05:30  INFO 19756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-04T20:30:09.133+05:30  INFO 19756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-04T20:30:16.386+05:30  INFO 11692 --- [restartedMain] com.Vedika.VedikaApplication             : Starting VedikaApplication using Java 17.0.2 with PID 11692 (C:\Users\Ratnesh Mishra\Desktop\Vedika\target\classes started by Ratnesh Mishra in C:\Users\Ratnesh Mishra\Desktop\Vedika)
+2023-04-04T20:30:16.396+05:30  INFO 11692 --- [restartedMain] com.Vedika.VedikaApplication             : The following 1 profile is active: "prod"
+2023-04-04T20:30:16.568+05:30  INFO 11692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-04T20:30:16.568+05:30  INFO 11692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-04T20:30:18.887+05:30  INFO 11692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04T20:30:19.035+05:30  INFO 11692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 5 JPA repository interfaces.
+2023-04-04T20:30:20.302+05:30  INFO 11692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04T20:30:20.335+05:30  INFO 11692 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04T20:30:20.337+05:30  INFO 11692 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-04-04T20:30:20.492+05:30  INFO 11692 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04T20:30:20.494+05:30  INFO 11692 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3925 ms
+2023-04-04T20:30:20.751+05:30  INFO 11692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-04T20:30:21.284+05:30  INFO 11692 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:./src/main/resources/users user=ADMIN
+2023-04-04T20:30:21.286+05:30  INFO 11692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-04T20:30:21.303+05:30  INFO 11692 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:./src/main/resources/users'
+2023-04-04T20:30:21.539+05:30  INFO 11692 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04T20:30:21.593+05:30  INFO 11692 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-04T20:30:21.958+05:30  INFO 11692 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-04T20:30:23.616+05:30  INFO 11692 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04T20:30:23.629+05:30  INFO 11692 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04T20:30:24.515+05:30  INFO 11692 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-04-04T20:30:24.724+05:30  INFO 11692 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-04-04T20:30:24.776+05:30  INFO 11692 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@345d73a8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76de3b12, org.springframework.security.web.context.SecurityContextHolderFilter@47ac0ca4, org.springframework.security.web.header.HeaderWriterFilter@6b08af27, org.springframework.security.web.authentication.logout.LogoutFilter@184bc226, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@60df53b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c54c29f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@430887b9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6c06acb1, org.springframework.security.web.access.ExceptionTranslationFilter@5d0574a5, org.springframework.security.web.access.intercept.AuthorizationFilter@25bcefae]
+2023-04-04T20:30:25.192+05:30  INFO 11692 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04T20:30:25.262+05:30  INFO 11692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04T20:30:25.280+05:30  INFO 11692 --- [restartedMain] com.Vedika.VedikaApplication             : Started VedikaApplication in 9.915 seconds (process running for 11.766)
+2023-04-04T20:30:36.411+05:30  INFO 11692 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-04T20:30:36.411+05:30  INFO 11692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-04T20:30:36.413+05:30  INFO 11692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-04-04T20:32:15.297+05:30  INFO 11692 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04T20:32:15.301+05:30  INFO 11692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-04T20:32:15.303+05:30  INFO 11692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-04T20:32:20.895+05:30  INFO 16268 --- [restartedMain] com.Vedika.VedikaApplication             : Starting VedikaApplication using Java 17.0.2 with PID 16268 (C:\Users\Ratnesh Mishra\Desktop\Vedika\target\classes started by Ratnesh Mishra in C:\Users\Ratnesh Mishra\Desktop\Vedika)
+2023-04-04T20:32:20.898+05:30  INFO 16268 --- [restartedMain] com.Vedika.VedikaApplication             : The following 1 profile is active: "prod"
+2023-04-04T20:32:20.981+05:30  INFO 16268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-04T20:32:20.981+05:30  INFO 16268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-04T20:32:22.570+05:30  INFO 16268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04T20:32:22.653+05:30  INFO 16268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 5 JPA repository interfaces.
+2023-04-04T20:32:23.275+05:30  INFO 16268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04T20:32:23.284+05:30  INFO 16268 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04T20:32:23.285+05:30  INFO 16268 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-04-04T20:32:23.347+05:30  INFO 16268 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04T20:32:23.347+05:30  INFO 16268 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2365 ms
+2023-04-04T20:32:23.451+05:30  INFO 16268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-04T20:32:23.727+05:30  INFO 16268 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:./src/main/resources/users user=ADMIN
+2023-04-04T20:32:23.729+05:30  INFO 16268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-04T20:32:23.739+05:30  INFO 16268 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:./src/main/resources/users'
+2023-04-04T20:32:23.918+05:30  INFO 16268 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04T20:32:24.070+05:30  INFO 16268 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-04T20:32:24.450+05:30  INFO 16268 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-04T20:32:25.899+05:30  INFO 16268 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04T20:32:25.907+05:30  INFO 16268 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04T20:32:26.917+05:30  INFO 16268 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-04-04T20:32:27.149+05:30  INFO 16268 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-04-04T20:32:27.200+05:30  INFO 16268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@59a10ea2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5eabef29, org.springframework.security.web.context.SecurityContextHolderFilter@7936c250, org.springframework.security.web.header.HeaderWriterFilter@29c3dae1, org.springframework.security.web.authentication.logout.LogoutFilter@28997dd5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@67f3e6b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6081428d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6402df92, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26951c6b, org.springframework.security.web.access.ExceptionTranslationFilter@6a590046, org.springframework.security.web.access.intercept.AuthorizationFilter@3ab7b748]
+2023-04-04T20:32:27.501+05:30  INFO 16268 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04T20:32:27.574+05:30  INFO 16268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04T20:32:27.589+05:30  INFO 16268 --- [restartedMain] com.Vedika.VedikaApplication             : Started VedikaApplication in 7.364 seconds (process running for 8.405)
+2023-04-04T20:32:32.032+05:30  INFO 16268 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
