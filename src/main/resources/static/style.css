@@ -205,9 +205,9 @@ h3 {
     transition: all 0.3s ease-in-out;
 }
 
-.nav-link:hover {
-    color: #007bff;
-}
+/*.nav-link:hover {*/
+/*    color: #4c97e4;*/
+/*}*/
 
 .styled-hr {
     border-top: 3px solid #ADD8E6;
