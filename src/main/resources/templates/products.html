@@ -1,55 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Vedika</title>
   <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="Resources/favicon.png"
-  />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="Resources/favicon.png"
-  />
-  <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous"
-  />
-  <script
-          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://kit.fontawesome.com/f8a733ce0a.js"
-          crossorigin="anonymous"
-  ></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="fonts.css" />
   <style>
     * {
       font-family: "AveriaGWF-Bold", sans-serif;
     }
+
     body {
       min-width: fit-content;
       background: linear-gradient(to bottom, #f3f6ff, #b1d5f8);
     }
+
     :root {
       --primary-color: #007bff;
       --secondary-color: #6c757d;
@@ -59,6 +39,7 @@
       --max-width: 1200px;
       --padding: 20px;
     }
+
     .product-list {
       width: 100%;
       display: flex;
@@ -67,6 +48,7 @@
       justify-content: center;
       margin-bottom: 20px;
     }
+
     .product-container {
       background: linear-gradient(to bottom, #f3f6ff, #b1d5f8);
       filter: drop-shadow(1px 1px 11px rgba(0, 0, 0, 0.5));
@@ -144,7 +126,8 @@
       font-size: 18px;
       cursor: pointer;
     }
-    #whatsapp{
+
+    #whatsapp {
       position: fixed;
       bottom: 15px;
       right: 15px;
@@ -153,27 +136,33 @@
       border-radius: 50%;
       filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
     }
+
     #whatsapp:hover {
       transform: scale(1.2);
       transition: transform 0.2s ease-in-out;
     }
+
     @media (max-width: 768px) {
       .product-container {
         flex-direction: column;
       }
+
       .product-image {
         width: 100%;
         margin-right: 0;
         margin-bottom: 20px;
       }
+
       .product-details {
         width: 100%;
       }
     }
+
     .pagination {
       display: flex;
       justify-content: center;
     }
+
     .page-link {
       display: inline-block;
       margin: 0 5px;
@@ -183,13 +172,16 @@
       color: #333;
       text-decoration: none;
     }
+
     .page-link:hover {
       background-color: #2071bd;
     }
+
     .activated {
       background-color: #333;
       color: #fff;
     }
+
     .disabled {
       opacity: 0.5;
       pointer-events: none;
@@ -207,7 +199,7 @@
 
     .nav-link {
       color: #555;
-      font-size: 16px;
+      font-size: 1.1em;
       font-weight: bold;
       padding: 0 20px;
       transition: all 0.3s ease-in-out;
@@ -222,43 +214,46 @@
       padding: 50px 0;
       margin-top: 50px;
     }
+
     h4 {
       color: #2d2d2d;
       font-weight: 700;
       font-size: 24px;
       margin-bottom: 30px;
     }
-    .pfooter {
+
+    p {
       color: #555;
       line-height: 1.6;
       margin-bottom: 20px;
+      text-align: justify;
     }
+
     .social-icons {
       margin-top: 30px;
     }
+
     .social-icons a {
       color: #555;
       margin-right: 20px;
       font-size: 20px;
       transition: color 0.3s ease;
     }
+
     .social-icons a:hover {
       color: #007bff;
     }
+
     .footer-section {
       margin-bottom: 40px;
     }
+
     .product-details h2 {
       font-size: 35px;
       font-weight: bold;
       margin-bottom: 10px;
     }
-    .navbar-light .navbar-nav .nav-link.active {
-      border-bottom: 2px solid #e6eaef;
-      color: white;
-      font-size: 1.2em;
-      font-weight: 900;
-    }
+
     #loader {
       border: 16px solid #f3f3f3;
       border-top: 16px solid #3498db;
@@ -269,22 +264,34 @@
       margin: auto;
       display: none;
     }
+
     @keyframes spin {
       0% {
         transform: rotate(0deg);
       }
+
       100% {
         transform: rotate(360deg);
       }
     }
+
     button {
       height: 60px;
       font-size: 26px;
     }
+
+    .navbar-light .navbar-nav .nav-link.active {
+      /*border-bottom: 2px solid #e6eaef;*/
+      color: #4c97e4;
+      font-size: 1.1em;
+      font-weight: 900;
+    }
+
     @media (max-width: 992px) {
       nav .navbar-brand {
         margin: auto;
       }
+
       nav button {
         position: absolute;
         width: 6vh;
@@ -292,6 +299,61 @@
         right: 0.5vh;
         top: 0.5vh;
       }
+
+      nav .navbar-brand {
+        margin: auto;
+      }
+
+      nav button {
+        position: absolute;
+        width: 6vh;
+        height: 5vh;
+        right: 0.5vh;
+        top: 0.5vh;
+      }
+
+      .nav-link {
+        color: #555;
+        font-size: 1.6em;
+        font-weight: bold;
+        padding: 8px 20px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      h3 {
+        color: #2d2d2d;
+        margin-top: 2vh;
+        font-size: 2.3rem;
+      }
+
+      h4 {
+        color: #2d2d2d;
+        font-weight: 700;
+        font-size: 65px;
+        margin-bottom: 30px;
+      }
+
+      p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 30px;
+        text-align: justify;
+      }
+
+      .social-icons a {
+        color: #555;
+        margin-right: 20px;
+        font-size: 44px;
+        transition: color 0.3s ease;
+      }
+
+      footer {
+        background-color: #f1f1f1;
+        padding: 145px 0;
+        margin-top: 50px;
+      }
+
       .nav-link {
         color: #555;
         font-size: 3em;
@@ -299,6 +361,7 @@
         padding: 8px 20px;
         transition: all 0.3s ease-in-out;
       }
+
       .product-container {
         background: linear-gradient(to bottom, #ffffff, #cce6ff);
         padding: 0 20px;
@@ -310,37 +373,44 @@
         align-items: center;
         margin: 20px auto;
       }
+
       h1 {
         font-size: 5.5rem;
       }
+
       h4 {
         color: #2d2d2d;
         font-weight: 700;
         font-size: 65px;
         margin-bottom: 30px;
       }
+
       p {
         color: #555;
         line-height: 1.6;
         margin-bottom: 20px;
         font-size: 30px;
       }
+
       .social-icons a {
         color: #555;
         margin-right: 20px;
         font-size: 44px;
         transition: color 0.3s ease;
       }
+
       footer {
         background-color: #f1f1f1;
         padding: 145px 0;
         margin-top: 50px;
       }
+
       .pagination {
         display: flex;
         font-size: 2em;
         justify-content: center;
       }
+
       #whatsapp {
         position: fixed;
         bottom: 30px;
@@ -349,42 +419,49 @@
         border-radius: 50%;
         filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
       }
+
       #whatsapp:hover {
         transform: scale(1.2);
         transition: transform 0.2s ease-in-out;
       }
+
       .navbar-light .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(33, 84, 135, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
       }
+
       .navbar-light .navbar-nav .nav-link.active {
-        border-bottom: 2px solid #e6eaef;
-        color: white;
+        /*border-bottom: 2px solid #e6eaef;*/
+        color: #4c97e4;
         font-size: 3em;
         font-weight: 900;
       }
     }
+
+    .container {
+      font-size: 1.3em;
+    }
+
     footer {
       background-color: #215487;
       padding: 145px 0;
       margin-top: 50px;
     }
+
     h4 {
       color: #d4d7f2;
     }
+
     .pfooter {
       color: #bac0d4;
     }
-    .fa-brands, .fab {
+
+    .fa-brands,
+    .fab {
       font-family: "Font Awesome 6 Brands";
       font-weight: 400;
       color: aliceblue;
     }
-    .bg-light {
-      background-color: #215487!important;
-    }
-    .navbar-light .navbar-nav .nav-link {
-      color: aliceblue;
-    }
+
     .skeleton-box {
       display: inline-block;
       padding-top: 40%;
@@ -393,6 +470,7 @@
       overflow: hidden;
       background-color: #DDDBDD;
     }
+
     .skeleton-box::after {
       position: absolute;
       top: 0;
@@ -402,20 +480,16 @@
       -webkit-transform: translateX(-100%);
       -ms-transform: translateX(-100%);
       transform: translateX(-100%);
-      background-image: -webkit-linear-gradient(
-              90deg,
-              rgba(255, 255, 255, 0) 0,
-              rgba(255, 255, 255, 0.2) 20%,
-              rgba(255, 255, 255, 0.5) 60%,
-              rgba(255, 255, 255, 0)
-      );
-      background-image: linear-gradient(
-              90deg,
-              rgba(255, 255, 255, 0) 0,
-              rgba(255, 255, 255, 0.2) 20%,
-              rgba(255, 255, 255, 0.5) 60%,
-              rgba(255, 255, 255, 0)
-      );
+      background-image: -webkit-linear-gradient(90deg,
+          rgba(255, 255, 255, 0) 0,
+          rgba(255, 255, 255, 0.2) 20%,
+          rgba(255, 255, 255, 0.5) 60%,
+          rgba(255, 255, 255, 0));
+      background-image: linear-gradient(90deg,
+          rgba(255, 255, 255, 0) 0,
+          rgba(255, 255, 255, 0.2) 20%,
+          rgba(255, 255, 255, 0.5) 60%,
+          rgba(255, 255, 255, 0));
       -webkit-animation: shimmer 2s infinite;
       animation: shimmer 2s infinite;
       content: '';
@@ -437,214 +511,192 @@
     }
   </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand mx-auto" href="#">
-    <img
-            src="Resources/vedikaLogo.png"
-            alt="logo"
-            id="logoPure"
-            class="img-fluid"
-    />
-  </a>
-  <button
-          class="navbar-toggler ml-auto"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarTogglerDemo01"
-          aria-controls="navbarTogglerDemo01"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="/">HOME</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about">ABOUT</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/products">PRODUCTS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/services">SERVICES</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contactUs"
-        >CONTACT<span class="sr-only">(current)</span></a
-        >
-      </li>
-    </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand mx-auto" href="#">
+      <img src="Resources/vedikaLogo.png" alt="logo" id="logoPure" class="img-fluid" />
+    </a>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contactUs">CONTACT<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <a href="https://wa.me/+919717132448" title="Click to chat" target="_blank" rel="noopener noreferrer"><img
+      id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
+  <div class="myContainer">
+    <h1 style="text-align: center; margin-top: 20px">
+      Our <span style="color: #009df8">Products</span>
+    </h1>
+    <div class="product-list"></div>
+    <div id="loader"></div>
+    <div class="pagination"></div>
   </div>
-</nav>
-<a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
-<div class="myContainer">
-  <h1 style="text-align: center; margin-top: 20px">
-    Our <span style="color: #009df8">Products</span>
-  </h1>
-  <div class="product-list"></div>
-  <div id="loader"></div>
-  <div class="pagination"></div>
-</div>
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 footer-section">
-        <h4>R K Enterprises</h4>
-        <p class="pfooter">
-          Manufacturer & O.E.M. Supplier <br />of Smart LED TVs
-        </p>
-        <p class="pfooter">
-          Certified for having met the <br />requirements of
-          <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
-        </p>
-      </div>
-      <div class="col-lg-4 footer-section">
-        <h4>Reach Us</h4>
-        <p class="pfooter">
-          LG12, Aarza Square 2, Kisan Chowk<br />
-          Gr. Noida, G.B. Nagar 201318<br />
-          <strong>Phone:</strong> 9871766494, 9717132448<br />
-          <strong>Website:</strong>
-          <a href="www.rkenterprises-noida.com"
-          >www.rkenterprises-noida.com</a
-          >
-        </p>
-      </div>
-      <div class="col-lg-4 footer-section">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 footer-section">
+          <h4>R K Enterprises</h4>
+          <p class="pfooter">
+            Manufacturer & O.E.M. Supplier <br />of Smart LED TVs
+          </p>
+          <p class="pfooter">
+            Certified for having met the <br />requirements of
+            <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
+          </p>
+        </div>
+        <div class="col-lg-4 footer-section">
+          <h4>Reach Us</h4>
+          <p class="pfooter">
+            LG12, Aarza Square 2, Kisan Chowk<br />
+            Gr. Noida, G.B. Nagar 201318<br />
+            <strong>Phone:</strong> 9871766494, 9717132448<br />
+            <strong>Website:</strong>
+            <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a>
+          </p>
+        </div>
+        <div class="col-lg-4 footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
-<script>
-  const productList = document.querySelector(".product-list");
-  const pagination = document.querySelector(".pagination");
-  const loader = document.getElementById("loader");
+  </footer>
+  <script>
+    const productList = document.querySelector(".product-list");
+    const pagination = document.querySelector(".pagination");
+    const loader = document.getElementById("loader");
 
-  const apiUrl = "/product/allProducts";
-  let currentPage = 0;
-  let lastPage = 0;
+    const apiUrl = "/product/allProducts";
+    let currentPage = 0;
+    let lastPage = 0;
 
-  async function fetchProducts(
-          pageNumber = 0,
-          pageSize = 10,
-          sortBy = "id",
-          sortDir = "desc"
-  ) {
-    loader.style.display = "block";
-    try {
-      const response = await fetch(
-              `${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`
-      );
-      const data = await response.json();
-      currentPage = data.pageNumber;
-      lastPage = data.totalPage - 1;
-      renderProducts(data.content);
-      renderPagination();
-      loader.style.display = "none";
-    } catch (error) {
-      console.error(error);
-      loader.style.display = "none";
+    async function fetchProducts(
+      pageNumber = 0,
+      pageSize = 10,
+      sortBy = "id",
+      sortDir = "desc"
+    ) {
+      loader.style.display = "block";
+      try {
+        const response = await fetch(
+          `${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`
+        );
+        const data = await response.json();
+        currentPage = data.pageNumber;
+        lastPage = data.totalPage - 1;
+        renderProducts(data.content);
+        renderPagination();
+        loader.style.display = "none";
+      } catch (error) {
+        console.error(error);
+        loader.style.display = "none";
+      }
     }
-  }
 
-  function renderProducts(products) {
-    productList.innerHTML = "";
-    products.forEach((product) => {
-      const productDiv = document.createElement("div");
-      productDiv.classList.add("product-container");
+    function renderProducts(products) {
+      productList.innerHTML = "";
+      products.forEach((product) => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product-container");
 
-      const productImgDiv = document.createElement("div");
-      productImgDiv.classList.add("product-image");
-      productImgDiv.classList.add("skeleton-box");
+        const productImgDiv = document.createElement("div");
+        productImgDiv.classList.add("product-image");
+        productImgDiv.classList.add("skeleton-box");
 
-      const image = document.createElement("img");
-      image.src = "/file/" + product.imageUrls;
-      image.alt = "product image";
-      image.onload = function () {
-        productImgDiv.appendChild(image);
-        productImgDiv.classList.remove("skeleton-box");
-      };
+        const image = document.createElement("img");
+        image.src = "/file/" + product.imageUrls;
+        image.alt = "product image";
+        image.onload = function () {
+          productImgDiv.appendChild(image);
+          productImgDiv.classList.remove("skeleton-box");
+        };
 
-      const productDetail = document.createElement("div");
-      productDetail.classList.add("product-details");
+        const productDetail = document.createElement("div");
+        productDetail.classList.add("product-details");
 
-      const modelName = document.createElement("h2");
-      modelName.textContent = product.modelName;
-      productDetail.appendChild(modelName);
+        const modelName = document.createElement("h2");
+        modelName.textContent = product.modelName;
+        productDetail.appendChild(modelName);
 
-      const size = document.createElement("p");
-      size.textContent = `Size: ${product.size}`;
-      productDetail.appendChild(size);
+        const size = document.createElement("p");
+        size.textContent = `Size: ${product.size}`;
+        productDetail.appendChild(size);
 
-      const price = document.createElement("div");
-      price.classList.add("product-price");
-      productDetail.appendChild(price);
+        const price = document.createElement("div");
+        price.classList.add("product-price");
+        productDetail.appendChild(price);
 
-      // const originalPrice = document.createElement("s");
-      // originalPrice.textContent = `Rs. ${product.originalPrice}`;
-      // price.append(originalPrice);
+        // const originalPrice = document.createElement("s");
+        // originalPrice.textContent = `Rs. ${product.originalPrice}`;
+        // price.append(originalPrice);
 
-      const ourCost = document.createElement("p");
-      ourCost.textContent = `Rs. ${product.ourCost}`;
-      price.appendChild(ourCost);
+        const ourCost = document.createElement("p");
+        ourCost.textContent = `Rs. ${product.ourCost}`;
+        price.appendChild(ourCost);
 
-      const viewMoreButton = document.createElement("button");
-      viewMoreButton.textContent = "View More";
-      viewMoreButton.onclick = function () {
-        window.location.href = `/viewproduct?id=${product.id}`;
-      };
-      productDetail.appendChild(viewMoreButton);
-      productDiv.appendChild(productImgDiv);
-      productDiv.appendChild(productDetail);
-      productList.appendChild(productDiv);
-    });
-  }
-
-  function renderPagination() {
-    pagination.innerHTML = "";
-    if (lastPage > 0) {
-      const previousButton = createPageLink("Previous", currentPage - 1);
-      if (currentPage === 0) {
-        previousButton.classList.add("disabled");
-      }
-      pagination.appendChild(previousButton);
-      for (let i = 0; i <= lastPage; i++) {
-        const pageButton = createPageLink(i + 1, i);
-        if (i === currentPage) {
-          pageButton.classList.add("activated");
-        }
-        pagination.appendChild(pageButton);
-      }
-      const nextButton = createPageLink("Next", currentPage + 1);
-      if (currentPage === lastPage) {
-        nextButton.classList.add("disabled");
-      }
-      pagination.appendChild(nextButton);
-    }
-  }
-  function createPageLink(text, pageNumber) {
-    const pageLink = document.createElement("span");
-    pageLink.classList.add("page-link");
-    pageLink.textContent = text;
-    if (pageNumber >= 0 && pageNumber <= lastPage) {
-      pageLink.addEventListener("click", () => {
-        fetchProducts(pageNumber);
+        const viewMoreButton = document.createElement("button");
+        viewMoreButton.textContent = "View More";
+        viewMoreButton.onclick = function () {
+          window.location.href = `/viewproduct?id=${product.id}`;
+        };
+        productDetail.appendChild(viewMoreButton);
+        productDiv.appendChild(productImgDiv);
+        productDiv.appendChild(productDetail);
+        productList.appendChild(productDiv);
       });
     }
-    return pageLink;
-  }
-  fetchProducts();
-</script>
+
+    function renderPagination() {
+      pagination.innerHTML = "";
+      if (lastPage > 0) {
+        const previousButton = createPageLink("Previous", currentPage - 1);
+        if (currentPage === 0) {
+          previousButton.classList.add("disabled");
+        }
+        pagination.appendChild(previousButton);
+        for (let i = 0; i <= lastPage; i++) {
+          const pageButton = createPageLink(i + 1, i);
+          if (i === currentPage) {
+            pageButton.classList.add("activated");
+          }
+          pagination.appendChild(pageButton);
+        }
+        const nextButton = createPageLink("Next", currentPage + 1);
+        if (currentPage === lastPage) {
+          nextButton.classList.add("disabled");
+        }
+        pagination.appendChild(nextButton);
+      }
+    }
+    function createPageLink(text, pageNumber) {
+      const pageLink = document.createElement("span");
+      pageLink.classList.add("page-link");
+      pageLink.textContent = text;
+      if (pageNumber >= 0 && pageNumber <= lastPage) {
+        pageLink.addEventListener("click", () => {
+          fetchProducts(pageNumber);
+        });
+      }
+      return pageLink;
+    }
+    fetchProducts();
+  </script>
 </body>
+
 </html>

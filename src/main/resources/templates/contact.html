@@ -1,56 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>RK Enterprises</title>
   <link rel="apple-touch-icon" sizes="180x180" href="Resources/favicon.png" />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="Resources/favicon.png"
-  />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="Resources/favicon.png"
-  />
-  <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous"
-  />
-  <script
-          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"
-  ></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="Resources/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="Resources/favicon.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-  <script
-          src="https://kit.fontawesome.com/f8a733ce0a.js"
-          crossorigin="anonymous"
-  ></script>
+  <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="fonts.css" />
   <style>
     * {
       font-family: "AveriaGWF-Bold", sans-serif;
     }
+
     body {
       min-width: fit-content;
       background: linear-gradient(to bottom, #f3f6ff, #b1d5f8);
     }
+
     form {
       max-width: 600px;
       display: flex;
@@ -59,12 +39,15 @@
       align-items: center;
       margin: 50px 100px 50px 50px;
     }
+
     .sideContentBOX {
       margin: 50px 100px 50px 50px;
     }
+
     .sideContentBOX div {
       margin-bottom: 100px;
     }
+
     #contactUs {
       display: flex;
       justify-content: center;
@@ -72,6 +55,7 @@
       margin: 0;
       padding: 0;
     }
+
     form div {
       display: flex;
       flex-direction: column;
@@ -80,17 +64,21 @@
       padding: 0 4px;
       justify-content: center;
     }
+
     .blue {
       font-weight: 600;
       color: #4c97e4;
     }
+
     .ff {
       width: 100%;
       box-sizing: border-box;
     }
+
     .fh {
       width: 50%;
     }
+
     input,
     select,
     textarea,
@@ -102,6 +90,7 @@
       border: 1px solid #ccc;
       border-radius: 50px;
     }
+
     form button {
       padding: 10px;
       background-color: #4c97e4;
@@ -112,6 +101,7 @@
       border-radius: 4px;
       cursor: pointer;
     }
+
     form button:hover {
       background-color: #2071bd;
     }
@@ -144,34 +134,41 @@
       padding: 50px 0;
       margin-top: 50px;
     }
+
     h4 {
       color: #2d2d2d;
       font-weight: 700;
       font-size: 24px;
       margin-bottom: 30px;
     }
+
     p {
       color: #555;
       line-height: 1.6;
       margin-bottom: 20px;
       text-align: justify;
     }
+
     .social-icons {
       margin-top: 30px;
     }
+
     .social-icons a {
       color: #555;
       margin-right: 20px;
       font-size: 20px;
       transition: color 0.3s ease;
     }
+
     .social-icons a:hover {
       color: #007bff;
     }
+
     .footer-section {
       margin-bottom: 40px;
     }
-    #whatsapp{
+
+    #whatsapp {
       position: fixed;
       bottom: 15px;
       right: 15px;
@@ -179,20 +176,24 @@
       border-radius: 50%;
       filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
     }
+
     #whatsapp:hover {
       transform: scale(1.2);
       transition: transform 0.2s ease-in-out;
     }
+
     .navbar-light .navbar-nav .nav-link.active {
       /*border-bottom: 2px solid #e6eaef;*/
       color: #4c97e4;
       font-size: 1.1em;
       font-weight: 900;
     }
+
     @media (max-width: 992px) {
       nav .navbar-brand {
         margin: auto;
       }
+
       nav button {
         position: absolute;
         width: 6vh;
@@ -200,9 +201,11 @@
         right: 0.5vh;
         top: 0.5vh;
       }
+
       nav .navbar-brand {
         margin: auto;
       }
+
       nav button {
         position: absolute;
         width: 6vh;
@@ -210,6 +213,7 @@
         right: 0.5vh;
         top: 0.5vh;
       }
+
       .nav-link {
         color: #555;
         font-size: 1.6em;
@@ -217,17 +221,20 @@
         padding: 8px 20px;
         transition: all 0.3s ease-in-out;
       }
+
       h3 {
         color: #2d2d2d;
         margin-top: 2vh;
         font-size: 2.3rem;
       }
+
       h4 {
         color: #2d2d2d;
         font-weight: 700;
         font-size: 65px;
         margin-bottom: 30px;
       }
+
       p {
         color: #555;
         line-height: 1.6;
@@ -235,17 +242,20 @@
         font-size: 30px;
         text-align: justify;
       }
+
       .social-icons a {
         color: #555;
         margin-right: 20px;
         font-size: 44px;
         transition: color 0.3s ease;
       }
+
       footer {
         background-color: #f1f1f1;
         padding: 145px 0;
         margin-top: 50px;
       }
+
       .nav-link {
         color: #555;
         font-size: 3em;
@@ -253,18 +263,21 @@
         padding: 8px 20px;
         transition: all 0.3s ease-in-out;
       }
+
       p {
         color: #555;
         line-height: 1.6;
         margin-bottom: 80px;
         font-size: 38px;
       }
+
       h1 {
         font-size: 5em;
         font-weight: bold;
         text-align: center;
         margin: 20px auto 20px;
       }
+
       #contactUs {
         display: flex;
         justify-content: center;
@@ -273,6 +286,7 @@
         margin: 0;
         padding: 0;
       }
+
       form {
         max-width: 90%;
         display: flex;
@@ -281,6 +295,7 @@
         align-items: center;
         margin: 25px auto;
       }
+
       input,
       select,
       textarea {
@@ -293,26 +308,28 @@
         border: 1px solid #ccc;
         border-radius: 50px;
       }
+
       label {
         width: 100%;
         font-size: 3em;
         margin-bottom: 10px;
         font-weight: bold;
       }
+
       .fh {
         display: flex;
         flex-direction: column;
         justify-content: left;
         width: 100%;
       }
-      element.style {
-      }
+
       [type="reset"],
       [type="submit"],
       button,
       html [type="button"] {
         -webkit-appearance: button;
       }
+
       form button {
         padding: 10px;
         background-color: #4c97e4;
@@ -325,6 +342,7 @@
         font-size: 4em;
         margin: 1em;
       }
+
       .sideContentBOX {
         margin: 170px auto;
       }
@@ -333,6 +351,7 @@
         transform: scale(1.2);
         transition: transform 0.2s ease-in-out;
       }
+
       #whatsapp {
         position: fixed;
         bottom: 30px;
@@ -341,14 +360,17 @@
         border-radius: 50%;
         filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
       }
+
       .modal.show .modal-dialog {
-        -webkit-transform: translate(0,0);
-        transform: translate(0,0);
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
         width: 80%;
       }
+
       .navbar-light .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(33, 84, 135, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
       }
+
       .navbar-light .navbar-nav .nav-link.active {
         /*border-bottom: 2px solid #e6eaef;*/
         color: #4c97e4;
@@ -356,6 +378,7 @@
         font-weight: 900;
       }
     }
+
     label {
       width: 100%;
       margin-bottom: 10px;
@@ -366,247 +389,229 @@
       display: inline-block;
       text-align: center;
     }
+
     footer {
       background-color: #215487;
       padding: 145px 0;
       margin-top: 50px;
     }
+
     h4 {
       color: #d4d7f2;
     }
+
     .pfooter {
       color: #bac0d4;
     }
-    .fa-brands, .fab {
+
+    .fa-brands,
+    .fab {
       font-family: "Font Awesome 6 Brands";
       font-weight: 400;
       color: aliceblue;
     }
-
   </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand mx-auto" href="#">
-    <img
-            src="Resources/vedikaLogo.png"
-            alt="logo"
-            id="logoPure"
-            class="img-fluid"
-    />
-  </a>
-  <button
-          class="navbar-toggler ml-auto"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarTogglerDemo01"
-          aria-controls="navbarTogglerDemo01"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="/">HOME</a>
-      </li>
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/about">ABOUT</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/products">PRODUCTS</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/services">SERVICES</a>-->
-<!--      </li>-->
-      <li class="nav-item">
-        <a class="nav-link active" href="/contactUs"
-        >CONTACT<span class="sr-only">(current)</span></a
-        >
-      </li>
-    </ul>
-  </div>
-</nav>
-<a href="https://wa.me/+919717132448"  title="Click to chat" target="_blank" rel="noopener noreferrer"><img id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
-<div id="contactUs">
-  <form id="contact-form">
-    <h1>Contact <span class="blue">Us</span></h1>
-    <p>
-      Come visit our work sites or simply send us an email anytime you want.
-      We are open to all suggestions from our audience.
-    </p>
-    <div class="fh">
-      <label for="firstname">First Name *</label>
-      <input type="text" id="firstname" name="firstname" required />
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand mx-auto" href="#">
+      <img src="Resources/vedikaLogo.png" alt="logo" id="logoPure" class="img-fluid" />
+    </a>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/contactUs">CONTACT<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
     </div>
-    <div class="fh">
-      <label for="lastname">Last Name</label>
-      <input type="text" id="lastname" name="lastname" />
-    </div>
-    <div class="fh">
-      <label for="phoneNumber">Phone Number *</label>
-      <input type="text" id="phoneNumber" name="phoneNumber" required />
-    </div>
-    <div class="fh">
-      <label for="email">Email (Optional)</label>
-      <input type="email" id="email" name="email" />
-    </div>
-    <div class="ff">
-      <label for="address">Address</label>
-      <textarea id="address" name="address"></textarea>
-    </div>
-    <div class="fh">
-      <label for="sizeReq">TV Size Required (Optional)</label>
-      <select id="sizeReq" name="sizeReq">
-        <option value="">Select required product size</option>
-        <option value='24"'>24 Inches</option>
-        <option value='43"'>43 Inches</option>
-        <option value='50"'>50 Inches</option>
-        <option value='55"'>55 Inches</option>
-      </select>
-    </div>
-    <div class="fh">
-      <label for="quantReq">Quantity Required (Optional)</label>
-      <input type="number" id="quantReq" name="originalPrice"/>
-    </div>
-    <div class="ff">
-      <label for="enquiry">Enquiry (Optional)</label>
-      <textarea id="enquiry" name="enquiry"></textarea>
-    </div>
-    <div class="ff">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
-  <div class="sideContentBOX">
-    <div class="sideContent">
-      <h1>Opening Hours</h1>
-      <br />
+  </nav>
+  <a href="https://wa.me/+919717132448" title="Click to chat" target="_blank" rel="noopener noreferrer"><img
+      id="whatsapp" th:src="@{Resources/Whatapp.png}"></a>
+  <div id="contactUs">
+    <form id="contact-form">
+      <h1>Contact <span class="blue">Us</span></h1>
       <p>
-        Mon - Sat: 8am - 9pm<br />
-        <span class="blue">Sunday: Closed</span><br />
+        Come visit our work sites or simply send us an email anytime you want.
+        We are open to all suggestions from our audience.
       </p>
-    </div>
-    <div class="sideContent">
-      <h1>Location</h1>
-      <br />
-      <p>
-        LG 12, AARZA Square 2,<br />
-        Gaur City 1, Greater Noida West,<br />
-        Uttar Pradesh
-      </p>
-    </div>
-  </div>
-</div>
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 footer-section">
-        <h4>R K Enterprises</h4>
-        <p class="pfooter">Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
-        <p class="pfooter">
-          Certified for having met the <br />requirements of
-          <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
+      <div class="fh">
+        <label for="firstname">First Name *</label>
+        <input type="text" id="firstname" name="firstname" required />
+      </div>
+      <div class="fh">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" />
+      </div>
+      <div class="fh">
+        <label for="phoneNumber">Phone Number *</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required />
+      </div>
+      <div class="fh">
+        <label for="email">Email (Optional)</label>
+        <input type="email" id="email" name="email" />
+      </div>
+      <div class="ff">
+        <label for="address">Address</label>
+        <textarea id="address" name="address"></textarea>
+      </div>
+      <div class="fh">
+        <label for="sizeReq">TV Size Required (Optional)</label>
+        <select id="sizeReq" name="sizeReq">
+          <option value="">Select required product size</option>
+          <option value='24"'>24 Inches</option>
+          <option value='43"'>43 Inches</option>
+          <option value='50"'>50 Inches</option>
+          <option value='55"'>55 Inches</option>
+        </select>
+      </div>
+      <div class="fh">
+        <label for="quantReq">Quantity Required (Optional)</label>
+        <input type="number" id="quantReq" name="originalPrice" />
+      </div>
+      <div class="ff">
+        <label for="enquiry">Enquiry (Optional)</label>
+        <textarea id="enquiry" name="enquiry"></textarea>
+      </div>
+      <div class="ff">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <div class="sideContentBOX">
+      <div class="sideContent">
+        <h1>Opening Hours</h1>
+        <br />
+        <p>
+          Mon - Sat: 8am - 9pm<br />
+          <span class="blue">Sunday: Closed</span><br />
         </p>
       </div>
-      <div class="col-lg-4 footer-section">
-        <h4>Reach Us</h4>
-        <p class="pfooter">
-          D-182, Sector-10, Noida<br />
-          201301, Uttar Pradesh<br />
-          <strong>Phone:</strong> 9871766494, 9717132448<br />
-          <strong>Website:</strong>
-          <a href="www.rkenterprises-noida.com"
-          >www.rkenterprises-noida.com</a
-          >
+      <div class="sideContent">
+        <h1>Location</h1>
+        <br />
+        <p>
+          LG 12, AARZA Square 2,<br />
+          Gaur City 1, Greater Noida West,<br />
+          Uttar Pradesh
         </p>
       </div>
-      <div class="col-lg-4 footer-section">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 footer-section">
+          <h4>R K Enterprises</h4>
+          <p class="pfooter">Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
+          <p class="pfooter">
+            Certified for having met the <br />requirements of
+            <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
+          </p>
+        </div>
+        <div class="col-lg-4 footer-section">
+          <h4>Reach Us</h4>
+          <p class="pfooter">
+            D-182, Sector-10, Noida<br />
+            201301, Uttar Pradesh<br />
+            <strong>Phone:</strong> 9871766494, 9717132448<br />
+            <strong>Website:</strong>
+            <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a>
+          </p>
+        </div>
+        <div class="col-lg-4 footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
-<script>
-  // JavaScript for form submission
-  const errorMessages = document.querySelectorAll(".error-message");
+  </footer>
+  <script>
+    // JavaScript for form submission
+    const errorMessages = document.querySelectorAll(".error-message");
 
-  const phoneNumberInput = document.getElementById("phoneNumber");
-  phoneNumberInput.addEventListener("input", function () {
-    let phoneNumber = phoneNumberInput.value;
-    const phoneNumberRegex = /^[0-9]{10}$/;
-    if (!phoneNumberRegex.test(phoneNumber)) {
-      phoneNumberInput.setCustomValidity(
-              "Please enter a valid 10-digit phone number"
-      );
-    } else {
-      phoneNumberInput.setCustomValidity("");
-    }
-  });
-
-  const form = document.getElementById("contact-form");
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    errorMessages.forEach((element) => element.remove());
-
-    const firstname = document.getElementById("firstname").value;
-    const lastname = document.getElementById("lastname").value;
-    const phoneNumber = document.getElementById("phoneNumber").value;
-    const email = document.getElementById("email").value;
-    const address = document.getElementById("address").value;
-    const sizeReq = document.getElementById("sizeReq").value;
-    const quantityReq = document.getElementById("quantReq").value;
-    const enquiry = document.getElementById("enquiry").value;
-
-    const visitorDto = {
-      firstname,
-      lastname,
-      phoneNumber,
-      email,
-      address,
-      sizeReq,
-      quantityReq,
-      enquiry
-    };
-
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", `/visitor/contactUs`, false); // make the API call synchronous
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const response = JSON.parse(xhr.responseText);
-        bootbox.alert({
-          message: "Thanks for contacting RK Enterprises, Noida.\nA leading manufacturer of LEDs\nWe will contact you within 24 hours.",
-          backdrop: true
-        });
-        console.log(response.message); // show a success message to the user
-        form.reset();
-      }
-      else if (response.status === 400) {
-        const errorData = JSON.parse(xhr.responseText);
-        if (errorData.phoneNumber != null) {
-          bootbox.alert(errorData.phoneNumber);
-          document.getElementById("phoneNumber").style.border =
-                  "2px solid red";
-        }
-        if (errorData.email != null) {
-          bootbox.alert(errorData.email);
-          document.getElementById("email").style.border = "2px solid red";
-        }
+    const phoneNumberInput = document.getElementById("phoneNumber");
+    phoneNumberInput.addEventListener("input", function () {
+      let phoneNumber = phoneNumberInput.value;
+      const phoneNumberRegex = /^[0-9]{10}$/;
+      if (!phoneNumberRegex.test(phoneNumber)) {
+        phoneNumberInput.setCustomValidity(
+          "Please enter a valid 10-digit phone number"
+        );
       } else {
-        bootbox.alert("Error submitting form!!!");
-        console.log("Error submitting form:", response.status);
+        phoneNumberInput.setCustomValidity("");
       }
-    };
-    xhr.send(JSON.stringify(visitorDto));
-  });
-</script>
+    });
+
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      errorMessages.forEach((element) => element.remove());
+
+      const firstname = document.getElementById("firstname").value;
+      const lastname = document.getElementById("lastname").value;
+      const phoneNumber = document.getElementById("phoneNumber").value;
+      const email = document.getElementById("email").value;
+      const address = document.getElementById("address").value;
+      const sizeReq = document.getElementById("sizeReq").value;
+      const quantityReq = document.getElementById("quantReq").value;
+      const enquiry = document.getElementById("enquiry").value;
+
+      const visitorDto = {
+        firstname,
+        lastname,
+        phoneNumber,
+        email,
+        address,
+        sizeReq,
+        quantityReq,
+        enquiry
+      };
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", `/visitor/contactUs`, false); // make the API call synchronous
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          bootbox.alert({
+            message: "Thanks for contacting RK Enterprises, Noida.\nA leading manufacturer of LEDs\nWe will contact you within 24 hours.",
+            backdrop: true
+          });
+          console.log(response.message); // show a success message to the user
+          form.reset();
+        }
+        else if (response.status === 400) {
+          const errorData = JSON.parse(xhr.responseText);
+          if (errorData.phoneNumber != null) {
+            bootbox.alert(errorData.phoneNumber);
+            document.getElementById("phoneNumber").style.border =
+              "2px solid red";
+          }
+          if (errorData.email != null) {
+            bootbox.alert(errorData.email);
+            document.getElementById("email").style.border = "2px solid red";
+          }
+        } else {
+          bootbox.alert("Error submitting form!!!");
+          console.log("Error submitting form:", response.status);
+        }
+      };
+      xhr.send(JSON.stringify(visitorDto));
+    });
+  </script>
 </body>
+
 </html>

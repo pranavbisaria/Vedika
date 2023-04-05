@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Visitors</title>
-  <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          th:href="@{/Resources/favicon.png}"
-  />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          th:href="@{/Resources/favicon.png}"
-  />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          th:href="@{/Resources/favicon.png}"
-  />
-  <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-  />
-  <link
-          href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
-          rel="stylesheet"
-  />
+  <link rel="apple-touch-icon" sizes="180x180" th:href="@{/Resources/favicon.png}" />
+  <link rel="icon" type="image/png" sizes="32x32" th:href="@{/Resources/favicon.png}" />
+  <link rel="icon" type="image/png" sizes="16x16" th:href="@{/Resources/favicon.png}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="fonts.css" />
   <style>
@@ -34,18 +15,22 @@
       font-family: "AveriaGWF-Regular", sans-serif;
       box-sizing: border-box;
     }
+
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: rgba(209, 223, 236, 0.99);
       margin: 0;
     }
+
     .container-fluid {
       margin-left: 20px;
       margin-right: 20px;
     }
+
     h1 {
       margin-top: 100px;
     }
+
     table {
       margin: 20px auto;
       background-color: #fff;
@@ -121,7 +106,8 @@
       box-sizing: border-box;
     }
 
-    .filter-container button, .AddBtn {
+    .filter-container button,
+    .AddBtn {
       background-color: #2196f3;
       color: white;
       padding: 10px 20px;
@@ -153,10 +139,12 @@
       height: 50px;
       animation: spin 2s linear infinite;
     }
+
     @keyframes spin {
       0% {
         transform: rotate(0deg);
       }
+
       100% {
         transform: rotate(360deg);
       }
@@ -183,14 +171,14 @@
       margin: 1rem;
     }
 
-    .formcheckfilter{
+    .formcheckfilter {
       /*padding: 0 50px;*/
       width: 100%;
       display: flex;
       justify-content: left;
     }
 
-    .formcheckfilter .check-div{
+    .formcheckfilter .check-div {
       box-sizing: border-box;
       width: 50%;
     }
@@ -229,7 +217,8 @@
         margin: 24px auto;
       }
 
-      .btn-primary, .btn-secondary {
+      .btn-primary,
+      .btn-secondary {
         font-size: 2em;
         width: 5em;
       }
@@ -326,229 +315,214 @@
     }
   </style>
 </head>
+
 <body class="p-3 m-0 border-0 bd-example">
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" th:href="@{/admin}">Admin Panel</a>
-    <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/admin/product-list}"
-          >Today's Prices:TVs</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-                  class="nav-link active"
-                  aria-current="page"
-                  th:href="@{/admin/visitorResponse}"
-          >Visitor's Response</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/admin/addProduct}"
-          >Add New Product</a
-          >
-        </li>
-      </ul>
-      <a class="nav-link" th:href="@{/logout}">Logout</a>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/admin}">Admin Panel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/product-list}">Today's Prices:TVs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/admin/visitorResponse}">Visitor's Response</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/addProduct}">Add New Product</a>
+          </li>
+        </ul>
+        <a class="nav-link" th:href="@{/logout}">Logout</a>
+      </div>
     </div>
+  </nav>
+  <h1 class="text-center mt-4">Customer Contact Details</h1>
+  <div id="loader" class="loader"></div>
+  <div class="filter-container">
+    <h3>Filter Products by Date Added</h3>
+    <form id="filter-form">
+      <div class="formDate">
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" name="start-date" />
+      </div>
+      <div class="formDate">
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" name="end-date" />
+      </div>
+      <button type="submit">Filter</button>
+      <div class="formcheckfilter">
+        <div class="check-div">
+          <input class="form-check-input" type="checkbox" id="markAsCompleted" name="markAsCompleted-checkbox">
+          <label class="form-check-label" for="markAsCompleted">
+            Completed
+          </label>
+        </div>
+        <div class="check-div">
+          <input class="form-check-input" type="checkbox" id="markAsInCompleted" name="markAsInCompleted-checkbox">
+          <label class="form-check-label" for="markAsInCompleted">
+            Not Completed
+          </label>
+        </div>
+      </div>
+    </form>
   </div>
-</nav>
-<h1 class="text-center mt-4">Customer Contact Details</h1>
-<div id="loader" class="loader"></div>
-<div class="filter-container">
-  <h3>Filter Products by Date Added</h3>
-  <form id="filter-form">
-    <div class="formDate">
-      <label for="start-date">Start Date:</label>
-      <input type="date" id="start-date" name="start-date"/>
-    </div>
-    <div class="formDate">
-      <label for="end-date">End Date:</label>
-      <input type="date" id="end-date" name="end-date"/>
-    </div>
-    <button type="submit">Filter</button>
-    <div class="formcheckfilter">
-      <div class="check-div">
-        <input class="form-check-input" type="checkbox" id="markAsCompleted" name="markAsCompleted-checkbox">
-        <label class="form-check-label" for="markAsCompleted">
-          Completed
-        </label>
-      </div>
-      <div class="check-div">
-        <input class="form-check-input" type="checkbox" id="markAsInCompleted" name="markAsInCompleted-checkbox">
-        <label class="form-check-label" for="markAsInCompleted">
-          Not Completed
-        </label>
-      </div>
-    </div>
-  </form>
-</div>
-<div class="table-div">
-  <table>
-    <thead>
-    <tr>
-      <th>S.No.</th>
-      <th>Action</th>
-      <th>Date Added</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Phone Number</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>Enquiry</th>
-      <th>Product Size</th>
-      <th>Quantity Required</th>
-      <th>Remarks</th>
-      <th>Add a remark</th>
-    </tr>
-    </thead>
-    <tbody id="visitors-table"></tbody>
-  </table>
-</div>
-<div class="pagination">
-  <button id="previous-page-btn" disabled>&laquo; Previous</button>
-  <button id="next-page-btn" disabled>Next &raquo;</button>
-  <span id="page-info"></span>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
-<script>
-  let baseUrl = "/admin/visitor/getAll?pageSize=10&sortBy=id&pageNumber=";
-  const filterForm = document.getElementById("filter-form");
-  const pageSize = 10;
+  <div class="table-div">
+    <table>
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>Action</th>
+          <th>Date Added</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Enquiry</th>
+          <th>Product Size</th>
+          <th>Quantity Required</th>
+          <th>Remarks</th>
+          <th>Add a remark</th>
+        </tr>
+      </thead>
+      <tbody id="visitors-table"></tbody>
+    </table>
+  </div>
+  <div class="pagination">
+    <button id="previous-page-btn" disabled>&laquo; Previous</button>
+    <button id="next-page-btn" disabled>Next &raquo;</button>
+    <span id="page-info"></span>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
+  <script>
+    let baseUrl = "/admin/visitor/getAll?pageSize=10&sortBy=id&pageNumber=";
+    const filterForm = document.getElementById("filter-form");
+    const pageSize = 10;
 
-  let currentPage = 1;
-  let totalPages = 1;
+    let currentPage = 1;
+    let totalPages = 1;
 
-  const markAsCompletedCheckbox = document.getElementById('markAsCompleted');
-  const markAsIncompletedCheckbox = document.getElementById('markAsInCompleted');
+    const markAsCompletedCheckbox = document.getElementById('markAsCompleted');
+    const markAsIncompletedCheckbox = document.getElementById('markAsInCompleted');
 
-  markAsCompletedCheckbox.addEventListener('change', () => {
-    if (markAsCompletedCheckbox.checked) {
-      markAsIncompletedCheckbox.checked = false;
-    }
-  });
-
-  markAsIncompletedCheckbox.addEventListener('change', () => {
-    if (markAsIncompletedCheckbox.checked) {
-      markAsCompletedCheckbox.checked = false;
-    }
-  });
-
-  filterForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const startDate = document.getElementById("start-date").value;
-    const endDate = document.getElementById("end-date").value;
-    const markAsCompleted = document.getElementById("markAsCompleted").checked;
-    const markAsInCompleted = document.getElementById("markAsInCompleted").checked;
-
-    baseUrl = "/admin/visitor/getAll?pageSize=10&sortBy=id&";
-    if(startDate && endDate){
-      if (new Date(startDate) > new Date(endDate)) {
-        event.preventDefault();
-        bootbox.alert({
-          title: "Invalid Date Parameters",
-          message: "Start-date must be before the End-date.",
-        });
-        return;
+    markAsCompletedCheckbox.addEventListener('change', () => {
+      if (markAsCompletedCheckbox.checked) {
+        markAsIncompletedCheckbox.checked = false;
       }
-      let modifiedOnly = "all";
-      if(markAsCompleted ^ markAsInCompleted) {
-        if(markAsCompleted)
-          modifiedOnly = "true";
+    });
+
+    markAsIncompletedCheckbox.addEventListener('change', () => {
+      if (markAsIncompletedCheckbox.checked) {
+        markAsCompletedCheckbox.checked = false;
+      }
+    });
+
+    filterForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const startDate = document.getElementById("start-date").value;
+      const endDate = document.getElementById("end-date").value;
+      const markAsCompleted = document.getElementById("markAsCompleted").checked;
+      const markAsInCompleted = document.getElementById("markAsInCompleted").checked;
+
+      baseUrl = "/admin/visitor/getAll?pageSize=10&sortBy=id&";
+      if (startDate && endDate) {
+        if (new Date(startDate) > new Date(endDate)) {
+          event.preventDefault();
+          bootbox.alert({
+            title: "Invalid Date Parameters",
+            message: "Start-date must be before the End-date.",
+          });
+          return;
+        }
+        let modifiedOnly = "all";
+        if (markAsCompleted ^ markAsInCompleted) {
+          if (markAsCompleted)
+            modifiedOnly = "true";
+          else
+            modifiedOnly = "false";
+        }
+        baseUrl = `/admin/visitor/getAllFiltered?pageSize=10&sortBy=createdDate&actionTaken=${modifiedOnly}&startDate=${startDate}&endDate=${endDate}&pageNumber=`;
+        currentPage = 1;
+        totalPages = 1;
+      }
+      else if (markAsCompleted ^ markAsInCompleted) {
+        if (markAsCompleted)
+          baseUrl += "actionTaken=true&pageNumber=";
         else
-          modifiedOnly = "false";
+          baseUrl += "actionTaken=false&pageNumber=";
       }
-      baseUrl = `/admin/visitor/getAllFiltered?pageSize=10&sortBy=createdDate&actionTaken=${modifiedOnly}&startDate=${startDate}&endDate=${endDate}&pageNumber=`;
-      currentPage = 1;
-      totalPages = 1;
+      else {
+        baseUrl += "pageNumber=";
+      }
+      fetchData(currentPage - 1);
+    });
+
+    function updateTable(data) {
+      let tableBody = document.getElementById("visitors-table");
+      tableBody.innerHTML = "";
+      for (let i = 0; i < data.length; i++) {
+        let row = tableBody.insertRow(-1);
+
+        let serialNumber = (currentPage - 1) * pageSize + i + 1;
+        let cell1 = row.insertCell(0);
+        cell1.innerHTML = serialNumber;
+
+        let cell2 = row.insertCell(1);
+        let actionStatus = data[i].actionTaken ? "Completed" : "Uncompleted";
+        let colorStyle = data[i].actionTaken ? "green" : "red";
+        cell2.innerHTML = `<span style="color: ${colorStyle}">${actionStatus}</span>`;
+
+        let cell3 = row.insertCell(2);
+        cell3.innerHTML = data[i].createdDate;
+
+        let cell4 = row.insertCell(3);
+        cell4.innerHTML = data[i].firstname;
+
+        let cell5 = row.insertCell(4);
+        if (data[i].lastname != null) cell5.innerHTML = data[i].lastname;
+
+        let cell6 = row.insertCell(5);
+        cell6.innerHTML = data[i].phoneNumber;
+
+        let cell7 = row.insertCell(6);
+        if (data[i].email != null) cell7.innerHTML = data[i].email;
+
+        let cell8 = row.insertCell(7);
+        if (data[i].address != null) cell8.innerHTML = data[i].address;
+
+        let cell9 = row.insertCell(8);
+        if (data[i].enquiry != null) cell9.innerHTML = data[i].enquiry;
+
+        let cell10 = row.insertCell(9);
+        if (data[i].sizeReq != null) cell10.innerHTML = data[i].sizeReq;
+
+        let cell11 = row.insertCell(10);
+        if (data[i].quantityReq != null) cell11.innerHTML = data[i].quantityReq;
+
+        let cell12 = row.insertCell(11);
+        if (data[i].remarks != null) cell12.innerHTML = data[i].remarks;
+
+        let cell13 = row.insertCell(12);
+        let addRemarkBtn = document.createElement("button");
+        addRemarkBtn.classList.add("AddBtn");
+        addRemarkBtn.innerText = "Add";
+        addRemarkBtn.addEventListener("click", function () {
+          showAddRemarkDialog(data[i].id, cell12, cell2);
+        });
+        cell13.appendChild(addRemarkBtn);
+      }
     }
-    else if(markAsCompleted ^ markAsInCompleted){
-      if(markAsCompleted)
-        baseUrl += "actionTaken=true&pageNumber=";
-      else
-        baseUrl += "actionTaken=false&pageNumber=";
-    }
-    else{
-      baseUrl += "pageNumber=";
-    }
-    fetchData(currentPage - 1);
-  });
 
-  function updateTable(data) {
-    let tableBody = document.getElementById("visitors-table");
-    tableBody.innerHTML = "";
-    for (let i = 0; i < data.length; i++) {
-      let row = tableBody.insertRow(-1);
-
-      let serialNumber = (currentPage - 1) * pageSize + i + 1;
-      let cell1 = row.insertCell(0);
-      cell1.innerHTML = serialNumber;
-
-      let cell2 = row.insertCell(1);
-      let actionStatus = data[i].actionTaken ? "Completed" : "Uncompleted";
-      let colorStyle = data[i].actionTaken ? "green" : "red";
-      cell2.innerHTML = `<span style="color: ${colorStyle}">${actionStatus}</span>`;
-
-      let cell3 = row.insertCell(2);
-      cell3.innerHTML = data[i].createdDate;
-
-      let cell4 = row.insertCell(3);
-      cell4.innerHTML = data[i].firstname;
-
-      let cell5 = row.insertCell(4);
-      if (data[i].lastname != null) cell5.innerHTML = data[i].lastname;
-
-      let cell6 = row.insertCell(5);
-      cell6.innerHTML = data[i].phoneNumber;
-
-      let cell7 = row.insertCell(6);
-      if (data[i].email != null) cell7.innerHTML = data[i].email;
-
-      let cell8 = row.insertCell(7);
-      if (data[i].address != null) cell8.innerHTML = data[i].address;
-
-      let cell9 = row.insertCell(8);
-      if (data[i].enquiry != null) cell9.innerHTML = data[i].enquiry;
-
-      let cell10 = row.insertCell(9);
-      if (data[i].sizeReq != null) cell10.innerHTML = data[i].sizeReq;
-
-      let cell11 = row.insertCell(10);
-      if (data[i].quantityReq != null) cell11.innerHTML = data[i].quantityReq;
-
-      let cell12 = row.insertCell(11);
-      if (data[i].remarks != null) cell12.innerHTML = data[i].remarks;
-
-      let cell13 = row.insertCell(12);
-      let addRemarkBtn = document.createElement("button");
-      addRemarkBtn.classList.add("AddBtn");
-      addRemarkBtn.innerText = "Add";
-      addRemarkBtn.addEventListener("click", function() {
-        showAddRemarkDialog(data[i].id, cell12, cell2);
-      });
-      cell13.appendChild(addRemarkBtn);
-    }
-  }
-
-  function showAddRemarkDialog(visitorId, remarkCell, cell2) {
-    bootbox.prompt({
-      title: "Add a Remark",
-      inputType: "textarea",
-      message: `
+    function showAddRemarkDialog(visitorId, remarkCell, cell2) {
+      bootbox.prompt({
+        title: "Add a Remark",
+        inputType: "textarea",
+        message: `
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="completed-checkbox">
         <label class="form-check-label" for="completed-checkbox">
@@ -556,127 +530,128 @@
         </label>
       </div>
     `,
-      callback: function(result) {
-        if (result !== null) {
-          const isCompleted = document.getElementById("completed-checkbox").checked;
-          addRemark(visitorId, result, isCompleted, remarkCell, cell2);
-        }
-      },
-    });
-  }
-
-  function addRemark(visitorId, remark, isCompleted, remarkCell, cell2) {
-    let actionStatus = isCompleted ? "Completed" : "Uncompleted";
-    let colorStyle = isCompleted ? "green" : "red";
-    cell2.innerHTML = `<span style="color: ${colorStyle}">${actionStatus}</span>`;
-    remarkCell.innerHTML = remark;
-    updateRemark(visitorId, remark, isCompleted);
-  }
-
-  async function updateRemark(visitorId, remark, isCompleted, remarkCell) {
-    const data = {
-      remark: remark,
-      completed: isCompleted,
-    };
-    try {
-      const response = await fetch(`/admin/visitor/updateRemark/${visitorId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
+        callback: function (result) {
+          if (result !== null) {
+            const isCompleted = document.getElementById("completed-checkbox").checked;
+            addRemark(visitorId, result, isCompleted, remarkCell, cell2);
+          }
         },
-        body: JSON.stringify(data),
+      });
+    }
+
+    function addRemark(visitorId, remark, isCompleted, remarkCell, cell2) {
+      let actionStatus = isCompleted ? "Completed" : "Uncompleted";
+      let colorStyle = isCompleted ? "green" : "red";
+      cell2.innerHTML = `<span style="color: ${colorStyle}">${actionStatus}</span>`;
+      remarkCell.innerHTML = remark;
+      updateRemark(visitorId, remark, isCompleted);
+    }
+
+    async function updateRemark(visitorId, remark, isCompleted, remarkCell) {
+      const data = {
+        remark: remark,
+        completed: isCompleted,
+      };
+      try {
+        const response = await fetch(`/admin/visitor/updateRemark/${visitorId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          showApiResponse("Remark added successfully.");
+        } else {
+          remarkCell.innerHTML = "";
+          showApiResponse("Unable to add remark.");
+          throw new Error("Unable to add remark.");
+        }
+      } catch (error) {
+        remarkCell.innerHTML = "";
+        console.error(error);
+        showApiResponse("Error adding remark. Please try again later.")
+      }
+    }
+
+    function showApiResponse(response) {
+      const dialog = bootbox.dialog({
+        title: 'ADMIN PANEL',
+        message: response,
+        backdrop: true,
+        onEscape: true
       });
 
-      if (response.ok) {
-        showApiResponse("Remark added successfully.");
+      setTimeout(() => {
+        dialog.modal('hide');
+      }, 2000);
+    }
+
+    function updatePagination() {
+      let previousPageBtn = document.getElementById("previous-page-btn");
+      let nextPageBtn = document.getElementById("next-page-btn");
+      let pageInfo = document.getElementById("page-info");
+      if (currentPage === 1) {
+        previousPageBtn.disabled = true;
       } else {
-        remarkCell.innerHTML = "";
-        showApiResponse("Unable to add remark.");
-        throw new Error("Unable to add remark.");
+        previousPageBtn.disabled = false;
       }
-    } catch (error) {
-      remarkCell.innerHTML = "";
-      console.error(error);
-      showApiResponse("Error adding remark. Please try again later.")
-    }
-  }
 
-  function showApiResponse(response) {
-    const dialog = bootbox.dialog({
-      title: 'ADMIN PANEL',
-      message: response,
-      backdrop: true,
-      onEscape: true
+      if (currentPage === totalPages || totalPages === 0) {
+        nextPageBtn.disabled = true;
+      } else {
+        nextPageBtn.disabled = false;
+      }
+
+      pageInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
+    }
+
+    function fetchData(pageNumber) {
+      loader.style.display = "block";
+      return new Promise((resolve, reject) => {
+        fetch(baseUrl + pageNumber)
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error("Network response was not ok.");
+          })
+          .then((data) => {
+            totalPages = data.totalPage;
+            updateTable(data.content);
+            updatePagination();
+            loader.style.display = "none";
+            resolve();
+          })
+          .catch((error) => {
+            console.error(error);
+            loader.style.display = "none";
+            reject(error);
+          });
+      });
+    }
+    var loader = document.getElementById("loader");
+    window.addEventListener("load", function () {
+      loader.style.display = "none";
     });
 
-    setTimeout(() => {
-      dialog.modal('hide');
-    }, 2000);
-  }
-
-  function updatePagination() {
-    let previousPageBtn = document.getElementById("previous-page-btn");
-    let nextPageBtn = document.getElementById("next-page-btn");
-    let pageInfo = document.getElementById("page-info");
-    if (currentPage === 1) {
-      previousPageBtn.disabled = true;
-    } else {
-      previousPageBtn.disabled = false;
-    }
-
-    if (currentPage === totalPages || totalPages === 0) {
-      nextPageBtn.disabled = true;
-    } else {
-      nextPageBtn.disabled = false;
-    }
-
-    pageInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
-  }
-
-  function fetchData(pageNumber) {
-    loader.style.display = "block";
-    return new Promise((resolve, reject) => {
-      fetch(baseUrl + pageNumber)
-              .then((response) => {
-                if (response.ok) {
-                  return response.json();
-                }
-                throw new Error("Network response was not ok.");
-              })
-              .then((data) => {
-                totalPages = data.totalPage;
-                updateTable(data.content);
-                updatePagination();
-                loader.style.display = "none";
-                resolve();
-              })
-              .catch((error) => {
-                console.error(error);
-                loader.style.display = "none";
-                reject(error);
-              });
-    });
-  }
-  var loader = document.getElementById("loader");
-  window.addEventListener("load", function () {
-    loader.style.display = "none";
-  });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    fetchData(currentPage - 1);
-    let previousPageBtn = document.getElementById("previous-page-btn");
-    let nextPageBtn = document.getElementById("next-page-btn");
-
-    previousPageBtn.addEventListener("click", () => {
-      currentPage--;
+    document.addEventListener("DOMContentLoaded", () => {
       fetchData(currentPage - 1);
-    });
+      let previousPageBtn = document.getElementById("previous-page-btn");
+      let nextPageBtn = document.getElementById("next-page-btn");
 
-    nextPageBtn.addEventListener("click", () => {
-      currentPage++;
-      fetchData(currentPage - 1);
+      previousPageBtn.addEventListener("click", () => {
+        currentPage--;
+        fetchData(currentPage - 1);
+      });
+
+      nextPageBtn.addEventListener("click", () => {
+        currentPage++;
+        fetchData(currentPage - 1);
+      });
     });
-  });
-</script>
+  </script>
 </body>
+
 </html>

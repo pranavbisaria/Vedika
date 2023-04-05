@@ -1,57 +1,215 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Product Table</title>
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            th:href="@{/Resources/favicon.png}"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            th:href="@{/Resources/favicon.png}"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            th:href="@{/Resources/favicon.png}"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="fonts.css" />
-    <style>
-      * {
-        font-family: "AveriaGWF-Regular", sans-serif;
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Table</title>
+  <link rel="apple-touch-icon" sizes="180x180" th:href="@{/Resources/favicon.png}" />
+  <link rel="icon" type="image/png" sizes="32x32" th:href="@{/Resources/favicon.png}" />
+  <link rel="icon" type="image/png" sizes="16x16" th:href="@{/Resources/favicon.png}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="fonts.css" />
+  <style>
+    * {
+      font-family: "AveriaGWF-Regular", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: rgba(209, 223, 236, 0.99);
+      margin: 0;
+    }
+
+    .container-fluid {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    #productContainer {
+      margin: 25px auto;
+      max-width: 90%;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      margin: auto;
+      margin-top: 20px;
+      background-color: #fff;
+      border-collapse: collapse;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      width: 1480px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+      color: #444;
+    }
+
+    th {
+      background-color: #007bff;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+
+    tr {
+      height: 50px;
+      font-size: 1em;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    #tablecontainner {
+      overflow-x: auto;
+      margin: 50px auto;
+    }
+
+    button {
+      background-color: #3688f4;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.9em;
+      margin: 10px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .actionBtn {
+      background-color: #11315d;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.9em;
+      width: 132px;
+      height: 54px;
+      margin: auto 21px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .deleteBtn {
+      background-color: #bf6a6a;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      z-index: 1000;
+      font-size: 1em;
+      margin: 4px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .viewProductBtn {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      z-index: 1000;
+      font-size: 1em;
+      margin: 4px auto;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    #tableRow {
+      display: flex;
+      flex-direction: row;
+    }
+
+    button:hover {
+      background-color: #0762dd;
+    }
+
+    .deleteBtn:hover {
+      background-color: #d42820;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .productContainer {
+        width: 96%;
+        margin: 65px auto;
+        background-color: #fff;
+        padding: 45px;
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
+        border-radius: 10px;
+      }
+
+      .fh {
+        width: 98%;
+        margin: 1em;
         box-sizing: border-box;
       }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: rgba(209, 223, 236, 0.99);
-        margin: 0;
-      }
-      .container-fluid {
-        margin-left: 20px;
-        margin-right: 20px;
+
+      .ff {
+        margin: 1em;
       }
 
-      #productContainer {
-        margin: 25px auto;
-        max-width: 90%;
+      input[type="text"],
+      input[type="number"],
+      textarea {
+        font-size: 2em;
       }
 
-      h1 {
-        text-align: center;
+      input[type="number"],
+      textarea,
+      #modelName,
+      #size {
+        width: 100%;
+        padding: 12px 25px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 50px;
+        resize: vertical;
+        font-size: 2em;
+      }
+
+      #submitProduct {
+        font-size: 2.9em;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 16px;
+      }
+
+      .removeProductInfo,
+      #addProductInfo {
+        font-size: 2.9em;
+        padding: 10px 16px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      textarea {
+        font-size: 3em;
       }
 
       table {
@@ -62,54 +220,37 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         border-radius: 10px;
         overflow: hidden;
-        width: 1480px;
+        width: 2200px;
+        font-size: 1.2em;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
       }
-      th,
-      td {
-        padding: 12px 15px;
-        text-align: left;
-        border-bottom: 1px solid #dee2e6;
-        color: #444;
+
+      .navbar-brand {
+        font-size: 4.2em;
+        font-weight: bolder;
       }
 
-      th {
-        background-color: #007bff;
-        color: #fff;
-        text-transform: uppercase;
-        font-weight: 600;
-        position: sticky;
-        top: 0;
+      .modal-title {
+        font-size: 3em;
       }
 
-      tr {
-        height: 50px;
-        font-size: 1em;
+      .bootbox-body {
+        font-size: 2em;
       }
 
-      tr:nth-child(even) {
-        background-color: #f8f9fa;
+      .btn-primary,
+      .btn-secondary,
+      .btn-danger {
+        font-size: 2em;
+        width: 5em;
       }
-      #tablecontainner {
-        overflow-x: auto;
-        margin: 50px auto;
+
+      .nav-link {
+        font-size: 3.2em;
       }
-      button {
-        background-color: #3688f4;
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 0.9em;
-        margin: 10px 2px;
-        cursor: pointer;
-        border-radius: 4px;
-      }
+
       .actionBtn {
-        background-color: #11315d;
         border: none;
         color: white;
         padding: 8px 16px;
@@ -117,294 +258,159 @@
         text-decoration: none;
         display: inline-block;
         font-size: 0.9em;
-        width: 132px;
-        height: 54px;
+        width: 237px;
+        height: 69px;
         margin: auto 21px;
         cursor: pointer;
         border-radius: 4px;
       }
-      .deleteBtn {
-        background-color: #bf6a6a;
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        z-index: 1000;
-        font-size: 1em;
-        margin: 4px 20px;
-        cursor: pointer;
-        border-radius: 4px;
+
+      h1 {
+        font-size: 4.2em;
+        font-weight: bolder;
       }
-      .viewProductBtn {
-        background-color: #007bff;
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        z-index: 1000;
-        font-size: 1em;
-        margin: 4px auto;
-        cursor: pointer;
-        border-radius: 4px;
+
+      .filter-container h3 {
+        font-size: 2.2em;
+        font-weight: bold;
+        margin-top: 0;
       }
-      #tableRow {
+
+      .filter-container label {
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-size: 2.8em;
+      }
+
+      .formDate {
+        margin: 1%;
+        width: 48%;
+      }
+
+      .filter-container button {
+        margin-top: 22px;
+        font-size: 2em;
+      }
+
+      th {
+        font-size: 2em;
+      }
+
+      td {
+        font-size: 1.9em;
+      }
+
+      #previous-page-btn,
+      #next-page-btn {
+        font-size: 1.9em;
+        margin: 1em;
+      }
+
+      #page-info {
+        font-size: 1.5em;
+      }
+
+      .filter-container form {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .filter-container form {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: end;
+        flex-direction: column;
+        align-items: end;
       }
-      button:hover {
-        background-color: #0762dd;
-      }
-      .deleteBtn:hover {
-        background-color: #d42820;
-      }
-      @media screen and (max-width: 1000px) {
-        .productContainer {
-          width: 96%;
-          margin: 65px auto;
-          background-color: #fff;
-          padding: 45px;
-          box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
-          border-radius: 10px;
-        }
-        .fh {
-          width: 98%;
-          margin: 1em;
-          box-sizing: border-box;
-        }
-        .ff {
-          margin: 1em;
-        }
-        input[type="text"],
-        input[type="number"],
-        textarea {
-          font-size: 2em;
-        }
-        input[type="number"],
-        textarea,
-        #modelName,
-        #size {
-          width: 100%;
-          padding: 12px 25px;
-          box-sizing: border-box;
-          border: 1px solid #ccc;
-          border-radius: 50px;
-          resize: vertical;
-          font-size: 2em;
-        }
-        #submitProduct {
-          font-size: 2.9em;
-          width: 100%;
-          box-sizing: border-box;
-          padding: 10px 16px;
-        }
 
-        .removeProductInfo,
-        #addProductInfo {
-          font-size: 2.9em;
-          padding: 10px 16px;
-        }
-        input[type="text"],
-        input[type="number"],
-        textarea {
-          font-size: 3em;
-        }
-        table {
-          margin: auto;
-          margin-top: 20px;
-          background-color: #fff;
-          border-collapse: collapse;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-          border-radius: 10px;
-          overflow: hidden;
-          width: 2200px;
-          font-size: 1.2em;
-          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-          position: relative;
-        }
-        .navbar-brand {
-          font-size: 4.2em;
-          font-weight: bolder;
-        }
-        .modal-title {
-          font-size: 3em;
-        }
-        .bootbox-body {
-          font-size: 2em;
-        }
-        .btn-primary, .btn-secondary, .btn-danger {
-          font-size: 2em;
-          width: 5em;
-        }
-        .nav-link {
-          font-size: 3.2em;
-        }
-        .actionBtn {
-          border: none;
-          color: white;
-          padding: 8px 16px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          font-size: 0.9em;
-          width: 237px;
-          height: 69px;
-          margin: auto 21px;
-          cursor: pointer;
-          border-radius: 4px;
-        }
-        h1 {
-          font-size: 4.2em;
-          font-weight: bolder;
-        }
-        .filter-container h3 {
-          font-size: 2.2em;
-          font-weight: bold;
-          margin-top: 0;
-        }
-        .filter-container label {
-          margin-right: 10px;
-          font-weight: bold;
-          font-size: 1.8em;
-        }
-        button,
-        input,
-        optgroup,
-        select,
-        textarea {
-          font-size: 2.8em;
-        }
-        .formDate {
-          margin: 1%;
-          width: 48%;
-        }
-        .filter-container button {
-          margin-top: 22px;
-          font-size: 2em;
-        }
-        th {
-          font-size: 2em;
-        }
-        td {
-          font-size: 1.9em;
-        }
-        #previous-page-btn,
-        #next-page-btn {
-          font-size: 1.9em;
-          margin: 1em;
-        }
-        #page-info {
-          font-size: 1.5em;
-        }
-        .filter-container form {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .filter-container form {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: end;
-          flex-direction: column;
-          align-items: end;
-        }
-        label {
-          display: block;
-          margin-bottom: 5px;
-          font-size: 3.1em;
-          font-weight: bold;
-          color: #333;
-        }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 3.1em;
+        font-weight: bold;
+        color: #333;
       }
-    </style>
-  </head>
-  <body class="p-3 m-0 border-0 bd-example">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/admin}">Admin Panel</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                th:href="@{/admin/product-list}"
-                >Today's Prices:TVs</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/visitorResponse}"
-                >Visitor's Response</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/addProduct}"
-                >Add New Product</a
-              >
-            </li>
-          </ul>
-          <a class="nav-link" th:href="@{/logout}">Logout</a>
-        </div>
+    }
+  </style>
+</head>
+
+<body class="p-3 m-0 border-0 bd-example">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/admin}">Admin Panel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/admin/product-list}">Today's Prices:TVs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/visitorResponse}">Visitor's Response</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/addProduct}">Add New Product</a>
+          </li>
+        </ul>
+        <a class="nav-link" th:href="@{/logout}">Logout</a>
       </div>
-    </nav>
-    <div id="productContainer">
-      <h1>Today's Prices:TVs</h1>
-      <div id="tablecontainner">
-        <table id="product-table">
-          <thead>
-            <tr>
-              <th>S.NO.</th>
-              <th>Model Name</th>
-              <th>Size</th>
-              <th>Our Cost</th>
-              <th>Original Price</th>
-              <th colspan="3">Action</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div id="pagination"></div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
-    <script>
-      // Set initial values for pagination
-      let currentPage = 0;
-      let pageSize = 10;
-      let totalPage = 0;
-      let lastPage = false;
+  </nav>
+  <div id="productContainer">
+    <h1>Today's Prices:TVs</h1>
+    <div id="tablecontainner">
+      <table id="product-table">
+        <thead>
+          <tr>
+            <th>S.NO.</th>
+            <th>Model Name</th>
+            <th>Size</th>
+            <th>Our Cost</th>
+            <th>Original Price</th>
+            <th colspan="3">Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="pagination"></div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
+  <script>
+    // Set initial values for pagination
+    let currentPage = 0;
+    let pageSize = 10;
+    let totalPage = 0;
+    let lastPage = false;
 
-      // Fetch products from API
-      function fetchProducts(pageNumber) {
-        fetch(
-          `/product/allProducts?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=id&sortDir=des`
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            // Get product table and clear previous rows
-            const table = document.getElementById("product-table");
-            const tbody = table.querySelector("tbody");
-            let i = 0;
-            tbody.innerHTML = "";
-            // Add products to table
-            data.content.forEach((product) => {
-              let serialNumber = pageNumber * pageSize + i + 1;
-              const tr = document.createElement("tr");
-              tr.innerHTML = `
+    // Fetch products from API
+    function fetchProducts(pageNumber) {
+      fetch(
+        `/product/allProducts?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=id&sortDir=des`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          // Get product table and clear previous rows
+          const table = document.getElementById("product-table");
+          const tbody = table.querySelector("tbody");
+          let i = 0;
+          tbody.innerHTML = "";
+          // Add products to table
+          data.content.forEach((product) => {
+            let serialNumber = pageNumber * pageSize + i + 1;
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
                         <td>${serialNumber}</td>
                         <td>${product.modelName}</td>
                         <td>${product.size}</td>
@@ -416,125 +422,126 @@
                             <button class="deleteBtn actionBtn" onclick="deleteProduct(${product.id})">Delete</button>
                     </td>
                 `;
-              i++;
-              tbody.appendChild(tr);
+            i++;
+            tbody.appendChild(tr);
+          });
+
+          // Update pagination
+          currentPage = data.pageNumber;
+          pageSize = data.pageSize;
+          totalPage = data.totalPage;
+          lastPage = data.lastPage;
+          const pagination = document.getElementById("pagination");
+          pagination.innerHTML = "";
+          // Add previous page button
+          const prevButton = document.createElement("button");
+          prevButton.innerText = "Prev";
+          prevButton.disabled = currentPage === 0;
+          prevButton.addEventListener("click", () => {
+            fetchProducts(currentPage - 1);
+          });
+          pagination.appendChild(prevButton);
+
+          // Add page number buttons
+          for (let i = 0; i < totalPage; i++) {
+            const pageButton = document.createElement("button");
+            pageButton.innerText = i + 1;
+            pageButton.disabled = i === currentPage;
+            pageButton.addEventListener("click", () => {
+              fetchProducts(i);
             });
+            pagination.appendChild(pageButton);
+          }
 
-            // Update pagination
-            currentPage = data.pageNumber;
-            pageSize = data.pageSize;
-            totalPage = data.totalPage;
-            lastPage = data.lastPage;
-            const pagination = document.getElementById("pagination");
-            pagination.innerHTML = "";
-            // Add previous page button
-            const prevButton = document.createElement("button");
-            prevButton.innerText = "Prev";
-            prevButton.disabled = currentPage === 0;
-            prevButton.addEventListener("click", () => {
-              fetchProducts(currentPage - 1);
-            });
-            pagination.appendChild(prevButton);
+          // Add next page button
+          const nextButton = document.createElement("button");
+          nextButton.innerText = "Next";
+          nextButton.disabled = lastPage;
+          nextButton.addEventListener("click", () => {
+            fetchProducts(currentPage + 1);
+          });
+          pagination.appendChild(nextButton);
+        })
+        .catch((error) => console.error(error));
+    }
 
-            // Add page number buttons
-            for (let i = 0; i < totalPage; i++) {
-              const pageButton = document.createElement("button");
-              pageButton.innerText = i + 1;
-              pageButton.disabled = i === currentPage;
-              pageButton.addEventListener("click", () => {
-                fetchProducts(i);
-              });
-              pagination.appendChild(pageButton);
-            }
-
-            // Add next page button
-            const nextButton = document.createElement("button");
-            nextButton.innerText = "Next";
-            nextButton.disabled = lastPage;
-            nextButton.addEventListener("click", () => {
-              fetchProducts(currentPage + 1);
-            });
-            pagination.appendChild(nextButton);
-          })
-          .catch((error) => console.error(error));
-      }
-
-      // Delete product with confirmation dialog
-      function deleteProduct(productId) {
-        bootbox.confirm({
-          title: "Delete Product",
-          message: "Are you sure you want to delete this product?",
-          buttons: {
-            confirm: {
-              label: "Yes",
-              className: "btn-danger",
-            },
-            cancel: {
-              label: "No",
-              className: "btn-primary",
-            },
+    // Delete product with confirmation dialog
+    function deleteProduct(productId) {
+      bootbox.confirm({
+        title: "Delete Product",
+        message: "Are you sure you want to delete this product?",
+        buttons: {
+          confirm: {
+            label: "Yes",
+            className: "btn-danger",
           },
-          callback: function (result) {
-            if (result) {
-              fetch(`/admin/product/delete/${productId}`, {
-                method: "DELETE",
+          cancel: {
+            label: "No",
+            className: "btn-primary",
+          },
+        },
+        callback: function (result) {
+          if (result) {
+            fetch(`/admin/product/delete/${productId}`, {
+              method: "DELETE",
+            })
+              .then((response) => {
+                if (response.ok) {
+                  bootbox.alert({
+                    title: "Console Panel",
+                    message: "Product has been successfully deleted!!!",
+                  });
+                  fetchProducts(currentPage);
+                } else {
+                  bootbox.alert({
+                    title: "Error",
+                    message: "Error: Product not deleted",
+                    className: "rubberBand animated",
+                  });
+                }
               })
-                .then((response) => {
-                  if (response.ok) {
-                    bootbox.alert({
-                      title: "Console Panel",
-                      message: "Product has been successfully deleted!!!",
-                    });
-                    fetchProducts(currentPage);
-                  } else {
-                    bootbox.alert({
-                      title: "Error",
-                      message: "Error: Product not deleted",
-                      className: "rubberBand animated",
-                    });
-                  }
-                })
-                .catch((error) => console.error(error));
-            }
-          },
-        });
-      }
-      function updateProduct(productId) {
-        bootbox.prompt({
-          title: "Update Product Price",
-          message: "Enter the new price:",
-          inputType: "number",
-          callback: function (result) {
-            if (result !== null) {
-              fetch(`/admin/product/updatePrice/${productId}`, {
-                method: "PUT",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(result),
+              .catch((error) => console.error(error));
+          }
+        },
+      });
+    }
+    function updateProduct(productId) {
+      bootbox.prompt({
+        title: "Update Product Price",
+        message: "Enter the new price:",
+        inputType: "number",
+        callback: function (result) {
+          if (result !== null) {
+            fetch(`/admin/product/updatePrice/${productId}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(result),
+            })
+              .then((response) => {
+                if (response.ok) {
+                  bootbox.alert({
+                    title: "Console Panel",
+                    message: "Product has been successfully updated!!!",
+                  });
+                  fetchProducts(currentPage);
+                } else {
+                  bootbox.alert({
+                    title: "Error",
+                    message: "Error: Product not updated",
+                    className: "rubberBand animated",
+                  });
+                }
               })
-                      .then((response) => {
-                        if (response.ok) {
-                          bootbox.alert({
-                            title: "Console Panel",
-                            message: "Product has been successfully updated!!!",
-                          });
-                          fetchProducts(currentPage);
-                        } else {
-                          bootbox.alert({
-                            title: "Error",
-                            message: "Error: Product not updated",
-                            className: "rubberBand animated",
-                          });
-                        }
-                      })
-                      .catch((error) => console.error(error));
-            }
-          },
-        });
-      }
-      // Fetch initial page
-      fetchProducts(0);
-    </script>
-  </body>
+              .catch((error) => console.error(error));
+          }
+        },
+      });
+    }
+    // Fetch initial page
+    fetchProducts(0);
+  </script>
+</body>
+
 </html>

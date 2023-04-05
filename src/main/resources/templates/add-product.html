@@ -1,68 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Add New Product</title>
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            th:href="@{/Resources/favicon.png}"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            th:href="@{/Resources/favicon.png}"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            th:href="@{/Resources/favicon.png}"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="fonts.css" />
-    <style>
-      * {
-        font-family: "AveriaGWF-Regular", sans-serif;
-        box-sizing: border-box;
+
+<head>
+  <title>Add New Product</title>
+  <link rel="apple-touch-icon" sizes="180x180" th:href="@{/Resources/favicon.png}" />
+  <link rel="icon" type="image/png" sizes="32x32" th:href="@{/Resources/favicon.png}" />
+  <link rel="icon" type="image/png" sizes="16x16" th:href="@{/Resources/favicon.png}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="fonts.css" />
+  <style>
+    * {
+      font-family: "AveriaGWF-Regular", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: rgba(209, 223, 236, 0.99);
+      margin: 0;
+    }
+
+    .container-fluid {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .productContainer {
+      width: 80%;
+      margin: 10px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="number"],
+    textarea,
+    #modelName,
+    #size {
+      width: 100%;
+      padding: 12px 25px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      resize: vertical;
+      font-size: 1em;
+    }
+
+    textarea {
+      overflow: hidden;
+      padding: 12px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    textarea::-webkit-scrollbar {
+      display: none;
+    }
+
+    #submitProduct,
+    .removeProductInfo {
+      background-color: #1e90ff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      float: right;
+      font-size: 1em;
+    }
+
+    #submitProduct:hover,
+    .removeProductInfo:hover {
+      background-color: #0066cc;
+    }
+
+    .productInfoRow {
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: left;
+      width: 100%;
+    }
+
+    .ff,
+    #productInfoDiv {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .fh {
+      width: 49%;
+      box-sizing: border-box;
+    }
+
+    .productInfoHead,
+    .productInfoBody {
+      width: 45%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      margin-right: 10px;
+      font-size: 1em;
+    }
+
+    #addProductInfo {
+      background-color: #1d3c5b;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    #addProductInfo:hover {
+      background-color: #467ab1;
+    }
+
+    #addProductForm {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .removeProductInfo {
+      background-color: #b94242;
+    }
+
+    .removeProductInfo:hover {
+      background-color: #611f1f;
+    }
+
+    #loader {
+      border: 16px solid #f3f3f3;
+      border-top: 16px solid #3498db;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: rgba(209, 223, 236, 0.99);
-        margin: 0;
+
+      100% {
+        transform: rotate(360deg);
       }
-      .container-fluid {
-        margin-left: 20px;
-        margin-right: 20px;
-      }
+    }
+
+    @media screen and (max-width: 1000px) {
       .productContainer {
-        width: 80%;
-        margin: 10px auto;
+        width: 96%;
+        margin: 65px auto;
         background-color: #fff;
-        padding: 20px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+        padding: 45px;
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
         border-radius: 10px;
       }
-      h1 {
-        text-align: center;
-        color: #333;
-        margin-top: 0;
+
+      .fh {
+        width: 98%;
+        margin: 1em;
+        box-sizing: border-box;
       }
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font-size: 1.1em;
-        font-weight: bold;
-        color: #333;
+
+      .ff {
+        margin: 1em;
       }
+
+      input[type="text"],
+      input[type="number"],
+      textarea {
+        font-size: 2em;
+      }
+
       input[type="number"],
       textarea,
       #modelName,
@@ -73,463 +207,309 @@
         border: 1px solid #ccc;
         border-radius: 50px;
         resize: vertical;
-        font-size: 1em;
+        font-size: 2em;
       }
-      textarea {
-        overflow: hidden;
-        padding: 12px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      textarea::-webkit-scrollbar {
-        display: none;
-      }
-      #submitProduct,
-      .removeProductInfo {
-        background-color: #1e90ff;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-bottom: 10px;
-        float: right;
-        font-size: 1em;
-      }
-      #submitProduct:hover,
-      .removeProductInfo:hover {
-        background-color: #0066cc;
-      }
-      .productInfoRow {
-        margin-bottom: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: left;
-        width: 100%;
-      }
-      .ff,
-      #productInfoDiv {
+
+      #submitProduct {
+        font-size: 2.9em;
         width: 100%;
         box-sizing: border-box;
+        padding: 10px 16px;
       }
-      .fh {
-        width: 49%;
-        box-sizing: border-box;
-      }
-      .productInfoHead,
-      .productInfoBody {
-        width: 45%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 50px;
-        margin-right: 10px;
-        font-size: 1em;
-      }
+
+      .removeProductInfo,
       #addProductInfo {
-        background-color: #1d3c5b;
-        color: white;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 1em;
+        font-size: 2.9em;
+        padding: 10px 16px;
       }
-      #addProductInfo:hover {
-        background-color: #467ab1;
+
+      input[type="text"],
+      input[type="number"],
+      textarea {
+        font-size: 3em;
       }
-      #addProductForm {
+
+      .navbar-brand {
+        font-size: 4.2em;
+        font-weight: bolder;
+      }
+
+      .modal-title {
+        font-size: 3em;
+      }
+
+      .bootbox-body {
+        font-size: 2em;
+      }
+
+      .btn-primary {
+        font-size: 2em;
+        width: 5em;
+      }
+
+      .nav-link {
+        font-size: 3.2em;
+      }
+
+      h1 {
+        font-size: 4.2em;
+        font-weight: bolder;
+      }
+
+      .filter-container h3 {
+        font-size: 2.2em;
+        font-weight: bold;
+        margin-top: 0;
+      }
+
+      .filter-container label {
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-size: 2.8em;
+      }
+
+      .formDate {
+        margin: 1%;
+        width: 48%;
+      }
+
+      .filter-container button {
+        margin-top: 22px;
+        font-size: 2em;
+      }
+
+      th {
+        font-size: 2em;
+      }
+
+      td {
+        font-size: 1.9em;
+      }
+
+      #previous-page-btn,
+      #next-page-btn {
+        font-size: 1.9em;
+        margin: 1em;
+      }
+
+      #page-info {
+        font-size: 1.5em;
+      }
+
+      .filter-container form {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .filter-container form {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: end;
+        flex-direction: column;
+        align-items: end;
       }
-      .removeProductInfo {
-        background-color: #b94242;
-      }
-      .removeProductInfo:hover {
-        background-color: #611f1f;
-      }
-      #loader {
-        border: 16px solid #f3f3f3;
-        border-top: 16px solid #3498db;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: spin 2s linear infinite;
-        margin: auto;
-        display: none;
-      }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      @media screen and (max-width: 1000px) {
-        .productContainer {
-          width: 96%;
-          margin: 65px auto;
-          background-color: #fff;
-          padding: 45px;
-          box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
-          border-radius: 10px;
-        }
-        .fh {
-          width: 98%;
-          margin: 1em;
-          box-sizing: border-box;
-        }
-        .ff {
-          margin: 1em;
-        }
-        input[type="text"],
-        input[type="number"],
-        textarea {
-          font-size: 2em;
-        }
-        input[type="number"],
-        textarea,
-        #modelName,
-        #size {
-          width: 100%;
-          padding: 12px 25px;
-          box-sizing: border-box;
-          border: 1px solid #ccc;
-          border-radius: 50px;
-          resize: vertical;
-          font-size: 2em;
-        }
-        #submitProduct {
-          font-size: 2.9em;
-          width: 100%;
-          box-sizing: border-box;
-          padding: 10px 16px;
-        }
 
-        .removeProductInfo,
-        #addProductInfo {
-          font-size: 2.9em;
-          padding: 10px 16px;
-        }
-        input[type="text"],
-        input[type="number"],
-        textarea {
-          font-size: 3em;
-        }
-
-        .navbar-brand {
-          font-size: 4.2em;
-          font-weight: bolder;
-        }
-        .modal-title {
-          font-size: 3em;
-        }
-        .bootbox-body {
-          font-size: 2em;
-        }
-        .btn-primary {
-          font-size: 2em;
-          width: 5em;
-        }
-        .nav-link {
-          font-size: 3.2em;
-        }
-        h1 {
-          font-size: 4.2em;
-          font-weight: bolder;
-        }
-        .filter-container h3 {
-          font-size: 2.2em;
-          font-weight: bold;
-          margin-top: 0;
-        }
-        .filter-container label {
-          margin-right: 10px;
-          font-weight: bold;
-          font-size: 1.8em;
-        }
-        button,
-        input,
-        optgroup,
-        select,
-        textarea {
-          font-size: 2.8em;
-        }
-        .formDate {
-          margin: 1%;
-          width: 48%;
-        }
-        .filter-container button {
-          margin-top: 22px;
-          font-size: 2em;
-        }
-        th {
-          font-size: 2em;
-        }
-        td {
-          font-size: 1.9em;
-        }
-        #previous-page-btn,
-        #next-page-btn {
-          font-size: 1.9em;
-          margin: 1em;
-        }
-        #page-info {
-          font-size: 1.5em;
-        }
-        .filter-container form {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .filter-container form {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: end;
-          flex-direction: column;
-          align-items: end;
-        }
-        label {
-          display: block;
-          margin-bottom: 5px;
-          font-size: 3.1em;
-          font-weight: bold;
-          color: #333;
-        }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 3.1em;
+        font-weight: bold;
+        color: #333;
       }
-    </style>
-  </head>
-  <body class="p-3 m-0 border-0 bd-example">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/admin}">Admin Panel</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/product-list}"
-                >Today's Prices:TVs</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/visitorResponse}"
-                >Visitor's Response</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                th:href="@{/admin/addProduct}"
-                >Add New Product</a
-              >
-            </li>
-          </ul>
-          <a class="nav-link" th:href="@{/logout}">Logout</a>
+    }
+  </style>
+</head>
+
+<body class="p-3 m-0 border-0 bd-example">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/admin}">Admin Panel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/product-list}">Today's Prices:TVs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/visitorResponse}">Visitor's Response</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/admin/addProduct}">Add New Product</a>
+          </li>
+        </ul>
+        <a class="nav-link" th:href="@{/logout}">Logout</a>
+      </div>
+    </div>
+  </nav>
+  <div class="productContainer">
+    <h1>Add New Product</h1>
+    <form id="addProductForm">
+      <div class="ff">
+        <label for="modelName">Model Name:</label>
+        <input type="text" id="modelName" name="modelName" required /><br /><br />
+      </div>
+      <div class="ff">
+        <label for="size">Size:</label>
+        <input type="text" id="size" name="size" required /><br /><br />
+      </div>
+      <div class="ff">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br /><br />
+      </div>
+      <div class="fh">
+        <label for="ourCost">Our Cost:</label>
+        <input type="number" id="ourCost" name="ourCost" required /><br /><br />
+      </div>
+      <div class="fh">
+        <label for="originalPrice">Original Price:</label>
+        <input type="number" id="originalPrice" name="originalPrice" required /><br /><br />
+      </div>
+
+      <div id="productInfoDiv">
+        <label>Table Information:</label>
+        <div class="productInfoRow">
+          <input type="text" class="productInfoHead" placeholder="Head" required />
+          <input type="text" class="productInfoBody" placeholder="Body" required />
         </div>
       </div>
-    </nav>
-    <div class="productContainer">
-      <h1>Add New Product</h1>
-      <form id="addProductForm">
-        <div class="ff">
-          <label for="modelName">Model Name:</label>
-          <input
-            type="text"
-            id="modelName"
-            name="modelName"
-            required
-          /><br /><br />
-        </div>
-        <div class="ff">
-          <label for="size">Size:</label>
-          <input type="text" id="size" name="size" required /><br /><br />
-        </div>
-        <div class="ff">
-          <label for="description">Description:</label>
-          <textarea id="description" name="description" required></textarea
-          ><br /><br />
-        </div>
-        <div class="fh">
-          <label for="ourCost">Our Cost:</label>
-          <input
-            type="number"
-            id="ourCost"
-            name="ourCost"
-            required
-          /><br /><br />
-        </div>
-        <div class="fh">
-          <label for="originalPrice">Original Price:</label>
-          <input
-            type="number"
-            id="originalPrice"
-            name="originalPrice"
-            required
-          /><br /><br />
-        </div>
+      <button type="button" id="addProductInfo">Add Table Row</button><br /><br />
+      <div class="ff">
+        <label for="images">Images:</label>
+        <input type="file" id="images" name="images" multiple required /><br /><br />
+      </div>
+      <div id="loader"></div>
+      <button type="submit" id="submitProduct">Submit</button>
+    </form>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var addProductInfo = document.getElementById("addProductInfo");
+      addProductInfo.addEventListener("click", function () {
+        var productInfoDiv = document.getElementById("productInfoDiv");
+        var productInfoRow = document.createElement("div");
+        productInfoRow.classList.add("productInfoRow");
 
-        <div id="productInfoDiv">
-          <label>Table Information:</label>
-          <div class="productInfoRow">
-            <input
-              type="text"
-              class="productInfoHead"
-              placeholder="Head"
-              required
-            />
-            <input
-              type="text"
-              class="productInfoBody"
-              placeholder="Body"
-              required
-            />
-          </div>
-        </div>
-        <button type="button" id="addProductInfo">Add Table Row</button
-        ><br /><br />
-        <div class="ff">
-          <label for="images">Images:</label>
-          <input
-            type="file"
-            id="images"
-            name="images"
-            multiple
-            required
-          /><br /><br />
-        </div>
-        <div id="loader"></div>
-        <button type="submit" id="submitProduct">Submit</button>
-      </form>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var addProductInfo = document.getElementById("addProductInfo");
-        addProductInfo.addEventListener("click", function () {
-          var productInfoDiv = document.getElementById("productInfoDiv");
-          var productInfoRow = document.createElement("div");
-          productInfoRow.classList.add("productInfoRow");
+        var headInput = document.createElement("input");
+        headInput.setAttribute("type", "text");
+        headInput.setAttribute("class", "productInfoHead");
+        headInput.setAttribute("placeholder", "Head");
+        headInput.setAttribute("required", "");
 
-          var headInput = document.createElement("input");
-          headInput.setAttribute("type", "text");
-          headInput.setAttribute("class", "productInfoHead");
-          headInput.setAttribute("placeholder", "Head");
-          headInput.setAttribute("required", "");
+        var bodyInput = document.createElement("input");
+        bodyInput.setAttribute("type", "text");
+        bodyInput.setAttribute("class", "productInfoBody");
+        bodyInput.setAttribute("placeholder", "Body");
+        bodyInput.setAttribute("required", "");
 
-          var bodyInput = document.createElement("input");
-          bodyInput.setAttribute("type", "text");
-          bodyInput.setAttribute("class", "productInfoBody");
-          bodyInput.setAttribute("placeholder", "Body");
-          bodyInput.setAttribute("required", "");
+        var removeButton = document.createElement("button");
+        removeButton.setAttribute("type", "button");
+        removeButton.setAttribute("class", "removeProductInfo");
+        removeButton.textContent = "X";
 
-          var removeButton = document.createElement("button");
-          removeButton.setAttribute("type", "button");
-          removeButton.setAttribute("class", "removeProductInfo");
-          removeButton.textContent = "X";
+        productInfoRow.appendChild(headInput);
+        productInfoRow.appendChild(bodyInput);
+        productInfoRow.appendChild(removeButton);
+        productInfoDiv.appendChild(productInfoRow);
+      });
 
-          productInfoRow.appendChild(headInput);
-          productInfoRow.appendChild(bodyInput);
-          productInfoRow.appendChild(removeButton);
-          productInfoDiv.appendChild(productInfoRow);
-        });
+      const productInfoDiv = document.getElementById("productInfoDiv");
+      productInfoDiv.addEventListener("click", function (event) {
+        if (event.target.classList.contains("removeProductInfo")) {
+          event.target.parentNode.remove();
+        }
+      });
 
-        const productInfoDiv = document.getElementById("productInfoDiv");
-        productInfoDiv.addEventListener("click", function (event) {
-          if (event.target.classList.contains("removeProductInfo")) {
-            event.target.parentNode.remove();
-          }
-        });
+      const addProductForm = document.querySelector("#addProductForm");
 
-        const addProductForm = document.querySelector("#addProductForm");
+      addProductForm.addEventListener("submit", async (event) => {
+        var loader = document.getElementById("loader");
+        loader.style.display = "block";
+        event.preventDefault();
 
-        addProductForm.addEventListener("submit", async (event) => {
-          var loader = document.getElementById("loader");
-          loader.style.display = "block";
-          event.preventDefault();
+        const modelName = document.querySelector("#modelName").value;
+        const size = document.querySelector("#size").value;
+        const description = document.querySelector("#description").value;
+        const ourCost = document.querySelector("#ourCost").value;
+        const originalPrice = document.querySelector("#originalPrice").value;
+        const productInfo = [];
+        const productInfoHeadElems =
+          document.querySelectorAll(".productInfoHead");
+        const productInfoBodyElems =
+          document.querySelectorAll(".productInfoBody");
 
-          const modelName = document.querySelector("#modelName").value;
-          const size = document.querySelector("#size").value;
-          const description = document.querySelector("#description").value;
-          const ourCost = document.querySelector("#ourCost").value;
-          const originalPrice = document.querySelector("#originalPrice").value;
-          const productInfo = [];
-          const productInfoHeadElems =
-            document.querySelectorAll(".productInfoHead");
-          const productInfoBodyElems =
-            document.querySelectorAll(".productInfoBody");
+        // Build an array of product info objects
+        for (let i = 0; i < productInfoHeadElems.length; i++) {
+          const head = productInfoHeadElems[i].value;
+          const body = productInfoBodyElems[i].value;
+          productInfo.push({ head, body });
+        }
 
-          // Build an array of product info objects
-          for (let i = 0; i < productInfoHeadElems.length; i++) {
-            const head = productInfoHeadElems[i].value;
-            const body = productInfoBodyElems[i].value;
-            productInfo.push({ head, body });
-          }
+        const images = document.querySelector("#images").files;
 
-          const images = document.querySelector("#images").files;
-
-          // Create a FormData object to send the data as multipart/form-data
-          const formData = new FormData();
-          for (let i = 0; i < images.length; i++) {
-            formData.append("images", images[i]);
-          }
-          formData.append(
-            "productDto",
-            JSON.stringify({
-              modelName,
-              size,
-              description,
-              ourCost,
-              originalPrice,
-              productInfo,
-            })
-          );
-          try {
-            const response = await fetch("/admin/product/add", {
-              method: "POST",
-              body: formData,
+        // Create a FormData object to send the data as multipart/form-data
+        const formData = new FormData();
+        for (let i = 0; i < images.length; i++) {
+          formData.append("images", images[i]);
+        }
+        formData.append(
+          "productDto",
+          JSON.stringify({
+            modelName,
+            size,
+            description,
+            ourCost,
+            originalPrice,
+            productInfo,
+          })
+        );
+        try {
+          const response = await fetch("/admin/product/add", {
+            method: "POST",
+            body: formData,
+          });
+          if (response.ok) {
+            bootbox.alert({
+              title: "Console Panel",
+              message: "Product added successfully!",
             });
-            if (response.ok) {
-              bootbox.alert({
-                title: "Console Panel",
-                message: "Product added successfully!",
-              });
-              addProductForm.reset();
-              productInfoDiv.innerHTML = "";
-            } else {
-              bootbox.alert({
-                title: "Error",
-                message: "Error: Product not deleted",
-                callback: function () {
-                  console.log("Failed to add product data");
-                },
-              });
-            }
-          } catch (error) {
+            addProductForm.reset();
+            productInfoDiv.innerHTML = "";
+          } else {
             bootbox.alert({
               title: "Error",
-              message: error.message,
+              message: "Error: Product not deleted",
               callback: function () {
                 console.log("Failed to add product data");
               },
             });
-          } finally {
-            loader.style.display = "none";
           }
-        });
+        } catch (error) {
+          bootbox.alert({
+            title: "Error",
+            message: error.message,
+            callback: function () {
+              console.log("Failed to add product data");
+            },
+          });
+        } finally {
+          loader.style.display = "none";
+        }
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>

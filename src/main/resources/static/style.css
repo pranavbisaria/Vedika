@@ -205,20 +205,10 @@ h3 {
     transition: all 0.3s ease-in-out;
 }
 
-/*.nav-link:hover {*/
-/*    color: #4c97e4;*/
-/*}*/
-
 .styled-hr {
     border-top: 3px solid #ADD8E6;
     width: 50%;
     margin: 40px auto;
-}
-
-footer {
-    background-color: #f1f1f1;
-    padding: 50px 0;
-    margin-top: 50px;
 }
 
 h3 {
@@ -303,17 +293,20 @@ p {
     width: 50%;
     text-align: justify;
 }
+
 #about {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
 }
+
 #indiaMart {
     margin-top: 20px;
     height: 600px;
     width: 400px;
 }
+
 .image-container {
     display: flex;
     width: 557px;
@@ -343,9 +336,11 @@ p {
         opacity: 0;
         transform: scale(0.5);
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         left: 0;
         opacity: 1;
@@ -367,9 +362,11 @@ p {
         opacity: 0;
         transform: scale(0.5);
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         right: 0;
         opacity: 1;
@@ -386,6 +383,7 @@ p {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }

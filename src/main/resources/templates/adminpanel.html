@@ -1,33 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Admin Panel</title>
-  <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          th:href="@{/Resources/favicon.png}"
-  />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          th:href="@{/Resources/favicon.png}"
-  />
-  <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          th:href="@{/Resources/favicon.png}"
-  />
-  <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-  />
-  <link
-          href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
-          rel="stylesheet"
-  />
+  <link rel="apple-touch-icon" sizes="180x180" th:href="@{/Resources/favicon.png}" />
+  <link rel="icon" type="image/png" sizes="32x32" th:href="@{/Resources/favicon.png}" />
+  <link rel="icon" type="image/png" sizes="16x16" th:href="@{/Resources/favicon.png}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="fonts.css" />
   <style>
@@ -35,25 +16,35 @@
       box-sizing: border-box;
       font-family: "AveriaGWF-Regular", sans-serif;
     }
+
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: rgba(209, 223, 236, 0.99);
       margin: 0;
     }
+
     .container-fluid {
       margin-left: 20px;
       margin-right: 20px;
     }
+
     h1 {
       text-align: center;
       margin: 20px;
       color: #007bff;
     }
+
     #unique-visitors {
-      /*margin-top: 20px;*/
-      height: 400px;
-      padding: 3rem 10rem 2rem;
+      display: block;
+      box-sizing: border-box;
+      height: 834px;
+      width: 1668px;
+      margin: 0 183px 72px;
+      color: black;
+      border: 2px solid black;
+      background-color: white;
     }
+
     .loader-container {
       position: relative;
       width: 100px;
@@ -95,10 +86,12 @@
         transform: scale(1);
         opacity: 1;
       }
+
       50% {
         transform: scale(1.2);
         opacity: 0.5;
       }
+
       100% {
         transform: scale(1);
         opacity: 1;
@@ -114,6 +107,7 @@
       font-weight: bold;
       color: #00af7c;
     }
+
     @media screen and (max-width: 1000px) {
       .productContainer {
         width: 90%;
@@ -123,19 +117,23 @@
         box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
         border-radius: 10px;
       }
+
       .fh {
         width: 98%;
         margin: 1em;
         box-sizing: border-box;
       }
+
       .ff {
         margin: 1em;
       }
+
       input[type="text"],
       input[type="number"],
       textarea {
         font-size: 2em;
       }
+
       input[type="number"],
       textarea,
       #modelName,
@@ -148,6 +146,7 @@
         resize: vertical;
         font-size: 2em;
       }
+
       #submitProduct {
         font-size: 2.9em;
         width: 100%;
@@ -160,6 +159,7 @@
         font-size: 2.9em;
         padding: 10px 16px;
       }
+
       input[type="text"],
       input[type="number"],
       textarea {
@@ -170,39 +170,48 @@
         font-size: 4.2em;
         font-weight: bolder;
       }
+
       .modal-title {
         font-size: 3em;
       }
+
       .bootbox-body {
         font-size: 2em;
       }
+
       .btn-primary {
         font-size: 2em;
         width: 5em;
       }
+
       .nav-link {
         font-size: 3.2em;
       }
+
       h1 {
         text-align: center;
         margin: 20px;
         color: #007bff;
         font-size: 8em;
       }
+
       #unique-visitors-count {
         font-size: 4em;
         padding-left: 1rem;
       }
+
       .filter-container h3 {
         font-size: 2.2em;
         font-weight: bold;
         margin-top: 0;
       }
+
       .filter-container label {
         margin-right: 10px;
         font-weight: bold;
         font-size: 1.8em;
       }
+
       button,
       input,
       optgroup,
@@ -210,32 +219,40 @@
       textarea {
         font-size: 2.8em;
       }
+
       .formDate {
         margin: 1%;
         width: 48%;
       }
+
       .filter-container button {
         margin-top: 22px;
         font-size: 2em;
       }
+
       th {
         font-size: 2em;
       }
+
       td {
         font-size: 1.9em;
       }
+
       #previous-page-btn,
       #next-page-btn {
         font-size: 1.9em;
         margin: 1em;
       }
+
       #page-info {
         font-size: 1.5em;
       }
+
       .filter-container form {
         flex-direction: column;
         align-items: flex-start;
       }
+
       .filter-container form {
         display: flex;
         flex-wrap: wrap;
@@ -243,6 +260,7 @@
         flex-direction: column;
         align-items: end;
       }
+
       label {
         display: block;
         margin-bottom: 5px;
@@ -250,6 +268,7 @@
         font-weight: bold;
         color: #333;
       }
+
       .loader-inner {
         position: absolute;
         top: 2.5em;
@@ -260,6 +279,7 @@
         background-color: #ffffff;
         animation: pulse 1s ease-in-out infinite;
       }
+
       .loader {
         position: absolute;
         top: 0;
@@ -272,12 +292,14 @@
         border-top-color: #00af7c;
         animation: spin 2s linear infinite;
       }
+
       .loader-container {
         position: relative;
         height: 26em;
         width: 26em;
         margin: 0 auto;
       }
+
       .status {
         position: absolute;
         top: 50%;
@@ -287,134 +309,133 @@
         font-weight: bold;
         color: #00af7c;
       }
+
       #health {
         font-size: 4em;
         font-weight: 700;
       }
+
+      #unique-visitors {
+        display: block;
+        box-sizing: border-box;
+        height: 834px;
+        width: 1668px;
+        margin: 0;
+        color: black;
+        border: 2px solid black;
+        background-color: white;
+      }
     }
   </style>
 </head>
-<body class="p-3 m-0 border-0 bd-example">
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand active" aria-current="page" th:href="@{/admin}"
-    >Admin Panel</a
-    >
-    <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/admin/product-list}"
-          >Today's Prices:TVs</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/admin/visitorResponse}"
-          >Visitor's Response</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/admin/addProduct}"
-          >Add New Product</a
-          >
-        </li>
-      </ul>
-      <a class="nav-link" th:href="@{/logout}">Logout</a>
-    </div>
-  </div>
-</nav>
-<h1>Admin Panel</h1>
-<div id="health"></div>
-<div class="loader-container">
-  <div class="loader"></div>
-  <div class="loader-inner"></div>
-  <div class="status">UP</div>
-</div>
-<div id="unique-visitors-count"></div>
-<canvas id="unique-visitors"></canvas>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const countVisitorUrl = "/admin/visitor-count";
-  const healthUrl = "/actuator/health";
-  const healthDiv = document.querySelector("#health");
-  const uniqueVisitorsCountDiv = document.querySelector(
-          "#unique-visitors-count"
-  );
-  const uniqueVisitorsCanvas = document.querySelector("#unique-visitors");
-  fetch(healthUrl)
-          .then((response) => response.json())
-          .then((data) => {
-            const status = data.status;
-            const statusElement = document.querySelector(".status");
-            const loaderElement = document.querySelector(".loader");
-            if (status === "UP") {
-              statusElement.innerHTML = status;
-              statusElement.style.color = "#00af7c";
-              loaderElement.style.borderTopColor = "#00af7c";
-            } else {
-              statusElement.innerHTML = status;
-              statusElement.style.color = "red";
-              loaderElement.style.borderTopColor = "red";
-            }
-          });
-  const countUniqueVisitors = "/admin/visitor-count/unique";
-  fetch(countUniqueVisitors)
-          .then((response) => response.json())
-          .then((data) => {
-            uniqueVisitorsCountDiv.innerHTML =
-                    `Unique Visitors Count : ` + data.toString();
-          });
-  fetch(countVisitorUrl)
-          .then((response) => response.json())
-          .then((data) => {
-            const labels = [];
-            const countData = [];
-            for (let key in data) {
-              labels.push(key);
-              countData.push(data[key]);
-            }
-            const ctx = uniqueVisitorsCanvas.getContext("2d");
-            const myChart = new Chart(ctx, {
-              type: "line",
-              data: {
-                labels: labels.reverse(),
-                datasets: [
-                  {
-                    label: "Count",
-                    data: countData.reverse(),
-                    backgroundColor: "rgba(54, 162, 235, 0.2)",
-                    borderColor: "rgba(54, 162, 235, 1)",
-                    borderWidth: 1,
+<body class="p-3 m-0 border-0 bd-example">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand active" aria-current="page" th:href="@{/admin}">Admin Panel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/product-list}">Today's Prices:TVs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/visitorResponse}">Visitor's Response</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/addProduct}">Add New Product</a>
+          </li>
+        </ul>
+        <a class="nav-link" th:href="@{/logout}">Logout</a>
+      </div>
+    </div>
+  </nav>
+  <h1>Admin Panel</h1>
+  <div id="health"></div>
+  <div class="loader-container">
+    <div class="loader"></div>
+    <div class="loader-inner"></div>
+    <div class="status">UP</div>
+  </div>
+  <div id="unique-visitors-count"></div>
+  <canvas id="unique-visitors"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const countVisitorUrl = "/admin/visitor-count";
+    const healthUrl = "/actuator/health";
+    const healthDiv = document.querySelector("#health");
+    const uniqueVisitorsCountDiv = document.querySelector(
+      "#unique-visitors-count"
+    );
+    const uniqueVisitorsCanvas = document.querySelector("#unique-visitors");
+    fetch(healthUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const status = data.status;
+        const statusElement = document.querySelector(".status");
+        const loaderElement = document.querySelector(".loader");
+        if (status === "UP") {
+          statusElement.innerHTML = status;
+          statusElement.style.color = "#00af7c";
+          loaderElement.style.borderTopColor = "#00af7c";
+        } else {
+          statusElement.innerHTML = status;
+          statusElement.style.color = "red";
+          loaderElement.style.borderTopColor = "red";
+        }
+      });
+    const countUniqueVisitors = "/admin/visitor-count/unique";
+    fetch(countUniqueVisitors)
+      .then((response) => response.json())
+      .then((data) => {
+        uniqueVisitorsCountDiv.innerHTML =
+          `Unique Visitors Count : ` + data.toString();
+      });
+    fetch(countVisitorUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const labels = [];
+        const countData = [];
+        for (let key in data) {
+          labels.push(key);
+          countData.push(data[key]);
+        }
+        const ctx = uniqueVisitorsCanvas.getContext("2d");
+        const myChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: labels.reverse(),
+            datasets: [
+              {
+                label: "Count",
+                data: countData.reverse(),
+                backgroundColor: "rgba(54, 162, 235, 0.2)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
                   },
-                ],
-              },
-              options: {
-                scales: {
-                  yAxes: [
-                    {
-                      ticks: {
-                        beginAtZero: true,
-                      },
-                    },
-                  ],
                 },
-              },
-            });
-          })
-          .catch(() =>
-                  console.log("Can't able to fetch the unique visitors data")
-          );
-</script>
+              ],
+            },
+          },
+        });
+      })
+      .catch(() =>
+        console.log("Can't able to fetch the unique visitors data")
+      );
+  </script>
 </body>
+
 </html>
