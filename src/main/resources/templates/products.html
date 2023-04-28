@@ -70,13 +70,16 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      width: 40%;
-      max-width: 500px;
+      width: 333px;
+      height: 333px;
       margin: 20px;
+      overflow: hidden;
+      align-items: center; /* Optional - use this to center the image vertically */
     }
 
     .product-image img {
-      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
     }
 
@@ -281,7 +284,6 @@
     }
 
     .navbar-light .navbar-nav .nav-link.active {
-      /*border-bottom: 2px solid #e6eaef;*/
       color: #4c97e4;
       font-size: 1.1em;
       font-weight: 900;
@@ -430,7 +432,6 @@
       }
 
       .navbar-light .navbar-nav .nav-link.active {
-        /*border-bottom: 2px solid #e6eaef;*/
         color: #4c97e4;
         font-size: 3em;
         font-weight: 900;

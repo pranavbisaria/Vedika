@@ -437,6 +437,7 @@
       addProductForm.addEventListener("submit", async (event) => {
         var loader = document.getElementById("loader");
         loader.style.display = "block";
+        document.getElementById("submitProduct").style.display = "none";
         event.preventDefault();
 
         const modelName = document.querySelector("#modelName").value;
@@ -505,6 +506,7 @@
             },
           });
         } finally {
+          document.getElementById("submitProduct").style.display = "block";
           loader.style.display = "none";
         }
       });

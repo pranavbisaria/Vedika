@@ -55,7 +55,6 @@
     }
 
     .navbar-light .navbar-nav .nav-link.active {
-      /*border-bottom: 2px solid #215487;*/
       color: #4c97e4;
       font-size: 1.1em;
       font-weight: 900;
@@ -77,6 +76,25 @@
     td,
     .teamExp {
       font-size: 1.3em;
+    }
+
+    .product-image{
+      width: 227px;
+      height: 227px;
+      margin-bottom: 10px;
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      box-sizing: content-box;
+      align-items: center;
+    }
+
+    .prod-img {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
 
     @keyframes spin {
@@ -288,6 +306,25 @@
 
       h1 {
         font-size: 4.5rem;
+      }
+
+      .product-image{
+        width: 227px;
+        height: 652px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        box-sizing: content-box;
+        align-items: center;
+      }
+
+      .prod-img {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
       }
     }
 
@@ -601,6 +638,7 @@
 
         const image = document.createElement("img");
         image.alt = "product image";
+        image.classList.add("prod-img");
         image.onload = function () {
           productImgDiv.appendChild(image);
           productImgDiv.classList.remove("skeleton-box");
