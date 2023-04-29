@@ -1,13 +1,17 @@
 package com.Vedika.Service.Impl;
+import com.Vedika.Model.Images;
 import com.Vedika.Service.FileServices;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -27,6 +31,18 @@ public class FileServicesImpl implements FileServices {
         }
         Files.copy(file.getInputStream(), Paths.get(filepath));
         return newFileName;
+    }
+    @Async
+    @Override
+    public void deleteFiles(List<Images> imageUrls) {
+        imageUrls.forEach((image)->{
+           Path filePath = Paths.get(path, image.getImageUrl());
+            try {
+                Files.delete(filePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 //    @Override

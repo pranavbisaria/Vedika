@@ -3,7 +3,6 @@ package com.Vedika.Controller;
 import com.Vedika.Payload.AddProduct;
 import com.Vedika.Payload.GetProduct;
 import com.Vedika.Payload.PageableDto;
-import com.Vedika.Payload.ProductDto;
 import com.Vedika.Service.AdminService;
 import com.Vedika.Service.ProductService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -26,13 +25,12 @@ public class ProductController {
     private final ObjectMapper objectMapper;
     @PostMapping("/admin/product/add")
     public ResponseEntity<?> addNewProduct(@RequestParam("images") MultipartFile[] images, @Valid @RequestParam("productDto") String productDto){
-        GetProduct getProduct = null;
         try {
-            getProduct = objectMapper.readValue(productDto, GetProduct.class);
+            GetProduct getProduct = objectMapper.readValue(productDto, GetProduct.class);
+            return this.productService.addProduct(getProduct, images);
         } catch (JsonProcessingException e) {
             return ResponseEntity.status(BAD_REQUEST).body("Invalid Request");
         }
-        return this.productService.addProduct(getProduct, images);
     }
     @PostMapping("/admin/product/addProductData")
     public ResponseEntity<?> addNewProductData(@Valid @RequestBody AddProduct productDto){

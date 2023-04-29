@@ -441,6 +441,9 @@
       font-weight: 400;
       color: aliceblue;
     }
+    #prodTable {
+      display: none;
+    }
   </style>
 </head>
 
@@ -478,7 +481,7 @@
       </div>
       <h2 id="prodNameResp"></h2>
       <div class="product-info">
-        <table>
+        <table id="prod-table">
           <tbody id="product-table"></tbody>
         </table>
       </div>
@@ -531,11 +534,11 @@
     const prodNameResp = document.getElementById("prodNameResp");
     const prodName = document.getElementById("prodName");
     const prodSize = document.getElementById("prodSize");
-    const prodRateOriginal = document.getElementById("prodRateOriginal");
     const prodRateOurRate = document.getElementById("prodRateOurRate");
     const prodInfo = document.getElementById("prodInfo");
     const productImg = document.getElementById("product-img");
     const productTable = document.getElementById("product-table");
+    const prodTable = document.getElementById("prod-table");
     let imageIndex = 0;
     var imageArray = 0;
 
@@ -563,8 +566,11 @@
 
       productTable.innerHTML = "";
 
-      if (product.productInfo != null)
+      if (product.productInfo.length !== 0){
+        console.log("Loop k ander");
+        prodTable.style.display = "block";
         product.productInfo.forEach((info) => {
+          console.log("For each chal raha h")
           const row = document.createElement("tr");
           const headCell = document.createElement("th");
           headCell.textContent = info.head;
@@ -574,6 +580,7 @@
           row.appendChild(bodyCell);
           productTable.appendChild(row);
         });
+      }
     }
 
     function prevImage() {

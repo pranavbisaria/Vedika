@@ -4,6 +4,9 @@ import com.Vedika.Model.CountVisitor;
 import com.Vedika.Repository.CountVisitorRepo;
 import com.Vedika.Service.AdminService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +34,7 @@ public class AdminServicesImpl implements AdminService {
     }
     @Override
     public Map<LocalDate, Integer> getVisitorCount() {
-        List<CountVisitor> totalVisitors = countVisitorRepo.findAll();
+        List<CountVisitor> totalVisitors = countVisitorRepo.findAll(PageRequest.of(0, 30, Sort.by("visitorId"))).getContent();
         Map<LocalDate, Integer> ipCountByDate = new HashMap<>();
         for (CountVisitor totalVisitor : totalVisitors) {
             LocalDate date = totalVisitor.getDate();

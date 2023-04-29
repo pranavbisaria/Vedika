@@ -29,8 +29,7 @@ public class VisitorController {
         return this.visitorService.newVisitors(visitorDto);
     }
     @GetMapping("/admin/visitor/getAll")
-    public ResponseEntity<?> getAllVisitors(HttpServletRequest httpRequest,
-                                            @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
+    public ResponseEntity<?> getAllVisitors(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
                                             @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize,
                                             @RequestParam(value = "sortBy", defaultValue = "id", required = false) String sortBy,
                                             @RequestParam(value = "sortDir", defaultValue = "des", required = false) String sortDir,

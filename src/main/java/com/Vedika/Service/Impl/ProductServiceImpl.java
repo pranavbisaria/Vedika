@@ -45,13 +45,22 @@ public class ProductServiceImpl implements ProductService {
             }
             productImages.add(images1);
         });
+        try {
+            product.getProductInfo().forEach((subItem) -> {
+                if (subItem.getHead().trim().length() == 0 || subItem.getBody().trim().length() == 0) {
+                    product.getProductInfo().remove(subItem);
+                }
+            });
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         product.setImageUrls(productImages);
         this.productRepo.save(product);
         return new ResponseEntity<>(new ApiResponse("Product has been successfully added", true), OK);
     }
     @Override
     public ResponseEntity<?> addNewProductData(AddProduct productDto){
-        System.out.println("\n\n\nye toh chal raha h\n\n\n");
         Product product = this.modelMapper.map(productDto, Product.class);
         this.productRepo.save(product);
         return new ResponseEntity<>(product.getId(), OK);
@@ -105,6 +114,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ResponseEntity<?> deleteProductById(Long Id){
         Product product = this.productRepo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Product", "productID", Id));
+        this.fileServices.deleteFiles(product.getImageUrls());
         this.productRepo.delete(product);
         return new ResponseEntity<>(new ApiResponse("Product has been successfully deleted", true), OK);
     }

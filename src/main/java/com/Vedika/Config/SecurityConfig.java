@@ -1,7 +1,6 @@
 package com.Vedika.Config;
 
 import com.Vedika.Service.CustomUserDetailService;
-import com.Vedika.Service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
